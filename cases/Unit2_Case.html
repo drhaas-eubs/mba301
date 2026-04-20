@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 Unit 2 · Case Study — Airbnb — From Air Mattresses to Ideas</title>
+<meta name="description" content="MBA301 Unit 2 Case Study — Airbnb — From Air Mattresses to Ideas. The unlikely chain of analogies, re-framings and worst possible ideas behind a $75B company">
+<style>
+:root{
+  --navy:#0f2133;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#00BE96;
+  --accent-ink:#04715b;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: Arial, Helvetica, sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+.backbar{ background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px; }
+.backbar-inner{
+  max-width: 880px; margin: 0 auto;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  font-size: 13px; color: var(--muted);
+}
+.backbar a{ color: var(--accent-ink); font-weight: 700; }
+.backbar a:hover{ color: var(--accent); }
+.backbar-right a{ color: #3d5a7a; }
+
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 48px 24px 36px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid #3d5a7a;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(61,90,122,0.18), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 880px; margin: 0 auto; position: relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 5px 12px 5px 16px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-left: 3px solid #3d5a7a;
+  border-radius: 4px 999px 999px 4px;
+}
+.hero h1{
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 10px;
+  letter-spacing: -.015em;
+}
+.hero-sub{
+  font-size: 16px;
+  color: rgba(255,255,255,.78);
+  max-width: 700px;
+  margin: 0 0 4px;
+}
+.hero-meta{
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+  margin: 14px 0 0;
+}
+
+main{
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.meta-bar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid #3d5a7a;
+  border-radius: var(--radius-sm);
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+.meta-item{ flex: 1 1 140px; }
+.meta-item strong{
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #3d5a7a;
+  margin-bottom: 3px;
+}
+.meta-item span{ color: var(--ink); font-weight: 400; }
+
+.section{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.section h2{
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--ink);
+  letter-spacing: -.005em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3d5a7a;
+}
+.section h3{
+  font-size: 15px;
+  font-weight: 700;
+  margin: 22px 0 8px;
+  color: #3d5a7a;
+}
+.section p{ font-size: 14.5px; color: var(--ink); margin: 0 0 12px; }
+.section ul, .section ol{ margin: 0 0 12px; padding-left: 22px; }
+.section li{ font-size: 14.5px; color: var(--ink); margin-bottom: 6px; line-height: 1.55; }
+.section em{ color: var(--accent-ink); font-style: italic; }
+
+.phase{
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fcfbf8;
+  border-left: 3px solid #3d5a7a;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+}
+.phase-time{
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3d5a7a;
+  min-width: 180px;
+  margin-right: 14px;
+  letter-spacing: .01em;
+}
+.phase-desc{ font-size: 14px; color: var(--ink); line-height: 1.55; }
+
+.callout{
+  background: rgba(61,90,122,0.08);
+  border-left: 3px solid #3d5a7a;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.callout strong{ color: #3d5a7a; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+.callout p{ margin: 0; font-size: 14.5px; }
+
+.question{
+  counter-increment: q;
+  padding: 14px 16px 14px 56px;
+  background: #fcfbf8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.question::before{
+  content: counter(q);
+  position: absolute;
+  left: 16px; top: 14px;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  background: #3d5a7a;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 13px;
+}
+.questions{ counter-reset: q; }
+
+.ref-list{
+  margin: 12px 0 0;
+  padding: 14px 18px;
+  background: #fcfbf8;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--muted);
+}
+.ref-list p{ margin: 0 0 6px; font-size: 13px; }
+.ref-list p:last-child{ margin-bottom: 0; }
+
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px 36px;
+  margin-top: 20px;
+}
+.footer-inner{
+  max-width: 880px; margin: 0 auto;
+  font-size: 12.5px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+@media (max-width: 720px){
+  .phase{ flex-direction: column; gap: 4px; }
+  .phase-time{ min-width: 0; }
+  .section{ padding: 22px 18px; }
+  .meta-bar{ flex-direction: column; gap: 10px; }
+}
+</style>
+<meta name="site-base" content="..">
+<link rel="stylesheet" href="../assets/protection.css">
+<link rel="stylesheet" href="../assets/search.css">
+</head>
+<body>
+
+<div class="backbar">
+  <div class="backbar-inner">
+    <a href="../index.html">← Back to Course Overview</a>
+    <div class="backbar-right"><a href="../unit2.html">Unit 2 Framework Gallery →</a></div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · Unit 2 · Case Study</span>
+    <h1>Airbnb — From Air Mattresses to Ideas</h1>
+    <p class="hero-sub">Ideation</p>
+    <p class="hero-meta">© 2026 Dr. H. Haas · EU Business School</p>
+  </div>
+</section>
+
+<main>
+
+  <div class="section">
+    <h2>Context</h2>
+    <p>San Francisco, 2007. Brian Chesky and Joe Gebbia could not make rent. A design conference was coming to town; every hotel was sold out. They made a simple list: <em>what do we have that we could offer?</em></p>
+  </div>
+
+  <div class="section">
+    <h2>The Case</h2>
+    <h3>The unlikely chain of analogies, re-framings and worst possible ideas behind a $75B company</h3>
+    <p>The founders inflated three air mattresses in their loft, threw up a one-page website they called AirBed &amp; Breakfast, and charged $80 a night. Three designers booked it.</p>
+    <p>For two years the idea was repeatedly declared dead. Friends told them nobody would let strangers into their home. Investors passed. Gebbia later called it <em>the worst possible idea</em> — which, in retrospect, was exactly why it worked.</p>
+    <p>The pivot came from an analogous domain: CouchSurfing existed, but it was a free, community-gift economy. eBay existed, but only for objects. Airbnb combined the analogy — <em>eBay for space</em> — and the category clicked.</p>
+    <p>Professional photography, trust ratings, and host insurance each emerged from running the cycle again: field observation (why are listings not converting?), quick prototypes, rapid validation. Each iteration was a Crazy-8-style divergence followed by ruthless convergence.</p>
+    <p>The pattern behind Airbnb is not singular genius — it is the repeated, disciplined use of ideation techniques: analogous inspiration, re-framing, worst possible idea, combinatorial thinking. The founders were designers by training. It shows.</p>
+  </div>
+
+  <div class="section">
+    <h2>Analysis Questions</h2>
+    <div class="questions">
+      <div class="question">Re-construct Airbnb's earliest idea as an analogous inspiration exercise. Which existing services did they borrow from, and what did they deliberately strip out?</div>
+      <div class="question">The original concept was labelled the <em>worst possible idea</em>. Apply the NUF Test (New · Useful · Feasible) as a 2008 investor would have. What does this tell you about the limits of conventional prioritisation?</div>
+      <div class="question">Airbnb ran the diverge-converge cycle repeatedly as the company grew. Pick one of their later innovations (e.g. Experiences, Plus). Describe how you would run a 90-minute Creative Sprint today for their next category.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>References</h2>
+    <div class="ref-list">
+      <p>Gallagher, L. (2017) <em>The Airbnb Story</em>. Boston: Houghton Mifflin Harcourt.</p>
+      <p>Kelley, T. and Kelley, D. (2012) ‘Reclaim Your Creative Confidence’, <em>Harvard Business Review</em>, December.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 2: Ideation · Case Study</div>
+  </div>
+</footer>
+
+<script src="../assets/protection.js" defer></script>
+<script src="../assets/search.js" defer></script>
+</body>
+</html>

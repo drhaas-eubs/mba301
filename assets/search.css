@@ -1,0 +1,285 @@
+/* MBA301 — Search UI styles. Matches the course design system. */
+
+/* ---------- Floating Search Button ---------- */
+.mba-search-btn{
+  position: fixed;
+  top: 14px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px 7px 14px;
+  background: #fff;
+  color: #11202e;
+  border: 1px solid #cfd5dc;
+  border-radius: 999px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.1);
+  transition: all .15s ease;
+}
+.mba-search-btn:hover{
+  border-color: #00BE96;
+  color: #04715b;
+  transform: translateY(-1px);
+}
+.mba-search-btn-ico{
+  font-size: 15px;
+  color: #00BE96;
+  line-height: 1;
+}
+.mba-search-btn-text{
+  font-size: 13px;
+  letter-spacing: .01em;
+}
+.mba-search-btn-kbd{
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #5b6b7a;
+  background: #f6f4ef;
+  border: 1px solid #e4e8ec;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+
+@media (max-width: 480px){
+  .mba-search-btn-text, .mba-search-btn-kbd{ display: none; }
+  .mba-search-btn{ padding: 9px 11px; top: 10px; right: 10px; }
+  .mba-search-btn-ico{ font-size: 18px; }
+}
+
+/* ---------- Overlay + Modal ---------- */
+.mba-search-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(15,33,51,.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 20px 20px;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.mba-search-overlay.is-open{
+  display: flex;
+  opacity: 1;
+}
+
+.mba-search-modal{
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(15,33,51,.3);
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
+  animation: mbaSearchSlide .18s ease;
+}
+@keyframes mbaSearchSlide{
+  from{ transform: translateY(-8px); opacity: 0; }
+  to{ transform: translateY(0); opacity: 1; }
+}
+
+.mba-search-header{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e4e8ec;
+  background: #fff;
+}
+.mba-search-ico{
+  font-size: 22px;
+  color: #00BE96;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.mba-search-input{
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #11202e;
+  background: transparent;
+  /* allow text input despite copy protection */
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+.mba-search-input::placeholder{ color: #5b6b7a; font-size: 14px; }
+.mba-search-esc{
+  display: inline-block;
+  padding: 3px 8px;
+  font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #5b6b7a;
+  background: #f6f4ef;
+  border: 1px solid #e4e8ec;
+  border-radius: 4px;
+}
+
+/* ---------- Results ---------- */
+.mba-search-results{
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px 0;
+  min-height: 0;
+}
+.mba-search-empty{
+  padding: 40px 20px;
+  text-align: center;
+  color: #5b6b7a;
+  font-size: 14px;
+}
+
+.mba-search-group{
+  padding: 6px 0;
+}
+.mba-search-group:not(:last-child){
+  border-bottom: 1px solid #f0ede6;
+}
+.mba-search-group-label{
+  padding: 10px 20px 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #5b6b7a;
+}
+.mba-search-group-count{
+  display: inline-block;
+  padding: 1px 6px;
+  background: #f6f4ef;
+  color: #5b6b7a;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.mba-search-item{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #11202e;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition: background .1s ease, border-color .1s ease;
+}
+.mba-search-item:hover,
+.mba-search-item.is-active{
+  background: #fcfbf8;
+  border-left-color: var(--mba-tone, #00BE96);
+}
+
+.mba-search-type{
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  background: var(--mba-tone, #00BE96);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border-radius: 6px;
+}
+.mba-search-item-body{
+  flex: 1;
+  min-width: 0;
+}
+.mba-search-item-title{
+  font-size: 14px;
+  font-weight: 700;
+  color: #11202e;
+  margin: 0 0 2px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mba-search-item-sub{
+  font-size: 12px;
+  color: #5b6b7a;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mba-search-item-desc{
+  font-style: italic;
+}
+.mba-search-arrow{
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #cfd5dc;
+  transition: color .1s ease, transform .1s ease;
+}
+.mba-search-item:hover .mba-search-arrow,
+.mba-search-item.is-active .mba-search-arrow{
+  color: var(--mba-tone, #00BE96);
+  transform: translateX(3px);
+}
+
+.mba-search-item mark{
+  background: rgba(0,190,150,.25);
+  color: inherit;
+  font-weight: 700;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+/* Per-unit tone colours on search items */
+.mba-tone-u1{ --mba-tone: #00BE96; }
+.mba-tone-u2{ --mba-tone: #3d5a7a; }
+.mba-tone-u3{ --mba-tone: #d98e2b; }
+.mba-tone-u4{ --mba-tone: #b54e55; }
+.mba-tone-u5{ --mba-tone: #6a4f82; }
+.mba-tone-u6{ --mba-tone: #0f2133; }
+.mba-tone-u7{ --mba-tone: #04715b; }
+.mba-tone-u8{ --mba-tone: #2a3c4d; }
+.mba-tone-u9{ --mba-tone: #4a7a8c; }
+
+/* ---------- Footer ---------- */
+.mba-search-footer{
+  display: flex;
+  gap: 18px;
+  padding: 12px 20px;
+  border-top: 1px solid #e4e8ec;
+  background: #fcfbf8;
+  font-size: 11.5px;
+  color: #5b6b7a;
+  flex-wrap: wrap;
+}
+.mba-search-footer kbd{
+  display: inline-block;
+  padding: 1px 5px;
+  margin-right: 3px;
+  font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #11202e;
+  background: #fff;
+  border: 1px solid #e4e8ec;
+  border-radius: 3px;
+}
+.mba-search-attr{
+  margin-left: auto;
+  font-weight: 700;
+  color: #04715b;
+}

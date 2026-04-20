@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 Unit 4 · Activity — Uncertainty Challenge</title>
+<meta name="description" content="MBA301 Unit 4 Activity — Uncertainty Challenge. Bird-in-hand, affordable loss and lemonade cards played against a live constraint.">
+<style>
+:root{
+  --navy:#0f2133;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#00BE96;
+  --accent-ink:#04715b;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: Arial, Helvetica, sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+.backbar{ background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px; }
+.backbar-inner{
+  max-width: 880px; margin: 0 auto;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  font-size: 13px; color: var(--muted);
+}
+.backbar a{ color: var(--accent-ink); font-weight: 700; }
+.backbar a:hover{ color: var(--accent); }
+.backbar-right a{ color: #b54e55; }
+
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 48px 24px 36px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid #b54e55;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(181,78,85,0.18), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 880px; margin: 0 auto; position: relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 5px 12px 5px 16px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-left: 3px solid #b54e55;
+  border-radius: 4px 999px 999px 4px;
+}
+.hero h1{
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 10px;
+  letter-spacing: -.015em;
+}
+.hero-sub{
+  font-size: 16px;
+  color: rgba(255,255,255,.78);
+  max-width: 700px;
+  margin: 0 0 4px;
+}
+.hero-meta{
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+  margin: 14px 0 0;
+}
+
+main{
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.meta-bar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid #b54e55;
+  border-radius: var(--radius-sm);
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+.meta-item{ flex: 1 1 140px; }
+.meta-item strong{
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #b54e55;
+  margin-bottom: 3px;
+}
+.meta-item span{ color: var(--ink); font-weight: 400; }
+
+.section{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.section h2{
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--ink);
+  letter-spacing: -.005em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #b54e55;
+}
+.section h3{
+  font-size: 15px;
+  font-weight: 700;
+  margin: 22px 0 8px;
+  color: #b54e55;
+}
+.section p{ font-size: 14.5px; color: var(--ink); margin: 0 0 12px; }
+.section ul, .section ol{ margin: 0 0 12px; padding-left: 22px; }
+.section li{ font-size: 14.5px; color: var(--ink); margin-bottom: 6px; line-height: 1.55; }
+.section em{ color: var(--accent-ink); font-style: italic; }
+
+.phase{
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fcfbf8;
+  border-left: 3px solid #b54e55;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+}
+.phase-time{
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #b54e55;
+  min-width: 180px;
+  margin-right: 14px;
+  letter-spacing: .01em;
+}
+.phase-desc{ font-size: 14px; color: var(--ink); line-height: 1.55; }
+
+.callout{
+  background: rgba(181,78,85,0.08);
+  border-left: 3px solid #b54e55;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.callout strong{ color: #b54e55; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+.callout p{ margin: 0; font-size: 14.5px; }
+
+.question{
+  counter-increment: q;
+  padding: 14px 16px 14px 56px;
+  background: #fcfbf8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.question::before{
+  content: counter(q);
+  position: absolute;
+  left: 16px; top: 14px;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  background: #b54e55;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 13px;
+}
+.questions{ counter-reset: q; }
+
+.ref-list{
+  margin: 12px 0 0;
+  padding: 14px 18px;
+  background: #fcfbf8;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--muted);
+}
+.ref-list p{ margin: 0 0 6px; font-size: 13px; }
+.ref-list p:last-child{ margin-bottom: 0; }
+
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px 36px;
+  margin-top: 20px;
+}
+.footer-inner{
+  max-width: 880px; margin: 0 auto;
+  font-size: 12.5px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+@media (max-width: 720px){
+  .phase{ flex-direction: column; gap: 4px; }
+  .phase-time{ min-width: 0; }
+  .section{ padding: 22px 18px; }
+  .meta-bar{ flex-direction: column; gap: 10px; }
+}
+</style>
+<meta name="site-base" content="..">
+<link rel="stylesheet" href="../assets/protection.css">
+<link rel="stylesheet" href="../assets/search.css">
+</head>
+<body>
+
+<div class="backbar">
+  <div class="backbar-inner">
+    <a href="../index.html">← Back to Course Overview</a>
+    <div class="backbar-right"><a href="../unit4.html">Unit 4 Framework Gallery →</a></div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · Unit 4 · Activity</span>
+    <h1>Uncertainty Challenge</h1>
+    <p class="hero-sub">Entrepreneurial Thinking</p>
+    <p class="hero-meta">© 2026 Dr. H. Haas · EU Business School</p>
+  </div>
+</section>
+
+<main>
+
+  <div class="meta-bar">
+    <div class="meta-item"><strong>Format</strong><span>Uncertainty Challenge</span></div>
+    <div class="meta-item"><strong>Duration</strong><span>90 minutes</span></div>
+    <div class="meta-item"><strong>Grouping</strong><span>Teams of 4</span></div>
+  </div>
+
+  <div class="section">
+    <h2>Brief</h2>
+    <p>Bird-in-hand, affordable loss and lemonade cards played against a live constraint.</p>
+
+    <h3>Learning Objectives</h3>
+    <ul>
+        <li>Distinguish risk (measurable) from uncertainty (unknowable) in a live business scenario.</li>
+        <li>Apply Sarasvathy's five principles of effectuation as discrete, practisable moves.</li>
+        <li>Build a first-24-hours action plan that starts from means, not ends.</li>
+    </ul>
+
+    <h3>Materials</h3>
+    <ul><li>Effectuation card deck (5 principles × multiple prompts)</li><li>Constraint cards (black — market shocks, regulatory surprises)</li><li>Bird-in-Hand worksheet (Who am I? What do I know? Who do I know?)</li><li>Affordable Loss calculator</li></ul>
+  </div>
+
+  <div class="section">
+    <h2>Timing &amp; Phases</h2>
+      <div class="phase"><div class="phase-time">0–15 min · Frame the Scenario</div><div class="phase-desc">Each team receives a plausible new-venture brief with a deliberate information gap (the uncertainty). Lecturer debriefs Knight, Furr and the VUCA frame.</div></div>
+      <div class="phase"><div class="phase-time">15–35 min · Bird-in-Hand</div><div class="phase-desc">Each team inventories means: identities, knowledge, networks. No external data allowed. What could you start today with what is already on the table?</div></div>
+      <div class="phase"><div class="phase-time">35–55 min · Draw a Constraint Card</div><div class="phase-desc">A black card is dealt: the market shifts, a regulator intervenes, a partner pulls out. Teams must respond using Affordable Loss and Lemonade principles.</div></div>
+      <div class="phase"><div class="phase-time">55–75 min · Draw a Partnership Card</div><div class="phase-desc">A new potential partner appears with a proposal. Apply Crazy Quilt: do you commit? On what terms? What do they change?</div></div>
+      <div class="phase"><div class="phase-time">75–90 min · 24-Hour Plan</div><div class="phase-desc">Each team produces a written 24-hour action plan — the first steps a Pilot-in-the-Plane would take. Pitch to neighbouring teams; receive one question.</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Deliverable</h2>
+    <div class="callout">
+      <strong>Required output</strong>
+      <p>A one-page 24-hour action plan per team, explicitly naming which effectuation principle governed each move.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 4: Entrepreneurial Thinking · Activity</div>
+  </div>
+</footer>
+
+<script src="../assets/protection.js" defer></script>
+<script src="../assets/search.js" defer></script>
+</body>
+</html>

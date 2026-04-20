@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 Unit 9 · Activity — Systems Mapping Lab · Capstone</title>
+<meta name="description" content="MBA301 Unit 9 Activity — Systems Mapping Lab · Capstone. A causal loop diagram of a wicked problem + a leverage-point intervention pitch.">
+<style>
+:root{
+  --navy:#0f2133;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#00BE96;
+  --accent-ink:#04715b;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: Arial, Helvetica, sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+.backbar{ background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px; }
+.backbar-inner{
+  max-width: 880px; margin: 0 auto;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  font-size: 13px; color: var(--muted);
+}
+.backbar a{ color: var(--accent-ink); font-weight: 700; }
+.backbar a:hover{ color: var(--accent); }
+.backbar-right a{ color: #4a7a8c; }
+
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 48px 24px 36px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid #4a7a8c;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(74,122,140,0.18), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 880px; margin: 0 auto; position: relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 5px 12px 5px 16px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-left: 3px solid #4a7a8c;
+  border-radius: 4px 999px 999px 4px;
+}
+.hero h1{
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 10px;
+  letter-spacing: -.015em;
+}
+.hero-sub{
+  font-size: 16px;
+  color: rgba(255,255,255,.78);
+  max-width: 700px;
+  margin: 0 0 4px;
+}
+.hero-meta{
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+  margin: 14px 0 0;
+}
+
+main{
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.meta-bar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid #4a7a8c;
+  border-radius: var(--radius-sm);
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+.meta-item{ flex: 1 1 140px; }
+.meta-item strong{
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #4a7a8c;
+  margin-bottom: 3px;
+}
+.meta-item span{ color: var(--ink); font-weight: 400; }
+
+.section{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.section h2{
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--ink);
+  letter-spacing: -.005em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4a7a8c;
+}
+.section h3{
+  font-size: 15px;
+  font-weight: 700;
+  margin: 22px 0 8px;
+  color: #4a7a8c;
+}
+.section p{ font-size: 14.5px; color: var(--ink); margin: 0 0 12px; }
+.section ul, .section ol{ margin: 0 0 12px; padding-left: 22px; }
+.section li{ font-size: 14.5px; color: var(--ink); margin-bottom: 6px; line-height: 1.55; }
+.section em{ color: var(--accent-ink); font-style: italic; }
+
+.phase{
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fcfbf8;
+  border-left: 3px solid #4a7a8c;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+}
+.phase-time{
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4a7a8c;
+  min-width: 180px;
+  margin-right: 14px;
+  letter-spacing: .01em;
+}
+.phase-desc{ font-size: 14px; color: var(--ink); line-height: 1.55; }
+
+.callout{
+  background: rgba(74,122,140,0.08);
+  border-left: 3px solid #4a7a8c;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.callout strong{ color: #4a7a8c; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+.callout p{ margin: 0; font-size: 14.5px; }
+
+.question{
+  counter-increment: q;
+  padding: 14px 16px 14px 56px;
+  background: #fcfbf8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.question::before{
+  content: counter(q);
+  position: absolute;
+  left: 16px; top: 14px;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  background: #4a7a8c;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 13px;
+}
+.questions{ counter-reset: q; }
+
+.ref-list{
+  margin: 12px 0 0;
+  padding: 14px 18px;
+  background: #fcfbf8;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--muted);
+}
+.ref-list p{ margin: 0 0 6px; font-size: 13px; }
+.ref-list p:last-child{ margin-bottom: 0; }
+
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px 36px;
+  margin-top: 20px;
+}
+.footer-inner{
+  max-width: 880px; margin: 0 auto;
+  font-size: 12.5px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+@media (max-width: 720px){
+  .phase{ flex-direction: column; gap: 4px; }
+  .phase-time{ min-width: 0; }
+  .section{ padding: 22px 18px; }
+  .meta-bar{ flex-direction: column; gap: 10px; }
+}
+</style>
+<meta name="site-base" content="..">
+<link rel="stylesheet" href="../assets/protection.css">
+<link rel="stylesheet" href="../assets/search.css">
+</head>
+<body>
+
+<div class="backbar">
+  <div class="backbar-inner">
+    <a href="../index.html">← Back to Course Overview</a>
+    <div class="backbar-right"><a href="../unit9.html">Unit 9 Framework Gallery →</a></div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · Unit 9 · Activity</span>
+    <h1>Systems Mapping Lab · Capstone</h1>
+    <p class="hero-sub">Systems Thinking</p>
+    <p class="hero-meta">© 2026 Dr. H. Haas · EU Business School</p>
+  </div>
+</section>
+
+<main>
+
+  <div class="meta-bar">
+    <div class="meta-item"><strong>Format</strong><span>Systems Mapping Lab · Capstone</span></div>
+    <div class="meta-item"><strong>Duration</strong><span>180 minutes (final capstone session)</span></div>
+    <div class="meta-item"><strong>Grouping</strong><span>Teams of 4–5</span></div>
+  </div>
+
+  <div class="section">
+    <h2>Brief</h2>
+    <p>A causal loop diagram of a wicked problem + a leverage-point intervention pitch.</p>
+
+    <h3>Learning Objectives</h3>
+    <ul>
+        <li>Build a causal loop diagram of a real wicked problem, including at least two feedback loops.</li>
+        <li>Locate the system's existing leverage points using Meadows' hierarchy.</li>
+        <li>Design one intervention at a high-leverage point and defend it against unintended consequences.</li>
+    </ul>
+
+    <h3>Materials</h3>
+    <ul><li>Large format paper (A1)</li><li>Fine markers in three colours</li><li>Meadows' 12 Leverage Points reference card</li><li>Systems Archetype library</li><li>Intervention brief template</li></ul>
+  </div>
+
+  <div class="section">
+    <h2>Timing &amp; Phases</h2>
+      <div class="phase"><div class="phase-time">0–20 min · Problem Selection</div><div class="phase-desc">Each team picks a wicked problem from a curated list (fast fashion supply chains, urban traffic, platform moderation, antibiotic resistance, university rankings). Rittel &amp; Webber's wicked-problem criteria must be demonstrated.</div></div>
+      <div class="phase"><div class="phase-time">20–50 min · Iceberg Analysis</div><div class="phase-desc">Teams work through the four levels: visible events → patterns over time → underlying structures → mental models. The mental-models layer is mandatory — most system maps fail because they stop at structures.</div></div>
+      <div class="phase"><div class="phase-time">50–90 min · Causal Loop Diagram</div><div class="phase-desc">Teams build the CLD: variables as nouns, arrows with polarity, loops labelled R (reinforcing) or B (balancing). At least one systems archetype must be identified.</div></div>
+      <div class="phase"><div class="phase-time">90–120 min · Leverage Point Analysis</div><div class="phase-desc">Against Meadows' 12, teams identify the three highest-leverage points available in their system. Which is closest to <em>paradigm</em>?</div></div>
+      <div class="phase"><div class="phase-time">120–160 min · Intervention Design</div><div class="phase-desc">Design one concrete intervention at a high-leverage point. Write its brief, its measurable success criteria, and its two most likely unintended consequences.</div></div>
+      <div class="phase"><div class="phase-time">160–180 min · Capstone Pitch</div><div class="phase-desc">5-minute final capstone pitch to the full class. Each team presents diagram, leverage analysis, and intervention. Peer and instructor assessment against the course rubric.</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Deliverable</h2>
+    <div class="callout">
+      <strong>Required output</strong>
+      <p>A1 causal loop diagram + leverage-point assessment + intervention brief + 5-minute capstone pitch. This is the graded capstone artefact for the course.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 9: Systems Thinking · Activity</div>
+  </div>
+</footer>
+
+<script src="../assets/protection.js" defer></script>
+<script src="../assets/search.js" defer></script>
+</body>
+</html>
