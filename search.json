@@ -1,0 +1,1472 @@
+{
+  "meta": {
+    "course": "MBA301 — Entrepreneurial & Design Thinking",
+    "instructor": "Dr. H. Haas",
+    "institution": "EU Business School",
+    "total_pages": 47,
+    "total_frameworks": 135
+  },
+  "units": [
+    {
+      "n": 1,
+      "title": "Design Thinking as Mindset",
+      "tagline": "The nature and origins of design thinking — mindset, process, toolbox.",
+      "url": "unit1.html"
+    },
+    {
+      "n": 2,
+      "title": "Ideation",
+      "tagline": "Idea generation, creativity, and the ideation techniques that scale them.",
+      "url": "unit2.html"
+    },
+    {
+      "n": 3,
+      "title": "Strategy Design",
+      "tagline": "Enacting enterprise performance through the ten practices of strategy design.",
+      "url": "unit3.html"
+    },
+    {
+      "n": 4,
+      "title": "Entrepreneurial Thinking",
+      "tagline": "The role of uncertainty and the five principles of effectual action.",
+      "url": "unit4.html"
+    },
+    {
+      "n": 5,
+      "title": "Developing Successful Business Ideas",
+      "tagline": "From job-to-be-done to validated opportunity, designed end-to-end.",
+      "url": "unit5.html"
+    },
+    {
+      "n": 6,
+      "title": "Moving from an Idea to an Entrepreneurial Firm",
+      "tagline": "Venture building — legal form, funding, team, unit economics.",
+      "url": "unit6.html"
+    },
+    {
+      "n": 7,
+      "title": "Intrapreneurship",
+      "tagline": "Empowering employees to act entrepreneurially inside established firms.",
+      "url": "unit7.html"
+    },
+    {
+      "n": 8,
+      "title": "The Art of Pitching",
+      "tagline": "Clarify · distill · deliver — pitching as the discipline of core message.",
+      "url": "unit8.html"
+    },
+    {
+      "n": 9,
+      "title": "Systems Thinking",
+      "tagline": "Wicked problems, feedback loops, and Meadows' 12 leverage points.",
+      "url": "unit9.html"
+    }
+  ],
+  "slibraries": [
+    {
+      "unit": 1,
+      "n": 1,
+      "title": "DT Foundations",
+      "tagline": "",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "n": 2,
+      "title": "DT Mindsets",
+      "tagline": "",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "n": 3,
+      "title": "DT Process & Tools",
+      "tagline": "",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 2,
+      "n": 4,
+      "title": "Divergent Thinking",
+      "tagline": "",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "n": 5,
+      "title": "Convergent Thinking",
+      "tagline": "",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "n": 6,
+      "title": "Ideation Techniques",
+      "tagline": "",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 3,
+      "n": 7,
+      "title": "Strategy Foundations",
+      "tagline": "",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "n": 8,
+      "title": "Ten Practices of Strategy Design",
+      "tagline": "",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "n": 9,
+      "title": "Business Model & Value Design",
+      "tagline": "",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 4,
+      "n": 10,
+      "title": "Uncertainty Frameworks",
+      "tagline": "",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "n": 11,
+      "title": "Effectuation (Sarasvathy)",
+      "tagline": "",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "n": 12,
+      "title": "Entrepreneurial Principles",
+      "tagline": "",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 5,
+      "n": 13,
+      "title": "Opportunity Recognition",
+      "tagline": "",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "n": 14,
+      "title": "Validation",
+      "tagline": "",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "n": 15,
+      "title": "Value Design",
+      "tagline": "",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 6,
+      "n": 16,
+      "title": "Venture Building",
+      "tagline": "",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "n": 17,
+      "title": "Legal & Finance Basics",
+      "tagline": "",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "n": 18,
+      "title": "Team & Culture",
+      "tagline": "",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 7,
+      "n": 19,
+      "title": "Intrapreneurship Mindset",
+      "tagline": "",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "n": 20,
+      "title": "Programs & Models",
+      "tagline": "",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "n": 21,
+      "title": "Success Factors",
+      "tagline": "",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 8,
+      "n": 22,
+      "title": "Pitch Structures",
+      "tagline": "",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "n": 23,
+      "title": "Narrative",
+      "tagline": "",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "n": 24,
+      "title": "Message Clarity · Bostelaar",
+      "tagline": "",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 9,
+      "n": 25,
+      "title": "Systems Foundations",
+      "tagline": "",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "n": 26,
+      "title": "Systems Archetypes",
+      "tagline": "",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "n": 27,
+      "title": "Leverage & Change",
+      "tagline": "",
+      "url": "unit9.html"
+    }
+  ],
+  "frameworks": [
+    {
+      "unit": 1,
+      "slibrary": 1,
+      "title": "Tim Brown's DT Triple",
+      "desc": "Inspiration → Ideation → Implementation — the original HBR loop.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 1,
+      "title": "Double Diamond",
+      "desc": "Discover → Define → Develop → Deliver (British Design Council).",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 1,
+      "title": "Stanford d.school 5-Stage Process",
+      "desc": "Empathize → Define → Ideate → Prototype → Test.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 1,
+      "title": "IDEO 3 Lenses of HCD",
+      "desc": "Desirability × Feasibility × Viability — the DVF triangle.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 1,
+      "title": "Brenner's DT Holistic Model",
+      "desc": "Design Thinking as Mindset · Process · Toolbox (2016).",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 2,
+      "title": "Liedtka's Why DT Works",
+      "desc": "Four truths: user focus, collaboration, experimentation, diversity.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 2,
+      "title": "Dosi's DT Mindset Measure",
+      "desc": "10-dimension scale for measuring the designerly mindset (2018).",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 2,
+      "title": "Kelley's Creative Confidence",
+      "desc": "Four fears that block creativity — and how to reclaim it.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 2,
+      "title": "Buchanan's Wicked Problems",
+      "desc": "Four orders of design: signs, things, actions, systems.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 2,
+      "title": "Bason & Austin: Right Way to Lead DT",
+      "desc": "Six tensions leaders must navigate to lead DT well.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 3,
+      "title": "Empathy Map",
+      "desc": "Says · Thinks · Does · Feels — the canonical user canvas.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 3,
+      "title": "Persona Canvas",
+      "desc": "Archetype + goals + frustrations + context on one sheet.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 3,
+      "title": "Customer Journey Map",
+      "desc": "Stages × touchpoints × emotions — end-to-end experience.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 3,
+      "title": "5 Whys",
+      "desc": "Root-cause laddering: keep asking why until you hit structure.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 1,
+      "slibrary": 3,
+      "title": "How Might We (HMW)",
+      "desc": "Turning insights into re-framed, generative design questions.",
+      "url": "unit1.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 4,
+      "title": "Osborn's Brainstorming Rules",
+      "desc": "Defer judgment · Quantity · Wild ideas · Build on others.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 4,
+      "title": "SCAMPER",
+      "desc": "Substitute · Combine · Adapt · Modify · Put to other use · Eliminate · Reverse.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 4,
+      "title": "Mind Mapping",
+      "desc": "Buzan's radial hierarchy — one central node, branching associations.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 4,
+      "title": "Crazy 8s",
+      "desc": "8 ideas in 8 minutes — the Google Ventures sketching sprint.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 4,
+      "title": "Six Thinking Hats",
+      "desc": "De Bono's parallel thinking roles for balanced ideation.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 5,
+      "title": "Dot Voting",
+      "desc": "Anonymous, democratic, fast — the default team prioritisation vote.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 5,
+      "title": "NUF Test",
+      "desc": "New · Useful · Feasible — a three-axis idea gut-check.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 5,
+      "title": "Impact–Effort Matrix",
+      "desc": "2×2 quadrant: quick wins, big bets, fill-ins, time sinks.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 5,
+      "title": "How–Now–Wow Matrix",
+      "desc": "Sort by novelty × implementability to surface real innovation.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 5,
+      "title": "Cost–Value Prioritisation",
+      "desc": "RICE-style scoring to force trade-offs across a backlog.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 6,
+      "title": "Storyboarding",
+      "desc": "Four to six panels: stage a concept as a user moment in time.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 6,
+      "title": "Bodystorming / Role-Play",
+      "desc": "Enact the scenario in the room — catch gaps text hides.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 6,
+      "title": "Concept Sketching",
+      "desc": "Low-fidelity marker drawings — clarity over craft.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 6,
+      "title": "Analogous Inspiration",
+      "desc": "Borrow patterns from unrelated domains (hospital → pit stop).",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 2,
+      "slibrary": 6,
+      "title": "Worst Possible Idea",
+      "desc": "Reverse brainstorm the disaster, then invert to insights.",
+      "url": "unit2.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 7,
+      "title": "Porter's Five Forces",
+      "desc": "Rivalry · Buyers · Suppliers · New Entrants · Substitutes.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 7,
+      "title": "Blue Ocean Strategy Canvas",
+      "desc": "Eliminate · Reduce · Raise · Create (ERRC grid).",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 7,
+      "title": "SWOT Matrix",
+      "desc": "Strengths · Weaknesses · Opportunities · Threats.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 7,
+      "title": "PESTEL Analysis",
+      "desc": "Political · Economic · Social · Technological · Environmental · Legal.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 7,
+      "title": "Hambrick & Fredrickson Strategy Diamond",
+      "desc": "Arenas · Vehicles · Differentiators · Staging · Economic logic.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 8,
+      "title": "The Practices Wheel",
+      "desc": "All 10 practices arranged as one integrated design capability.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 8,
+      "title": "Projecting · Prototyping · Evaluating",
+      "desc": "The design moves: imagine, build rough, test early.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 8,
+      "title": "Experimenting · Routinizing · Mobilizing",
+      "desc": "The execution moves: run trials, embed, engage people.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 8,
+      "title": "Realizing · Connecting",
+      "desc": "The integration moves: ship it, align it across boundaries.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 8,
+      "title": "Scaling · Curating",
+      "desc": "The sustainment moves: grow what works, prune what doesn't.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 9,
+      "title": "Business Model Canvas",
+      "desc": "Osterwalder's 9 blocks — the standard visual for any model.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 9,
+      "title": "Value Proposition Canvas",
+      "desc": "Gain creators · Pain relievers · Products — vs Jobs · Pains · Gains.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 9,
+      "title": "DVF Framework",
+      "desc": "Desirability × Viability × Feasibility — the sweet spot check.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 9,
+      "title": "Portfolio Map",
+      "desc": "Explore vs Exploit plotted against innovation & death risk.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 3,
+      "slibrary": 9,
+      "title": "Team Alignment Map",
+      "desc": "Joint Objectives · Commitments · Resources · Risks.",
+      "url": "unit3.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 10,
+      "title": "Knight's Risk vs Uncertainty",
+      "desc": "Risk = measurable; uncertainty = unknowable — a 1921 distinction still live.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 10,
+      "title": "Furr's Possibility Quadrant",
+      "desc": "Reframe uncertainty into the upside — The Upside of Uncertainty (HBS).",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 10,
+      "title": "Cynefin Framework",
+      "desc": "Simple · Complicated · Complex · Chaotic — match decision mode to domain.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 10,
+      "title": "Black Swan",
+      "desc": "Taleb's rare, high-impact, retrospectively-explainable events.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 10,
+      "title": "VUCA",
+      "desc": "Volatile · Uncertain · Complex · Ambiguous — the diagnostic lens.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 11,
+      "title": "Bird-in-Hand",
+      "desc": "Start with means: who I am, what I know, who I know.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 11,
+      "title": "Affordable Loss",
+      "desc": "Invest only what you can afford to lose — not expected return.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 11,
+      "title": "Crazy Quilt",
+      "desc": "Build with self-selecting partners — strangers become stakeholders.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 11,
+      "title": "Lemonade Principle",
+      "desc": "Leverage surprises; don't avoid them. The unexpected is fuel.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 11,
+      "title": "Pilot-in-the-Plane",
+      "desc": "Control over predict: the future is made, not foreseen.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 12,
+      "title": "Future Orientation",
+      "desc": "Anticipate, imagine, and act toward a desired future state.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 12,
+      "title": "Means Orientation",
+      "desc": "Start from what you have, not what you think you need.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 12,
+      "title": "5 Key Elements of Entrepreneurship",
+      "desc": "Individual · Opportunity · Resources · Organisation · Environment.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 12,
+      "title": "Opportunity Triangle",
+      "desc": "Entrepreneur ↔ Opportunity ↔ Resources, mediated by uncertainty.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 4,
+      "slibrary": 12,
+      "title": "Fit & Gaps to the Business Plan",
+      "desc": "Diagnose alignment across the three corners of the triangle.",
+      "url": "unit4.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 13,
+      "title": "Jobs-to-be-Done (JTBD)",
+      "desc": "Christensen's lens: customers hire products for functional jobs.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 13,
+      "title": "Problem–Solution Fit",
+      "desc": "Proof that the pain exists AND your solution meaningfully eases it.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 13,
+      "title": "Kano Model",
+      "desc": "Basic · Performance · Delighter — the anatomy of satisfaction.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 13,
+      "title": "10 Types of Innovation",
+      "desc": "Doblin's toolkit: configuration · offering · experience.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 13,
+      "title": "Innovator's Dilemma S-Curve",
+      "desc": "Incumbent sustaining vs entrant disruptive trajectories.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 14,
+      "title": "Lean Canvas",
+      "desc": "Maurya's problem-first adaptation of the Business Model Canvas.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 14,
+      "title": "The Mom Test",
+      "desc": "Fitzpatrick's interview method — ask about their life, not your idea.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 14,
+      "title": "Pretotyping",
+      "desc": "Savoia's 'fake it before you make it' — test appeal pre-product.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 14,
+      "title": "MVP Ladder",
+      "desc": "Concierge → Wizard of Oz → MVP — progressive fidelity testing.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 14,
+      "title": "Experiment Board (Javelin)",
+      "desc": "Hypothesis · riskiest assumption · method · success criteria.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 15,
+      "title": "Value Proposition Canvas",
+      "desc": "Gains · Pains · Jobs on the customer side; fit on the product side.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 15,
+      "title": "VRIO Analysis",
+      "desc": "Valuable · Rare · Inimitable · Organised — sustainable advantage.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 15,
+      "title": "Fit Check",
+      "desc": "Problem-Solution Fit → Product-Market Fit → Business-Model Fit.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 15,
+      "title": "Gain–Pain–Job Triad",
+      "desc": "The three diagnostic columns that drive VP Canvas work.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 5,
+      "slibrary": 15,
+      "title": "DVF Revisited",
+      "desc": "Desirability + Viability + Feasibility as a live triage for ideas.",
+      "url": "unit5.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 16,
+      "title": "Startup Genome Lifecycle",
+      "desc": "Discovery · Validation · Efficiency · Scale · Sustain — stage map.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 16,
+      "title": "Customer Development (Blank)",
+      "desc": "Discovery · Validation · Creation · Company-Building.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 16,
+      "title": "Build–Measure–Learn Loop",
+      "desc": "Ries' Lean Startup cycle — the core engine of experimentation.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 16,
+      "title": "Founder's Dilemma (Wasserman)",
+      "desc": "Rich vs King trade-offs across every major founder decision.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 16,
+      "title": "Product–Market Fit Pyramid",
+      "desc": "Target customer → needs → value prop → feature set → UX.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 17,
+      "title": "Legal Forms Matrix",
+      "desc": "Sole Prop · Partnership · LLC · Corp — liability, tax, governance.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 17,
+      "title": "Cap Table",
+      "desc": "Who owns what, at what price, at what stage — the equity map.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 17,
+      "title": "Funding Stages Ladder",
+      "desc": "Pre-seed · Seed · Series A/B/C · Growth · IPO — typical cheque sizes.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 17,
+      "title": "Unit Economics",
+      "desc": "CAC · LTV · Payback period · Contribution margin per customer.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 17,
+      "title": "Runway & Burn Rate",
+      "desc": "Months of operating cash at current spend — the existential metric.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 18,
+      "title": "Team Alignment Map",
+      "desc": "Joint Objectives · Commitments · Resources · Risks (Strategyzer).",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 18,
+      "title": "Hiring-for-Stage Model",
+      "desc": "The skill profile needed changes with each funding round.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 18,
+      "title": "Founder Roles Matrix",
+      "desc": "CEO · CTO · CMO · COO — overlap, hand-offs, and white space.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 18,
+      "title": "Founder's Pie Calculator",
+      "desc": "Frank Demmler's weighted equity split for early founders.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 6,
+      "slibrary": 18,
+      "title": "Advisory Board Structure",
+      "desc": "Formal vs informal · equity vs cash · cadence · contribution.",
+      "url": "unit6.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 19,
+      "title": "Intrapreneur's 5 Traits",
+      "desc": "Curiosity · Ownership · Tenacity · Pragmatism · Collaboration.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 19,
+      "title": "Entrepreneur vs Intrapreneur 2×2",
+      "desc": "Resources × Accountability — four distinct operating modes.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 19,
+      "title": "Corporate Innovation Quadrants",
+      "desc": "Core · Adjacent · Transformational (McKinsey Three Horizons).",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 19,
+      "title": "Permission-to-Fail Culture",
+      "desc": "Psychological safety as the precondition for ambitious work.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 19,
+      "title": "Skunk Works Model",
+      "desc": "Protected team, ring-fenced budget, sheltered from core KPIs.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 20,
+      "title": "WhatAVenture Building Blocks",
+      "desc": "The anatomy of an intrapreneurship program from the white paper.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 20,
+      "title": "Internal Accelerator (Skydeck)",
+      "desc": "DB Systel's 10-week model — boot camp → mentoring → demo day.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 20,
+      "title": "Innovation Lab",
+      "desc": "Centralised R&D unit with permanent staff and annual mandate.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 20,
+      "title": "Venture Studio",
+      "desc": "Firm-backed vehicle that builds repeatedly from internal IP & ideas.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 20,
+      "title": "Intrapreneurship Hackathon",
+      "desc": "Time-boxed, cross-functional, sponsor-judged idea generation.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 21,
+      "title": "Executive Sponsorship Model",
+      "desc": "Who champions, who shields, who signs — the cover hierarchy.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 21,
+      "title": "Stage-Gate Governance",
+      "desc": "Discover · Validate · Build · Scale — with formal go/no-go gates.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 21,
+      "title": "Innovation Metrics Dashboard",
+      "desc": "Input · throughput · output · impact — leading vs lagging.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 21,
+      "title": "Portfolio Review Cadence",
+      "desc": "Quarterly, cross-project triage — kill, persevere, or double down.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 7,
+      "slibrary": 21,
+      "title": "Demo Day Architecture",
+      "desc": "Audience · time box · scoring · post-event commitments.",
+      "url": "unit7.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 22,
+      "title": "Kawasaki 10-Slide Deck",
+      "desc": "Problem · Solution · Model · Underlying magic · Marketing · Competition · Team · Projections · Status · Ask.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 22,
+      "title": "Elevator Pitch (30 s)",
+      "desc": "For <target> who <need>, <product> is a <category> that <benefit>.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 22,
+      "title": "NABC Framework",
+      "desc": "Need · Approach · Benefits · Competition — Stanford's pitch skeleton.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 22,
+      "title": "Problem–Solution–Team–Traction",
+      "desc": "The four beats VCs unconsciously listen for.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 22,
+      "title": "3-Act Pitch Structure",
+      "desc": "Setup · confrontation · resolution — classical storytelling applied.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 23,
+      "title": "Hero's Journey (Campbell)",
+      "desc": "Call → threshold → trials → transformation → return.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 23,
+      "title": "Freytag's Pyramid",
+      "desc": "Exposition · rising action · climax · falling action · resolution.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 23,
+      "title": "Start With Why (Sinek)",
+      "desc": "Golden Circle: Why · How · What — inside out, not outside in.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 23,
+      "title": "Pixar Pitch Formula",
+      "desc": "Once upon a time… every day… until one day… because of that…",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 23,
+      "title": "StoryBrand (Miller)",
+      "desc": "A character · with a problem · meets a guide · who gives a plan.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 24,
+      "title": "Message Strategy Spectrum",
+      "desc": "Convince ↔ Clarify — motivate or inform, rarely both equally.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 24,
+      "title": "Distill · Decompose · Prioritise",
+      "desc": "Three moves from clutter to core; the playbook's central triad.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 24,
+      "title": "Core Message Worksheet",
+      "desc": "Paragraph → three sentences → one sentence. End on the one-liner.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 24,
+      "title": "Vehicles for Ideas",
+      "desc": "Stories · Visuals · Metaphors · Experiences — how the message travels.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 8,
+      "slibrary": 24,
+      "title": "Thumbnail Thinking (Meier)",
+      "desc": "Build a Slibrary; think in pictures; pattern-match under pressure.",
+      "url": "unit8.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 25,
+      "title": "Iceberg Model",
+      "desc": "Events · Patterns · Structures · Mental Models — four depths of seeing.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 25,
+      "title": "Causal Loop Diagram",
+      "desc": "Variables + arrows + polarity; the basic grammar of systems.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 25,
+      "title": "Feedback Loops",
+      "desc": "Reinforcing (R) amplify; Balancing (B) stabilise or seek a goal.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 25,
+      "title": "Stock & Flow Diagram",
+      "desc": "Accumulations + rates — the quantitative backbone of CLDs.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 25,
+      "title": "Bathtub Model",
+      "desc": "Inflow > outflow = the level rises; intuition pump for stocks.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 26,
+      "title": "Shifting the Burden",
+      "desc": "Symptomatic fix erodes capacity for the fundamental solution.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 26,
+      "title": "Limits to Growth",
+      "desc": "Every reinforcing engine eventually meets a balancing constraint.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 26,
+      "title": "Tragedy of the Commons",
+      "desc": "Individual rational use of a shared resource ruins it for all.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 26,
+      "title": "Fixes That Fail",
+      "desc": "A quick fix has unintended consequences worse than the problem.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 26,
+      "title": "Success to the Successful",
+      "desc": "Winner-gets-more dynamics produce lock-in and monopoly.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 27,
+      "title": "Meadows' 12 Leverage Points",
+      "desc": "From parameters to paradigms — where to intervene, ranked.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 27,
+      "title": "Theory U (Scharmer)",
+      "desc": "Observe · retreat & reflect · act in an instant — presencing.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 27,
+      "title": "Three Horizons",
+      "desc": "H1 business as usual · H2 transition · H3 transformed future.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 27,
+      "title": "Wicked Problems (Rittel & Webber)",
+      "desc": "No definitive formulation, no stopping rule, no right answer.",
+      "url": "unit9.html"
+    },
+    {
+      "unit": 9,
+      "slibrary": 27,
+      "title": "Systems Mapping Canvas",
+      "desc": "Stakeholders · stocks · flows · loops · leverage — on one sheet.",
+      "url": "unit9.html"
+    }
+  ],
+  "activities": [
+    {
+      "unit": 1,
+      "title": "Empathy Workshop",
+      "lede": "A field-ready empathy map, journey map and stakeholder map sprint.",
+      "url": "activities/Unit1_Activities.html"
+    },
+    {
+      "unit": 2,
+      "title": "Creative Sprint",
+      "lede": "A 90-minute diverge-converge cycle with live prioritisation and team voting.",
+      "url": "activities/Unit2_Activities.html"
+    },
+    {
+      "unit": 3,
+      "title": "Strategy Canvas Lab",
+      "lede": "Teams draft a Business Model Canvas, overlay a DVF check, and stress-test with Porter's Five Forces.",
+      "url": "activities/Unit3_Activities.html"
+    },
+    {
+      "unit": 4,
+      "title": "Uncertainty Challenge",
+      "lede": "Bird-in-hand, affordable loss and lemonade cards played against a live constraint.",
+      "url": "activities/Unit4_Activities.html"
+    },
+    {
+      "unit": 5,
+      "title": "Opportunity Scan",
+      "lede": "JTBD interviews → Problem–Solution Fit → three testable experiments.",
+      "url": "activities/Unit5_Activities.html"
+    },
+    {
+      "unit": 6,
+      "title": "Foundry Simulation",
+      "lede": "Stand up a fictional firm — legal form, cap table, runway, and first hire.",
+      "url": "activities/Unit6_Activities.html"
+    },
+    {
+      "unit": 7,
+      "title": "Corporate Venture Lab",
+      "lede": "Design a 10-week intrapreneurship programme with sponsors, gates and demo day.",
+      "url": "activities/Unit7_Activities.html"
+    },
+    {
+      "unit": 8,
+      "title": "Pitch Theatre",
+      "lede": "Distill → Decompose → Prioritise, then a 3-minute live pitch to an investor panel.",
+      "url": "activities/Unit8_Activities.html"
+    },
+    {
+      "unit": 9,
+      "title": "Systems Mapping Lab · Capstone",
+      "lede": "A causal loop diagram of a wicked problem + a leverage-point intervention pitch.",
+      "url": "activities/Unit9_Activities.html"
+    }
+  ],
+  "cases": [
+    {
+      "unit": 1,
+      "title": "IDEO and the Shopping Cart",
+      "subtitle": "ABC Nightline — the moment design thinking went mainstream",
+      "url": "cases/Unit1_Case.html"
+    },
+    {
+      "unit": 2,
+      "title": "Airbnb — From Air Mattresses to Ideas",
+      "subtitle": "The unlikely chain of analogies, re-framings and worst possible ideas behind a $75B company",
+      "url": "cases/Unit2_Case.html"
+    },
+    {
+      "unit": 3,
+      "title": "Nespresso — Redesigning the Coffee Category",
+      "subtitle": "From commodity grain to a patented, emotional, vertically-integrated system",
+      "url": "cases/Unit3_Case.html"
+    },
+    {
+      "unit": 4,
+      "title": "Spanx — Sara Blakely and the Upside of Uncertainty",
+      "subtitle": "$5,000, one patent, and no MBA — a textbook case of effectual reasoning",
+      "url": "cases/Unit4_Case.html"
+    },
+    {
+      "unit": 5,
+      "title": "Sentient Technologies — Reading the Market",
+      "subtitle": "How a distributed-AI research firm found, tested and shipped four distinct products",
+      "url": "cases/Unit5_Case.html"
+    },
+    {
+      "unit": 6,
+      "title": "Sentient Technologies — Funding to Dissolution",
+      "subtitle": "$143.5 million raised across three rounds. Four offices. Three founders. Why did it end in 2019?",
+      "url": "cases/Unit6_Case.html"
+    },
+    {
+      "unit": 7,
+      "title": "Skydeck — DB Systel's Internal Acceleration Programme",
+      "subtitle": "Five teams, ten weeks, twelve client projects closed. A WhatAVenture success story.",
+      "url": "cases/Unit7_Case.html"
+    },
+    {
+      "unit": 8,
+      "title": "Airbnb's First Deck",
+      "subtitle": "Ten slides that raised a company — mapped to Bostelaar's Core Message protocol",
+      "url": "cases/Unit8_Case.html"
+    },
+    {
+      "unit": 9,
+      "title": "Fashion's Circular Future",
+      "subtitle": "Stocks, flows and feedback loops across a multi-stakeholder industry",
+      "url": "cases/Unit9_Case.html"
+    }
+  ],
+  "prereadings": [
+    {
+      "unit": 1,
+      "title": "Design Thinking",
+      "author": "Tim Brown",
+      "key_framework": "Desirability × Feasibility × Viability (DVF)",
+      "url": "prereading/Unit1_PreReading.html"
+    },
+    {
+      "unit": 2,
+      "title": "Reclaim Your Creative Confidence",
+      "author": "Tom Kelley and David Kelley",
+      "key_framework": "The Four Fears of Creative Work",
+      "url": "prereading/Unit2_PreReading.html"
+    },
+    {
+      "unit": 3,
+      "title": "Design for Action",
+      "author": "Tim Brown and Roger L. Martin",
+      "key_framework": "The Ten Practices of Strategy Design",
+      "url": "prereading/Unit3_PreReading.html"
+    },
+    {
+      "unit": 4,
+      "title": "The Upside of Uncertainty",
+      "author": "Nathan Furr and Susannah Harmon Furr",
+      "key_framework": "Possibility Quadrant & the 5 Principles of Effectual Action",
+      "url": "prereading/Unit4_PreReading.html"
+    },
+    {
+      "unit": 5,
+      "title": "Know Your Customers' Jobs to Be Done",
+      "author": "Clayton M. Christensen, Taddy Hall, Karen Dillon and David S. Duncan",
+      "key_framework": "Jobs-to-Be-Done (JTBD) Canvas",
+      "url": "prereading/Unit5_PreReading.html"
+    },
+    {
+      "unit": 6,
+      "title": "Strategies for Learning from Failure",
+      "author": "Amy C. Edmondson",
+      "key_framework": "A Spectrum of Reasons for Failure",
+      "url": "prereading/Unit6_PreReading.html"
+    },
+    {
+      "unit": 7,
+      "title": "Unleash Your Intrapreneurship Power",
+      "author": "WhatAVenture GmbH",
+      "key_framework": "The Intrapreneurship Building Blocks & Success Factors",
+      "url": "prereading/Unit7_PreReading.html"
+    },
+    {
+      "unit": 8,
+      "title": "Clarify Your Core Message · Playbook",
+      "author": "Kurt Bostelaar",
+      "key_framework": "Message Strategy Spectrum & Distill-Decompose-Prioritise",
+      "url": "prereading/Unit8_PreReading.html"
+    },
+    {
+      "unit": 9,
+      "title": "Wicked Problems in Design Thinking",
+      "author": "Richard Buchanan",
+      "key_framework": "Meadows' 12 Leverage Points in a System",
+      "url": "prereading/Unit9_PreReading.html"
+    }
+  ],
+  "reflections": [
+    {
+      "unit": 1,
+      "unit_title": "Design Thinking as Mindset",
+      "questions": [
+        "Recall a recent moment where you inferred what a user, customer or colleague wanted rather than asking them. What did you get right, and what did you miss?",
+        "Choose one product you use daily. Sketch a 5-step journey map of your last interaction with it — emotion line included. Where are the pain points?",
+        "If you had to run a 90-minute empathy workshop for your own team tomorrow, what is the one design challenge you would put at the centre of the room?"
+      ],
+      "url": "reflections/Unit1_Reflection.html"
+    },
+    {
+      "unit": 2,
+      "unit_title": "Ideation",
+      "questions": [
+        "Recall the last time you said an idea out loud, then watched yourself quietly kill it before anyone else could. Which of the four fears was driving you?",
+        "Run a solo Crazy 8s session on a problem you currently own. Keep all 8 panels, even the bad ones. Which panels surprise you?",
+        "Most teams mix divergence and convergence in the same meeting and get muddy output. What one rule could you introduce tomorrow to prevent this in your team?"
+      ],
+      "url": "reflections/Unit2_Reflection.html"
+    },
+    {
+      "unit": 3,
+      "unit_title": "Strategy Design",
+      "questions": [
+        "Take your current team's strategy (or your firm's). Plot it against the DVF triangle. Which corner is strongest? Which is weakest?",
+        "Pick one of the ten practices of strategy design. Describe a specific situation in which you have seen it done well, and one where you have seen it skipped entirely.",
+        "If you had to choose between a better plan and a better plan-adoption mechanism, which would make more difference in your organisation next quarter — and why?"
+      ],
+      "url": "reflections/Unit3_Reflection.html"
+    },
+    {
+      "unit": 4,
+      "unit_title": "Entrepreneurial Thinking",
+      "questions": [
+        "Recall a moment in the last year when you treated an uncertain situation as if it were merely risky. What did the mistaken framing cost you?",
+        "Inventory your bird-in-hand today: who you are, what you know, who you know. Which of these three is most under-leveraged?",
+        "Define your affordable loss for an initiative you are currently considering. Write the number down. Does the exercise change your willingness to start?"
+      ],
+      "url": "reflections/Unit4_Reflection.html"
+    },
+    {
+      "unit": 5,
+      "unit_title": "Developing Successful Business Ideas",
+      "questions": [
+        "Interview one person about the last significant purchase they made, using only open questions. What job were they hiring the product to do — and which dimensions did the product miss?",
+        "Pick one product in your firm's portfolio. If you took a JTBD lens, which competitors would suddenly appear on your radar that you currently ignore?",
+        "Christensen's framing has been in the management literature for two decades and is still under-used. Why do you think firms default back to demographic segmentation?"
+      ],
+      "url": "reflections/Unit5_Reflection.html"
+    },
+    {
+      "unit": 6,
+      "unit_title": "Moving from an Idea to an Entrepreneurial Firm",
+      "questions": [
+        "In your career so far, name one failure you would now classify as praiseworthy in Edmondson's sense. How was it treated at the time?",
+        "If you were stage-zero of your own venture tomorrow, what is the affordable loss — the maximum — you would write into your charter?",
+        "Wasserman's Founder's Dilemmas is built on a stark trade-off: rich or king — you can rarely be both. Which would you choose, and what does the answer reveal about why you would start a company at all?"
+      ],
+      "url": "reflections/Unit6_Reflection.html"
+    },
+    {
+      "unit": 7,
+      "unit_title": "Intrapreneurship",
+      "questions": [
+        "Recall a time when you had an idea inside your organisation that should have happened and didn't. Which of the four success factors was missing?",
+        "If your CEO gave you a blank cheque and eighteen months to run any one intrapreneurship programme, which would you build — and who would be the first three people you would put in the room?",
+        "The hardest question for any intrapreneurship programme is not selection but re-entry: how successful ideas come back into the core business. Describe the re-entry mechanism you would design."
+      ],
+      "url": "reflections/Unit7_Reflection.html"
+    },
+    {
+      "unit": 8,
+      "unit_title": "The Art of Pitching",
+      "questions": [
+        "Can you state, in one sentence, what you do — and have the sentence be interesting? If not, which part of the Distill-Decompose-Prioritise protocol is breaking down?",
+        "Record yourself delivering your own 90-second pitch. Play it back. Where does the listener lose you — and is it a clarify problem or a convince problem?",
+        "Bostelaar and JD Meier's Thumbnail Thinking are deeply complementary: one tightens the message, the other designs its visual vehicle. Pick one of your Slibraries from this course and write the single sentence it condenses."
+      ],
+      "url": "reflections/Unit8_Reflection.html"
+    },
+    {
+      "unit": 9,
+      "unit_title": "Systems Thinking",
+      "questions": [
+        "Name a wicked problem in your industry. Can you articulate it using Rittel &amp; Webber's criteria — or do you find yourself reaching for simpler, solvable framings?",
+        "Meadows ranks parameter changes as low-leverage and paradigm changes as high-leverage. Most corporate initiatives operate at the parameter level. Why?",
+        "This course — MBA301 — has moved through nine units, 27 Slibraries and 135 frameworks. Which single framework do you now carry most reliably as a thumbnail you can pattern-match against under pressure? Why that one?"
+      ],
+      "url": "reflections/Unit9_Reflection.html"
+    }
+  ]
+}

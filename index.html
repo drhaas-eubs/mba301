@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 — Entrepreneurial &amp; Design Thinking</title>
+<meta name="description" content="MBA301 Entrepreneurial &amp; Design Thinking — Interactive Framework Galleries &amp; Course Materials. Dr. H. Haas, EU Business School. Applying JD Meier's Thumbnail Thinking and Kurt Bostelaar's Clarify Core Message.">
+<style>
+/* ---------- Design Tokens ---------- */
+:root{
+  --navy:#0f2133;
+  --navy-2:#152b40;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;            /* warm paper */
+  --card:#ffffff;
+  --accent:#00BE96;        /* EUBS teal */
+  --accent-ink:#04715b;
+  --amber:#d98e2b;
+  --rose:#b54e55;
+  --plum:#6a4f82;
+  --steel:#3d5a7a;
+  --slate:#2a3c4d;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------- Reset & Base ---------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a{ color: inherit; text-decoration: none; }
+img{ max-width:100%; display:block; }
+button{ font: inherit; cursor:pointer; border:none; background:none; color:inherit; }
+
+/* ---------- Hero ---------- */
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 72px 24px 56px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid var(--accent);
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(0,190,150,.18), transparent 40%),
+    radial-gradient(circle at 88% 70%, rgba(255,255,255,.05), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 1100px; margin: 0 auto; position:relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border: 1px solid rgba(0,190,150,.4);
+  border-radius: 999px;
+}
+.hero h1{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.08;
+  margin: 0 0 16px;
+  letter-spacing: -.02em;
+}
+.hero h1 em{
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.hero-sub{
+  font-size: 18px;
+  color: rgba(255,255,255,.78);
+  max-width: 620px;
+  margin: 0 0 12px;
+}
+.hero-attr{
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  margin: 0 0 40px;
+  font-style: italic;
+}
+
+/* Stats */
+.stats{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 620px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  padding: 24px 0;
+}
+.stat{ flex: 1 1 0; min-width: 120px; text-align:left; padding: 0 18px; }
+.stat:first-child{ padding-left: 0; }
+.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
+.stat-num{
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  display:block;
+}
+.stat-label{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-top: 6px;
+}
+
+/* ---------- Concept Bar ---------- */
+.concept{
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px;
+}
+.concept-inner{
+  max-width: 1100px; margin: 0 auto;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 14.5px;
+  color: var(--slate);
+}
+.concept-card{
+  display:flex; gap: 14px; align-items: flex-start;
+  flex: 1 1 360px;
+}
+.concept-icon{
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  background: var(--bg);
+  display:grid; place-items:center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.concept-card strong{ color: var(--ink); }
+.concept-card p{ margin: 4px 0 0; line-height: 1.5; }
+
+/* ---------- Search ---------- */
+.search-bar{
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+.search-box{
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px 14px 48px;
+  box-shadow: var(--shadow);
+}
+.search-box::before{
+  content:"⌕";
+  position:absolute; left: 18px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 20px;
+}
+.search-box input{
+  border: none; outline: none;
+  width: 100%;
+  font-size: 15px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--ink);
+}
+.search-box input::placeholder{ color: var(--muted); }
+
+/* ---------- Course Units ---------- */
+.units-section{
+  max-width: 1100px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+}
+.section-title{
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  position: relative;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+.unit{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.unit:hover{ box-shadow: var(--shadow); }
+
+/* Color tints per unit */
+.unit[data-tone="teal"]    { --tone: var(--accent); }
+.unit[data-tone="steel"]   { --tone: var(--steel); }
+.unit[data-tone="amber"]   { --tone: var(--amber); }
+.unit[data-tone="rose"]    { --tone: var(--rose); }
+.unit[data-tone="plum"]    { --tone: var(--plum); }
+.unit[data-tone="navy"]    { --tone: var(--navy); }
+.unit[data-tone="accent2"] { --tone: var(--accent-ink); }
+.unit[data-tone="slate"]   { --tone: var(--slate); }
+.unit[data-tone="mist"]    { --tone: #4a7a8c; }
+
+summary.unit-header{
+  display:flex;
+  align-items:center;
+  gap: 20px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  border-left: 4px solid var(--tone, var(--accent));
+  transition: background .15s ease;
+}
+summary.unit-header::-webkit-details-marker{ display:none; }
+summary.unit-header:hover{ background: #fafaf7; }
+
+.unit-num{
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--tone, var(--accent));
+  min-width: 48px;
+  line-height: 1;
+}
+.unit-body{ flex: 1; }
+.unit-title{
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 4px;
+  letter-spacing: -.005em;
+}
+.unit-meta{
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .02em;
+}
+.unit-meta .signature{
+  color: var(--tone, var(--accent));
+  font-weight: 600;
+}
+.caret{
+  color: var(--muted);
+  font-size: 18px;
+  transition: transform .2s ease;
+  user-select: none;
+}
+.unit[open] .caret{ transform: rotate(180deg); }
+
+.unit-content{
+  padding: 4px 24px 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.resource{
+  display:flex;
+  align-items:flex-start;
+  gap: 12px;
+  padding: 14px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fcfbf8;
+  transition: border-color .15s ease, transform .15s ease, background .15s ease;
+  color: var(--ink);
+}
+.resource:hover{
+  border-color: var(--tone, var(--accent));
+  background: #fff;
+  transform: translateY(-1px);
+}
+.resource-tag{
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: var(--tone, var(--accent));
+  color:#fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  display:grid; place-items:center;
+  flex-shrink: 0;
+}
+.resource-body .r-title{
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 2px 0 3px;
+}
+.resource-body .r-desc{
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ---------- Complete Gallery Banner ---------- */
+.complete-banner{
+  max-width: 1100px;
+  margin: 40px auto 64px;
+  padding: 0 24px;
+}
+.complete-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 20px;
+  padding: 24px 28px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
+  overflow:hidden;
+}
+.complete-link::before{
+  content:"";
+  position:absolute; right:-40px; top:-40px;
+  width: 180px; height:180px;
+  background: radial-gradient(circle, rgba(0,190,150,.35), transparent 70%);
+  pointer-events:none;
+}
+.complete-link:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.complete-left h3{
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.complete-left p{
+  margin: 0;
+  font-size: 13.5px;
+  color: rgba(255,255,255,.7);
+}
+.complete-arrow{
+  font-size: 28px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 32px 24px 40px;
+  margin-top: 0;
+}
+.footer-inner{
+  max-width: 1100px; margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px){
+  .stats{ grid-template-columns: repeat(3, 1fr); }
+  .stat-num{ font-size: 32px; }
+  .concept-inner{ grid-template-columns: 1fr; gap: 20px; }
+  summary.unit-header{ padding: 16px; gap: 14px; }
+  .unit-num{ font-size: 28px; min-width: 36px; }
+  .unit-content{ padding: 4px 16px 20px 16px; grid-template-columns: 1fr; }
+  .complete-link{ flex-direction: column; align-items: flex-start; }
+}
+</style>
+<meta name="site-base" content=".">
+<link rel="stylesheet" href="./assets/protection.css">
+<link rel="stylesheet" href="./assets/search.css">
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · FHEQ Level 7</span>
+    <h1>Entrepreneurial &amp;<br><em>Design Thinking</em></h1>
+    <p class="hero-sub">Interactive Framework Galleries &amp; Course Materials — a visual operating system for thinking entrepreneurially under uncertainty.</p>
+    <p class="hero-attr">© 2026 Dr. H. Haas · EU Business School · Term III, AY 2025/2026</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">9</span>
+        <div class="stat-label">Units</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">27</span>
+        <div class="stat-label">Slibraries</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">135</span>
+        <div class="stat-label">Frameworks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONCEPT BAR ========== -->
+<section class="concept">
+  <div class="concept-inner">
+    <div class="concept-card">
+      <div class="concept-icon">TT</div>
+      <div>
+        <strong>Thumbnail Thinking</strong> · JD Meier (2025)<br>
+        <p>We don't think in paragraphs — we think in pictures. Each unit curates a <em>Slibrary</em> (Slide Library) of visual frameworks so patterns surface fast when the room goes quiet and someone asks, “What's the strategy?”</p>
+      </div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-icon" style="color:var(--plum);">CM</div>
+      <div>
+        <strong>Clarify Your Core Message</strong> · Kurt Bostelaar / Leverlo<br>
+        <p>Every unit moves through the same arc — <em>distill</em> the idea, <em>decompose</em> the clutter, <em>prioritise</em> the core — so what you build, pitch and lead is a single sentence anyone can repeat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SEARCH ========== -->
+<div class="search-bar">
+  <div class="search-box">
+    <input type="text" id="unitSearch" placeholder="Search units, frameworks, cases — e.g. ‘effectuation’, ‘Sentient’, ‘pitch’">
+  </div>
+</div>
+
+<!-- ========== UNITS ========== -->
+<section class="units-section">
+  <h2 class="section-title">Course Units</h2>
+
+  <!-- UNIT 1 -->
+  <details class="unit" data-tone="teal">
+    <summary class="unit-header">
+      <span class="unit-num">1</span>
+      <div class="unit-body">
+        <div class="unit-title">Design Thinking as Mindset</div>
+        <div class="unit-meta"><span class="signature">Empathy Workshop</span> · Brown · Liedtka · Dosi · Kelley</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit1.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 1–3</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit1_Activities.html">
+        <div class="resource-tag">EW</div>
+        <div class="resource-body">
+          <div class="r-title">Empathy Workshop</div>
+          <div class="r-desc">Field-ready empathy map, journey map &amp; stakeholder map sprint</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit1_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: IDEO Shopping Cart</div>
+          <div class="r-desc">The ABC Nightline project that defined popular design thinking</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit1_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Tim Brown — Design Thinking (HBR)</div>
+          <div class="r-desc">Key framework: Desirability × Feasibility × Viability (DVF)</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit1_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 2 -->
+  <details class="unit" data-tone="steel">
+    <summary class="unit-header">
+      <span class="unit-num">2</span>
+      <div class="unit-body">
+        <div class="unit-title">Ideation</div>
+        <div class="unit-meta"><span class="signature">Creative Sprint</span> · Diverge → Converge · Brainstorming · SCAMPER · Crazy 8s</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit2.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 4–6</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit2_Activities.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Creative Sprint</div>
+          <div class="r-desc">90-minute diverge-converge cycle with live prioritisation &amp; voting</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit2_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Airbnb — From Air Mattresses to Ideas</div>
+          <div class="r-desc">Re-framing, analogous inspiration, and the role of worst possible ideas</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit2_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Kelley &amp; Kelley — Reclaim Your Creative Confidence</div>
+          <div class="r-desc">Key framework: Four Fears that Block Creativity</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit2_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 3 -->
+  <details class="unit" data-tone="amber">
+    <summary class="unit-header">
+      <span class="unit-num">3</span>
+      <div class="unit-body">
+        <div class="unit-title">Strategy Design</div>
+        <div class="unit-meta"><span class="signature">Strategy Canvas Lab</span> · 10 Practices · Porter · Blue Ocean · BMC</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit3.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 7–9</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit3_Activities.html">
+        <div class="resource-tag">SL</div>
+        <div class="resource-body">
+          <div class="r-title">Strategy Canvas Lab</div>
+          <div class="r-desc">Teams draft a BMC, overlay a DVF check, and stress-test with Porter's 5F</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit3_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Nespresso — Redesigning the Coffee Category</div>
+          <div class="r-desc">From commodity to experience — strategy and design as one practice</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit3_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Brown &amp; Martin — Design for Action (HBR)</div>
+          <div class="r-desc">Key framework: The 10 Practices of Strategy Design</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit3_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 4 -->
+  <details class="unit" data-tone="rose">
+    <summary class="unit-header">
+      <span class="unit-num">4</span>
+      <div class="unit-body">
+        <div class="unit-title">Entrepreneurial Thinking</div>
+        <div class="unit-meta"><span class="signature">Uncertainty Challenge</span> · Effectuation · Furr · Knight · Sarasvathy</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit4.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 10–12</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit4_Activities.html">
+        <div class="resource-tag">UC</div>
+        <div class="resource-body">
+          <div class="r-title">Uncertainty Challenge</div>
+          <div class="r-desc">Bird-in-hand, affordable loss &amp; lemonade cards against a live constraint</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit4_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Spanx — Sara Blakely and the Upside of Uncertainty</div>
+          <div class="r-desc">Means-based reasoning when every door says ‘no’</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit4_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Furr — The Upside of Uncertainty (HBS)</div>
+          <div class="r-desc">Key framework: Possibility Quadrant &amp; the 5 Principles of Effectual Action</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit4_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 5 -->
+  <details class="unit" data-tone="plum">
+    <summary class="unit-header">
+      <span class="unit-num">5</span>
+      <div class="unit-body">
+        <div class="unit-title">Developing Successful Business Ideas</div>
+        <div class="unit-meta"><span class="signature">Opportunity Scan</span> · JTBD · Lean Canvas · Kano · MVP Ladder</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit5.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 13–15</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit5_Activities.html">
+        <div class="resource-tag">OS</div>
+        <div class="resource-body">
+          <div class="r-title">Opportunity Scan</div>
+          <div class="r-desc">JTBD interviews → Problem-Solution Fit → 3 testable experiments</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit5_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Sentient Technologies — Reading the Market</div>
+          <div class="r-desc">From evolutionary AI research to commercial products: Ascend, Aware, Invest</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit5_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Christensen — Know Your Customers' Jobs to Be Done</div>
+          <div class="r-desc">Key framework: JTBD Canvas &amp; Outcome-Driven Innovation</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit5_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 6 -->
+  <details class="unit" data-tone="navy">
+    <summary class="unit-header">
+      <span class="unit-num">6</span>
+      <div class="unit-body">
+        <div class="unit-title">Moving from an Idea to an Entrepreneurial Firm</div>
+        <div class="unit-meta"><span class="signature">Foundry Simulation</span> · Customer Development · Funding Ladder · Unit Economics</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit6.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 16–18</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit6_Activities.html">
+        <div class="resource-tag">FS</div>
+        <div class="resource-body">
+          <div class="r-title">Foundry Simulation</div>
+          <div class="r-desc">Stand up a fictional firm: legal form, cap table, runway, first hire</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit6_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Sentient Technologies — Funding to Dissolution</div>
+          <div class="r-desc">$143.5M raised, 4 offices, 3 founders — why it still ended in 2019</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit6_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Edmondson — Strategies for Learning from Failure</div>
+          <div class="r-desc">Key framework: A Spectrum of Reasons for Failure</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit6_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 7 -->
+  <details class="unit" data-tone="accent2">
+    <summary class="unit-header">
+      <span class="unit-num">7</span>
+      <div class="unit-body">
+        <div class="unit-title">Intrapreneurship</div>
+        <div class="unit-meta"><span class="signature">Corporate Venture Lab</span> · Skunk Works · Accelerators · Governance</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit7.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 19–21</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit7_Activities.html">
+        <div class="resource-tag">CV</div>
+        <div class="resource-body">
+          <div class="r-title">Corporate Venture Lab</div>
+          <div class="r-desc">Design a 10-week intrapreneurship programme with sponsors, gates &amp; demo day</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit7_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Skydeck — DB Systel's Internal Acceleration Programme</div>
+          <div class="r-desc">5 teams, 10 weeks, 12 client projects — what made it work</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit7_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: WhatAVenture — Intrapreneurship White Paper</div>
+          <div class="r-desc">Key framework: Intrapreneurship Building Blocks &amp; Success Factors</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit7_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 8 -->
+  <details class="unit" data-tone="slate">
+    <summary class="unit-header">
+      <span class="unit-num">8</span>
+      <div class="unit-body">
+        <div class="unit-title">The Art of Pitching</div>
+        <div class="unit-meta"><span class="signature">Pitch Theatre</span> · Bostelaar's Core Message · StoryBrand · 10-Slide Deck</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit8.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 22–24 (incl. Clarify Core Message)</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit8_Activities.html">
+        <div class="resource-tag">PT</div>
+        <div class="resource-body">
+          <div class="r-title">Pitch Theatre</div>
+          <div class="r-desc">Distill → Decompose → Prioritise. 3-min pitch with live investor panel</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit8_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Airbnb's First Deck</div>
+          <div class="r-desc">Anatomy of 10 slides that raised a company — mapped to Bostelaar's Core Message</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit8_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Bostelaar — Clarify Your Core Message (Playbook)</div>
+          <div class="r-desc">Key framework: Message Strategy Spectrum &amp; Vehicles for Ideas</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit8_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+  <!-- UNIT 9 -->
+  <details class="unit" data-tone="mist">
+    <summary class="unit-header">
+      <span class="unit-num">9</span>
+      <div class="unit-body">
+        <div class="unit-title">Systems Thinking</div>
+        <div class="unit-meta"><span class="signature">Systems Mapping Lab · Capstone</span> · Iceberg · Meadows · Archetypes · Theory U</div>
+      </div>
+      <span class="caret">▾</span>
+    </summary>
+    <div class="unit-content">
+      <a class="resource" href="unit9.html">
+        <div class="resource-tag">FG</div>
+        <div class="resource-body">
+          <div class="r-title">Framework Gallery</div>
+          <div class="r-desc">15 interactive frameworks · Slibraries 25–27</div>
+        </div>
+      </a>
+      <a class="resource" href="activities/Unit9_Activities.html">
+        <div class="resource-tag">SM</div>
+        <div class="resource-body">
+          <div class="r-title">Systems Mapping Lab · Capstone</div>
+          <div class="r-desc">Causal loop diagram of a wicked problem + leverage-point intervention pitch</div>
+        </div>
+      </a>
+      <a class="resource" href="cases/Unit9_Case.html">
+        <div class="resource-tag">CS</div>
+        <div class="resource-body">
+          <div class="r-title">Case: Fashion's Circular Future</div>
+          <div class="r-desc">Stocks, flows &amp; feedback loops across a multi-stakeholder industry</div>
+        </div>
+      </a>
+      <a class="resource" href="prereading/Unit9_PreReading.html">
+        <div class="resource-tag">PR</div>
+        <div class="resource-body">
+          <div class="r-title">Pre-Reading: Buchanan — Wicked Problems in Design Thinking</div>
+          <div class="r-desc">Key framework: Meadows' 12 Leverage Points in a System</div>
+        </div>
+      </a>
+      <a class="resource" href="reflections/Unit9_Reflection.html">
+        <div class="resource-tag">RF</div>
+        <div class="resource-body">
+          <div class="r-title">Reflection Prompt</div>
+          <div class="r-desc">3 questions for independent study</div>
+        </div>
+      </a>
+    </div>
+  </details>
+
+</section>
+
+<!-- ========== COMPLETE GALLERY BANNER ========== -->
+<div class="complete-banner">
+  <a href="complete.html" class="complete-link">
+    <div class="complete-left">
+      <h3>All 135 Frameworks — The Complete Slibrary Wall</h3>
+      <p>Every thumbnail, every Slibrary, every unit — in one browsable gallery.</p>
+    </div>
+    <div class="complete-arrow">→</div>
+  </a>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
+    </div>
+    <div>
+      Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SEARCH SCRIPT ========== -->
+<script>
+(function(){
+  const input = document.getElementById('unitSearch');
+  const units = document.querySelectorAll('.unit');
+  if(!input) return;
+  input.addEventListener('input', function(){
+    const q = input.value.trim().toLowerCase();
+    units.forEach(u => {
+      const text = u.textContent.toLowerCase();
+      const match = q === '' || text.includes(q);
+      u.style.display = match ? '' : 'none';
+      if(q !== '' && match) u.setAttribute('open',''); // expand on match
+      if(q === '') u.removeAttribute('open');          // collapse when cleared
+    });
+  });
+})();
+</script>
+
+<script src="./assets/protection.js" defer></script>
+<script src="./assets/search.js" defer></script>
+</body>
+</html>

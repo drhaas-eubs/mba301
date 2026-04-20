@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 Unit 8 — The Art of Pitching</title>
+<meta name="description" content="MBA301 Unit 8 — The Art of Pitching. Framework gallery of 15 visual thinking tools across Slibraries 22–24.">
+<style>
+:root{
+  --navy:#0f2133;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#00BE96;
+  --accent-ink:#04715b;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: Arial, Helvetica, sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+.backbar{
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.backbar-inner{
+  max-width: 1100px; margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+.backbar a{
+  color: var(--accent-ink);
+  font-weight: 700;
+  transition: color .15s ease;
+}
+.backbar a:hover{ color: var(--accent); }
+
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 48px 24px 40px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid #2a3c4d;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(0,190,150,.14), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(42,60,77,0.18), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 1100px; margin: 0 auto; position: relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #2a3c4d;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+}
+.hero h1{
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(30px, 4.4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+  letter-spacing: -.015em;
+}
+.hero-sub{
+  font-size: 15.5px;
+  color: rgba(255,255,255,.72);
+  max-width: 640px;
+  margin: 0 0 8px;
+}
+.hero-attr{
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  margin: 0 0 24px;
+  font-style: italic;
+}
+
+.stats{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 560px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  padding: 16px 0;
+}
+.stat{ flex: 1 1 0; min-width: 110px; padding: 0 18px; }
+.stat:first-child{ padding-left: 0; }
+.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
+.stat-num{
+  font-family: var(--font);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  display:block;
+}
+.stat-label{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-top: 6px;
+}
+
+.gallery{
+  max-width: 1100px;
+  margin: 40px auto 20px;
+  padding: 0 24px;
+}
+.slibrary{
+  margin-bottom: 40px;
+}
+.slibrary-head{
+  display:flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2a3c4d;
+}
+.slibrary-num{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #2a3c4d;
+  background: rgba(42,60,77,0.1);
+  padding: 5px 11px;
+  border-radius: 6px;
+}
+.slibrary-title{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.slibrary-count{
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.frameworks{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.fw{
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 240px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 18px 16px;
+  position: relative;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor: default;
+}
+.fw::before{
+  content:"";
+  position: absolute;
+  left: 0; top: 18px; bottom: 16px;
+  width: 3px;
+  background: #2a3c4d;
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.fw:hover{
+  transform: translateY(-2px);
+  border-color: #2a3c4d;
+  box-shadow: var(--shadow);
+}
+.fw:hover::before{ opacity: 1; }
+.fw-title{
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+.fw-desc{
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+.fw-tag{
+  display:inline-block;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: #2a3c4d;
+  font-weight: 700;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+  width: 100%;
+}
+
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px 36px;
+  margin-top: 40px;
+}
+.footer-inner{
+  max-width: 1100px; margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+@media (max-width: 720px){
+  .fw{ flex: 1 1 100%; }
+  .hero h1{ font-size: 28px; }
+  .slibrary-head{ flex-wrap: wrap; }
+  .slibrary-count{ margin-left: 0; }
+}
+</style>
+<meta name="site-base" content=".">
+<link rel="stylesheet" href="./assets/protection.css">
+<link rel="stylesheet" href="./assets/search.css">
+</head>
+<body>
+
+<div class="backbar">
+  <div class="backbar-inner">
+    <a href="index.html">← Back to Course Overview</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · Unit 8</span>
+    <h1>The Art of Pitching</h1>
+    <p class="hero-sub">Clarify · distill · deliver — pitching as the discipline of core message.</p>
+    <p class="hero-attr">Select any framework card to explore it in detail · © 2026 Dr. H. Haas</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <div class="stat-label">Slibraries</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15</span>
+        <div class="stat-label">Frameworks</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">22–24</span>
+        <div class="stat-label">Set Range</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 22</span>
+      <h2 class="slibrary-title">Pitch Structures</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Kawasaki 10-Slide Deck</h3>
+        <p class="fw-desc">Problem · Solution · Model · Underlying magic · Marketing · Competition · Team · Projections · Status · Ask.</p>
+        <span class="fw-tag">Slibrary 22 · Pitch Structures</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Elevator Pitch (30 s)</h3>
+        <p class="fw-desc">For &lt;target&gt; who &lt;need&gt;, &lt;product&gt; is a &lt;category&gt; that &lt;benefit&gt;.</p>
+        <span class="fw-tag">Slibrary 22 · Pitch Structures</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">NABC Framework</h3>
+        <p class="fw-desc">Need · Approach · Benefits · Competition — Stanford's pitch skeleton.</p>
+        <span class="fw-tag">Slibrary 22 · Pitch Structures</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Problem–Solution–Team–Traction</h3>
+        <p class="fw-desc">The four beats VCs unconsciously listen for.</p>
+        <span class="fw-tag">Slibrary 22 · Pitch Structures</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">3-Act Pitch Structure</h3>
+        <p class="fw-desc">Setup · confrontation · resolution — classical storytelling applied.</p>
+        <span class="fw-tag">Slibrary 22 · Pitch Structures</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 23</span>
+      <h2 class="slibrary-title">Narrative</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Hero's Journey (Campbell)</h3>
+        <p class="fw-desc">Call → threshold → trials → transformation → return.</p>
+        <span class="fw-tag">Slibrary 23 · Narrative</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Freytag's Pyramid</h3>
+        <p class="fw-desc">Exposition · rising action · climax · falling action · resolution.</p>
+        <span class="fw-tag">Slibrary 23 · Narrative</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Start With Why (Sinek)</h3>
+        <p class="fw-desc">Golden Circle: Why · How · What — inside out, not outside in.</p>
+        <span class="fw-tag">Slibrary 23 · Narrative</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Pixar Pitch Formula</h3>
+        <p class="fw-desc">Once upon a time… every day… until one day… because of that…</p>
+        <span class="fw-tag">Slibrary 23 · Narrative</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">StoryBrand (Miller)</h3>
+        <p class="fw-desc">A character · with a problem · meets a guide · who gives a plan.</p>
+        <span class="fw-tag">Slibrary 23 · Narrative</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 24</span>
+      <h2 class="slibrary-title">Message Clarity · Bostelaar</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Message Strategy Spectrum</h3>
+        <p class="fw-desc">Convince ↔ Clarify — motivate or inform, rarely both equally.</p>
+        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Distill · Decompose · Prioritise</h3>
+        <p class="fw-desc">Three moves from clutter to core; the playbook's central triad.</p>
+        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Core Message Worksheet</h3>
+        <p class="fw-desc">Paragraph → three sentences → one sentence. End on the one-liner.</p>
+        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Vehicles for Ideas</h3>
+        <p class="fw-desc">Stories · Visuals · Metaphors · Experiences — how the message travels.</p>
+        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Thumbnail Thinking (Meier)</h3>
+        <p class="fw-desc">Build a Slibrary; think in pictures; pattern-match under pressure.</p>
+        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
+    </div>
+    <div>
+      Unit 8: The Art of Pitching · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/protection.js" defer></script>
+<script src="./assets/search.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBA301 Unit 6 — Moving from an Idea to an Entrepreneurial Firm</title>
+<meta name="description" content="MBA301 Unit 6 — Moving from an Idea to an Entrepreneurial Firm. Framework gallery of 15 visual thinking tools across Slibraries 16–18.">
+<style>
+:root{
+  --navy:#0f2133;
+  --ink:#11202e;
+  --muted:#5b6b7a;
+  --border:#e4e8ec;
+  --border-strong:#cfd5dc;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#00BE96;
+  --accent-ink:#04715b;
+  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
+  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: Arial, Helvetica, sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+.backbar{
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.backbar-inner{
+  max-width: 1100px; margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+.backbar a{
+  color: var(--accent-ink);
+  font-weight: 700;
+  transition: color .15s ease;
+}
+.backbar a:hover{ color: var(--accent); }
+
+.hero{
+  background: var(--navy);
+  color:#fff;
+  padding: 48px 24px 40px;
+  position:relative;
+  overflow:hidden;
+  border-bottom: 4px solid #0f2133;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(0,190,150,.14), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(15,33,51,0.18), transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{ max-width: 1100px; margin: 0 auto; position: relative; }
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #0f2133;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+}
+.hero h1{
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(30px, 4.4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+  letter-spacing: -.015em;
+}
+.hero-sub{
+  font-size: 15.5px;
+  color: rgba(255,255,255,.72);
+  max-width: 640px;
+  margin: 0 0 8px;
+}
+.hero-attr{
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  margin: 0 0 24px;
+  font-style: italic;
+}
+
+.stats{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 560px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  padding: 16px 0;
+}
+.stat{ flex: 1 1 0; min-width: 110px; padding: 0 18px; }
+.stat:first-child{ padding-left: 0; }
+.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
+.stat-num{
+  font-family: var(--font);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  display:block;
+}
+.stat-label{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-top: 6px;
+}
+
+.gallery{
+  max-width: 1100px;
+  margin: 40px auto 20px;
+  padding: 0 24px;
+}
+.slibrary{
+  margin-bottom: 40px;
+}
+.slibrary-head{
+  display:flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0f2133;
+}
+.slibrary-num{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #0f2133;
+  background: rgba(15,33,51,0.1);
+  padding: 5px 11px;
+  border-radius: 6px;
+}
+.slibrary-title{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.slibrary-count{
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.frameworks{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.fw{
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 240px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 18px 16px;
+  position: relative;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor: default;
+}
+.fw::before{
+  content:"";
+  position: absolute;
+  left: 0; top: 18px; bottom: 16px;
+  width: 3px;
+  background: #0f2133;
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.fw:hover{
+  transform: translateY(-2px);
+  border-color: #0f2133;
+  box-shadow: var(--shadow);
+}
+.fw:hover::before{ opacity: 1; }
+.fw-title{
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+.fw-desc{
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+.fw-tag{
+  display:inline-block;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: #0f2133;
+  font-weight: 700;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+  width: 100%;
+}
+
+footer{
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px 36px;
+  margin-top: 40px;
+}
+.footer-inner{
+  max-width: 1100px; margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-inner strong{ color: var(--ink); }
+
+@media (max-width: 720px){
+  .fw{ flex: 1 1 100%; }
+  .hero h1{ font-size: 28px; }
+  .slibrary-head{ flex-wrap: wrap; }
+  .slibrary-count{ margin-left: 0; }
+}
+</style>
+<meta name="site-base" content=".">
+<link rel="stylesheet" href="./assets/protection.css">
+<link rel="stylesheet" href="./assets/search.css">
+</head>
+<body>
+
+<div class="backbar">
+  <div class="backbar-inner">
+    <a href="index.html">← Back to Course Overview</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">MBA301 · Unit 6</span>
+    <h1>Moving from an Idea to an Entrepreneurial Firm</h1>
+    <p class="hero-sub">Venture building — legal form, funding, team, unit economics.</p>
+    <p class="hero-attr">Select any framework card to explore it in detail · © 2026 Dr. H. Haas</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <div class="stat-label">Slibraries</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15</span>
+        <div class="stat-label">Frameworks</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">16–18</span>
+        <div class="stat-label">Set Range</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 16</span>
+      <h2 class="slibrary-title">Venture Building</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Startup Genome Lifecycle</h3>
+        <p class="fw-desc">Discovery · Validation · Efficiency · Scale · Sustain — stage map.</p>
+        <span class="fw-tag">Slibrary 16 · Venture Building</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Customer Development (Blank)</h3>
+        <p class="fw-desc">Discovery · Validation · Creation · Company-Building.</p>
+        <span class="fw-tag">Slibrary 16 · Venture Building</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Build–Measure–Learn Loop</h3>
+        <p class="fw-desc">Ries' Lean Startup cycle — the core engine of experimentation.</p>
+        <span class="fw-tag">Slibrary 16 · Venture Building</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Founder's Dilemma (Wasserman)</h3>
+        <p class="fw-desc">Rich vs King trade-offs across every major founder decision.</p>
+        <span class="fw-tag">Slibrary 16 · Venture Building</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Product–Market Fit Pyramid</h3>
+        <p class="fw-desc">Target customer → needs → value prop → feature set → UX.</p>
+        <span class="fw-tag">Slibrary 16 · Venture Building</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 17</span>
+      <h2 class="slibrary-title">Legal &amp; Finance Basics</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Legal Forms Matrix</h3>
+        <p class="fw-desc">Sole Prop · Partnership · LLC · Corp — liability, tax, governance.</p>
+        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Cap Table</h3>
+        <p class="fw-desc">Who owns what, at what price, at what stage — the equity map.</p>
+        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Funding Stages Ladder</h3>
+        <p class="fw-desc">Pre-seed · Seed · Series A/B/C · Growth · IPO — typical cheque sizes.</p>
+        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Unit Economics</h3>
+        <p class="fw-desc">CAC · LTV · Payback period · Contribution margin per customer.</p>
+        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Runway &amp; Burn Rate</h3>
+        <p class="fw-desc">Months of operating cash at current spend — the existential metric.</p>
+        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slibrary">
+    <div class="slibrary-head">
+      <span class="slibrary-num">Slibrary 18</span>
+      <h2 class="slibrary-title">Team &amp; Culture</h2>
+      <span class="slibrary-count">5 frameworks</span>
+    </div>
+    <div class="frameworks">
+      <div class="fw">
+        <h3 class="fw-title">Team Alignment Map</h3>
+        <p class="fw-desc">Joint Objectives · Commitments · Resources · Risks (Strategyzer).</p>
+        <span class="fw-tag">Slibrary 18 · Team & Culture</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Hiring-for-Stage Model</h3>
+        <p class="fw-desc">The skill profile needed changes with each funding round.</p>
+        <span class="fw-tag">Slibrary 18 · Team & Culture</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Founder Roles Matrix</h3>
+        <p class="fw-desc">CEO · CTO · CMO · COO — overlap, hand-offs, and white space.</p>
+        <span class="fw-tag">Slibrary 18 · Team & Culture</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Founder's Pie Calculator</h3>
+        <p class="fw-desc">Frank Demmler's weighted equity split for early founders.</p>
+        <span class="fw-tag">Slibrary 18 · Team & Culture</span>
+      </div>
+      <div class="fw">
+        <h3 class="fw-title">Advisory Board Structure</h3>
+        <p class="fw-desc">Formal vs informal · equity vs cash · cadence · contribution.</p>
+        <span class="fw-tag">Slibrary 18 · Team & Culture</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
+    </div>
+    <div>
+      Unit 6: Moving from an Idea to an Entrepreneurial Firm · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/protection.js" defer></script>
+<script src="./assets/search.js" defer></script>
+</body>
+</html>
