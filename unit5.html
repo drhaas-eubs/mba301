@@ -4,245 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MBA301 Unit 5 — Developing Successful Business Ideas</title>
-<meta name="description" content="MBA301 Unit 5 — Developing Successful Business Ideas. Framework gallery of 15 visual thinking tools across Slibraries 13–15.">
+<meta name="description" content="MBA301 Unit 5 — Developing Successful Business Ideas. Framework gallery of 15 interactive visual thinking tools across Slibraries 13–15.">
 <style>
 :root{
-  --navy:#0f2133;
-  --ink:#11202e;
-  --muted:#5b6b7a;
-  --border:#e4e8ec;
-  --border-strong:#cfd5dc;
-  --bg:#f6f4ef;
-  --card:#ffffff;
-  --accent:#00BE96;
-  --accent-ink:#04715b;
+  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
+  --border:#e4e8ec; --border-strong:#cfd5dc;
+  --bg:#f6f4ef; --card:#fff;
+  --accent:#00BE96; --accent-ink:#04715b;
   --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 14px; --radius-sm: 10px;
   --font: Arial, Helvetica, sans-serif;
 }
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: var(--font);
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-a{ color: inherit; text-decoration: none; }
+body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 
-.backbar{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
-}
-.backbar-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-}
-.backbar a{
-  color: var(--accent-ink);
-  font-weight: 700;
-  transition: color .15s ease;
-}
-.backbar a:hover{ color: var(--accent); }
+.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
+.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
+.backbar a{ color:var(--accent-ink); font-weight:700; }
+.backbar a:hover{ color:var(--accent); }
 
 .hero{
-  background: var(--navy);
-  color:#fff;
-  padding: 48px 24px 40px;
-  position:relative;
-  overflow:hidden;
-  border-bottom: 4px solid #6a4f82;
+  background:var(--navy); color:#fff;
+  padding:48px 24px 40px;
+  position:relative; overflow:hidden;
+  border-bottom:4px solid #6a4f82;
 }
 .hero::before{
-  content:"";
-  position:absolute; inset:0;
+  content:""; position:absolute; inset:0;
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(0,190,150,.14), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(106,79,130,0.18), transparent 45%);
+    radial-gradient(circle at 12% 20%, rgba(106,79,130,0.18), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
   pointer-events:none;
 }
-.hero-inner{ max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
 .eyebrow{
   display:inline-block;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: #6a4f82;
-  font-weight: 700;
-  margin-bottom: 12px;
-  padding: 5px 12px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 999px;
+  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:#fff; font-weight:700;
+  margin-bottom:12px;
+  padding:5px 12px 5px 16px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  border-left:3px solid #6a4f82;
+  border-radius:4px 999px 999px 4px;
 }
 .hero h1{
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: clamp(30px, 4.4vw, 44px);
-  line-height: 1.1;
-  margin: 0 0 10px;
-  letter-spacing: -.015em;
+  font-family:var(--font); font-weight:700;
+  font-size:clamp(30px, 4.4vw, 44px);
+  line-height:1.1; margin:0 0 10px;
+  letter-spacing:-.015em;
 }
-.hero-sub{
-  font-size: 15.5px;
-  color: rgba(255,255,255,.72);
-  max-width: 640px;
-  margin: 0 0 8px;
-}
-.hero-attr{
-  font-size: 13px;
-  color: rgba(255,255,255,.5);
-  margin: 0 0 24px;
-  font-style: italic;
-}
+.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
+.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
 
 .stats{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 560px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-  padding: 16px 0;
+  display:flex; flex-wrap:wrap; max-width:560px;
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  padding:16px 0;
 }
-.stat{ flex: 1 1 0; min-width: 110px; padding: 0 18px; }
-.stat:first-child{ padding-left: 0; }
-.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
-.stat-num{
-  font-family: var(--font);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  display:block;
-}
-.stat-label{
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-top: 6px;
-}
+.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
+.stat:first-child{ padding-left:0; }
+.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
+.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
+.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
 
-.gallery{
-  max-width: 1100px;
-  margin: 40px auto 20px;
-  padding: 0 24px;
-}
-.slibrary{
-  margin-bottom: 40px;
-}
+.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
+.slibrary{ margin-bottom:40px; }
 .slibrary-head{
-  display:flex;
-  align-items: baseline;
-  gap: 14px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #6a4f82;
+  display:flex; align-items:baseline; gap:14px;
+  padding-bottom:12px; margin-bottom:20px;
+  border-bottom:2px solid #6a4f82;
 }
 .slibrary-num{
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #6a4f82;
-  background: rgba(106,79,130,0.1);
-  padding: 5px 11px;
-  border-radius: 6px;
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:#6a4f82; background:rgba(106,79,130,0.1);
+  padding:5px 11px; border-radius:6px;
 }
 .slibrary-title{
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0;
-  letter-spacing: -.01em;
+  font-size:20px; font-weight:700;
+  color:var(--ink); margin:0; letter-spacing:-.01em;
 }
-.slibrary-count{
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-  font-style: italic;
+.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
+.slibrary-hint{
+  font-size:11.5px; color:var(--muted);
+  background:rgba(106,79,130,0.1); padding:3px 9px; border-radius:4px;
+  margin-left:8px; font-weight:700;
 }
 
-.frameworks{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
 .fw{
-  flex: 1 1 calc(33.333% - 16px);
-  min-width: 240px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 18px 18px 16px;
-  position: relative;
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor: default;
+  flex:1 1 calc(33.333% - 16px);
+  min-width:240px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:18px 18px 16px;
+  position:relative;
+  text-align:left; width:100%;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor:pointer;
+  font-family:inherit; color:inherit;
 }
 .fw::before{
-  content:"";
-  position: absolute;
-  left: 0; top: 18px; bottom: 16px;
-  width: 3px;
-  background: #6a4f82;
-  border-radius: 0 3px 3px 0;
-  opacity: 0;
-  transition: opacity .15s ease;
+  content:""; position:absolute;
+  left:0; top:18px; bottom:16px;
+  width:3px; background:#6a4f82;
+  border-radius:0 3px 3px 0;
+  opacity:0; transition:opacity .15s ease;
 }
-.fw:hover{
-  transform: translateY(-2px);
-  border-color: #6a4f82;
-  box-shadow: var(--shadow);
-}
-.fw:hover::before{ opacity: 1; }
-.fw-title{
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 6px;
-  line-height: 1.3;
-}
-.fw-desc{
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin: 0 0 10px;
-}
+.fw:hover{ transform:translateY(-2px); border-color:#6a4f82; box-shadow:var(--shadow); }
+.fw:hover::before{ opacity:1; }
+.fw:focus-visible{ outline:2px solid #6a4f82; outline-offset:2px; }
+.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
+.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
 .fw-tag{
-  display:inline-block;
-  font-size: 11px;
-  letter-spacing: .04em;
-  color: #6a4f82;
-  font-weight: 700;
-  padding-top: 6px;
-  border-top: 1px dashed var(--border);
-  width: 100%;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:11px; letter-spacing:.04em;
+  color:#6a4f82; font-weight:700;
+  padding-top:6px;
+  border-top:1px dashed var(--border);
 }
+.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
+.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
 
-footer{
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 28px 24px 36px;
-  margin-top: 40px;
-}
+footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
 .footer-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  max-width:1100px; margin:0 auto;
+  font-size:13px; color:var(--muted);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
-.footer-inner strong{ color: var(--ink); }
+.footer-inner strong{ color:var(--ink); }
 
-@media (max-width: 720px){
-  .fw{ flex: 1 1 100%; }
-  .hero h1{ font-size: 28px; }
-  .slibrary-head{ flex-wrap: wrap; }
-  .slibrary-count{ margin-left: 0; }
+/* ---------- Framework Modal ---------- */
+.fw-modal-overlay{
+  position:fixed; inset:0;
+  background:rgba(15,33,51,.55);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  z-index:9999;
+  display:none;
+  align-items:flex-start; justify-content:center;
+  padding:60px 20px 20px;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.fw-modal-overlay.open{ display:flex; opacity:1; }
+
+.fw-modal{
+  width:100%; max-width:640px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(15,33,51,.3);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  max-height:calc(100vh - 80px);
+  animation:fwModalSlide .18s ease;
+  position:relative;
+}
+@keyframes fwModalSlide{
+  from{ transform:translateY(-8px); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+
+.fw-modal-head{
+  padding:22px 26px 18px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  background:rgba(106,79,130,0.06);
+}
+.fw-modal-close{
+  position:absolute; top:14px; right:14px;
+  width:32px; height:32px;
+  display:grid; place-items:center;
+  font-size:18px; color:var(--muted);
+  border-radius:6px;
+  transition:all .15s ease;
+}
+.fw-modal-close:hover{ background:#fff; color:var(--ink); }
+.fw-modal-eyebrow{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:#6a4f82;
+  margin-bottom:8px;
+}
+.fw-modal-title{
+  font-size:22px; font-weight:700;
+  color:var(--ink); margin:0;
+  letter-spacing:-.01em; line-height:1.2;
+  padding-right:40px;
+}
+
+.fw-modal-body{
+  padding:24px 26px;
+  overflow-y:auto;
+  flex:1;
+}
+.fw-modal-desc{
+  font-size:14.5px; line-height:1.6;
+  color:var(--ink); margin:0 0 22px;
+}
+.fw-modal-section-title{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:var(--muted);
+  margin:0 0 10px;
+}
+.fw-modal-elements{
+  list-style:none; padding:0; margin:0 0 22px;
+}
+.fw-modal-elements li{
+  position:relative;
+  padding:6px 0 6px 20px;
+  font-size:13.5px; line-height:1.5;
+  color:var(--ink);
+  border-bottom:1px dashed var(--border);
+}
+.fw-modal-elements li:last-child{ border-bottom:0; }
+.fw-modal-elements li::before{
+  content:""; position:absolute;
+  left:0; top:13px;
+  width:8px; height:8px;
+  background:#6a4f82;
+  border-radius:50%;
+}
+
+.fw-modal-callout{
+  background:rgba(106,79,130,0.06);
+  border-left:3px solid #6a4f82;
+  padding:14px 18px;
+  border-radius:0 8px 8px 0;
+  margin-bottom:22px;
+}
+.fw-modal-callout .fw-modal-section-title{
+  color:#6a4f82; margin-bottom:6px;
+}
+.fw-modal-callout p{
+  margin:0; font-size:13.5px; line-height:1.55;
+  color:var(--ink); font-style:italic;
+}
+
+.fw-modal-link{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  background:#6a4f82; color:#fff;
+  border-radius:8px;
+  font-size:13px; font-weight:700;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
+.fw-modal-link-arrow{ font-size:14px; }
+
+.fw-modal-foot{
+  padding:12px 26px;
+  background:#fcfbf8;
+  border-top:1px solid var(--border);
+  font-size:11.5px; color:var(--muted);
+  display:flex; justify-content:space-between; gap:12px;
+}
+.fw-modal-foot kbd{
+  display:inline-block;
+  padding:1px 5px; margin:0 2px;
+  font-family:ui-monospace,Menlo,monospace;
+  font-size:10px; font-weight:700;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:3px;
+}
+
+@media (max-width:720px){
+  .fw{ flex:1 1 100%; }
+  .hero h1{ font-size:28px; }
+  .slibrary-head{ flex-wrap:wrap; }
+  .slibrary-count{ margin-left:0; }
+  .fw-modal{ max-height:calc(100vh - 60px); }
+  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
 }
 </style>
 <meta name="site-base" content=".">
@@ -262,145 +301,214 @@ footer{
     <span class="eyebrow">MBA301 · Unit 5</span>
     <h1>Developing Successful Business Ideas</h1>
     <p class="hero-sub">From job-to-be-done to validated opportunity, designed end-to-end.</p>
-    <p class="hero-attr">Select any framework card to explore it in detail · © 2026 Dr. H. Haas</p>
+    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
 
     <div class="stats">
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <div class="stat-label">Slibraries</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">15</span>
-        <div class="stat-label">Frameworks</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">13–15</span>
-        <div class="stat-label">Set Range</div>
-      </div>
+      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
+      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
+      <div class="stat"><span class="stat-num">13–15</span><div class="stat-label">Set Range</div></div>
     </div>
   </div>
 </section>
 
 <section class="gallery">
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 13</span>
       <h2 class="slibrary-title">Opportunity Recognition</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="5-13-0" aria-label="Open details for Jobs-to-be-Done (JTBD)">
         <h3 class="fw-title">Jobs-to-be-Done (JTBD)</h3>
         <p class="fw-desc">Christensen's lens: customers hire products for functional jobs.</p>
-        <span class="fw-tag">Slibrary 13 · Opportunity Recognition</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 13 · Opportunity Recognition <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-13-1" aria-label="Open details for Problem–Solution Fit">
         <h3 class="fw-title">Problem–Solution Fit</h3>
         <p class="fw-desc">Proof that the pain exists AND your solution meaningfully eases it.</p>
-        <span class="fw-tag">Slibrary 13 · Opportunity Recognition</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 13 · Opportunity Recognition <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-13-2" aria-label="Open details for Kano Model">
         <h3 class="fw-title">Kano Model</h3>
         <p class="fw-desc">Basic · Performance · Delighter — the anatomy of satisfaction.</p>
-        <span class="fw-tag">Slibrary 13 · Opportunity Recognition</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 13 · Opportunity Recognition <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-13-3" aria-label="Open details for 10 Types of Innovation">
         <h3 class="fw-title">10 Types of Innovation</h3>
         <p class="fw-desc">Doblin's toolkit: configuration · offering · experience.</p>
-        <span class="fw-tag">Slibrary 13 · Opportunity Recognition</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 13 · Opportunity Recognition <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-13-4" aria-label="Open details for Innovator's Dilemma S-Curve">
         <h3 class="fw-title">Innovator's Dilemma S-Curve</h3>
         <p class="fw-desc">Incumbent sustaining vs entrant disruptive trajectories.</p>
-        <span class="fw-tag">Slibrary 13 · Opportunity Recognition</span>
-      </div>
+        <span class="fw-tag">Slibrary 13 · Opportunity Recognition <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 14</span>
       <h2 class="slibrary-title">Validation</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="5-14-0" aria-label="Open details for Lean Canvas">
         <h3 class="fw-title">Lean Canvas</h3>
         <p class="fw-desc">Maurya's problem-first adaptation of the Business Model Canvas.</p>
-        <span class="fw-tag">Slibrary 14 · Validation</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 14 · Validation <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-14-1" aria-label="Open details for The Mom Test">
         <h3 class="fw-title">The Mom Test</h3>
         <p class="fw-desc">Fitzpatrick's interview method — ask about their life, not your idea.</p>
-        <span class="fw-tag">Slibrary 14 · Validation</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 14 · Validation <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-14-2" aria-label="Open details for Pretotyping">
         <h3 class="fw-title">Pretotyping</h3>
         <p class="fw-desc">Savoia's 'fake it before you make it' — test appeal pre-product.</p>
-        <span class="fw-tag">Slibrary 14 · Validation</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 14 · Validation <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-14-3" aria-label="Open details for MVP Ladder">
         <h3 class="fw-title">MVP Ladder</h3>
         <p class="fw-desc">Concierge → Wizard of Oz → MVP — progressive fidelity testing.</p>
-        <span class="fw-tag">Slibrary 14 · Validation</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 14 · Validation <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-14-4" aria-label="Open details for Experiment Board (Javelin)">
         <h3 class="fw-title">Experiment Board (Javelin)</h3>
         <p class="fw-desc">Hypothesis · riskiest assumption · method · success criteria.</p>
-        <span class="fw-tag">Slibrary 14 · Validation</span>
-      </div>
+        <span class="fw-tag">Slibrary 14 · Validation <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 15</span>
       <h2 class="slibrary-title">Value Design</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="5-15-0" aria-label="Open details for Value Proposition Canvas">
         <h3 class="fw-title">Value Proposition Canvas</h3>
         <p class="fw-desc">Gains · Pains · Jobs on the customer side; fit on the product side.</p>
-        <span class="fw-tag">Slibrary 15 · Value Design</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 15 · Value Design <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-15-1" aria-label="Open details for VRIO Analysis">
         <h3 class="fw-title">VRIO Analysis</h3>
         <p class="fw-desc">Valuable · Rare · Inimitable · Organised — sustainable advantage.</p>
-        <span class="fw-tag">Slibrary 15 · Value Design</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 15 · Value Design <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-15-2" aria-label="Open details for Fit Check">
         <h3 class="fw-title">Fit Check</h3>
         <p class="fw-desc">Problem-Solution Fit → Product-Market Fit → Business-Model Fit.</p>
-        <span class="fw-tag">Slibrary 15 · Value Design</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 15 · Value Design <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-15-3" aria-label="Open details for Gain–Pain–Job Triad">
         <h3 class="fw-title">Gain–Pain–Job Triad</h3>
         <p class="fw-desc">The three diagnostic columns that drive VP Canvas work.</p>
-        <span class="fw-tag">Slibrary 15 · Value Design</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 15 · Value Design <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="5-15-4" aria-label="Open details for DVF Revisited">
         <h3 class="fw-title">DVF Revisited</h3>
         <p class="fw-desc">Desirability + Viability + Feasibility as a live triage for ideas.</p>
-        <span class="fw-tag">Slibrary 15 · Value Design</span>
-      </div>
+        <span class="fw-tag">Slibrary 15 · Value Design <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
 
 </section>
 
+<!-- Framework Detail Modal -->
+<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
+  <div class="fw-modal" role="document">
+    <div class="fw-modal-head">
+      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
+      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
+      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
+    </div>
+    <div class="fw-modal-body">
+      <p class="fw-modal-desc" id="fwModalDesc"></p>
+      <div class="fw-modal-section-title">Key Elements</div>
+      <ul class="fw-modal-elements" id="fwModalElements"></ul>
+      <div class="fw-modal-callout">
+        <div class="fw-modal-section-title">When to Use</div>
+        <p id="fwModalWhen"></p>
+      </div>
+      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
+        <span id="fwModalLinkLabel"></span>
+        <span class="fw-modal-link-arrow">↗</span>
+      </a>
+    </div>
+    <div class="fw-modal-foot">
+      <span>Authoritative external source opens in a new tab</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
-    <div>
-      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
-    </div>
-    <div>
-      Unit 5: Developing Successful Business Ideas · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)
-    </div>
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 5: Developing Successful Business Ideas · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var FW_DATA = {"5-13-0": {"title": "Jobs-to-be-Done (JTBD)", "slibrary": 13, "slibrary_title": "Opportunity Recognition", "unit": 5, "desc": "Clayton Christensen's Jobs-to-be-Done (JTBD) theory argues customers don't buy products; they hire them to do a job. The job has functional, emotional, and social dimensions, and successful products satisfy all three. JTBD replaces demographic segmentation with behavioural segmentation based on the moment of struggle.", "elements": ["Functional job — the task to be done", "Emotional job — how I want to feel", "Social job — how I want to be perceived", "Moment of struggle — trigger for hiring", "Competition = other products hired for same job"], "when_to_use": "When traditional demographic segmentation isn't predicting purchase behaviour — JTBD reveals competitive threats from unexpected categories.", "link": {"url": "https://hbr.org/2016/09/know-your-customers-jobs-to-be-done", "label": "HBR — Know Your Customers' Jobs to Be Done (Christensen et al., 2016)"}}, "5-13-1": {"title": "Problem–Solution Fit", "slibrary": 13, "slibrary_title": "Opportunity Recognition", "unit": 5, "desc": "Problem-Solution Fit is the stage where you have evidence that (a) the problem is real and painful for a well-defined segment, and (b) your solution meaningfully alleviates it. It precedes Product-Market Fit, which adds the requirements that the market is large and the economics work.", "elements": ["Evidence the problem is real and painful", "Well-defined customer segment", "Solution alleviates the specific pain", "Customer would pay (or switch) for the solution", "Gate before investing in scale"], "when_to_use": "As the criterion for moving from problem discovery to solution development — if Problem-Solution Fit isn't proved, building more product is wasted effort.", "link": {"url": "https://leanstack.com/what-is-problem-solution-fit", "label": "Lean Stack — Problem-Solution Fit"}}, "5-13-2": {"title": "Kano Model", "slibrary": 13, "slibrary_title": "Opportunity Recognition", "unit": 5, "desc": "Noriaki Kano's model (1984) classifies product features into three categories by how satisfaction responds to performance: Basic features must be present but don't delight; Performance features drive linear satisfaction; Delighters exceed expectation and create loyalty. Over time, delighters become basics — today's 'wow' is tomorrow's 'of course'.", "elements": ["Basic — expected, invisible when present", "Performance — linear satisfaction", "Delighter — exceeds expectation", "Delighters decay into basics over time", "Products need balance across all three"], "when_to_use": "When prioritising a product backlog — Kano reveals which features are hygiene (must have) vs differentiating (drive delight).", "link": {"url": "https://en.wikipedia.org/wiki/Kano_model", "label": "Wikipedia — Kano Model"}}, "5-13-3": {"title": "10 Types of Innovation", "slibrary": 13, "slibrary_title": "Opportunity Recognition", "unit": 5, "desc": "Larry Keeley's 10 Types of Innovation (2013) catalogues innovation across three zones: Configuration (profit model, network, structure, process), Offering (product performance, product system), and Experience (service, channel, brand, customer engagement). Research across 2,000+ firms found the most successful innovators combine multiple types — not just product.", "elements": ["Configuration — profit model, network, structure, process", "Offering — product performance, product system", "Experience — service, channel, brand, engagement", "Most firms default to product innovation", "Multi-type innovation is most durable"], "when_to_use": "When an organisation is fixated on product innovation and margins are still compressing — the framework reveals untapped types of innovation.", "link": {"url": "https://www.doblin.com/ten-types", "label": "Doblin — The Ten Types of Innovation"}}, "5-13-4": {"title": "Innovator's Dilemma S-Curve", "slibrary": 13, "slibrary_title": "Opportunity Recognition", "unit": 5, "desc": "Clayton Christensen's Innovator's Dilemma (1997) observes that well-managed incumbents are systematically disrupted by entrants offering 'worse' products that serve under-served segments. The sustaining S-curve of the incumbent is overtaken by the disruptive S-curve of the entrant before the incumbent recognises the threat.", "elements": ["Sustaining innovation — better for existing customers", "Disruptive innovation — worse, but cheaper or simpler", "Low-end or new-market disruption", "Incumbents rationally ignore early disruptors", "When the S-curves cross, it's too late"], "when_to_use": "When scanning for disruption risk — the S-curve framing surfaces entrants that incumbent analysis routinely dismisses as irrelevant.", "link": {"url": "https://hbr.org/2015/12/what-is-disruptive-innovation", "label": "HBR — What Is Disruptive Innovation? (Christensen et al., 2015)"}}, "5-14-0": {"title": "Lean Canvas", "slibrary": 14, "slibrary_title": "Validation", "unit": 5, "desc": "Ash Maurya's Lean Canvas (2010) adapts Osterwalder's BMC for early-stage ventures by replacing four blocks with problem-first elements: Problem, Solution, Key Metrics, and Unfair Advantage. The change shifts the canvas from describing a mature business to diagnosing an unvalidated one.", "elements": ["Problem — top 3 pain points", "Solution — top 3 features", "Key Metrics — what you will measure", "Unfair Advantage — what can't be copied", "Single-page, one-hour discipline"], "when_to_use": "In the first weeks of a startup, when the founder needs to compress a fuzzy idea into a testable set of hypotheses on one page.", "link": {"url": "https://leanstack.com/lean-canvas", "label": "Lean Stack — Lean Canvas"}}, "5-14-1": {"title": "The Mom Test", "slibrary": 14, "slibrary_title": "Validation", "unit": 5, "desc": "Rob Fitzpatrick's The Mom Test (2013) is a customer interview method designed to avoid the classic trap: asking questions your mom can't say no to, and getting useless affirmation. The discipline is to ask about the customer's life, not your idea — past behaviour predicts future behaviour.", "elements": ["Talk about their life, not your idea", "Ask about specifics in the past, not generalities", "Talk less, listen more", "Compliments and vague praise = bad signal", "Specific problems and commitments = good signal"], "when_to_use": "Before building any prototype — customer interviews run with The Mom Test discipline determine whether the problem is real before you invest in a solution.", "link": {"url": "https://www.momtestbook.com/", "label": "The Mom Test — Official Site"}}, "5-14-2": {"title": "Pretotyping", "slibrary": 14, "slibrary_title": "Validation", "unit": 5, "desc": "Alberto Savoia's Pretotyping (2011) — 'Make sure you are building the right it before you build it right' — tests market demand before building the product. Techniques include fake landing pages, concierge services, and 'Wizard of Oz' simulations where humans manually deliver what will later be automated.", "elements": ["Fake door — landing page with sign-up", "Pinocchio — wooden mock-up", "Concierge — manual service delivery", "Wizard of Oz — humans behind the automation", "Measure real behaviour, not stated interest"], "when_to_use": "Before committing engineering resources to a product — pretotypes produce behavioural data at a fraction of the cost of a real MVP.", "link": {"url": "https://www.pretotyping.org/", "label": "Pretotyping.org — Savoia"}}, "5-14-3": {"title": "MVP Ladder", "slibrary": 14, "slibrary_title": "Validation", "unit": 5, "desc": "The MVP Ladder sequences increasing product fidelity: Concierge (everything manual) → Wizard of Oz (user thinks it's automated) → single-feature MVP → full MVP. Each rung is cheaper and faster than the next, and each rung can be killed before investing in the next.", "elements": ["Concierge — all-manual, face-to-face delivery", "Wizard of Oz — appears automated, is not", "Single-feature MVP — one feature, real code", "Full MVP — minimum product, real users", "Each rung gates the next investment"], "when_to_use": "When deciding how minimal the first version should be — the ladder lets you pick the cheapest rung that tests the hypothesis.", "link": {"url": "https://theleanstartup.com/principles", "label": "Lean Startup — MVP Principles"}}, "5-14-4": {"title": "Experiment Board (Javelin)", "slibrary": 14, "slibrary_title": "Validation", "unit": 5, "desc": "The Javelin Experiment Board structures one experiment: customer, problem, solution, riskiest assumption, method to test it, success criteria. The board forces the team to name the riskiest assumption explicitly before running the experiment — most failed experiments test the wrong thing.", "elements": ["Customer — who we're testing", "Problem — what we're solving", "Solution — what we're proposing", "Riskiest assumption — what must be true", "Method & success criteria — how we'll know"], "when_to_use": "Before running any costly experiment — filling in the board reveals whether the experiment actually tests the assumption that matters most.", "link": {"url": "http://www.javelin.com/experiment-board.html", "label": "Javelin — Experiment Board"}}, "5-15-0": {"title": "Value Proposition Canvas", "slibrary": 15, "slibrary_title": "Value Design", "unit": 5, "desc": "Revisited as a value-design tool: the Value Proposition Canvas zooms into the customer-offering fit. In this unit it's used alongside Lean Canvas and The Mom Test as one of three triangulation tools for validation. The discipline is to fill it in from evidence, not imagination.", "elements": ["Customer side — Jobs, Pains, Gains", "Offering side — Products, Pain Relievers, Gain Creators", "Fit = specific matches between the sides", "Fill in from real customer research", "Iterate as evidence accumulates"], "when_to_use": "After initial customer interviews — the VPC surfaces which jobs/pains the proposed solution actually addresses and which it merely claims to.", "link": {"url": "https://www.strategyzer.com/library/the-value-proposition-canvas", "label": "Strategyzer — Value Proposition Canvas"}}, "5-15-1": {"title": "VRIO Analysis", "slibrary": 15, "slibrary_title": "Value Design", "unit": 5, "desc": "Jay Barney's VRIO (1991) asks whether a resource or capability passes four tests: Valuable, Rare, Inimitable, Organised to capture value. Passing all four is the definition of sustainable competitive advantage. Most claimed advantages fail at Inimitable — competitors can copy within 2-3 years.", "elements": ["Valuable — does it exploit opportunity / neutralise threat?", "Rare — do few competitors possess it?", "Inimitable — is it costly for others to imitate?", "Organised — can the firm exploit it?", "Only all-four = sustainable advantage"], "when_to_use": "When a firm claims a 'competitive advantage' — VRIO forces a rigorous test and usually exposes that the advantage is imitable within a few years.", "link": {"url": "https://en.wikipedia.org/wiki/VRIO", "label": "Wikipedia — VRIO Framework (Barney)"}}, "5-15-2": {"title": "Fit Check", "slibrary": 15, "slibrary_title": "Value Design", "unit": 5, "desc": "Fit Check sequences three levels of alignment: Problem-Solution Fit (people have this problem and our solution helps) → Product-Market Fit (the market is large enough to sustain a business) → Business-Model Fit (the unit economics work at scale). Skipping ahead causes predictable failure.", "elements": ["Problem-Solution Fit — first gate", "Product-Market Fit — second gate", "Business-Model Fit — third gate", "Each gate validates before the next", "Scale-up failures often skipped a gate"], "when_to_use": "At the end of each product-development phase — the Fit Check sequence prevents premature scaling of an unvalidated model.", "link": {"url": "https://leanstack.com/what-is-problem-solution-fit", "label": "Lean Stack — Fit Stages"}}, "5-15-3": {"title": "Gain–Pain–Job Triad", "slibrary": 15, "slibrary_title": "Value Design", "unit": 5, "desc": "The Gain-Pain-Job Triad is the customer-side synthesis of the Value Proposition Canvas. Jobs are the tasks customers hire products to complete; Pains are the frustrations they experience attempting them; Gains are the positive outcomes they seek. Research must surface all three — not just jobs.", "elements": ["Jobs — functional, emotional, social tasks", "Pains — friction, risks, obstacles", "Gains — positive outcomes sought", "Research surfaces all three", "Feeds directly into Pain Relievers & Gain Creators"], "when_to_use": "As a synthesis tool after user research — the triad structures raw interview data into the three buckets the offering side must match.", "link": {"url": "https://www.strategyzer.com/library/the-value-proposition-canvas", "label": "Strategyzer — Value Proposition Canvas"}}, "5-15-4": {"title": "DVF Revisited", "slibrary": 15, "slibrary_title": "Value Design", "unit": 5, "desc": "DVF Revisited integrates the Desirability/Viability/Feasibility triad as a continuous triage, not a one-time test. In product development, DVF is asked at every major decision — new feature, new segment, pricing change — and an answer in the negative on any axis sends the decision back for redesign.", "elements": ["Triage every major product decision against DVF", "Negative answer sends the decision back", "Prevents slow drift into misaligned product", "Paired with Fit Check for full coverage", "Cultural practice, not one-time tool"], "when_to_use": "Throughout the product lifecycle — DVF is most powerful as an embedded habit, not a single gate at launch.", "link": {"url": "https://www.ideou.com/blogs/inspiration/how-to-prototype-a-new-business", "label": "IDEO U — DVF"}}};
+  var modal = document.getElementById('fwModal');
+  var eyebrow = document.getElementById('fwModalEyebrow');
+  var title = document.getElementById('fwModalTitle');
+  var desc = document.getElementById('fwModalDesc');
+  var elementsEl = document.getElementById('fwModalElements');
+  var whenEl = document.getElementById('fwModalWhen');
+  var link = document.getElementById('fwModalLink');
+  var linkLabel = document.getElementById('fwModalLinkLabel');
+
+  window.fwModalClose = function(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  };
+
+  function openFw(fwId){
+    var fw = FW_DATA[fwId];
+    if (!fw) return;
+    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
+    title.textContent = fw.title;
+    desc.textContent = fw.desc;
+    elementsEl.innerHTML = '';
+    fw.elements.forEach(function(el){
+      var li = document.createElement('li');
+      li.textContent = el;
+      elementsEl.appendChild(li);
+    });
+    whenEl.textContent = fw.when_to_use;
+    link.href = fw.link.url;
+    linkLabel.textContent = fw.link.label;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Click handlers on cards
+  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openFw(btn.getAttribute('data-fw-id'));
+    });
+  });
+
+  // Close handlers
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) fwModalClose();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
+  });
+})();
+</script>
 <script src="./assets/protection.js" defer></script>
 <script src="./assets/search.js" defer></script>
 </body>

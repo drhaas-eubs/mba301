@@ -4,245 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MBA301 Unit 9 — Systems Thinking</title>
-<meta name="description" content="MBA301 Unit 9 — Systems Thinking. Framework gallery of 15 visual thinking tools across Slibraries 25–27.">
+<meta name="description" content="MBA301 Unit 9 — Systems Thinking. Framework gallery of 15 interactive visual thinking tools across Slibraries 25–27.">
 <style>
 :root{
-  --navy:#0f2133;
-  --ink:#11202e;
-  --muted:#5b6b7a;
-  --border:#e4e8ec;
-  --border-strong:#cfd5dc;
-  --bg:#f6f4ef;
-  --card:#ffffff;
-  --accent:#00BE96;
-  --accent-ink:#04715b;
+  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
+  --border:#e4e8ec; --border-strong:#cfd5dc;
+  --bg:#f6f4ef; --card:#fff;
+  --accent:#00BE96; --accent-ink:#04715b;
   --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 14px; --radius-sm: 10px;
   --font: Arial, Helvetica, sans-serif;
 }
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: var(--font);
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-a{ color: inherit; text-decoration: none; }
+body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 
-.backbar{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
-}
-.backbar-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-}
-.backbar a{
-  color: var(--accent-ink);
-  font-weight: 700;
-  transition: color .15s ease;
-}
-.backbar a:hover{ color: var(--accent); }
+.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
+.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
+.backbar a{ color:var(--accent-ink); font-weight:700; }
+.backbar a:hover{ color:var(--accent); }
 
 .hero{
-  background: var(--navy);
-  color:#fff;
-  padding: 48px 24px 40px;
-  position:relative;
-  overflow:hidden;
-  border-bottom: 4px solid #4a7a8c;
+  background:var(--navy); color:#fff;
+  padding:48px 24px 40px;
+  position:relative; overflow:hidden;
+  border-bottom:4px solid #4a7a8c;
 }
 .hero::before{
-  content:"";
-  position:absolute; inset:0;
+  content:""; position:absolute; inset:0;
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(0,190,150,.14), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(74,122,140,0.18), transparent 45%);
+    radial-gradient(circle at 12% 20%, rgba(74,122,140,0.18), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
   pointer-events:none;
 }
-.hero-inner{ max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
 .eyebrow{
   display:inline-block;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: #4a7a8c;
-  font-weight: 700;
-  margin-bottom: 12px;
-  padding: 5px 12px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 999px;
+  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:#fff; font-weight:700;
+  margin-bottom:12px;
+  padding:5px 12px 5px 16px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  border-left:3px solid #4a7a8c;
+  border-radius:4px 999px 999px 4px;
 }
 .hero h1{
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: clamp(30px, 4.4vw, 44px);
-  line-height: 1.1;
-  margin: 0 0 10px;
-  letter-spacing: -.015em;
+  font-family:var(--font); font-weight:700;
+  font-size:clamp(30px, 4.4vw, 44px);
+  line-height:1.1; margin:0 0 10px;
+  letter-spacing:-.015em;
 }
-.hero-sub{
-  font-size: 15.5px;
-  color: rgba(255,255,255,.72);
-  max-width: 640px;
-  margin: 0 0 8px;
-}
-.hero-attr{
-  font-size: 13px;
-  color: rgba(255,255,255,.5);
-  margin: 0 0 24px;
-  font-style: italic;
-}
+.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
+.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
 
 .stats{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 560px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-  padding: 16px 0;
+  display:flex; flex-wrap:wrap; max-width:560px;
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  padding:16px 0;
 }
-.stat{ flex: 1 1 0; min-width: 110px; padding: 0 18px; }
-.stat:first-child{ padding-left: 0; }
-.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
-.stat-num{
-  font-family: var(--font);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  display:block;
-}
-.stat-label{
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-top: 6px;
-}
+.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
+.stat:first-child{ padding-left:0; }
+.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
+.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
+.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
 
-.gallery{
-  max-width: 1100px;
-  margin: 40px auto 20px;
-  padding: 0 24px;
-}
-.slibrary{
-  margin-bottom: 40px;
-}
+.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
+.slibrary{ margin-bottom:40px; }
 .slibrary-head{
-  display:flex;
-  align-items: baseline;
-  gap: 14px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #4a7a8c;
+  display:flex; align-items:baseline; gap:14px;
+  padding-bottom:12px; margin-bottom:20px;
+  border-bottom:2px solid #4a7a8c;
 }
 .slibrary-num{
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #4a7a8c;
-  background: rgba(74,122,140,0.1);
-  padding: 5px 11px;
-  border-radius: 6px;
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:#4a7a8c; background:rgba(74,122,140,0.1);
+  padding:5px 11px; border-radius:6px;
 }
 .slibrary-title{
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0;
-  letter-spacing: -.01em;
+  font-size:20px; font-weight:700;
+  color:var(--ink); margin:0; letter-spacing:-.01em;
 }
-.slibrary-count{
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-  font-style: italic;
+.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
+.slibrary-hint{
+  font-size:11.5px; color:var(--muted);
+  background:rgba(74,122,140,0.1); padding:3px 9px; border-radius:4px;
+  margin-left:8px; font-weight:700;
 }
 
-.frameworks{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
 .fw{
-  flex: 1 1 calc(33.333% - 16px);
-  min-width: 240px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 18px 18px 16px;
-  position: relative;
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor: default;
+  flex:1 1 calc(33.333% - 16px);
+  min-width:240px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:18px 18px 16px;
+  position:relative;
+  text-align:left; width:100%;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor:pointer;
+  font-family:inherit; color:inherit;
 }
 .fw::before{
-  content:"";
-  position: absolute;
-  left: 0; top: 18px; bottom: 16px;
-  width: 3px;
-  background: #4a7a8c;
-  border-radius: 0 3px 3px 0;
-  opacity: 0;
-  transition: opacity .15s ease;
+  content:""; position:absolute;
+  left:0; top:18px; bottom:16px;
+  width:3px; background:#4a7a8c;
+  border-radius:0 3px 3px 0;
+  opacity:0; transition:opacity .15s ease;
 }
-.fw:hover{
-  transform: translateY(-2px);
-  border-color: #4a7a8c;
-  box-shadow: var(--shadow);
-}
-.fw:hover::before{ opacity: 1; }
-.fw-title{
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 6px;
-  line-height: 1.3;
-}
-.fw-desc{
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin: 0 0 10px;
-}
+.fw:hover{ transform:translateY(-2px); border-color:#4a7a8c; box-shadow:var(--shadow); }
+.fw:hover::before{ opacity:1; }
+.fw:focus-visible{ outline:2px solid #4a7a8c; outline-offset:2px; }
+.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
+.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
 .fw-tag{
-  display:inline-block;
-  font-size: 11px;
-  letter-spacing: .04em;
-  color: #4a7a8c;
-  font-weight: 700;
-  padding-top: 6px;
-  border-top: 1px dashed var(--border);
-  width: 100%;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:11px; letter-spacing:.04em;
+  color:#4a7a8c; font-weight:700;
+  padding-top:6px;
+  border-top:1px dashed var(--border);
 }
+.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
+.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
 
-footer{
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 28px 24px 36px;
-  margin-top: 40px;
-}
+footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
 .footer-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  max-width:1100px; margin:0 auto;
+  font-size:13px; color:var(--muted);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
-.footer-inner strong{ color: var(--ink); }
+.footer-inner strong{ color:var(--ink); }
 
-@media (max-width: 720px){
-  .fw{ flex: 1 1 100%; }
-  .hero h1{ font-size: 28px; }
-  .slibrary-head{ flex-wrap: wrap; }
-  .slibrary-count{ margin-left: 0; }
+/* ---------- Framework Modal ---------- */
+.fw-modal-overlay{
+  position:fixed; inset:0;
+  background:rgba(15,33,51,.55);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  z-index:9999;
+  display:none;
+  align-items:flex-start; justify-content:center;
+  padding:60px 20px 20px;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.fw-modal-overlay.open{ display:flex; opacity:1; }
+
+.fw-modal{
+  width:100%; max-width:640px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(15,33,51,.3);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  max-height:calc(100vh - 80px);
+  animation:fwModalSlide .18s ease;
+  position:relative;
+}
+@keyframes fwModalSlide{
+  from{ transform:translateY(-8px); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+
+.fw-modal-head{
+  padding:22px 26px 18px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  background:rgba(74,122,140,0.06);
+}
+.fw-modal-close{
+  position:absolute; top:14px; right:14px;
+  width:32px; height:32px;
+  display:grid; place-items:center;
+  font-size:18px; color:var(--muted);
+  border-radius:6px;
+  transition:all .15s ease;
+}
+.fw-modal-close:hover{ background:#fff; color:var(--ink); }
+.fw-modal-eyebrow{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:#4a7a8c;
+  margin-bottom:8px;
+}
+.fw-modal-title{
+  font-size:22px; font-weight:700;
+  color:var(--ink); margin:0;
+  letter-spacing:-.01em; line-height:1.2;
+  padding-right:40px;
+}
+
+.fw-modal-body{
+  padding:24px 26px;
+  overflow-y:auto;
+  flex:1;
+}
+.fw-modal-desc{
+  font-size:14.5px; line-height:1.6;
+  color:var(--ink); margin:0 0 22px;
+}
+.fw-modal-section-title{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:var(--muted);
+  margin:0 0 10px;
+}
+.fw-modal-elements{
+  list-style:none; padding:0; margin:0 0 22px;
+}
+.fw-modal-elements li{
+  position:relative;
+  padding:6px 0 6px 20px;
+  font-size:13.5px; line-height:1.5;
+  color:var(--ink);
+  border-bottom:1px dashed var(--border);
+}
+.fw-modal-elements li:last-child{ border-bottom:0; }
+.fw-modal-elements li::before{
+  content:""; position:absolute;
+  left:0; top:13px;
+  width:8px; height:8px;
+  background:#4a7a8c;
+  border-radius:50%;
+}
+
+.fw-modal-callout{
+  background:rgba(74,122,140,0.06);
+  border-left:3px solid #4a7a8c;
+  padding:14px 18px;
+  border-radius:0 8px 8px 0;
+  margin-bottom:22px;
+}
+.fw-modal-callout .fw-modal-section-title{
+  color:#4a7a8c; margin-bottom:6px;
+}
+.fw-modal-callout p{
+  margin:0; font-size:13.5px; line-height:1.55;
+  color:var(--ink); font-style:italic;
+}
+
+.fw-modal-link{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  background:#4a7a8c; color:#fff;
+  border-radius:8px;
+  font-size:13px; font-weight:700;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
+.fw-modal-link-arrow{ font-size:14px; }
+
+.fw-modal-foot{
+  padding:12px 26px;
+  background:#fcfbf8;
+  border-top:1px solid var(--border);
+  font-size:11.5px; color:var(--muted);
+  display:flex; justify-content:space-between; gap:12px;
+}
+.fw-modal-foot kbd{
+  display:inline-block;
+  padding:1px 5px; margin:0 2px;
+  font-family:ui-monospace,Menlo,monospace;
+  font-size:10px; font-weight:700;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:3px;
+}
+
+@media (max-width:720px){
+  .fw{ flex:1 1 100%; }
+  .hero h1{ font-size:28px; }
+  .slibrary-head{ flex-wrap:wrap; }
+  .slibrary-count{ margin-left:0; }
+  .fw-modal{ max-height:calc(100vh - 60px); }
+  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
 }
 </style>
 <meta name="site-base" content=".">
@@ -262,145 +301,214 @@ footer{
     <span class="eyebrow">MBA301 · Unit 9</span>
     <h1>Systems Thinking</h1>
     <p class="hero-sub">Wicked problems, feedback loops, and Meadows' 12 leverage points.</p>
-    <p class="hero-attr">Select any framework card to explore it in detail · © 2026 Dr. H. Haas</p>
+    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
 
     <div class="stats">
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <div class="stat-label">Slibraries</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">15</span>
-        <div class="stat-label">Frameworks</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">25–27</span>
-        <div class="stat-label">Set Range</div>
-      </div>
+      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
+      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
+      <div class="stat"><span class="stat-num">25–27</span><div class="stat-label">Set Range</div></div>
     </div>
   </div>
 </section>
 
 <section class="gallery">
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 25</span>
       <h2 class="slibrary-title">Systems Foundations</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="9-25-0" aria-label="Open details for Iceberg Model">
         <h3 class="fw-title">Iceberg Model</h3>
         <p class="fw-desc">Events · Patterns · Structures · Mental Models — four depths of seeing.</p>
-        <span class="fw-tag">Slibrary 25 · Systems Foundations</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 25 · Systems Foundations <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-25-1" aria-label="Open details for Causal Loop Diagram">
         <h3 class="fw-title">Causal Loop Diagram</h3>
         <p class="fw-desc">Variables + arrows + polarity; the basic grammar of systems.</p>
-        <span class="fw-tag">Slibrary 25 · Systems Foundations</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 25 · Systems Foundations <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-25-2" aria-label="Open details for Feedback Loops">
         <h3 class="fw-title">Feedback Loops</h3>
         <p class="fw-desc">Reinforcing (R) amplify; Balancing (B) stabilise or seek a goal.</p>
-        <span class="fw-tag">Slibrary 25 · Systems Foundations</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 25 · Systems Foundations <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-25-3" aria-label="Open details for Stock & Flow Diagram">
         <h3 class="fw-title">Stock &amp; Flow Diagram</h3>
         <p class="fw-desc">Accumulations + rates — the quantitative backbone of CLDs.</p>
-        <span class="fw-tag">Slibrary 25 · Systems Foundations</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 25 · Systems Foundations <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-25-4" aria-label="Open details for Bathtub Model">
         <h3 class="fw-title">Bathtub Model</h3>
         <p class="fw-desc">Inflow &gt; outflow = the level rises; intuition pump for stocks.</p>
-        <span class="fw-tag">Slibrary 25 · Systems Foundations</span>
-      </div>
+        <span class="fw-tag">Slibrary 25 · Systems Foundations <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 26</span>
       <h2 class="slibrary-title">Systems Archetypes</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="9-26-0" aria-label="Open details for Shifting the Burden">
         <h3 class="fw-title">Shifting the Burden</h3>
         <p class="fw-desc">Symptomatic fix erodes capacity for the fundamental solution.</p>
-        <span class="fw-tag">Slibrary 26 · Systems Archetypes</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 26 · Systems Archetypes <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-26-1" aria-label="Open details for Limits to Growth">
         <h3 class="fw-title">Limits to Growth</h3>
         <p class="fw-desc">Every reinforcing engine eventually meets a balancing constraint.</p>
-        <span class="fw-tag">Slibrary 26 · Systems Archetypes</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 26 · Systems Archetypes <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-26-2" aria-label="Open details for Tragedy of the Commons">
         <h3 class="fw-title">Tragedy of the Commons</h3>
         <p class="fw-desc">Individual rational use of a shared resource ruins it for all.</p>
-        <span class="fw-tag">Slibrary 26 · Systems Archetypes</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 26 · Systems Archetypes <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-26-3" aria-label="Open details for Fixes That Fail">
         <h3 class="fw-title">Fixes That Fail</h3>
         <p class="fw-desc">A quick fix has unintended consequences worse than the problem.</p>
-        <span class="fw-tag">Slibrary 26 · Systems Archetypes</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 26 · Systems Archetypes <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-26-4" aria-label="Open details for Success to the Successful">
         <h3 class="fw-title">Success to the Successful</h3>
         <p class="fw-desc">Winner-gets-more dynamics produce lock-in and monopoly.</p>
-        <span class="fw-tag">Slibrary 26 · Systems Archetypes</span>
-      </div>
+        <span class="fw-tag">Slibrary 26 · Systems Archetypes <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 27</span>
       <h2 class="slibrary-title">Leverage &amp; Change</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="9-27-0" aria-label="Open details for Meadows' 12 Leverage Points">
         <h3 class="fw-title">Meadows' 12 Leverage Points</h3>
         <p class="fw-desc">From parameters to paradigms — where to intervene, ranked.</p>
-        <span class="fw-tag">Slibrary 27 · Leverage & Change</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 27 · Leverage & Change <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-27-1" aria-label="Open details for Theory U (Scharmer)">
         <h3 class="fw-title">Theory U (Scharmer)</h3>
         <p class="fw-desc">Observe · retreat &amp; reflect · act in an instant — presencing.</p>
-        <span class="fw-tag">Slibrary 27 · Leverage & Change</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 27 · Leverage & Change <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-27-2" aria-label="Open details for Three Horizons">
         <h3 class="fw-title">Three Horizons</h3>
         <p class="fw-desc">H1 business as usual · H2 transition · H3 transformed future.</p>
-        <span class="fw-tag">Slibrary 27 · Leverage & Change</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 27 · Leverage & Change <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-27-3" aria-label="Open details for Wicked Problems (Rittel & Webber)">
         <h3 class="fw-title">Wicked Problems (Rittel &amp; Webber)</h3>
         <p class="fw-desc">No definitive formulation, no stopping rule, no right answer.</p>
-        <span class="fw-tag">Slibrary 27 · Leverage & Change</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 27 · Leverage & Change <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="9-27-4" aria-label="Open details for Systems Mapping Canvas">
         <h3 class="fw-title">Systems Mapping Canvas</h3>
         <p class="fw-desc">Stakeholders · stocks · flows · loops · leverage — on one sheet.</p>
-        <span class="fw-tag">Slibrary 27 · Leverage & Change</span>
-      </div>
+        <span class="fw-tag">Slibrary 27 · Leverage & Change <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
 
 </section>
 
+<!-- Framework Detail Modal -->
+<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
+  <div class="fw-modal" role="document">
+    <div class="fw-modal-head">
+      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
+      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
+      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
+    </div>
+    <div class="fw-modal-body">
+      <p class="fw-modal-desc" id="fwModalDesc"></p>
+      <div class="fw-modal-section-title">Key Elements</div>
+      <ul class="fw-modal-elements" id="fwModalElements"></ul>
+      <div class="fw-modal-callout">
+        <div class="fw-modal-section-title">When to Use</div>
+        <p id="fwModalWhen"></p>
+      </div>
+      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
+        <span id="fwModalLinkLabel"></span>
+        <span class="fw-modal-link-arrow">↗</span>
+      </a>
+    </div>
+    <div class="fw-modal-foot">
+      <span>Authoritative external source opens in a new tab</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
-    <div>
-      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
-    </div>
-    <div>
-      Unit 9: Systems Thinking · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)
-    </div>
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 9: Systems Thinking · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var FW_DATA = {"9-25-0": {"title": "Iceberg Model", "slibrary": 25, "slibrary_title": "Systems Foundations", "unit": 9, "desc": "The Iceberg Model visualises four depths of seeing a system: Events (what happened), Patterns (what keeps happening), Structures (what produces the patterns), and Mental Models (what beliefs sustain the structures). Most interventions operate at the Events layer — and predictably fail.", "elements": ["Events — the visible incidents", "Patterns — recurring trends over time", "Structures — rules, relationships, flows", "Mental Models — beliefs, assumptions", "Deeper levels have more leverage"], "when_to_use": "When a team keeps reacting to events — the Iceberg shifts the conversation from 'what do we do about this?' to 'what produces this repeatedly?'", "link": {"url": "https://www.ecochallenge.org/resources/iceberg-model/", "label": "Academy for Systems Change — Iceberg Model"}}, "9-25-1": {"title": "Causal Loop Diagram", "slibrary": 25, "slibrary_title": "Systems Foundations", "unit": 9, "desc": "The Causal Loop Diagram (CLD) is the basic grammar of systems thinking: variables connected by arrows with polarity (+ or −), closing into loops. Each loop is labelled Reinforcing (R) or Balancing (B). CLDs make visible the feedback structures that produce persistent behaviour.", "elements": ["Variables — nouns (quantities)", "Arrows — causal links", "Polarity — + (same direction) or − (opposite)", "Loops — R (reinforcing) or B (balancing)", "Delays marked with parallel lines"], "when_to_use": "When a problem resists point-solutions — building a CLD usually reveals the feedback loops that keep snapping the system back to the undesired state.", "link": {"url": "https://thesystemsthinker.com/causal-loop-construction-the-basics/", "label": "The Systems Thinker — Causal Loop Construction"}}, "9-25-2": {"title": "Feedback Loops", "slibrary": 25, "slibrary_title": "Systems Foundations", "unit": 9, "desc": "Feedback loops are the engines of system behaviour. Reinforcing (R) loops amplify change — virality, compounding growth, vicious cycles. Balancing (B) loops seek a goal — thermostat, body temperature, market equilibrium. Most systems have multiple interacting loops; which dominates determines behaviour.", "elements": ["Reinforcing (R) — amplifies change", "Balancing (B) — seeks a goal", "Delays matter — slow loops feel broken", "Loop dominance changes over time", "R + B together = complex dynamics"], "when_to_use": "When interpreting a CLD — labelling each loop R or B and identifying delays predicts the system's likely behaviour over time.", "link": {"url": "https://thesystemsthinker.com/feedback-loops-and-systems-thinking/", "label": "The Systems Thinker — Feedback Loops"}}, "9-25-3": {"title": "Stock & Flow Diagram", "slibrary": 25, "slibrary_title": "Systems Foundations", "unit": 9, "desc": "The Stock and Flow Diagram adds quantitative rigour to causal loops: stocks are accumulations (inventory, population, knowledge), flows are rates of change (in/out). Stocks smooth volatility; flows cause it. The distinction matters because managerial interventions typically affect flows but leadership worries about stocks.", "elements": ["Stocks — accumulations, measured at a point", "Flows — rates of change, measured over time", "Inflows and outflows", "Stocks smooth flow volatility", "Stock-flow thinking corrects intuition"], "when_to_use": "When a conversation conflates stock and flow (e.g. confusing debt with deficit, population with birth rate) — forcing the distinction clarifies the actual lever.", "link": {"url": "https://thesystemsthinker.com/step-by-step-stocks-and-flows/", "label": "The Systems Thinker — Stocks and Flows"}}, "9-25-4": {"title": "Bathtub Model", "slibrary": 25, "slibrary_title": "Systems Foundations", "unit": 9, "desc": "The Bathtub Model is the intuition pump for stocks and flows: if water flows in faster than it flows out, the level rises. The simple model breaks most people's intuition about national debt, carbon emissions, or talent pools — because people track flows intuitively but misread stock behaviour.", "elements": ["Stock = water level in the bath", "Inflow = tap on", "Outflow = drain open", "Level rises if inflow > outflow", "Level only falls when outflow > inflow"], "when_to_use": "When explaining accumulation dynamics to non-technical audiences — the bathtub is the most accessible model for stock-flow reasoning.", "link": {"url": "https://en.wikipedia.org/wiki/Stock_and_flow", "label": "Wikipedia — Stock and Flow"}}, "9-26-0": {"title": "Shifting the Burden", "slibrary": 26, "slibrary_title": "Systems Archetypes", "unit": 9, "desc": "Shifting the Burden: a symptomatic fix reduces immediate pain but erodes the capacity to pursue the fundamental solution. Over time, the fundamental solution becomes impossible because the system has atrophied. Classic examples: painkillers → addiction; bailouts → moral hazard; consulting → internal capability loss.", "elements": ["Symptomatic fix — fast relief", "Fundamental solution — slow but real", "Fix erodes capacity for fundamental solution", "Over time, fundamental solution becomes impossible", "Recognised by 'we've tried that but it keeps coming back'"], "when_to_use": "When a chronic problem keeps returning despite repeated fixes — the archetype diagnoses whether each fix is eroding the capacity for the real solution.", "link": {"url": "https://thesystemsthinker.com/systems-archetypes-i-diagnosing-systemic-issues-and-designing-high-leverage-interventions/", "label": "The Systems Thinker — Systems Archetypes"}}, "9-26-1": {"title": "Limits to Growth", "slibrary": 26, "slibrary_title": "Systems Archetypes", "unit": 9, "desc": "Limits to Growth: every reinforcing engine eventually meets a balancing constraint. Growth slows, often suddenly. The constraint is rarely obvious in advance — it can be a resource, a market size, an internal capability, a regulatory ceiling. Growth strategies that ignore the eventual balancing loop fail predictably.", "elements": ["A reinforcing (R) loop drives growth", "A balancing (B) loop creates the limit", "Growth slows as the limit approaches", "Limit is often surprising in kind and timing", "Solutions: identify and address the limit"], "when_to_use": "When a fast-growing venture or project suddenly decelerates — the archetype pinpoints which balancing loop is activating.", "link": {"url": "https://en.wikipedia.org/wiki/The_Limits_to_Growth", "label": "Wikipedia — The Limits to Growth"}}, "9-26-2": {"title": "Tragedy of the Commons", "slibrary": 26, "slibrary_title": "Systems Archetypes", "unit": 9, "desc": "Tragedy of the Commons (Hardin, 1968): individual rational use of a shared resource destroys it for all. Each participant has an incentive to use more; none has an incentive to conserve. Examples: overfishing, groundwater depletion, antibiotic resistance, open-office noise, common Slack channels.", "elements": ["Shared resource, no individual ownership", "Each party rationally maximises own use", "Aggregate use exceeds carrying capacity", "Resource degrades or collapses", "Solutions: ownership, quotas, or social norms"], "when_to_use": "When a shared resource (physical or organisational) is visibly degrading — the archetype diagnoses the incentive structure driving the degradation.", "link": {"url": "https://www.science.org/doi/10.1126/science.162.3859.1243", "label": "Science — The Tragedy of the Commons (Hardin, 1968)"}}, "9-26-3": {"title": "Fixes That Fail", "slibrary": 26, "slibrary_title": "Systems Archetypes", "unit": 9, "desc": "Fixes That Fail: a quick fix has unintended consequences that, over time, are worse than the original problem. The classic pattern is a delay — the consequences appear later, so the fix initially looks successful. Examples: antibiotic overuse → resistance; aggressive hiring → cultural dilution; discounting → brand erosion.", "elements": ["Quick fix reduces symptom fast", "Unintended consequence appears later", "Consequence is often worse than original", "Delay obscures the causal link", "Recognised by 'we fixed it, but now…'"], "when_to_use": "When evaluating any proposed 'fix' — the archetype surfaces whether the team has considered delayed consequences or only immediate effect.", "link": {"url": "https://thesystemsthinker.com/systems-archetypes-i-diagnosing-systemic-issues-and-designing-high-leverage-interventions/", "label": "The Systems Thinker — Fixes That Fail"}}, "9-26-4": {"title": "Success to the Successful", "slibrary": 26, "slibrary_title": "Systems Archetypes", "unit": 9, "desc": "Success to the Successful: winner-gets-more dynamics produce lock-in. Two similar efforts, a small initial advantage to one, resources flow preferentially, the advantage compounds. Network effects, reputation premiums, inequality dynamics, and market consolidation are all instances of this archetype.", "elements": ["Two efforts of similar initial quality", "Small random advantage to one", "Resources flow preferentially to the leader", "Gap compounds over time", "Outcome determined early, often by chance"], "when_to_use": "When analysing market concentration, inequality, or network effect dynamics — the archetype reveals why competitive outcomes diverge faster than the underlying quality differences.", "link": {"url": "https://thesystemsthinker.com/systems-archetypes-i-diagnosing-systemic-issues-and-designing-high-leverage-interventions/", "label": "The Systems Thinker — Systems Archetypes"}}, "9-27-0": {"title": "Meadows' 12 Leverage Points", "slibrary": 27, "slibrary_title": "Leverage & Change", "unit": 9, "desc": "Donella Meadows' 12 Leverage Points (1999) ranks places to intervene in a system from lowest to highest leverage. Parameters (taxes, subsidies, standards) are low-leverage — easy to change, small effect. Paradigms are high-leverage — hard to change, transformative effect. Most policy operates at the bottom; greatest change comes from the top.", "elements": ["12 (lowest) — numbers, constants, parameters", "9-11 — stock sizes, buffers, delays", "5-8 — rules, information, self-organisation", "2-4 — goals, paradigms", "1 (highest) — transcending paradigms"], "when_to_use": "When designing an intervention in a complex system — Meadows' ranking reveals that most interventions are chosen for convenience, not effect.", "link": {"url": "https://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/", "label": "Donella Meadows — Leverage Points"}}, "9-27-1": {"title": "Theory U (Scharmer)", "slibrary": 27, "slibrary_title": "Leverage & Change", "unit": 9, "desc": "Otto Scharmer's Theory U (2007) is a change-leadership method for deep transformation. The U-curve moves down through Observe (suspend judgment) → Retreat & Reflect (let the future emerge) → Act in an instant (move from the future as it emerges). The method is influential in sustainability, public-sector, and systemic change work.", "elements": ["Co-initiating — building common intent", "Co-sensing — observing with an open mind", "Presencing — connecting to emerging future", "Co-creating — prototyping the new", "Co-evolving — embodying in ecosystems"], "when_to_use": "In deep change processes where the usual problem-solution framing is insufficient — Theory U provides method for transformations that must emerge, not be planned.", "link": {"url": "https://www.presencing.org/aboutus/theory-u", "label": "Presencing Institute — Theory U"}}, "9-27-2": {"title": "Three Horizons", "slibrary": 27, "slibrary_title": "Leverage & Change", "unit": 9, "desc": "The Three Horizons model (Bill Sharpe et al., 2013) maps strategic futures across three overlapping curves: H1 (business as usual, now declining), H2 (transition, disruptive innovation), H3 (transformed future, emerging). The model gives leaders vocabulary for the simultaneous work of defending H1, building H2, and envisioning H3.", "elements": ["H1 — business as usual, under pressure", "H2 — disruptive transition, messy middle", "H3 — transformed future, aspirational", "All three active simultaneously", "Leadership = balancing across all three"], "when_to_use": "In long-range strategy discussions for firms or systems facing genuine transformation — 3H prevents the conversation collapsing into short-term survival.", "link": {"url": "https://www.h3uni.org/tutorial/three-horizons/", "label": "H3Uni — Three Horizons Framework"}}, "9-27-3": {"title": "Wicked Problems (Rittel & Webber)", "slibrary": 27, "slibrary_title": "Leverage & Change", "unit": 9, "desc": "Rittel and Webber's 1973 paper 'Dilemmas in a General Theory of Planning' coined 'wicked problem' — problems with no definitive formulation, no stopping rule, no right-or-wrong solutions, and no right to be wrong. Wicked problems resist the tools of tame problem-solving and require the methods of design.", "elements": ["No definitive formulation", "No stopping rule", "Solutions are better-or-worse, not right-or-wrong", "Every wicked problem is essentially unique", "The planner has no right to be wrong"], "when_to_use": "When a problem resists all standard analytical approaches — recognising it as wicked legitimises design-based (iterative, exploratory) methods.", "link": {"url": "https://www.jstor.org/stable/4531523", "label": "Policy Sciences — Dilemmas in a General Theory of Planning (Rittel & Webber, 1973)"}}, "9-27-4": {"title": "Systems Mapping Canvas", "slibrary": 27, "slibrary_title": "Leverage & Change", "unit": 9, "desc": "The Systems Mapping Canvas integrates the unit's frameworks into one sheet: stakeholders, stocks, flows, loops, and leverage points. It's the capstone artefact of the course — a single-page summary of the system under study that makes the intervention design defensible to stakeholders who weren't in the room.", "elements": ["Stakeholders — who acts in the system", "Stocks — what accumulates", "Flows — what changes the stocks", "Loops — R and B feedback structures", "Leverage points — where to intervene"], "when_to_use": "As the capstone output of any systems analysis — the canvas forces the team to synthesise its thinking into a defensible, communicable artefact.", "link": {"url": "https://www.systemsinnovation.network/", "label": "Systems Innovation Network"}}};
+  var modal = document.getElementById('fwModal');
+  var eyebrow = document.getElementById('fwModalEyebrow');
+  var title = document.getElementById('fwModalTitle');
+  var desc = document.getElementById('fwModalDesc');
+  var elementsEl = document.getElementById('fwModalElements');
+  var whenEl = document.getElementById('fwModalWhen');
+  var link = document.getElementById('fwModalLink');
+  var linkLabel = document.getElementById('fwModalLinkLabel');
+
+  window.fwModalClose = function(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  };
+
+  function openFw(fwId){
+    var fw = FW_DATA[fwId];
+    if (!fw) return;
+    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
+    title.textContent = fw.title;
+    desc.textContent = fw.desc;
+    elementsEl.innerHTML = '';
+    fw.elements.forEach(function(el){
+      var li = document.createElement('li');
+      li.textContent = el;
+      elementsEl.appendChild(li);
+    });
+    whenEl.textContent = fw.when_to_use;
+    link.href = fw.link.url;
+    linkLabel.textContent = fw.link.label;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Click handlers on cards
+  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openFw(btn.getAttribute('data-fw-id'));
+    });
+  });
+
+  // Close handlers
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) fwModalClose();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
+  });
+})();
+</script>
 <script src="./assets/protection.js" defer></script>
 <script src="./assets/search.js" defer></script>
 </body>

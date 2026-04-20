@@ -4,245 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MBA301 Unit 2 — Ideation</title>
-<meta name="description" content="MBA301 Unit 2 — Ideation. Framework gallery of 15 visual thinking tools across Slibraries 4–6.">
+<meta name="description" content="MBA301 Unit 2 — Ideation. Framework gallery of 15 interactive visual thinking tools across Slibraries 4–6.">
 <style>
 :root{
-  --navy:#0f2133;
-  --ink:#11202e;
-  --muted:#5b6b7a;
-  --border:#e4e8ec;
-  --border-strong:#cfd5dc;
-  --bg:#f6f4ef;
-  --card:#ffffff;
-  --accent:#00BE96;
-  --accent-ink:#04715b;
+  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
+  --border:#e4e8ec; --border-strong:#cfd5dc;
+  --bg:#f6f4ef; --card:#fff;
+  --accent:#00BE96; --accent-ink:#04715b;
   --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 14px; --radius-sm: 10px;
   --font: Arial, Helvetica, sans-serif;
 }
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: var(--font);
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-a{ color: inherit; text-decoration: none; }
+body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 
-.backbar{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
-}
-.backbar-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-}
-.backbar a{
-  color: var(--accent-ink);
-  font-weight: 700;
-  transition: color .15s ease;
-}
-.backbar a:hover{ color: var(--accent); }
+.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
+.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
+.backbar a{ color:var(--accent-ink); font-weight:700; }
+.backbar a:hover{ color:var(--accent); }
 
 .hero{
-  background: var(--navy);
-  color:#fff;
-  padding: 48px 24px 40px;
-  position:relative;
-  overflow:hidden;
-  border-bottom: 4px solid #3d5a7a;
+  background:var(--navy); color:#fff;
+  padding:48px 24px 40px;
+  position:relative; overflow:hidden;
+  border-bottom:4px solid #3d5a7a;
 }
 .hero::before{
-  content:"";
-  position:absolute; inset:0;
+  content:""; position:absolute; inset:0;
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(0,190,150,.14), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(61,90,122,0.18), transparent 45%);
+    radial-gradient(circle at 12% 20%, rgba(61,90,122,0.18), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
   pointer-events:none;
 }
-.hero-inner{ max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
 .eyebrow{
   display:inline-block;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: #3d5a7a;
-  font-weight: 700;
-  margin-bottom: 12px;
-  padding: 5px 12px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 999px;
+  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:#fff; font-weight:700;
+  margin-bottom:12px;
+  padding:5px 12px 5px 16px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  border-left:3px solid #3d5a7a;
+  border-radius:4px 999px 999px 4px;
 }
 .hero h1{
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: clamp(30px, 4.4vw, 44px);
-  line-height: 1.1;
-  margin: 0 0 10px;
-  letter-spacing: -.015em;
+  font-family:var(--font); font-weight:700;
+  font-size:clamp(30px, 4.4vw, 44px);
+  line-height:1.1; margin:0 0 10px;
+  letter-spacing:-.015em;
 }
-.hero-sub{
-  font-size: 15.5px;
-  color: rgba(255,255,255,.72);
-  max-width: 640px;
-  margin: 0 0 8px;
-}
-.hero-attr{
-  font-size: 13px;
-  color: rgba(255,255,255,.5);
-  margin: 0 0 24px;
-  font-style: italic;
-}
+.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
+.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
 
 .stats{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 560px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-  padding: 16px 0;
+  display:flex; flex-wrap:wrap; max-width:560px;
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  padding:16px 0;
 }
-.stat{ flex: 1 1 0; min-width: 110px; padding: 0 18px; }
-.stat:first-child{ padding-left: 0; }
-.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
-.stat-num{
-  font-family: var(--font);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  display:block;
-}
-.stat-label{
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-top: 6px;
-}
+.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
+.stat:first-child{ padding-left:0; }
+.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
+.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
+.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
 
-.gallery{
-  max-width: 1100px;
-  margin: 40px auto 20px;
-  padding: 0 24px;
-}
-.slibrary{
-  margin-bottom: 40px;
-}
+.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
+.slibrary{ margin-bottom:40px; }
 .slibrary-head{
-  display:flex;
-  align-items: baseline;
-  gap: 14px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #3d5a7a;
+  display:flex; align-items:baseline; gap:14px;
+  padding-bottom:12px; margin-bottom:20px;
+  border-bottom:2px solid #3d5a7a;
 }
 .slibrary-num{
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #3d5a7a;
-  background: rgba(61,90,122,0.1);
-  padding: 5px 11px;
-  border-radius: 6px;
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:#3d5a7a; background:rgba(61,90,122,0.1);
+  padding:5px 11px; border-radius:6px;
 }
 .slibrary-title{
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0;
-  letter-spacing: -.01em;
+  font-size:20px; font-weight:700;
+  color:var(--ink); margin:0; letter-spacing:-.01em;
 }
-.slibrary-count{
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-  font-style: italic;
+.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
+.slibrary-hint{
+  font-size:11.5px; color:var(--muted);
+  background:rgba(61,90,122,0.1); padding:3px 9px; border-radius:4px;
+  margin-left:8px; font-weight:700;
 }
 
-.frameworks{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
 .fw{
-  flex: 1 1 calc(33.333% - 16px);
-  min-width: 240px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 18px 18px 16px;
-  position: relative;
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor: default;
+  flex:1 1 calc(33.333% - 16px);
+  min-width:240px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:18px 18px 16px;
+  position:relative;
+  text-align:left; width:100%;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor:pointer;
+  font-family:inherit; color:inherit;
 }
 .fw::before{
-  content:"";
-  position: absolute;
-  left: 0; top: 18px; bottom: 16px;
-  width: 3px;
-  background: #3d5a7a;
-  border-radius: 0 3px 3px 0;
-  opacity: 0;
-  transition: opacity .15s ease;
+  content:""; position:absolute;
+  left:0; top:18px; bottom:16px;
+  width:3px; background:#3d5a7a;
+  border-radius:0 3px 3px 0;
+  opacity:0; transition:opacity .15s ease;
 }
-.fw:hover{
-  transform: translateY(-2px);
-  border-color: #3d5a7a;
-  box-shadow: var(--shadow);
-}
-.fw:hover::before{ opacity: 1; }
-.fw-title{
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 6px;
-  line-height: 1.3;
-}
-.fw-desc{
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin: 0 0 10px;
-}
+.fw:hover{ transform:translateY(-2px); border-color:#3d5a7a; box-shadow:var(--shadow); }
+.fw:hover::before{ opacity:1; }
+.fw:focus-visible{ outline:2px solid #3d5a7a; outline-offset:2px; }
+.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
+.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
 .fw-tag{
-  display:inline-block;
-  font-size: 11px;
-  letter-spacing: .04em;
-  color: #3d5a7a;
-  font-weight: 700;
-  padding-top: 6px;
-  border-top: 1px dashed var(--border);
-  width: 100%;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:11px; letter-spacing:.04em;
+  color:#3d5a7a; font-weight:700;
+  padding-top:6px;
+  border-top:1px dashed var(--border);
 }
+.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
+.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
 
-footer{
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 28px 24px 36px;
-  margin-top: 40px;
-}
+footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
 .footer-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  max-width:1100px; margin:0 auto;
+  font-size:13px; color:var(--muted);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
-.footer-inner strong{ color: var(--ink); }
+.footer-inner strong{ color:var(--ink); }
 
-@media (max-width: 720px){
-  .fw{ flex: 1 1 100%; }
-  .hero h1{ font-size: 28px; }
-  .slibrary-head{ flex-wrap: wrap; }
-  .slibrary-count{ margin-left: 0; }
+/* ---------- Framework Modal ---------- */
+.fw-modal-overlay{
+  position:fixed; inset:0;
+  background:rgba(15,33,51,.55);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  z-index:9999;
+  display:none;
+  align-items:flex-start; justify-content:center;
+  padding:60px 20px 20px;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.fw-modal-overlay.open{ display:flex; opacity:1; }
+
+.fw-modal{
+  width:100%; max-width:640px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(15,33,51,.3);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  max-height:calc(100vh - 80px);
+  animation:fwModalSlide .18s ease;
+  position:relative;
+}
+@keyframes fwModalSlide{
+  from{ transform:translateY(-8px); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+
+.fw-modal-head{
+  padding:22px 26px 18px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  background:rgba(61,90,122,0.06);
+}
+.fw-modal-close{
+  position:absolute; top:14px; right:14px;
+  width:32px; height:32px;
+  display:grid; place-items:center;
+  font-size:18px; color:var(--muted);
+  border-radius:6px;
+  transition:all .15s ease;
+}
+.fw-modal-close:hover{ background:#fff; color:var(--ink); }
+.fw-modal-eyebrow{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:#3d5a7a;
+  margin-bottom:8px;
+}
+.fw-modal-title{
+  font-size:22px; font-weight:700;
+  color:var(--ink); margin:0;
+  letter-spacing:-.01em; line-height:1.2;
+  padding-right:40px;
+}
+
+.fw-modal-body{
+  padding:24px 26px;
+  overflow-y:auto;
+  flex:1;
+}
+.fw-modal-desc{
+  font-size:14.5px; line-height:1.6;
+  color:var(--ink); margin:0 0 22px;
+}
+.fw-modal-section-title{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:700; color:var(--muted);
+  margin:0 0 10px;
+}
+.fw-modal-elements{
+  list-style:none; padding:0; margin:0 0 22px;
+}
+.fw-modal-elements li{
+  position:relative;
+  padding:6px 0 6px 20px;
+  font-size:13.5px; line-height:1.5;
+  color:var(--ink);
+  border-bottom:1px dashed var(--border);
+}
+.fw-modal-elements li:last-child{ border-bottom:0; }
+.fw-modal-elements li::before{
+  content:""; position:absolute;
+  left:0; top:13px;
+  width:8px; height:8px;
+  background:#3d5a7a;
+  border-radius:50%;
+}
+
+.fw-modal-callout{
+  background:rgba(61,90,122,0.06);
+  border-left:3px solid #3d5a7a;
+  padding:14px 18px;
+  border-radius:0 8px 8px 0;
+  margin-bottom:22px;
+}
+.fw-modal-callout .fw-modal-section-title{
+  color:#3d5a7a; margin-bottom:6px;
+}
+.fw-modal-callout p{
+  margin:0; font-size:13.5px; line-height:1.55;
+  color:var(--ink); font-style:italic;
+}
+
+.fw-modal-link{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  background:#3d5a7a; color:#fff;
+  border-radius:8px;
+  font-size:13px; font-weight:700;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
+.fw-modal-link-arrow{ font-size:14px; }
+
+.fw-modal-foot{
+  padding:12px 26px;
+  background:#fcfbf8;
+  border-top:1px solid var(--border);
+  font-size:11.5px; color:var(--muted);
+  display:flex; justify-content:space-between; gap:12px;
+}
+.fw-modal-foot kbd{
+  display:inline-block;
+  padding:1px 5px; margin:0 2px;
+  font-family:ui-monospace,Menlo,monospace;
+  font-size:10px; font-weight:700;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:3px;
+}
+
+@media (max-width:720px){
+  .fw{ flex:1 1 100%; }
+  .hero h1{ font-size:28px; }
+  .slibrary-head{ flex-wrap:wrap; }
+  .slibrary-count{ margin-left:0; }
+  .fw-modal{ max-height:calc(100vh - 60px); }
+  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
 }
 </style>
 <meta name="site-base" content=".">
@@ -262,145 +301,214 @@ footer{
     <span class="eyebrow">MBA301 · Unit 2</span>
     <h1>Ideation</h1>
     <p class="hero-sub">Idea generation, creativity, and the ideation techniques that scale them.</p>
-    <p class="hero-attr">Select any framework card to explore it in detail · © 2026 Dr. H. Haas</p>
+    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
 
     <div class="stats">
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <div class="stat-label">Slibraries</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">15</span>
-        <div class="stat-label">Frameworks</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">4–6</span>
-        <div class="stat-label">Set Range</div>
-      </div>
+      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
+      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
+      <div class="stat"><span class="stat-num">4–6</span><div class="stat-label">Set Range</div></div>
     </div>
   </div>
 </section>
 
 <section class="gallery">
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 4</span>
       <h2 class="slibrary-title">Divergent Thinking</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="2-4-0" aria-label="Open details for Osborn's Brainstorming Rules">
         <h3 class="fw-title">Osborn's Brainstorming Rules</h3>
         <p class="fw-desc">Defer judgment · Quantity · Wild ideas · Build on others.</p>
-        <span class="fw-tag">Slibrary 4 · Divergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 4 · Divergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-4-1" aria-label="Open details for SCAMPER">
         <h3 class="fw-title">SCAMPER</h3>
         <p class="fw-desc">Substitute · Combine · Adapt · Modify · Put to other use · Eliminate · Reverse.</p>
-        <span class="fw-tag">Slibrary 4 · Divergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 4 · Divergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-4-2" aria-label="Open details for Mind Mapping">
         <h3 class="fw-title">Mind Mapping</h3>
         <p class="fw-desc">Buzan's radial hierarchy — one central node, branching associations.</p>
-        <span class="fw-tag">Slibrary 4 · Divergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 4 · Divergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-4-3" aria-label="Open details for Crazy 8s">
         <h3 class="fw-title">Crazy 8s</h3>
         <p class="fw-desc">8 ideas in 8 minutes — the Google Ventures sketching sprint.</p>
-        <span class="fw-tag">Slibrary 4 · Divergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 4 · Divergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-4-4" aria-label="Open details for Six Thinking Hats">
         <h3 class="fw-title">Six Thinking Hats</h3>
         <p class="fw-desc">De Bono's parallel thinking roles for balanced ideation.</p>
-        <span class="fw-tag">Slibrary 4 · Divergent Thinking</span>
-      </div>
+        <span class="fw-tag">Slibrary 4 · Divergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 5</span>
       <h2 class="slibrary-title">Convergent Thinking</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="2-5-0" aria-label="Open details for Dot Voting">
         <h3 class="fw-title">Dot Voting</h3>
         <p class="fw-desc">Anonymous, democratic, fast — the default team prioritisation vote.</p>
-        <span class="fw-tag">Slibrary 5 · Convergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 5 · Convergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-5-1" aria-label="Open details for NUF Test">
         <h3 class="fw-title">NUF Test</h3>
         <p class="fw-desc">New · Useful · Feasible — a three-axis idea gut-check.</p>
-        <span class="fw-tag">Slibrary 5 · Convergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 5 · Convergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-5-2" aria-label="Open details for Impact–Effort Matrix">
         <h3 class="fw-title">Impact–Effort Matrix</h3>
         <p class="fw-desc">2×2 quadrant: quick wins, big bets, fill-ins, time sinks.</p>
-        <span class="fw-tag">Slibrary 5 · Convergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 5 · Convergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-5-3" aria-label="Open details for How–Now–Wow Matrix">
         <h3 class="fw-title">How–Now–Wow Matrix</h3>
         <p class="fw-desc">Sort by novelty × implementability to surface real innovation.</p>
-        <span class="fw-tag">Slibrary 5 · Convergent Thinking</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 5 · Convergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-5-4" aria-label="Open details for Cost–Value Prioritisation">
         <h3 class="fw-title">Cost–Value Prioritisation</h3>
         <p class="fw-desc">RICE-style scoring to force trade-offs across a backlog.</p>
-        <span class="fw-tag">Slibrary 5 · Convergent Thinking</span>
-      </div>
+        <span class="fw-tag">Slibrary 5 · Convergent Thinking <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
-
   <div class="slibrary">
     <div class="slibrary-head">
       <span class="slibrary-num">Slibrary 6</span>
       <h2 class="slibrary-title">Ideation Techniques</h2>
+      <span class="slibrary-hint">Click any card for depth</span>
       <span class="slibrary-count">5 frameworks</span>
     </div>
     <div class="frameworks">
-      <div class="fw">
+      <button class="fw" type="button" data-fw-id="2-6-0" aria-label="Open details for Storyboarding">
         <h3 class="fw-title">Storyboarding</h3>
         <p class="fw-desc">Four to six panels: stage a concept as a user moment in time.</p>
-        <span class="fw-tag">Slibrary 6 · Ideation Techniques</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 6 · Ideation Techniques <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-6-1" aria-label="Open details for Bodystorming / Role-Play">
         <h3 class="fw-title">Bodystorming / Role-Play</h3>
         <p class="fw-desc">Enact the scenario in the room — catch gaps text hides.</p>
-        <span class="fw-tag">Slibrary 6 · Ideation Techniques</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 6 · Ideation Techniques <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-6-2" aria-label="Open details for Concept Sketching">
         <h3 class="fw-title">Concept Sketching</h3>
         <p class="fw-desc">Low-fidelity marker drawings — clarity over craft.</p>
-        <span class="fw-tag">Slibrary 6 · Ideation Techniques</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 6 · Ideation Techniques <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-6-3" aria-label="Open details for Analogous Inspiration">
         <h3 class="fw-title">Analogous Inspiration</h3>
         <p class="fw-desc">Borrow patterns from unrelated domains (hospital → pit stop).</p>
-        <span class="fw-tag">Slibrary 6 · Ideation Techniques</span>
-      </div>
-      <div class="fw">
+        <span class="fw-tag">Slibrary 6 · Ideation Techniques <span class="fw-tag-arrow">→</span></span>
+      </button>
+      <button class="fw" type="button" data-fw-id="2-6-4" aria-label="Open details for Worst Possible Idea">
         <h3 class="fw-title">Worst Possible Idea</h3>
         <p class="fw-desc">Reverse brainstorm the disaster, then invert to insights.</p>
-        <span class="fw-tag">Slibrary 6 · Ideation Techniques</span>
-      </div>
+        <span class="fw-tag">Slibrary 6 · Ideation Techniques <span class="fw-tag-arrow">→</span></span>
+      </button>
     </div>
   </div>
 
 </section>
 
+<!-- Framework Detail Modal -->
+<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
+  <div class="fw-modal" role="document">
+    <div class="fw-modal-head">
+      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
+      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
+      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
+    </div>
+    <div class="fw-modal-body">
+      <p class="fw-modal-desc" id="fwModalDesc"></p>
+      <div class="fw-modal-section-title">Key Elements</div>
+      <ul class="fw-modal-elements" id="fwModalElements"></ul>
+      <div class="fw-modal-callout">
+        <div class="fw-modal-section-title">When to Use</div>
+        <p id="fwModalWhen"></p>
+      </div>
+      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
+        <span id="fwModalLinkLabel"></span>
+        <span class="fw-modal-link-arrow">↗</span>
+      </a>
+    </div>
+    <div class="fw-modal-foot">
+      <span>Authoritative external source opens in a new tab</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
-    <div>
-      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
-    </div>
-    <div>
-      Unit 2: Ideation · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)
-    </div>
+    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+    <div>Unit 2: Ideation · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var FW_DATA = {"2-4-0": {"title": "Osborn's Brainstorming Rules", "slibrary": 4, "slibrary_title": "Divergent Thinking", "unit": 2, "desc": "Alex Osborn codified the four rules of brainstorming in his 1953 book Applied Imagination, launching the discipline of structured idea generation. The rules are simple but chronically violated — teams revert to judging ideas as they hear them, which kills the divergent phase.", "elements": ["Defer judgment — no critique during generation", "Quantity — aim high, quality emerges from volume", "Wild ideas welcome — extreme ideas open the frame", "Build on others — combine and improve", "Post-brainstorm: converge and evaluate separately"], "when_to_use": "Before any group ideation. Reading the rules out loud at the start cuts the most common failure mode — premature evaluation.", "link": {"url": "https://en.wikipedia.org/wiki/Brainstorming", "label": "Wikipedia — Brainstorming (Osborn, 1953)"}}, "2-4-1": {"title": "SCAMPER", "slibrary": 4, "slibrary_title": "Divergent Thinking", "unit": 2, "desc": "Bob Eberle's SCAMPER (1971) is a checklist of seven transformations applied to an existing product, service, or idea. It is particularly useful when a team feels stuck — applying the seven lenses mechanically generates 20+ variants from any starting point.", "elements": ["Substitute — swap a component", "Combine — merge with something else", "Adapt — borrow from another domain", "Modify / Magnify — change scale or emphasis", "Put to other use · Eliminate · Reverse"], "when_to_use": "When a team has a promising but incomplete idea and needs to generate variations. Also excellent as a solo tool when stuck on a single concept.", "link": {"url": "https://www.interaction-design.org/literature/article/learn-how-to-use-the-best-ideation-methods-scamper", "label": "Interaction Design Foundation — SCAMPER"}}, "2-4-2": {"title": "Mind Mapping", "slibrary": 4, "slibrary_title": "Divergent Thinking", "unit": 2, "desc": "Tony Buzan's Mind Mapping (1974) is radial note-taking that mirrors how the brain associates ideas. A central topic branches into main themes, which branch into sub-themes. Research suggests it improves recall and idea generation by engaging both hemispheres — though the empirical evidence is contested.", "elements": ["Central topic in the middle", "Main branches radiate outward", "Sub-branches grow from main branches", "Keywords, not sentences", "Colours and images encouraged"], "when_to_use": "When starting to think about a broad, fuzzy topic — mind maps surface unexpected connections faster than linear notes.", "link": {"url": "https://en.wikipedia.org/wiki/Mind_map", "label": "Wikipedia — Mind Mapping (Buzan)"}}, "2-4-3": {"title": "Crazy 8s", "slibrary": 4, "slibrary_title": "Divergent Thinking", "unit": 2, "desc": "Crazy 8s is a core exercise of the Google Ventures Design Sprint: fold an A3 page into eight panels and sketch eight distinct ideas in eight minutes. The time pressure forces quantity over quality and bypasses the inner critic. The rule is never to stop your pen, even for a bad idea.", "elements": ["Fold A3 paper into 8 equal panels", "One minute per panel, eight minutes total", "Sketch, don't write — visual generation", "Distinct ideas, not variations", "Don't stop drawing even for bad ideas"], "when_to_use": "Early in ideation when you need individuals to produce a lot of options quickly before the group starts influencing each other.", "link": {"url": "https://designsprintkit.withgoogle.com/methodology/phase3-sketch/crazy-8s", "label": "Google Design Sprint Kit — Crazy 8s"}}, "2-4-4": {"title": "Six Thinking Hats", "slibrary": 4, "slibrary_title": "Divergent Thinking", "unit": 2, "desc": "Edward de Bono's Six Thinking Hats (1985) is a parallel-thinking protocol: everyone in the group wears the same hat at the same time. This removes the normal argumentative back-and-forth and surfaces a richer set of perspectives on the same question, one angle at a time.", "elements": ["White — facts and information", "Red — emotions and intuition", "Black — caution and risks", "Yellow — optimism and benefits", "Green — creativity and alternatives · Blue — process"], "when_to_use": "When a group is stuck in polarised positions — Six Hats neutralises the adversarial dynamic by forcing everyone into the same mode simultaneously.", "link": {"url": "https://en.wikipedia.org/wiki/Six_Thinking_Hats", "label": "Wikipedia — Six Thinking Hats (de Bono)"}}, "2-5-0": {"title": "Dot Voting", "slibrary": 5, "slibrary_title": "Convergent Thinking", "unit": 2, "desc": "Dot voting (sometimes called dotmocracy) gives each participant a fixed number of sticky dots to distribute across candidate ideas. It's fast, visual, democratic, and anonymous. The output is a quick reading of group preference without the bias of loudest voices.", "elements": ["Each participant gets 3-5 dots", "Distribute across candidate ideas", "Allowed: all dots on one idea (signals conviction)", "Count dots — top 3-5 advance", "Good first filter, not final decision"], "when_to_use": "At the end of any divergent session when you need to narrow 30 ideas to the top 5 without a long debate.", "link": {"url": "https://en.wikipedia.org/wiki/Dot-voting", "label": "Wikipedia — Dot Voting"}}, "2-5-1": {"title": "NUF Test", "slibrary": 5, "slibrary_title": "Convergent Thinking", "unit": 2, "desc": "The NUF Test is a three-axis quick check: New · Useful · Feasible. Each idea is scored 1-5 on each axis, and ideas scoring high on all three advance. The test is deliberately coarse — it's a gut-check, not a rigorous evaluation.", "elements": ["New — novel, not already tried", "Useful — solves the actual problem", "Feasible — can be implemented now", "Score 1-5 on each, sum or multiply", "Low scores diagnose the weakness"], "when_to_use": "After dot voting, as a second filter on the top ideas — NUF surfaces trade-offs (e.g. very New but not Feasible) that pure voting misses.", "link": {"url": "https://www.ideou.com/blogs/inspiration/the-nuf-test", "label": "IDEO U — NUF Test"}}, "2-5-2": {"title": "Impact–Effort Matrix", "slibrary": 5, "slibrary_title": "Convergent Thinking", "unit": 2, "desc": "The Impact–Effort Matrix plots ideas on two axes: impact on the outcome (y-axis) and effort to implement (x-axis). Four quadrants emerge: quick wins, big bets, fill-ins, and time sinks. The matrix's real value is not the plot but the argument it forces the team to have about each axis.", "elements": ["High impact · Low effort = quick wins (do first)", "High impact · High effort = big bets (plan)", "Low impact · Low effort = fill-ins (maybe)", "Low impact · High effort = time sinks (avoid)", "Plotting forces explicit argument"], "when_to_use": "When prioritising a backlog of 10+ ideas with finite team capacity — the matrix gives a shared language for trade-offs.", "link": {"url": "https://www.atlassian.com/team-playbook/plays/impact-effort-matrix", "label": "Atlassian — Impact vs Effort Matrix"}}, "2-5-3": {"title": "How–Now–Wow Matrix", "slibrary": 5, "slibrary_title": "Convergent Thinking", "unit": 2, "desc": "The How-Now-Wow Matrix plots ideas against originality (ordinary → new) and implementability (hard → easy). Three named zones emerge: How (innovative but not yet feasible — research), Now (practical and standard — execute), and Wow (innovative AND feasible — the golden quadrant).", "elements": ["Now — ordinary, easy to do (standard)", "How — original, hard to do (research later)", "Wow — original AND easy (ship it)", "Bottom-left — ordinary AND hard (avoid)", "Forces the team to identify true innovation"], "when_to_use": "When a team has generated many ideas and is defaulting to safe 'Now' ideas — the matrix makes the absence of 'Wow' ideas visible.", "link": {"url": "https://www.designorate.com/the-how-now-wow-matrix/", "label": "Designorate — How-Now-Wow Matrix"}}, "2-5-4": {"title": "Cost–Value Prioritisation", "slibrary": 5, "slibrary_title": "Convergent Thinking", "unit": 2, "desc": "Cost-Value Prioritisation, often implemented as RICE (Reach × Impact × Confidence ÷ Effort) or ICE (Impact × Confidence × Ease), is a numerical scoring method for ranking a backlog. Unlike gut-feel voting, it produces a defensible ranking — though the scores are still subjective.", "elements": ["Score each idea on 2-4 dimensions", "Compute total score per idea", "Rank by score, descending", "Calibrate scores across the team", "RICE and ICE are common variants"], "when_to_use": "When product managers need to defend a backlog prioritisation to stakeholders — the score gives the conversation a shared numerical ground.", "link": {"url": "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/", "label": "Intercom — RICE Prioritisation"}}, "2-6-0": {"title": "Storyboarding", "slibrary": 6, "slibrary_title": "Ideation Techniques", "unit": 2, "desc": "Storyboarding borrows from film and animation: a sequence of 4-6 panels showing a user moment in time. The discipline of sketching a concept as a scene — with a character, a context, and a goal — exposes weaknesses that pure description hides. If you can't tell the story visually, the concept isn't ready.", "elements": ["4-6 panels, rough sketches", "One character (the user)", "A context (where, when)", "A trigger, action, and outcome", "Stick figures are fine"], "when_to_use": "When a concept is described abstractly and the team can't agree on what it is — forcing it into a storyboard reveals whether there's a there there.", "link": {"url": "https://www.nngroup.com/articles/storyboards-visualize-ideas/", "label": "Nielsen Norman Group — Storyboards"}}, "2-6-1": {"title": "Bodystorming / Role-Play", "slibrary": 6, "slibrary_title": "Ideation Techniques", "unit": 2, "desc": "Bodystorming — enacting a scenario physically in the room — was popularised by IDEO. The shift from pen on paper to body in space surfaces failures that sketches can't: friction points, awkward hand-offs, emotional moments. Role-play specifically focuses on interactions between people.", "elements": ["Stage the scenario physically", "Team members play user, staff, bystanders", "Use props — chairs become counters, paper becomes screens", "Pause and debrief at each friction moment", "Record observations immediately"], "when_to_use": "For service or interaction design, where physical space, timing, and human touchpoints matter and can't be judged from diagrams alone.", "link": {"url": "https://www.interaction-design.org/literature/topics/bodystorming", "label": "Interaction Design Foundation — Bodystorming"}}, "2-6-2": {"title": "Concept Sketching", "slibrary": 6, "slibrary_title": "Ideation Techniques", "unit": 2, "desc": "Concept sketching is low-fidelity visual thinking: marker drawings, sticky-note sketches, back-of-envelope rendering. The deliberate low fidelity signals that the idea is still soft and invites critique. Polished mock-ups end conversations; sketches start them.", "elements": ["Thick markers, not pencils — speed over polish", "Stick figures and boxes are sufficient", "Label liberally with text", "One idea per sketch", "Clarity over craft"], "when_to_use": "Throughout ideation — when the team is making decisions, someone should be sketching the options at the whiteboard to keep thinking concrete.", "link": {"url": "https://www.nngroup.com/articles/sketching-ux-designers/", "label": "Nielsen Norman Group — Sketching for UX"}}, "2-6-3": {"title": "Analogous Inspiration", "slibrary": 6, "slibrary_title": "Ideation Techniques", "unit": 2, "desc": "Analogous inspiration deliberately borrows patterns from unrelated domains. The classic example is hospitals borrowing from Formula 1 pit stops for emergency room hand-offs. The unrelated analogy forces fresh thinking — teams stuck in their industry's conventions can break out by looking outside.", "elements": ["Identify the core challenge (e.g. fast hand-off)", "Find 3-4 domains with the same challenge", "Study how they solve it", "Transfer the pattern, not the context", "Analogies work best when distant"], "when_to_use": "When a team has iterated within its industry and stopped generating novelty — an analogous domain can unlock a whole new class of solutions.", "link": {"url": "https://hbr.org/2010/05/how-great-innovators-think", "label": "HBR — How Great Innovators Think"}}, "2-6-4": {"title": "Worst Possible Idea", "slibrary": 6, "slibrary_title": "Ideation Techniques", "unit": 2, "desc": "Worst Possible Idea is reverse brainstorming: instead of asking 'what would work?' ask 'what would guarantee catastrophic failure?' — then invert the terrible ideas. The technique bypasses the inner critic (which has no problem generating bad ideas) and uses inversion to surface real insights.", "elements": ["Frame as 'what would make this worst?'", "Generate disasters freely, no filter", "Cluster into themes", "Invert each — the opposite is often insight", "Works particularly well for stuck teams"], "when_to_use": "When a team is creatively blocked or afraid to propose ideas — flipping to 'worst' removes the judgment pressure and restarts momentum.", "link": {"url": "https://www.designkit.org/methods/generate-ideas-through-play.html", "label": "IDEO Design Kit — Reverse Brainstorming"}}};
+  var modal = document.getElementById('fwModal');
+  var eyebrow = document.getElementById('fwModalEyebrow');
+  var title = document.getElementById('fwModalTitle');
+  var desc = document.getElementById('fwModalDesc');
+  var elementsEl = document.getElementById('fwModalElements');
+  var whenEl = document.getElementById('fwModalWhen');
+  var link = document.getElementById('fwModalLink');
+  var linkLabel = document.getElementById('fwModalLinkLabel');
+
+  window.fwModalClose = function(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  };
+
+  function openFw(fwId){
+    var fw = FW_DATA[fwId];
+    if (!fw) return;
+    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
+    title.textContent = fw.title;
+    desc.textContent = fw.desc;
+    elementsEl.innerHTML = '';
+    fw.elements.forEach(function(el){
+      var li = document.createElement('li');
+      li.textContent = el;
+      elementsEl.appendChild(li);
+    });
+    whenEl.textContent = fw.when_to_use;
+    link.href = fw.link.url;
+    linkLabel.textContent = fw.link.label;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Click handlers on cards
+  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openFw(btn.getAttribute('data-fw-id'));
+    });
+  });
+
+  // Close handlers
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) fwModalClose();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
+  });
+})();
+</script>
 <script src="./assets/protection.js" defer></script>
 <script src="./assets/search.js" defer></script>
 </body>
