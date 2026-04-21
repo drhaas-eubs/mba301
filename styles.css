@@ -535,11 +535,19 @@ footer strong{ color: var(--ink); }
   border-radius: 14px; overflow: hidden;
   display: flex; flex-direction: column;
   transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+  /* button reset */
+  font: inherit; color: inherit; text-align: left;
+  padding: 0; cursor: pointer;
+  width: 100%;
 }
 .fw-card:hover{
   transform: translateY(-2px);
   border-color: var(--unit);
   box-shadow: 0 18px 40px -22px rgba(20,22,26,0.28);
+}
+.fw-card:focus-visible{
+  outline: 2px solid var(--unit);
+  outline-offset: 2px;
 }
 .fw-card::before{
   content: "";
@@ -575,6 +583,152 @@ footer strong{ color: var(--ink); }
   padding: 8px 14px; background: var(--unit);
   color: #fff; font-weight: 700; font-size: 13px;
   border-radius: 8px; letter-spacing: 0.01em;
+}
+.fw-open{
+  align-self: flex-start;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--unit);
+  opacity: 0.7;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.fw-card:hover .fw-open{
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Wall tiles on complete.html are also .fw-card buttons — need the reset too */
+.wall-tile.fw-card{
+  /* keep existing wall-tile look but ensure button defaults don't override */
+  background: #fff;
+}
+
+/* =========================================================
+   FRAMEWORK DETAIL MODAL
+   ========================================================= */
+.fw-modal{
+  position: fixed; inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.fw-modal.is-open{ display: flex; }
+.fw-modal-backdrop{
+  position: absolute; inset: 0;
+  background: rgba(20, 22, 26, 0.6);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: fwFade .2s ease;
+}
+.fw-modal-panel{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  max-width: 640px;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-shadow: 0 30px 80px -20px rgba(20, 22, 26, 0.5);
+  animation: fwRise .25s cubic-bezier(.2,.7,.3,1);
+  /* Default unit colours — overridden inline by JS when a card is opened */
+  --unit: #00BE96;
+  --unit-soft: #E4F6F0;
+}
+@keyframes fwFade{ from{ opacity: 0; } to{ opacity: 1; } }
+@keyframes fwRise{
+  from{ opacity: 0; transform: translateY(12px) scale(.98); }
+  to{   opacity: 1; transform: none; }
+}
+.fw-modal-close{
+  position: absolute; top: 14px; right: 14px;
+  z-index: 3;
+  width: 36px; height: 36px;
+  border: 0; background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  font-size: 24px; line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.fw-modal-close:hover{ background: #fff; transform: scale(1.05); }
+.fw-modal-close:focus-visible{ outline: 2px solid var(--accent, #00BE96); outline-offset: 2px; }
+
+.fw-modal-illo{
+  height: 220px;
+  background: var(--unit-soft, #E4F6F0);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 4px solid var(--unit, #00BE96);
+  border-radius: 18px 18px 0 0;
+}
+.fw-modal-illo svg{
+  width: 60%; height: 75%;
+  color: var(--unit, #00BE96);
+}
+
+.fw-modal-body{
+  padding: 28px 32px 32px;
+}
+.fw-modal-kicker{
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--unit, #00BE96);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.fw-modal-body h2{
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.fw-modal-long{
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+}
+.fw-modal-ref{
+  padding: 16px 18px;
+  background: var(--paper-warm, #F3F0E6);
+  border-left: 3px solid var(--unit, #00BE96);
+  border-radius: 8px;
+}
+.fw-modal-ref-label{
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--mute);
+  margin-bottom: 6px;
+}
+.fw-modal-ref p{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* Modal inherits unit colours from the unit-page wrapper; complete.html wall tiles each carry unit vars via .wall-unit.uN context,
+   but the modal is outside that wrapper, so we set per-unit colours via [data-fw-slib] */
+.fw-modal:has([data-fw-slib]){}  /* placeholder, actual colouring applied via body classes below */
+
+/* JS sets the panel's --unit vars inline; safe default already applied above */
+
+@media (max-width: 540px){
+  .fw-modal-panel{ max-height: calc(100vh - 20px); }
+  .fw-modal-illo{ height: 180px; }
+  .fw-modal-body{ padding: 22px 22px 26px; }
+  .fw-modal-body h2{ font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .fw-modal-backdrop, .fw-modal-panel{ animation: none !important; }
 }
 
 /* =========================================================
