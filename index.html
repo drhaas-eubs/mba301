@@ -1,951 +1,806 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 — Entrepreneurial &amp; Design Thinking</title>
-<meta name="description" content="MBA301 Entrepreneurial &amp; Design Thinking — Interactive Framework Galleries &amp; Course Materials. Dr. H. Haas, EU Business School. Applying JD Meier's Thumbnail Thinking and Kurt Bostelaar's Clarify Core Message.">
-<style>
-/* ---------- Design Tokens ---------- */
-:root{
-  --navy:#0f2133;
-  --navy-2:#152b40;
-  --ink:#11202e;
-  --muted:#5b6b7a;
-  --border:#e4e8ec;
-  --border-strong:#cfd5dc;
-  --bg:#f6f4ef;            /* warm paper */
-  --card:#ffffff;
-  --accent:#00BE96;        /* EUBS teal */
-  --accent-ink:#04715b;
-  --amber:#d98e2b;
-  --rose:#b54e55;
-  --plum:#6a4f82;
-  --steel:#3d5a7a;
-  --slate:#2a3c4d;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --shadow-lg: 0 10px 40px rgba(15,33,51,.14);
-  --radius: 14px;
-  --radius-sm: 10px;
-  --font-display: Arial, Helvetica, sans-serif;
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-
-/* ---------- Reset & Base ---------- */
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-a{ color: inherit; text-decoration: none; }
-img{ max-width:100%; display:block; }
-button{ font: inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-/* ---------- Hero ---------- */
-.hero{
-  background: var(--navy);
-  color:#fff;
-  padding: 72px 24px 56px;
-  position:relative;
-  overflow:hidden;
-  border-bottom: 4px solid var(--accent);
-}
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(0,190,150,.18), transparent 40%),
-    radial-gradient(circle at 88% 70%, rgba(255,255,255,.05), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width: 1100px; margin: 0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 18px;
-  padding: 6px 12px;
-  border: 1px solid rgba(0,190,150,.4);
-  border-radius: 999px;
-}
-.hero h1{
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(38px, 6vw, 64px);
-  line-height: 1.08;
-  margin: 0 0 16px;
-  letter-spacing: -.02em;
-}
-.hero h1 em{
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
-}
-.hero-sub{
-  font-size: 18px;
-  color: rgba(255,255,255,.78);
-  max-width: 620px;
-  margin: 0 0 12px;
-}
-.hero-attr{
-  font-size: 14px;
-  color: rgba(255,255,255,.55);
-  margin: 0 0 40px;
-  font-style: italic;
-}
-
-/* Stats */
-.stats{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 620px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-  padding: 24px 0;
-}
-.stat{ flex: 1 1 0; min-width: 120px; text-align:left; padding: 0 18px; }
-.stat:first-child{ padding-left: 0; }
-.stat:not(:last-child){ border-right: 1px solid rgba(255,255,255,.14); }
-.stat-num{
-  font-family: var(--font-display);
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  display:block;
-}
-.stat-label{
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-top: 6px;
-}
-
-/* ---------- Concept Bar ---------- */
-.concept{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 28px 24px;
-}
-.concept-inner{
-  max-width: 1100px; margin: 0 auto;
-  display:flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  font-size: 14.5px;
-  color: var(--slate);
-}
-.concept-card{
-  display:flex; gap: 14px; align-items: flex-start;
-  flex: 1 1 360px;
-}
-.concept-icon{
-  width: 44px; height: 44px;
-  border-radius: 8px;
-  background: var(--bg);
-  display:grid; place-items:center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--navy);
-  flex-shrink: 0;
-  border: 1px solid var(--border);
-}
-.concept-card strong{ color: var(--ink); }
-.concept-card p{ margin: 4px 0 0; line-height: 1.5; }
-
-/* ---------- Search ---------- */
-.search-bar{
-  max-width: 1100px;
-  margin: 40px auto 0;
-  padding: 0 24px;
-}
-.search-box{
-  position: relative;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 14px 18px 14px 48px;
-  box-shadow: var(--shadow);
-}
-.search-box::before{
-  content:"⌕";
-  position:absolute; left: 18px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-  font-size: 20px;
-}
-.search-box input{
-  border: none; outline: none;
-  width: 100%;
-  font-size: 15px;
-  font-family: inherit;
-  background: transparent;
-  color: var(--ink);
-}
-.search-box input::placeholder{ color: var(--muted); }
-
-/* ---------- Course Units ---------- */
-.units-section{
-  max-width: 1100px;
-  margin: 48px auto 0;
-  padding: 0 24px;
-}
-.section-title{
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 24px;
-  color: var(--ink);
-  letter-spacing: -.01em;
-  position: relative;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-strong);
-  white-space: nowrap;
-}
-
-.unit{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-bottom: 14px;
-  overflow: hidden;
-  transition: box-shadow .2s ease, transform .2s ease;
-}
-.unit:hover{ box-shadow: var(--shadow); }
-
-/* Color tints per unit */
-.unit[data-tone="teal"]    { --tone: var(--accent); }
-.unit[data-tone="steel"]   { --tone: var(--steel); }
-.unit[data-tone="amber"]   { --tone: var(--amber); }
-.unit[data-tone="rose"]    { --tone: var(--rose); }
-.unit[data-tone="plum"]    { --tone: var(--plum); }
-.unit[data-tone="navy"]    { --tone: var(--navy); }
-.unit[data-tone="accent2"] { --tone: var(--accent-ink); }
-.unit[data-tone="slate"]   { --tone: var(--slate); }
-.unit[data-tone="mist"]    { --tone: #4a7a8c; }
-
-summary.unit-header{
-  display:flex;
-  align-items:center;
-  gap: 20px;
-  padding: 20px 24px;
-  cursor: pointer;
-  list-style: none;
-  border-left: 4px solid var(--tone, var(--accent));
-  transition: background .15s ease;
-}
-summary.unit-header::-webkit-details-marker{ display:none; }
-summary.unit-header:hover{ background: #fafaf7; }
-
-.unit-num{
-  font-family: var(--font-display);
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--tone, var(--accent));
-  min-width: 48px;
-  line-height: 1;
-}
-.unit-body{ flex: 1; }
-.unit-title{
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0 0 4px;
-  letter-spacing: -.005em;
-}
-.unit-meta{
-  font-size: 13px;
-  color: var(--muted);
-  letter-spacing: .02em;
-}
-.unit-meta .signature{
-  color: var(--tone, var(--accent));
-  font-weight: 600;
-}
-.caret{
-  color: var(--muted);
-  font-size: 18px;
-  transition: transform .2s ease;
-  user-select: none;
-}
-.unit[open] .caret{ transform: rotate(180deg); }
-
-.unit-content{
-  padding: 4px 24px 24px 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-.resource{
-  display:flex;
-  align-items:flex-start;
-  gap: 12px;
-  padding: 14px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: #fcfbf8;
-  transition: border-color .15s ease, transform .15s ease, background .15s ease;
-  color: var(--ink);
-}
-.resource:hover{
-  border-color: var(--tone, var(--accent));
-  background: #fff;
-  transform: translateY(-1px);
-}
-.resource-tag{
-  width: 36px; height: 36px;
-  border-radius: 6px;
-  background: var(--tone, var(--accent));
-  color:#fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  display:grid; place-items:center;
-  flex-shrink: 0;
-}
-.resource-body .r-title{
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 2px 0 3px;
-}
-.resource-body .r-desc{
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.45;
-}
-
-/* ---------- Complete Gallery Banner ---------- */
-.complete-banner{
-  max-width: 1100px;
-  margin: 40px auto 64px;
-  padding: 0 24px;
-}
-.complete-link{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 20px;
-  padding: 24px 28px;
-  background: var(--navy);
-  color: #fff;
-  border-radius: var(--radius);
-  transition: transform .2s ease, box-shadow .2s ease;
-  position: relative;
-  overflow:hidden;
-}
-.complete-link::before{
-  content:"";
-  position:absolute; right:-40px; top:-40px;
-  width: 180px; height:180px;
-  background: radial-gradient(circle, rgba(0,190,150,.35), transparent 70%);
-  pointer-events:none;
-}
-.complete-link:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.complete-left h3{
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 4px;
-}
-.complete-left p{
-  margin: 0;
-  font-size: 13.5px;
-  color: rgba(255,255,255,.7);
-}
-.complete-arrow{
-  font-size: 28px;
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-weight: 700;
-}
-
-/* ---------- Footer ---------- */
-footer{
-  background: #fff;
-  border-top: 1px solid var(--border);
-  padding: 32px 24px 40px;
-  margin-top: 0;
-}
-.footer-inner{
-  max-width: 1100px; margin: 0 auto;
-  font-size: 13px;
-  color: var(--muted);
-  display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-}
-.footer-inner strong{ color: var(--ink); }
-
-/* ---------- Responsive ---------- */
-@media (max-width: 720px){
-  .stats{ grid-template-columns: repeat(3, 1fr); }
-  .stat-num{ font-size: 32px; }
-  .concept-inner{ grid-template-columns: 1fr; gap: 20px; }
-  summary.unit-header{ padding: 16px; gap: 14px; }
-  .unit-num{ font-size: 28px; min-width: 36px; }
-  .unit-content{ padding: 4px 16px 20px 16px; grid-template-columns: 1fr; }
-  .complete-link{ flex-direction: column; align-items: flex-start; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Entrepreneurial & Design Thinking — MBA301</title>
+<meta name="description" content="MBA301 · Interactive Framework Galleries & Course Materials. Dr. H. Haas · EU Business School." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- ========== HERO ========== -->
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
+  </div>
+  <div class="right"><span>Dr. H. Haas · EU Business School</span></div>
+</header>
+
+<main class="shell">
+
 <section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · FHEQ Level 7</span>
-    <h1>Entrepreneurial &amp;<br><em>Design Thinking</em></h1>
-    <p class="hero-sub">Interactive Framework Galleries &amp; Course Materials — a visual operating system for thinking entrepreneurially under uncertainty.</p>
-    <p class="hero-attr">© 2026 Dr. H. Haas · EU Business School · Term III, AY 2025/2026</p>
-
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-num">9</span>
-        <div class="stat-label">Units</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">27</span>
-        <div class="stat-label">Slibraries</div>
-      </div>
-      <div class="stat">
-        <span class="stat-num">135</span>
-        <div class="stat-label">Frameworks</div>
-      </div>
-    </div>
+  <div class="eyebrow"><strong>MBA301</strong> &nbsp;·&nbsp; Term III · AY 2025/2026</div>
+  <h1>Entrepreneurial &amp; <em>Design Thinking</em></h1>
+  <p class="lede">Interactive Framework Galleries &amp; Course Materials — a visual operating system for thinking entrepreneurially under uncertainty.</p>
+  <div class="attribution">
+    <span>© 2026 Dr. H. Haas</span>
+    <span>EU Business School</span>
+    <span>9 Units · 27 Slibraries · 135 Frameworks</span>
+  </div>
+  <div class="stats" role="group" aria-label="Course totals">
+    <div class="stat"><span class="num">9</span><span class="label">Units</span></div>
+    <div class="stat"><span class="num">27</span><span class="label">Slibraries</span></div>
+    <div class="stat"><span class="num">135</span><span class="label">Frameworks</span></div>
   </div>
 </section>
 
-<!-- ========== CONCEPT BAR ========== -->
-<section class="concept">
-  <div class="concept-inner">
-    <div class="concept-card">
-      <div class="concept-icon">TT</div>
-      <div>
-        <strong>Thumbnail Thinking</strong> · JD Meier (2025)<br>
-        <p>We don't think in paragraphs — we think in pictures. Each unit curates a <em>Slibrary</em> (Slide Library) of visual frameworks so patterns surface fast when the room goes quiet and someone asks, “What's the strategy?”</p>
-      </div>
+<section class="intro">
+  <article class="intro-card tt">
+    <div class="hdr">
+      <div class="badge" aria-hidden="true">TT</div>
+      <div><h3>Thumbnail Thinking</h3><div class="source">JD Meier · 2025</div></div>
     </div>
-    <div class="concept-card">
-      <div class="concept-icon" style="color:var(--plum);">CM</div>
-      <div>
-        <strong>Clarify Your Core Message</strong> · Kurt Bostelaar / Leverlo<br>
-        <p>Every unit moves through the same arc — <em>distill</em> the idea, <em>decompose</em> the clutter, <em>prioritise</em> the core — so what you build, pitch and lead is a single sentence anyone can repeat.</p>
-      </div>
+    <p>We don't think in paragraphs — we think in pictures. Each unit curates a <em>Slibrary</em> (Slide Library) of visual frameworks so patterns surface fast when the room goes quiet and someone asks, <em>"What's the strategy?"</em></p>
+  </article>
+  <article class="intro-card cm">
+    <div class="hdr">
+      <div class="badge" aria-hidden="true">CM</div>
+      <div><h3>Clarify Your Core Message</h3><div class="source">Kurt Bostelaar · Leverlo</div></div>
     </div>
-  </div>
+    <p>Every unit moves through the same arc — <em>distill</em> the idea, <em>decompose</em> the clutter, <em>prioritise</em> the core — so what you build, pitch and lead is a single sentence anyone can repeat.</p>
+  </article>
 </section>
 
-<!-- ========== SEARCH ========== -->
-<div class="search-bar">
-  <div class="search-box">
-    <input type="text" id="unitSearch" placeholder="Search units, frameworks, cases — e.g. ‘effectuation’, ‘Sentient’, ‘pitch’">
-  </div>
+<div class="section-title">
+  <h2>Course Units</h2>
+  <div class="kicker">Tap a unit to open its Slibraries</div>
 </div>
 
-<!-- ========== UNITS ========== -->
-<section class="units-section">
-  <h2 class="section-title">Course Units</h2>
 
-  <!-- UNIT 1 -->
-  <details class="unit" data-tone="teal">
-    <summary class="unit-header">
-      <span class="unit-num">1</span>
-      <div class="unit-body">
-        <div class="unit-title">Design Thinking as Mindset</div>
-        <div class="unit-meta"><span class="signature">Empathy Workshop</span> · Brown · Liedtka · Dosi · Kelley</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit1.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 1–3</div>
+<section class="unit u1" id="unit-1">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-1-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">1</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 34c7-12 18-18 26-18s19 6 26 18c-7 12-18 18-26 18S13 46 6 34Z"/><circle cx="32" cy="34" r="7"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Design Thinking as Mindset</h3>
+      <span class="sub"><strong>Empathy Workshop</strong> &nbsp;·&nbsp; <em>Brown · Liedtka · Dosi · Kelley</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-1-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 1 — DT Foundations · DT Mindsets</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="70" cy="55" r="32" opacity="0.55"/><circle cx="130" cy="55" r="32" opacity="0.55"/><circle cx="100" cy="95" r="32" opacity="0.55"/><text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none" opacity="0.9">DVF</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">DT Foundations</h4>
+            <p class="sli-desc">The original loops — Brown's Triple, Stanford 5-Stage, Double Diamond, DVF.</p>
+            <span class="sli-badge">Slibrary 1</span>
+          </div>
         </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M70 115V75c0-16 14-30 30-30s30 14 30 30v20h10v14h-10v6H90v-6H70Z"/><circle cx="92" cy="75" r="3" fill="currentColor" stroke="none"/><circle cx="112" cy="75" r="3" fill="currentColor" stroke="none"/><path d="M86 92q14 8 28 0"/><path d="M100 45V30M92 33l-6-10M108 33l6-10"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">DT Mindsets</h4>
+            <p class="sli-desc">Measurable mindset — Liedtka's 4 truths, Dosi's 10 dimensions, Kelley's creative confidence.</p>
+            <span class="sli-badge">Slibrary 2</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="25" width="120" height="90" rx="6"/><path d="M100 25v90M40 70h120"/><circle cx="100" cy="70" r="10" fill="currentColor" stroke="none" opacity="0.9"/><text x="70" y="52" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">Says</text><text x="130" y="52" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">Thinks</text><text x="70" y="100" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">Does</text><text x="130" y="100" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">Feels</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">DT Process & Tools</h4>
+            <p class="sli-desc">Field instruments — Empathy Map, Personas, Customer Journey, 5 Whys, How Might We.</p>
+            <span class="sli-badge">Slibrary 3</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit1.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 1–3</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a class="resource" href="activities/Unit1_Activities.html">
-        <div class="resource-tag">EW</div>
-        <div class="resource-body">
-          <div class="r-title">Empathy Workshop</div>
-          <div class="r-desc">Field-ready empathy map, journey map &amp; stakeholder map sprint</div>
-        </div>
+      <a class="tile t-ac" href="activities/Unit1_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Empathy Workshop</div><div class="note">Field-ready empathy, journey &amp; stakeholder maps</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a class="resource" href="cases/Unit1_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: IDEO Shopping Cart</div>
-          <div class="r-desc">The ABC Nightline project that defined popular design thinking</div>
-        </div>
+      <a class="tile t-cs" href="cases/Unit1_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">IDEO Shopping Cart</div><div class="note">The ABC Nightline project that defined DT</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a class="resource" href="prereading/Unit1_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Tim Brown — Design Thinking (HBR)</div>
-          <div class="r-desc">Key framework: Desirability × Feasibility × Viability (DVF)</div>
-        </div>
+      <a class="tile t-pr" href="prereading/Unit1_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Tim Brown — Design Thinking</div><div class="note">Key framework: Desirability × Feasibility × Viability</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a class="resource" href="reflections/Unit1_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
+      <a class="tile t-rf" href="reflections/Unit1_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
     </div>
-  </details>
 
-  <!-- UNIT 2 -->
-  <details class="unit" data-tone="steel">
-    <summary class="unit-header">
-      <span class="unit-num">2</span>
-      <div class="unit-body">
-        <div class="unit-title">Ideation</div>
-        <div class="unit-meta"><span class="signature">Creative Sprint</span> · Diverge → Converge · Brainstorming · SCAMPER · Crazy 8s</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit2.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 4–6</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit2_Activities.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Creative Sprint</div>
-          <div class="r-desc">90-minute diverge-converge cycle with live prioritisation &amp; voting</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit2_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Airbnb — From Air Mattresses to Ideas</div>
-          <div class="r-desc">Re-framing, analogous inspiration, and the role of worst possible ideas</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit2_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Kelley &amp; Kelley — Reclaim Your Creative Confidence</div>
-          <div class="r-desc">Key framework: Four Fears that Block Creativity</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit2_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 3 -->
-  <details class="unit" data-tone="amber">
-    <summary class="unit-header">
-      <span class="unit-num">3</span>
-      <div class="unit-body">
-        <div class="unit-title">Strategy Design</div>
-        <div class="unit-meta"><span class="signature">Strategy Canvas Lab</span> · 10 Practices · Porter · Blue Ocean · BMC</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit3.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 7–9</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit3_Activities.html">
-        <div class="resource-tag">SL</div>
-        <div class="resource-body">
-          <div class="r-title">Strategy Canvas Lab</div>
-          <div class="r-desc">Teams draft a BMC, overlay a DVF check, and stress-test with Porter's 5F</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit3_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Nespresso — Redesigning the Coffee Category</div>
-          <div class="r-desc">From commodity to experience — strategy and design as one practice</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit3_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Brown &amp; Martin — Design for Action (HBR)</div>
-          <div class="r-desc">Key framework: The 10 Practices of Strategy Design</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit3_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 4 -->
-  <details class="unit" data-tone="rose">
-    <summary class="unit-header">
-      <span class="unit-num">4</span>
-      <div class="unit-body">
-        <div class="unit-title">Entrepreneurial Thinking</div>
-        <div class="unit-meta"><span class="signature">Uncertainty Challenge</span> · Effectuation · Furr · Knight · Sarasvathy</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit4.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 10–12</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit4_Activities.html">
-        <div class="resource-tag">UC</div>
-        <div class="resource-body">
-          <div class="r-title">Uncertainty Challenge</div>
-          <div class="r-desc">Bird-in-hand, affordable loss &amp; lemonade cards against a live constraint</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit4_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Spanx — Sara Blakely and the Upside of Uncertainty</div>
-          <div class="r-desc">Means-based reasoning when every door says ‘no’</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit4_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Furr — The Upside of Uncertainty (HBS)</div>
-          <div class="r-desc">Key framework: Possibility Quadrant &amp; the 5 Principles of Effectual Action</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit4_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 5 -->
-  <details class="unit" data-tone="plum">
-    <summary class="unit-header">
-      <span class="unit-num">5</span>
-      <div class="unit-body">
-        <div class="unit-title">Developing Successful Business Ideas</div>
-        <div class="unit-meta"><span class="signature">Opportunity Scan</span> · JTBD · Lean Canvas · Kano · MVP Ladder</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit5.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 13–15</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit5_Activities.html">
-        <div class="resource-tag">OS</div>
-        <div class="resource-body">
-          <div class="r-title">Opportunity Scan</div>
-          <div class="r-desc">JTBD interviews → Problem-Solution Fit → 3 testable experiments</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit5_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Sentient Technologies — Reading the Market</div>
-          <div class="r-desc">From evolutionary AI research to commercial products: Ascend, Aware, Invest</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit5_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Christensen — Know Your Customers' Jobs to Be Done</div>
-          <div class="r-desc">Key framework: JTBD Canvas &amp; Outcome-Driven Innovation</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit5_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 6 -->
-  <details class="unit" data-tone="navy">
-    <summary class="unit-header">
-      <span class="unit-num">6</span>
-      <div class="unit-body">
-        <div class="unit-title">Moving from an Idea to an Entrepreneurial Firm</div>
-        <div class="unit-meta"><span class="signature">Foundry Simulation</span> · Customer Development · Funding Ladder · Unit Economics</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit6.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 16–18</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit6_Activities.html">
-        <div class="resource-tag">FS</div>
-        <div class="resource-body">
-          <div class="r-title">Foundry Simulation</div>
-          <div class="r-desc">Stand up a fictional firm: legal form, cap table, runway, first hire</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit6_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Sentient Technologies — Funding to Dissolution</div>
-          <div class="r-desc">$143.5M raised, 4 offices, 3 founders — why it still ended in 2019</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit6_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Edmondson — Strategies for Learning from Failure</div>
-          <div class="r-desc">Key framework: A Spectrum of Reasons for Failure</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit6_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 7 -->
-  <details class="unit" data-tone="accent2">
-    <summary class="unit-header">
-      <span class="unit-num">7</span>
-      <div class="unit-body">
-        <div class="unit-title">Intrapreneurship</div>
-        <div class="unit-meta"><span class="signature">Corporate Venture Lab</span> · Skunk Works · Accelerators · Governance</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit7.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 19–21</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit7_Activities.html">
-        <div class="resource-tag">CV</div>
-        <div class="resource-body">
-          <div class="r-title">Corporate Venture Lab</div>
-          <div class="r-desc">Design a 10-week intrapreneurship programme with sponsors, gates &amp; demo day</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit7_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Skydeck — DB Systel's Internal Acceleration Programme</div>
-          <div class="r-desc">5 teams, 10 weeks, 12 client projects — what made it work</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit7_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: WhatAVenture — Intrapreneurship White Paper</div>
-          <div class="r-desc">Key framework: Intrapreneurship Building Blocks &amp; Success Factors</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit7_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 8 -->
-  <details class="unit" data-tone="slate">
-    <summary class="unit-header">
-      <span class="unit-num">8</span>
-      <div class="unit-body">
-        <div class="unit-title">The Art of Pitching</div>
-        <div class="unit-meta"><span class="signature">Pitch Theatre</span> · Bostelaar's Core Message · StoryBrand · 10-Slide Deck</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit8.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 22–24 (incl. Clarify Core Message)</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit8_Activities.html">
-        <div class="resource-tag">PT</div>
-        <div class="resource-body">
-          <div class="r-title">Pitch Theatre</div>
-          <div class="r-desc">Distill → Decompose → Prioritise. 3-min pitch with live investor panel</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit8_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Airbnb's First Deck</div>
-          <div class="r-desc">Anatomy of 10 slides that raised a company — mapped to Bostelaar's Core Message</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit8_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Bostelaar — Clarify Your Core Message (Playbook)</div>
-          <div class="r-desc">Key framework: Message Strategy Spectrum &amp; Vehicles for Ideas</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit8_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
-  <!-- UNIT 9 -->
-  <details class="unit" data-tone="mist">
-    <summary class="unit-header">
-      <span class="unit-num">9</span>
-      <div class="unit-body">
-        <div class="unit-title">Systems Thinking</div>
-        <div class="unit-meta"><span class="signature">Systems Mapping Lab · Capstone</span> · Iceberg · Meadows · Archetypes · Theory U</div>
-      </div>
-      <span class="caret">▾</span>
-    </summary>
-    <div class="unit-content">
-      <a class="resource" href="unit9.html">
-        <div class="resource-tag">FG</div>
-        <div class="resource-body">
-          <div class="r-title">Framework Gallery</div>
-          <div class="r-desc">15 interactive frameworks · Slibraries 25–27</div>
-        </div>
-      </a>
-      <a class="resource" href="activities/Unit9_Activities.html">
-        <div class="resource-tag">SM</div>
-        <div class="resource-body">
-          <div class="r-title">Systems Mapping Lab · Capstone</div>
-          <div class="r-desc">Causal loop diagram of a wicked problem + leverage-point intervention pitch</div>
-        </div>
-      </a>
-      <a class="resource" href="cases/Unit9_Case.html">
-        <div class="resource-tag">CS</div>
-        <div class="resource-body">
-          <div class="r-title">Case: Fashion's Circular Future</div>
-          <div class="r-desc">Stocks, flows &amp; feedback loops across a multi-stakeholder industry</div>
-        </div>
-      </a>
-      <a class="resource" href="prereading/Unit9_PreReading.html">
-        <div class="resource-tag">PR</div>
-        <div class="resource-body">
-          <div class="r-title">Pre-Reading: Buchanan — Wicked Problems in Design Thinking</div>
-          <div class="r-desc">Key framework: Meadows' 12 Leverage Points in a System</div>
-        </div>
-      </a>
-      <a class="resource" href="reflections/Unit9_Reflection.html">
-        <div class="resource-tag">RF</div>
-        <div class="resource-body">
-          <div class="r-title">Reflection Prompt</div>
-          <div class="r-desc">3 questions for independent study</div>
-        </div>
-      </a>
-    </div>
-  </details>
-
+  </div></div></div>
 </section>
 
-<!-- ========== COMPLETE GALLERY BANNER ========== -->
-<div class="complete-banner">
-  <a href="complete.html" class="complete-link">
-    <div class="complete-left">
-      <h3>All 135 Frameworks — The Complete Slibrary Wall</h3>
-      <p>Every thumbnail, every Slibrary, every unit — in one browsable gallery.</p>
-    </div>
-    <div class="complete-arrow">→</div>
-  </a>
-</div>
+<section class="unit u2" id="unit-2">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-2-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">2</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 10v10M32 44v10M12 32h10M42 32h10M18 18l7 7M46 46l-7-7M46 18l-7 7M18 46l7-7"/><circle cx="32" cy="32" r="6"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Ideation</h3>
+      <span class="sub"><strong>Creative Sprint</strong> &nbsp;·&nbsp; <em>Diverge → Converge · SCAMPER · Crazy 8s</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-2-body"><div class="inner"><div class="body-pad">
 
-<!-- ========== FOOTER ========== -->
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 2 — Divergence Methods · Convergence Toolkit</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="14" fill="currentColor" stroke="none" opacity="0.25"/><circle cx="100" cy="70" r="6" fill="currentColor" stroke="none"/><g><circle cx="40" cy="30" r="7"/><circle cx="160" cy="30" r="7"/><circle cx="40" cy="110" r="7"/><circle cx="160" cy="110" r="7"/><circle cx="30" cy="70" r="7"/><circle cx="170" cy="70" r="7"/><circle cx="100" cy="14" r="7"/><circle cx="100" cy="126" r="7"/><line x1="100" y1="70" x2="45" y2="34"/><line x1="100" y1="70" x2="155" y2="34"/><line x1="100" y1="70" x2="45" y2="106"/><line x1="100" y1="70" x2="155" y2="106"/><line x1="100" y1="70" x2="37" y2="70"/><line x1="100" y1="70" x2="163" y2="70"/><line x1="100" y1="70" x2="100" y2="21"/><line x1="100" y1="70" x2="100" y2="119"/></g></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Divergence Methods</h4>
+            <p class="sli-desc">Crazy 8s, SCAMPER, Brainwriting, Analogies, Worst Possible Ideas.</p>
+            <span class="sli-badge">Slibrary 4</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M40 20h120L120 70v50l-40 0V70Z"/><circle cx="60" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="80" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="100" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="120" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="140" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="90" cy="50" r="3" fill="currentColor" stroke="none"/><circle cx="110" cy="50" r="3" fill="currentColor" stroke="none"/><circle cx="100" cy="90" r="5" fill="currentColor" stroke="none"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Convergence Toolkit</h4>
+            <p class="sli-desc">Dot voting, NUF test, Impact–Effort grid, 2×2 decision matrices.</p>
+            <span class="sli-badge">Slibrary 5</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="70" x2="175" y2="70"/><circle cx="35" cy="70" r="8"/><circle cx="75" cy="70" r="8"/><circle cx="115" cy="70" r="8"/><circle cx="155" cy="70" r="8" fill="currentColor" stroke="none"/><text x="35" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">MON</text><text x="75" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">TUE</text><text x="115" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">WED</text><text x="155" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">FRI</text><text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none" opacity="0.9">5-Day Sprint</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Creative Sprints</h4>
+            <p class="sli-desc">Google Design Sprint, 5-Day Loop, Idea Speed-Dating, Lightning Decision Jam.</p>
+            <span class="sli-badge">Slibrary 6</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit2.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 4–6</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit2_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Creative Sprint</div><div class="note">90-min diverge-converge with live voting</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit2_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Airbnb — From Air Mattresses to Ideas</div><div class="note">Re-framing, analogy &amp; worst possible ideas</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit2_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Tom Kelley & David Kelley — Reclaim Your Creative Confidence</div><div class="note">Key framework: 4 Fears that Block Creativity</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit2_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u3" id="unit-3">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-3-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">3</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 52h24l-2-18c0-10-6-16-14-16l-2 4-6-4-4 6 4 4-6 8 4 4-2 4 4 8"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Strategy Design</h3>
+      <span class="sub"><strong>Strategy Canvas Lab</strong> &nbsp;·&nbsp; <em>10 Practices · Porter · Blue Ocean · BMC</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-3-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 3 — Strategic Analysis · Blue Ocean Toolkit</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="16" fill="currentColor" stroke="none" opacity="0.15"/><circle cx="100" cy="70" r="16"/><circle cx="100" cy="20" r="10"/><circle cx="165" cy="55" r="10"/><circle cx="145" cy="120" r="10"/><circle cx="55" cy="120" r="10"/><circle cx="35" cy="55" r="10"/><line x1="100" y1="30" x2="100" y2="54"/><line x1="155" y1="60" x2="116" y2="66"/><line x1="137" y1="115" x2="110" y2="84"/><line x1="63" y1="115" x2="90" y2="84"/><line x1="45" y1="60" x2="84" y2="66"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Strategic Analysis</h4>
+            <p class="sli-desc">Porter's 5 Forces, VRIO, PESTEL, SWOT recast, Value Chain.</p>
+            <span class="sli-badge">Slibrary 7</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="115" x2="175" y2="115"/><line x1="25" y1="25" x2="25" y2="115"/><polyline points="35 90 65 60 95 95 125 50 155 80 175 35"/><polyline points="35 100 65 85 95 105 125 80 155 95 175 75" opacity="0.5" stroke-dasharray="4 3"/><circle cx="35" cy="90" r="3" fill="currentColor" stroke="none"/><circle cx="65" cy="60" r="3" fill="currentColor" stroke="none"/><circle cx="95" cy="95" r="3" fill="currentColor" stroke="none"/><circle cx="125" cy="50" r="3" fill="currentColor" stroke="none"/><circle cx="155" cy="80" r="3" fill="currentColor" stroke="none"/><circle cx="175" cy="35" r="3" fill="currentColor" stroke="none"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Blue Ocean Toolkit</h4>
+            <p class="sli-desc">Strategy Canvas, ERRC Grid, 4 Actions, Value Curve, 6 Paths.</p>
+            <span class="sli-badge">Slibrary 8</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="160" height="90" rx="4"/><line x1="20" y1="85" x2="180" y2="85"/><line x1="52" y1="25" x2="52" y2="85"/><line x1="84" y1="25" x2="84" y2="85"/><line x1="116" y1="25" x2="116" y2="85"/><line x1="148" y1="25" x2="148" y2="85"/><line x1="52" y1="55" x2="84" y2="55"/><line x1="116" y1="55" x2="148" y2="55"/><line x1="100" y1="85" x2="100" y2="115"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Business Model Canvas</h4>
+            <p class="sli-desc">Osterwalder's 9 blocks, Value Proposition Canvas, Business Model Patterns.</p>
+            <span class="sli-badge">Slibrary 9</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit3.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 7–9</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit3_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Strategy Canvas Lab</div><div class="note">BMC + DVF check + Porter's 5F stress-test</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit3_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Nespresso — Redesigning Coffee</div><div class="note">From commodity to experience</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit3_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Tim Brown & Roger L. Martin — Design for Action</div><div class="note">Key framework: 10 Practices of Strategy Design</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit3_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u4" id="unit-4">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-4-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">4</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><polygon points="32 14 38 32 32 50 26 32" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="32" cy="32" r="3" fill="currentColor" stroke="none"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Entrepreneurial Thinking</h3>
+      <span class="sub"><strong>Uncertainty Challenge</strong> &nbsp;·&nbsp; <em>Effectuation · Furr · Knight · Sarasvathy</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-4-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 4 — Effectuation Principles · Uncertainty</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="22" fill="currentColor" stroke="none" opacity="0.18"/><circle cx="100" cy="70" r="22"/><circle cx="100" cy="18" r="8"/><circle cx="162" cy="52" r="8"/><circle cx="140" cy="118" r="8"/><circle cx="60" cy="118" r="8"/><circle cx="38" cy="52" r="8"/><text x="100" y="22" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">1</text><text x="162" y="56" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">2</text><text x="140" y="122" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">3</text><text x="60" y="122" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">4</text><text x="38" y="56" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">5</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Effectuation Principles</h4>
+            <p class="sli-desc">Bird-in-Hand, Affordable Loss, Lemonade, Crazy Quilt, Pilot-in-the-Plane.</p>
+            <span class="sli-badge">Slibrary 10</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="25" width="140" height="90" rx="4"/><line x1="100" y1="25" x2="100" y2="115"/><line x1="30" y1="70" x2="170" y2="70"/><circle cx="65" cy="47" r="12" fill="currentColor" stroke="none" opacity="0.2"/><circle cx="135" cy="47" r="12" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="65" cy="92" r="12" fill="currentColor" stroke="none" opacity="0.5"/><circle cx="135" cy="92" r="12" fill="currentColor" stroke="none" opacity="0.85"/><text x="65" y="51" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Risk</text><text x="135" y="96" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">Unk.</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Uncertainty & Risk</h4>
+            <p class="sli-desc">Knight's Risk vs Uncertainty, Possibility Quadrant, Real Options, Pre-Mortem.</p>
+            <span class="sli-badge">Slibrary 11</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="35" cy="45" r="10"/><circle cx="165" cy="45" r="10" fill="currentColor" stroke="none" opacity="0.85"/><path d="M45 45h110" stroke-dasharray="4 3"/><polyline points="150 40 158 45 150 50"/><text x="100" y="32" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none" opacity="0.85">CAUSAL</text><circle cx="35" cy="100" r="10" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="100" cy="100" r="10"/><circle cx="165" cy="100" r="10"/><path d="M45 100l50 0M110 100l45 0"/><polyline points="92 95 100 100 92 105"/><polyline points="152 95 160 100 152 105"/><text x="100" y="87" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none" opacity="0.85">EFFECTUAL</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Entrepreneurial Mindset</h4>
+            <p class="sli-desc">Causal vs Effectual logic, Opportunity Recognition, Bias for Action, Growth Mindset.</p>
+            <span class="sli-badge">Slibrary 12</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit4.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 10–12</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit4_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Uncertainty Challenge</div><div class="note">Bird-in-hand · affordable loss · lemonade cards</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit4_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Spanx — Sara Blakely</div><div class="note">Means-based reasoning when every door says no</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit4_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Nathan Furr & Susannah Harmon Furr — The Upside of Uncertainty</div><div class="note">Possibility Quadrant · 5 Principles of Effectual Action</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit4_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u5" id="unit-5">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-5-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">5</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 56c0-14-6-20-16-22 0 12 6 20 16 22Z"/><path d="M32 56c0-14 6-20 16-22 0 12-6 20-16 22Z"/><path d="M32 56V24"/><path d="M32 24c-2-4-2-8 0-12 2 4 2 8 0 12Z"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Developing Successful Business Ideas</h3>
+      <span class="sub"><strong>Opportunity Scan</strong> &nbsp;·&nbsp; <em>JTBD · Lean Canvas · Kano · MVP Ladder</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-5-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 5 — Jobs-to-Be-Done · Lean Canvas</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="70" r="14"/><circle cx="150" cy="70" r="14" fill="currentColor" stroke="none" opacity="0.9"/><path d="M64 70h72"/><polyline points="126 62 136 70 126 78"/><text x="50" y="73" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Struggle</text><text x="150" y="73" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="#fff" stroke="none">Progress</text><text x="100" y="42" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">The JOB</text><text x="100" y="110" text-anchor="middle" font-family="Arial" font-size="9" fill="currentColor" stroke="none" opacity="0.75">"Hire me to…"</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Jobs-to-Be-Done</h4>
+            <p class="sli-desc">JTBD Canvas, Outcome-Driven Innovation, Progress Made Easier, Switch Interview.</p>
+            <span class="sli-badge">Slibrary 13</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="160" height="90" rx="4"/><line x1="20" y1="85" x2="180" y2="85"/><line x1="52" y1="25" x2="52" y2="85"/><line x1="84" y1="25" x2="84" y2="85"/><line x1="116" y1="25" x2="116" y2="85"/><line x1="148" y1="25" x2="148" y2="85"/><rect x="52" y="25" width="32" height="60" fill="currentColor" stroke="none" opacity="0.18"/><rect x="116" y="25" width="32" height="60" fill="currentColor" stroke="none" opacity="0.18"/><line x1="100" y1="85" x2="100" y2="115"/><text x="36" y="60" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Problem</text><text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">UVP</text><text x="164" y="60" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Customer</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Lean Canvas</h4>
+            <p class="sli-desc">Ash Maurya's problem-first one-page canvas for early-stage ventures.</p>
+            <span class="sli-badge">Slibrary 14</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="120" x2="180" y2="120"/><line x1="30" y1="20" x2="30" y2="120"/><line x1="30" y1="70" x2="180" y2="70" stroke-dasharray="4 3" opacity="0.4"/><path d="M30 90 Q 105 90 180 65" opacity="0.85"/><path d="M30 120 Q 105 70 180 40"/><path d="M30 120 Q 105 115 180 100" opacity="0.5" stroke-dasharray="4 3"/><text x="178" y="38" text-anchor="end" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Delighters</text><text x="178" y="63" text-anchor="end" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none" opacity="0.85">Performance</text><text x="178" y="98" text-anchor="end" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none" opacity="0.5">Must-have</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">MVP & Kano Ladder</h4>
+            <p class="sli-desc">Kano model, MVP ladder, Build-Measure-Learn, Riskiest Assumption Test.</p>
+            <span class="sli-badge">Slibrary 15</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit5.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 13–15</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit5_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Opportunity Scan</div><div class="note">JTBD interviews → PSF → 3 testable experiments</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit5_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Sentient Technologies — Reading the Market</div><div class="note">Evolutionary AI → Ascend · Aware · Invest</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit5_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Clayton M. Christensen et al. — Know Your Customers' Jobs to Be Done</div><div class="note">JTBD Canvas &amp; Outcome-Driven Innovation</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit5_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u6" id="unit-6">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-6-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">6</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="38" width="14" height="14"/><rect x="26" y="30" width="14" height="22"/><rect x="44" y="18" width="12" height="34"/><polyline points="6 22 16 22 26 18 40 14 54 8"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Moving from an Idea to an Entrepreneurial Firm</h3>
+      <span class="sub"><strong>Foundry Simulation</strong> &nbsp;·&nbsp; <em>Customer Development · Funding Ladder · Unit Economics</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-6-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 6 — Customer Development · Funding Ladder</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="70" r="14"/><circle cx="87" cy="70" r="14"/><circle cx="133" cy="70" r="14"/><circle cx="180" cy="70" r="14" fill="currentColor" stroke="none" opacity="0.9"/><text x="40" y="73" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">1</text><text x="87" y="73" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">2</text><text x="133" y="73" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">3</text><text x="180" y="73" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">4</text><path d="M54 70h19M101 70h18M147 70h19" stroke-dasharray="2 3"/><text x="40" y="100" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Discovery</text><text x="87" y="100" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Validation</text><text x="133" y="100" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Creation</text><text x="180" y="100" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Build</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Customer Development</h4>
+            <p class="sli-desc">Blank's 4 Steps — Discovery, Validation, Creation, Company Building.</p>
+            <span class="sli-badge">Slibrary 16</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="120" x2="185" y2="120"/><rect x="20" y="105" width="22" height="15" fill="currentColor" stroke="none" opacity="0.35"/><rect x="48" y="90" width="22" height="30" fill="currentColor" stroke="none" opacity="0.45"/><rect x="76" y="72" width="22" height="48" fill="currentColor" stroke="none" opacity="0.6"/><rect x="104" y="54" width="22" height="66" fill="currentColor" stroke="none" opacity="0.75"/><rect x="132" y="36" width="22" height="84" fill="currentColor" stroke="none" opacity="0.9"/><rect x="160" y="18" width="22" height="102" fill="currentColor" stroke="none"/><text x="31" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">FFF</text><text x="59" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Angel</text><text x="87" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Seed</text><text x="115" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">A</text><text x="143" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">B</text><text x="171" y="135" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">C+</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Funding Ladder</h4>
+            <p class="sli-desc">Bootstrap → FFF → Angel → Seed → Series A/B/C, with cap-table implications.</p>
+            <span class="sli-badge">Slibrary 17</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="50" width="36" height="70" fill="currentColor" stroke="none" opacity="0.35"/><rect x="124" y="25" width="36" height="95" fill="currentColor" stroke="none" opacity="0.9"/><text x="58" y="43" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">CAC</text><text x="142" y="18" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">LTV</text><path d="M80 80h40"/><polyline points="116 74 124 80 116 86"/><text x="100" y="72" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">≥ 3×</text><line x1="20" y1="120" x2="180" y2="120"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Unit Economics</h4>
+            <p class="sli-desc">CAC, LTV, payback period, contribution margin, LTV/CAC ratio.</p>
+            <span class="sli-badge">Slibrary 18</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit6.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 16–18</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit6_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Foundry Simulation</div><div class="note">Legal form · cap table · runway · first hire</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit6_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Sentient — Funding to Dissolution</div><div class="note">$143.5M raised · why it still ended in 2019</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit6_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Amy C. Edmondson — Strategies for Learning from Failure</div><div class="note">A Spectrum of Reasons for Failure</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit6_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u7" id="unit-7">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-7-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">7</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="4"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="5" fill="currentColor" stroke="none"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Intrapreneurship</h3>
+      <span class="sub"><strong>Corporate Venture Lab</strong> &nbsp;·&nbsp; <em>Skunk Works · Accelerators · Governance</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-7-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 7 — Corporate Venture Models · Skunk Works</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="22" width="156" height="96" rx="6"/><rect x="50" y="45" width="100" height="55" rx="4" fill="currentColor" stroke="none" opacity="0.18"/><rect x="50" y="45" width="100" height="55" rx="4"/><circle cx="100" cy="72" r="14" fill="currentColor" stroke="none" opacity="0.9"/><text x="100" y="76" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">VCU</text><text x="100" y="37" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">CORPORATE</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Corporate Venture Models</h4>
+            <p class="sli-desc">Incubator, accelerator, venture studio, corporate VC, spin-out.</p>
+            <span class="sli-badge">Slibrary 19</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M100 20c-14 14-18 30-18 50 0 12 6 24 18 32 12-8 18-20 18-32 0-20-4-36-18-50Z" fill="currentColor" stroke="none" opacity="0.22"/><path d="M100 20c-14 14-18 30-18 50 0 12 6 24 18 32 12-8 18-20 18-32 0-20-4-36-18-50Z"/><circle cx="100" cy="60" r="6"/><path d="M82 90l-14 18M118 90l14 18M100 100v20"/><path d="M90 110l-8 14M110 110l8 14M100 115v18" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Skunk Works & Accelerators</h4>
+            <p class="sli-desc">Isolated innovation teams, 10-week programmes, cohort designs, sponsor-engineer model.</p>
+            <span class="sli-badge">Slibrary 20</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="70" x2="180" y2="70"/><polygon points="40 70 55 55 70 70 55 85"/><polygon points="90 70 105 55 120 70 105 85" fill="currentColor" stroke="none" opacity="0.25"/><polygon points="90 70 105 55 120 70 105 85"/><polygon points="140 70 155 55 170 70 155 85" fill="currentColor" stroke="none" opacity="0.85"/><text x="55" y="102" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Gate 1</text><text x="105" y="102" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Gate 2</text><text x="155" y="102" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Gate 3</text><text x="55" y="48" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none" opacity="0.75">Explore</text><text x="105" y="48" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none" opacity="0.75">Validate</text><text x="155" y="48" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none" opacity="0.75">Scale</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Governance & Gates</h4>
+            <p class="sli-desc">Stage-gates, sponsor council, kill criteria, demo day, internal term sheet.</p>
+            <span class="sli-badge">Slibrary 21</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit7.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 19–21</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit7_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Corporate Venture Lab</div><div class="note">10-week programme · sponsors · gates · demo day</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit7_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Skydeck — DB Systel</div><div class="note">5 teams · 10 weeks · 12 client projects</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit7_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">WhatAVenture (eds.) — Intrapreneurship — Empower Your Employees</div><div class="note">Building Blocks &amp; Success Factors</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit7_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u8" id="unit-8">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-8-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">8</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 26l20-10v32L10 38z"/><path d="M30 22c6 0 10 4 10 10s-4 10-10 10"/><path d="M40 18c10 0 16 6 16 14s-6 14-16 14"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>The Art of Pitching</h3>
+      <span class="sub"><strong>Pitch Theatre</strong> &nbsp;·&nbsp; <em>Bostelaar's Core Message · StoryBrand · 10-Slide Deck</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-8-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 8 — Core Message · StoryBrand Arc</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="52" opacity="0.35"/><circle cx="100" cy="70" r="38" opacity="0.55"/><circle cx="100" cy="70" r="22"/><circle cx="100" cy="70" r="8" fill="currentColor" stroke="none"/><text x="100" y="22" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">Distill · Decompose · Prioritise</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Core Message</h4>
+            <p class="sli-desc">Bostelaar's Clarify Core Message — distill the idea, decompose the clutter, prioritise the core.</p>
+            <span class="sli-badge">Slibrary 22</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 110 C 50 110, 55 30, 100 30 C 145 30, 150 110, 180 110"/><circle cx="40" cy="98" r="5" fill="currentColor" stroke="none"/><circle cx="70" cy="60" r="5" fill="currentColor" stroke="none"/><circle cx="100" cy="30" r="7" fill="currentColor" stroke="none"/><circle cx="130" cy="60" r="5" fill="currentColor" stroke="none"/><circle cx="160" cy="98" r="5" fill="currentColor" stroke="none"/><text x="40" y="128" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Hero</text><text x="70" y="128" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Problem</text><text x="100" y="128" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Guide</text><text x="130" y="128" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Plan</text><text x="160" y="128" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Win</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">StoryBrand Arc</h4>
+            <p class="sli-desc">Miller's 7-part narrative — Hero, Problem, Guide, Plan, Call, Failure, Success.</p>
+            <span class="sli-badge">Slibrary 23</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="30" width="30" height="22" rx="2"/><rect x="55" y="30" width="30" height="22" rx="2"/><rect x="90" y="30" width="30" height="22" rx="2"/><rect x="125" y="30" width="30" height="22" rx="2"/><rect x="160" y="30" width="30" height="22" rx="2"/><rect x="20" y="58" width="30" height="22" rx="2"/><rect x="55" y="58" width="30" height="22" rx="2"/><rect x="90" y="58" width="30" height="22" rx="2"/><rect x="125" y="58" width="30" height="22" rx="2"/><rect x="160" y="58" width="30" height="22" rx="2" fill="currentColor" stroke="none" opacity="0.9"/><text x="105" y="105" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">10 SLIDES · 3 MIN</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">10-Slide Deck</h4>
+            <p class="sli-desc">Kawasaki's 10/20/30 rule — the 10 slides that raise a company.</p>
+            <span class="sli-badge">Slibrary 24</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit8.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 22–24</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit8_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Pitch Theatre</div><div class="note">Distill → Decompose → Prioritise · live panel</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit8_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Airbnb's First Deck</div><div class="note">10 slides that raised a company</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit8_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Kurt Bostelaar — Clarify Your Core Message</div><div class="note">Message Strategy Spectrum · Vehicles for Ideas</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit8_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<section class="unit u9" id="unit-9">
+  <button class="unit-head" aria-expanded="false" aria-controls="unit-9-body" data-toggle>
+    <span class="unit-num">
+      <span class="n">9</span>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="5"/><circle cx="48" cy="16" r="5"/><circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><circle cx="32" cy="32" r="5"/><path d="M20 18l8 10M48 21v22M40 16H20M20 48h28M20 44l8-8M48 48l-8-10"/></svg>
+    </span>
+    <span class="unit-title">
+      <h3>Systems Thinking</h3>
+      <span class="sub"><strong>Systems Mapping Lab · Capstone</strong> &nbsp;·&nbsp; <em>Iceberg · Meadows · Archetypes · Theory U</em></span>
+    </span>
+    <span class="unit-chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+  </button>
+  <div class="unit-body" id="unit-9-body"><div class="inner"><div class="body-pad">
+
+    <div class="slib-heading">
+      <span class="circle"></span>
+      <span class="label">Set 9 — Iceberg Model · Meadows' Leverage Points</span>
+      <span class="count">3 Slibraries · 15 Frameworks</span>
+    </div>
+
+    <div class="sliblib">
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="60" x2="185" y2="60" stroke-dasharray="4 3"/><polygon points="100 18 135 60 65 60" fill="currentColor" stroke="none" opacity="0.85"/><polygon points="100 18 135 60 65 60"/><polygon points="65 60 135 60 155 130 45 130" fill="currentColor" stroke="none" opacity="0.22"/><polygon points="65 60 135 60 155 130 45 130"/><line x1="55" y1="80" x2="145" y2="80" opacity="0.5"/><line x1="50" y1="100" x2="150" y2="100" opacity="0.5"/><line x1="48" y1="118" x2="152" y2="118" opacity="0.5"/><text x="100" y="45" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">Events</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Iceberg Model</h4>
+            <p class="sli-desc">Events → Patterns → Structures → Mental Models — four levels of systemic reality.</p>
+            <span class="sli-badge">Slibrary 25</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="120" x2="185" y2="120"/><rect x="25" y="106" width="10" height="14" fill="currentColor" stroke="none" opacity="0.22"/><rect x="38" y="100" width="10" height="20" fill="currentColor" stroke="none" opacity="0.28"/><rect x="51" y="93" width="10" height="27" fill="currentColor" stroke="none" opacity="0.34"/><rect x="64" y="85" width="10" height="35" fill="currentColor" stroke="none" opacity="0.40"/><rect x="77" y="76" width="10" height="44" fill="currentColor" stroke="none" opacity="0.48"/><rect x="90" y="66" width="10" height="54" fill="currentColor" stroke="none" opacity="0.56"/><rect x="103" y="55" width="10" height="65" fill="currentColor" stroke="none" opacity="0.64"/><rect x="116" y="44" width="10" height="76" fill="currentColor" stroke="none" opacity="0.72"/><rect x="129" y="33" width="10" height="87" fill="currentColor" stroke="none" opacity="0.8"/><rect x="142" y="22" width="10" height="98" fill="currentColor" stroke="none" opacity="0.88"/><rect x="155" y="12" width="10" height="108" fill="currentColor" stroke="none" opacity="0.94"/><rect x="168" y="5" width="10" height="115" fill="currentColor" stroke="none"/><text x="178" y="3" text-anchor="end" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none" opacity="0.85">12 points</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Meadows' Leverage Points</h4>
+            <p class="sli-desc">12 places to intervene in a system — in ascending order of effectiveness.</p>
+            <span class="sli-badge">Slibrary 26</span>
+          </div>
+        </div>
+        <div class="sli">
+          <div class="sli-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M45 30 Q 45 110 100 110 Q 155 110 155 30"/><circle cx="45" cy="30" r="6" fill="currentColor" stroke="none"/><circle cx="155" cy="30" r="6" fill="currentColor" stroke="none" opacity="0.9"/><circle cx="100" cy="110" r="6" fill="currentColor" stroke="none" opacity="0.7"/><text x="45" y="18" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Past</text><text x="155" y="18" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Future</text><text x="100" y="128" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Presencing</text></svg></div>
+          <div class="sli-body">
+            <h4 class="sli-title">Archetypes & Theory U</h4>
+            <p class="sli-desc">Systems archetypes, Scharmer's Theory U — sensing, presencing, emerging futures.</p>
+            <span class="sli-badge">Slibrary 27</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="tiles-heading"><span class="label">Unit Resources</span><span class="kicker">5 deliverables</span></div>
+    <div class="tiles">
+      <a class="tile t-fg" href="unit9.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span>
+        <span class="kicker">FG · Gallery</span><div class="title">Framework Gallery</div><div class="note">15 frameworks · Slibraries 25–27</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-ac" href="activities/Unit9_Activities.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="2.5"/><path d="M14.5 14.5h4a3 3 0 0 1 3 3V19"/></svg></span>
+        <span class="kicker">AC · Activity</span><div class="title">Systems Mapping Lab · Capstone</div><div class="note">Causal loops + leverage-point intervention pitch</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-cs" href="cases/Unit9_Case.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><circle cx="11" cy="15" r="2.5"/><line x1="13" y1="17" x2="15.5" y2="19.5"/></svg></span>
+        <span class="kicker">CS · Case</span><div class="title">Fashion's Circular Future</div><div class="note">Stocks · flows · feedback loops across an industry</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-pr" href="prereading/Unit9_PreReading.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h9Z"/></svg></span>
+        <span class="kicker">PR · Pre-Reading</span><div class="title">Richard Buchanan — Wicked Problems in Design Thinking</div><div class="note">Meadows' 12 Leverage Points in a System</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="tile t-rf" href="reflections/Unit9_Reflection.html">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span>
+        <span class="kicker">RF · Reflection</span><div class="title">Reflection Prompt</div><div class="note">3 questions for independent study</div>
+        <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+  </div></div></div>
+</section>
+
+<aside class="callout" aria-label="Complete framework gallery">
+  <div class="co-left">
+    <h3>All 135 Frameworks — The Complete Slibrary Wall</h3>
+    <p>Every thumbnail, every Slibrary, every unit — in one browsable gallery.</p>
+  </div>
+  <a class="cta" href="complete.html">Open the full Slibrary Wall <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</aside>
+
 <footer>
-  <div class="footer-inner">
-    <div>
-      <strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas
-    </div>
-    <div>
-      Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)
-    </div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<!-- ========== SEARCH SCRIPT ========== -->
+</main>
+
 <script>
-(function(){
-  const input = document.getElementById('unitSearch');
-  const units = document.querySelectorAll('.unit');
-  if(!input) return;
-  input.addEventListener('input', function(){
-    const q = input.value.trim().toLowerCase();
-    units.forEach(u => {
-      const text = u.textContent.toLowerCase();
-      const match = q === '' || text.includes(q);
-      u.style.display = match ? '' : 'none';
-      if(q !== '' && match) u.setAttribute('open',''); // expand on match
-      if(q === '') u.removeAttribute('open');          // collapse when cleared
+  document.querySelectorAll('[data-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const unit = btn.closest('.unit');
+      const isOpen = unit.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
     });
   });
-})();
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target && target.classList.contains('unit')) {
+      target.classList.add('is-open');
+      const btn = target.querySelector('[data-toggle]');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+    }
+  }
 </script>
 
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

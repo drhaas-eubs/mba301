@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 6 — Moving from an Idea to an Entrepreneurial Firm</title>
-<meta name="description" content="MBA301 Unit 6 — Moving from an Idea to an Entrepreneurial Firm. Framework gallery of 15 interactive visual thinking tools across Slibraries 16–18.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #0f2133;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(15,33,51,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #9fa6ad;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #0f2133;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#0f2133; background:rgba(15,33,51,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(15,33,51,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#0f2133;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#0f2133; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #0f2133; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#0f2133; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(15,33,51,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#0f2133;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#0f2133;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(15,33,51,0.06);
-  border-left:3px solid #0f2133;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#0f2133; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#0f2133; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 6 — Moving from an Idea to an Entrepreneurial Firm — MBA301</title>
+<meta name="description" content="Unit 6 Framework Gallery · Moving from an Idea to an Entrepreneurial Firm. Interactive visual guide to the 15 frameworks in Slibraries 16–18." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 6</span>
+<main class="shell unit-page u6">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">6</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="38" width="14" height="14"/><rect x="26" y="30" width="14" height="22"/><rect x="44" y="18" width="12" height="34"/><polyline points="6 22 16 22 26 18 40 14 54 8"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 6 · FRAMEWORK GALLERY</div>
     <h1>Moving from an Idea to an Entrepreneurial Firm</h1>
-    <p class="hero-sub">Venture building — legal form, funding, team, unit economics.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">16–18</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Foundry Simulation &nbsp;·&nbsp; Customer Development · Funding Ladder · Unit Economics</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 16</span>
-      <h2 class="slibrary-title">Venture Building</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="6-16-0" aria-label="Open details for Startup Genome Lifecycle">
-        <h3 class="fw-title">Startup Genome Lifecycle</h3>
-        <p class="fw-desc">Discovery · Validation · Efficiency · Scale · Sustain — stage map.</p>
-        <span class="fw-tag">Slibrary 16 · Venture Building <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-16-1" aria-label="Open details for Customer Development (Blank)">
-        <h3 class="fw-title">Customer Development (Blank)</h3>
-        <p class="fw-desc">Discovery · Validation · Creation · Company-Building.</p>
-        <span class="fw-tag">Slibrary 16 · Venture Building <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-16-2" aria-label="Open details for Build–Measure–Learn Loop">
-        <h3 class="fw-title">Build–Measure–Learn Loop</h3>
-        <p class="fw-desc">Ries' Lean Startup cycle — the core engine of experimentation.</p>
-        <span class="fw-tag">Slibrary 16 · Venture Building <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-16-3" aria-label="Open details for Founder's Dilemma (Wasserman)">
-        <h3 class="fw-title">Founder's Dilemma (Wasserman)</h3>
-        <p class="fw-desc">Rich vs King trade-offs across every major founder decision.</p>
-        <span class="fw-tag">Slibrary 16 · Venture Building <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-16-4" aria-label="Open details for Product–Market Fit Pyramid">
-        <h3 class="fw-title">Product–Market Fit Pyramid</h3>
-        <p class="fw-desc">Target customer → needs → value prop → feature set → UX.</p>
-        <span class="fw-tag">Slibrary 16 · Venture Building <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 17</span>
-      <h2 class="slibrary-title">Legal &amp; Finance Basics</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="6-17-0" aria-label="Open details for Legal Forms Matrix">
-        <h3 class="fw-title">Legal Forms Matrix</h3>
-        <p class="fw-desc">Sole Prop · Partnership · LLC · Corp — liability, tax, governance.</p>
-        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-17-1" aria-label="Open details for Cap Table">
-        <h3 class="fw-title">Cap Table</h3>
-        <p class="fw-desc">Who owns what, at what price, at what stage — the equity map.</p>
-        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-17-2" aria-label="Open details for Funding Stages Ladder">
-        <h3 class="fw-title">Funding Stages Ladder</h3>
-        <p class="fw-desc">Pre-seed · Seed · Series A/B/C · Growth · IPO — typical cheque sizes.</p>
-        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-17-3" aria-label="Open details for Unit Economics">
-        <h3 class="fw-title">Unit Economics</h3>
-        <p class="fw-desc">CAC · LTV · Payback period · Contribution margin per customer.</p>
-        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-17-4" aria-label="Open details for Runway & Burn Rate">
-        <h3 class="fw-title">Runway &amp; Burn Rate</h3>
-        <p class="fw-desc">Months of operating cash at current spend — the existential metric.</p>
-        <span class="fw-tag">Slibrary 17 · Legal & Finance Basics <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 18</span>
-      <h2 class="slibrary-title">Team &amp; Culture</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="6-18-0" aria-label="Open details for Team Alignment Map">
-        <h3 class="fw-title">Team Alignment Map</h3>
-        <p class="fw-desc">Joint Objectives · Commitments · Resources · Risks (Strategyzer).</p>
-        <span class="fw-tag">Slibrary 18 · Team & Culture <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-18-1" aria-label="Open details for Hiring-for-Stage Model">
-        <h3 class="fw-title">Hiring-for-Stage Model</h3>
-        <p class="fw-desc">The skill profile needed changes with each funding round.</p>
-        <span class="fw-tag">Slibrary 18 · Team & Culture <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-18-2" aria-label="Open details for Founder Roles Matrix">
-        <h3 class="fw-title">Founder Roles Matrix</h3>
-        <p class="fw-desc">CEO · CTO · CMO · COO — overlap, hand-offs, and white space.</p>
-        <span class="fw-tag">Slibrary 18 · Team & Culture <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-18-3" aria-label="Open details for Founder's Pie Calculator">
-        <h3 class="fw-title">Founder's Pie Calculator</h3>
-        <p class="fw-desc">Frank Demmler's weighted equity split for early founders.</p>
-        <span class="fw-tag">Slibrary 18 · Team & Culture <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="6-18-4" aria-label="Open details for Advisory Board Structure">
-        <h3 class="fw-title">Advisory Board Structure</h3>
-        <p class="fw-desc">Formal vs informal · equity vs cash · cadence · contribution.</p>
-        <span class="fw-tag">Slibrary 18 · Team & Culture <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-16">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 16</span>
+          <h2>Customer Development</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Steve Blank's response to the question: how do you take a validated idea and turn it into a company that can grow? Four distinct stages, each with its own metrics and its own failure modes.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="35" cy="70" r="12"/><circle cx="80" cy="70" r="12"/><circle cx="125" cy="70" r="12"/><circle cx="170" cy="70" r="12" fill="currentColor" stroke="none"/><path d="M47 70h21M92 70h21M137 70h21"/><text x="35" y="97" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">DISC</text><text x="80" y="97" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">VAL</text><text x="125" y="97" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">CRE</text><text x="170" y="97" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">BLD</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Blank's 4 Steps</h4>
+            <p class="fw-desc">Discovery · Validation · Creation · Company Building — the customer-development stack.</p>
+            <span class="fw-badge">Slibrary 16</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="65" r="35" fill="none"/><line x1="125" y1="90" x2="155" y2="115"/><circle cx="85" cy="55" r="3" fill="currentColor" stroke="none"/><circle cx="100" cy="65" r="3" fill="currentColor" stroke="none"/><circle cx="115" cy="55" r="3" fill="currentColor" stroke="none"/><circle cx="90" cy="75" r="3" fill="currentColor" stroke="none"/><circle cx="108" cy="75" r="3" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Discovery Interviews</h4>
+            <p class="fw-desc">20–30 customer interviews before you write a line of code. The only reliable shortcut.</p>
+            <span class="fw-badge">Slibrary 16</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="40" width="30" height="30" rx="3"/><rect x="85" y="40" width="30" height="30" rx="3" fill="currentColor" stroke="none" opacity="0.35"/><rect x="85" y="40" width="30" height="30" rx="3"/><rect x="130" y="40" width="30" height="30" rx="3" fill="currentColor" stroke="none" opacity="0.7"/><rect x="130" y="40" width="30" height="30" rx="3"/><rect x="40" y="78" width="30" height="30" rx="3" fill="currentColor" stroke="none" opacity="0.9"/><path d="M50 93l6 6l14-14" stroke="#fff"/><path d="M90 48l20 14M90 62l20-14" stroke="currentColor"/><path d="M135 48l20 14M135 62l20-14" stroke="currentColor"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Validation Experiments</h4>
+            <p class="fw-desc">Pre-order · Concierge · Fake-door · Smoke-test — four patterns that prove demand.</p>
+            <span class="fw-badge">Slibrary 16</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M40 25h120L135 60l-30 10v35L95 90V70L65 60Z"/><text x="100" y="50" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">AARRR</text><text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">ACQ · ACT · RET · REF · REV</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">AARRR · Pirate Metrics</h4>
+            <p class="fw-desc">Acquisition · Activation · Retention · Referral · Revenue. Dave McClure's funnel.</p>
+            <span class="fw-badge">Slibrary 16</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 100 Q 50 50 100 50 Q 150 50 150 100"/><circle cx="50" cy="100" r="5" fill="currentColor" stroke="none"/><circle cx="100" cy="50" r="8" fill="currentColor" stroke="none"/><circle cx="150" cy="100" r="5" fill="currentColor" stroke="none" opacity="0.85"/><polyline points="145 95 150 100 145 105"/><text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">PIVOT</text><text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="7" fill="currentColor" stroke="none" opacity="0.75">10 types</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Pivot Types</h4>
+            <p class="fw-desc">Zoom-in · Zoom-out · Customer · Need · Platform · Tech · Channel · Revenue · Engine.</p>
+            <span class="fw-badge">Slibrary 16</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-17">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 17</span>
+          <h2>Funding Ladder</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The capital structure of a growing startup, rung by rung. Each round has its own investor type, its own valuation dynamics, and its own founder-dilution arithmetic.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="30" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="100" cy="70" r="20" fill="var(--unit-soft,#fff)"/><text x="100" y="74" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">€</text><path d="M70 70 Q 100 20 130 70" stroke-dasharray="3 3"/><polyline points="125 65 132 70 125 75"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Bootstrapping</h4>
+            <p class="fw-desc">Fund the business from revenue and founder savings. No dilution, slower growth.</p>
+            <span class="fw-badge">Slibrary 17</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="55" cy="55" r="12"/><circle cx="100" cy="45" r="12"/><circle cx="145" cy="55" r="12"/><rect x="40" y="75" width="30" height="35" rx="4"/><rect x="85" y="65" width="30" height="45" rx="4"/><rect x="130" y="75" width="30" height="35" rx="4"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">FFF + Angel</h4>
+            <p class="fw-desc">Friends, Family & Fools, then angel investors. $25K-$500K, pre-product conviction.</p>
+            <span class="fw-badge">Slibrary 17</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="100" cy="85" rx="12" ry="18" fill="currentColor" stroke="none" opacity="0.85"/><path d="M100 70v-30"/><path d="M100 55 Q 80 40 90 25 Q 100 30 100 45"/><path d="M100 55 Q 120 40 110 25 Q 100 30 100 45"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Seed Round</h4>
+            <p class="fw-desc">$500K–$3M to prove PMF. Seed fund, super-angels, accelerator demo day.</p>
+            <span class="fw-badge">Slibrary 17</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="70" width="40" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.45"/><rect x="80" y="50" width="40" height="60" rx="4" fill="currentColor" stroke="none" opacity="0.7"/><rect x="130" y="25" width="40" height="85" rx="4" fill="currentColor" stroke="none" opacity="0.95"/><text x="50" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff" stroke="none">A</text><text x="100" y="85" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff" stroke="none">B</text><text x="150" y="72" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff" stroke="none">C</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Series A/B/C</h4>
+            <p class="fw-desc">A: scale GTM. B: scale ops. C: expand market. Each round has a different bar.</p>
+            <span class="fw-badge">Slibrary 17</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="40"/><path d="M100 30 L100 70 L136 88 A40 40 0 0 0 138 58 Z" fill="currentColor" stroke="none" opacity="0.3"/><path d="M100 70 L100 110 L64 88 A40 40 0 0 0 60 78 Z" fill="currentColor" stroke="none" opacity="0.55"/><path d="M100 70 L138 58 A40 40 0 0 0 100 30 Z" fill="currentColor" stroke="none" opacity="0.85"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Cap Table Dynamics</h4>
+            <p class="fw-desc">Founders · Employees · Seed · Series A … dilution compounds, ownership ≠ control.</p>
+            <span class="fw-badge">Slibrary 17</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-18">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 18</span>
+          <h2>Unit Economics</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The five numbers that determine whether a venture's growth is creating or destroying value. If unit economics don't work at N customers, they won't work at 10N.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="70" y="40" width="60" height="80" rx="4" fill="currentColor" stroke="none" opacity="0.55"/><text x="100" y="80" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#fff" stroke="none">CAC</text><path d="M40 25h25l5 15M160 25h-25l-5 15" opacity="0.6"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">CAC</h4>
+            <p class="fw-desc">Customer Acquisition Cost = total sales & marketing spend ÷ new customers acquired.</p>
+            <span class="fw-badge">Slibrary 18</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="60" y="22" width="80" height="100" rx="4" fill="currentColor" stroke="none" opacity="0.85"/><text x="100" y="77" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700" fill="#fff" stroke="none">LTV</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">LTV</h4>
+            <p class="fw-desc">Customer Lifetime Value = ARPU × gross margin × average customer lifetime.</p>
+            <span class="fw-badge">Slibrary 18</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="60" width="36" height="60" fill="currentColor" stroke="none" opacity="0.4"/><rect x="124" y="25" width="36" height="95" fill="currentColor" stroke="none" opacity="0.9"/><text x="58" y="50" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">CAC</text><text x="142" y="18" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">LTV</text><text x="100" y="80" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="currentColor" stroke="none">≥ 3×</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">LTV/CAC Ratio</h4>
+            <p class="fw-desc">Rule of thumb: ≥ 3. Below 1 means you lose money on every customer.</p>
+            <span class="fw-badge">Slibrary 18</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="85" x2="175" y2="85"/><path d="M25 105 Q 55 100 85 85 Q 115 70 145 50 Q 160 40 175 30"/><circle cx="85" cy="85" r="5" fill="currentColor" stroke="none"/><text x="85" y="105" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">break-even</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Payback Period</h4>
+            <p class="fw-desc">Months of gross margin it takes to earn back CAC. SaaS benchmark: < 12 months.</p>
+            <span class="fw-badge">Slibrary 18</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M100 30 Q 90 50 85 60 Q 80 75 90 85 Q 100 90 110 85 Q 120 75 115 60 Q 110 50 100 30 Z" fill="currentColor" stroke="none" opacity="0.85"/><path d="M100 30 Q 90 50 85 60 Q 80 75 90 85 Q 100 90 110 85 Q 120 75 115 60 Q 110 50 100 30 Z"/><path d="M100 65 Q 94 72 95 80 Q 100 85 105 80 Q 106 72 100 65 Z" fill="#fff" stroke="none"/><line x1="40" y1="110" x2="160" y2="110"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Contribution Margin & Burn</h4>
+            <p class="fw-desc">CM per unit × volume − fixed costs = profit. Burn = fixed − contribution.</p>
+            <span class="fw-badge">Slibrary 18</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit6_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Foundry Simulation</span></a>
+  <a href="cases/Unit6_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit6_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit6_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 6: Moving from an Idea to an Entrepreneurial Firm · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"6-16-0": {"title": "Startup Genome Lifecycle", "slibrary": 16, "slibrary_title": "Venture Building", "unit": 6, "desc": "The Startup Genome Report (2012–) studied thousands of early-stage companies and found they progress through predictable stages: Discovery, Validation, Efficiency, Scale, Sustain. Each stage has distinct priorities, metrics, and failure modes — and skipping stages is the most common cause of collapse.", "elements": ["Discovery — is there a problem?", "Validation — can we solve it?", "Efficiency — can we solve it repeatably?", "Scale — can we solve it for millions?", "Sustain — can we defend the position?"], "when_to_use": "In diagnosing a struggling startup — the lifecycle reveals whether the team is in the wrong stage for its activities (e.g. scaling before validation).", "link": {"url": "https://startupgenome.com/reports", "label": "Startup Genome — Global Startup Ecosystem Reports"}}, "6-16-1": {"title": "Customer Development (Blank)", "slibrary": 16, "slibrary_title": "Venture Building", "unit": 6, "desc": "Steve Blank's Customer Development (2005) reframes startups as 'organisations searching for a repeatable business model' — not small versions of big companies. The four steps — Discovery, Validation, Creation, Company-Building — formalise what entrepreneurs had done informally, and made the Lean Startup movement possible.", "elements": ["Customer Discovery — validate the problem", "Customer Validation — validate the sale", "Customer Creation — drive end-user demand", "Company-Building — scale the organisation", "Search before execute"], "when_to_use": "As the backbone for any early-stage venture — the four steps are the reference model against which all modern startup methodology (Lean, Agile, Design Sprint) sits.", "link": {"url": "https://steveblank.com/category/customer-development/", "label": "Steve Blank — Customer Development"}}, "6-16-2": {"title": "Build–Measure–Learn Loop", "slibrary": 16, "slibrary_title": "Venture Building", "unit": 6, "desc": "Eric Ries's Build-Measure-Learn loop (2011) is the engine of Lean Startup: build a minimal version, measure real behaviour, learn what's true, repeat. The power is in the speed and discipline of the loop — slow loops or loops that don't produce learning are the diagnostic for a startup in trouble.", "elements": ["Build — the smallest testable version", "Measure — behaviour, not opinion", "Learn — validated or invalidated hypothesis", "Shorten the loop relentlessly", "Pivot or persevere at each cycle"], "when_to_use": "As the default operating rhythm for product development — every sprint should complete at least one Build-Measure-Learn cycle.", "link": {"url": "https://theleanstartup.com/principles", "label": "Lean Startup — Principles"}}, "6-16-3": {"title": "Founder's Dilemma (Wasserman)", "slibrary": 16, "slibrary_title": "Venture Building", "unit": 6, "desc": "Noam Wasserman's Founder's Dilemmas (2012) studied 10,000 founders and identified a recurring trade-off: founders can usually either stay king (control) or get rich (value) — rarely both. Every major founder decision (co-founders, hiring, funding, board composition) tilts the trade-off one way or the other.", "elements": ["Solo vs team founding", "Hire friends vs strangers", "Take funding vs bootstrap", "Stay CEO vs hire one", "Each decision tilts rich-vs-king"], "when_to_use": "At every major founder crossroads — Wasserman's research gives a cold data-backed reading of which path the founder is actually choosing.", "link": {"url": "https://hbr.org/2008/02/the-founders-dilemma", "label": "HBR — The Founder's Dilemma (Wasserman, 2008)"}}, "6-16-4": {"title": "Product–Market Fit Pyramid", "slibrary": 16, "slibrary_title": "Venture Building", "unit": 6, "desc": "Dan Olsen's Product-Market Fit Pyramid (2015) decomposes PMF into five layers from top to bottom: target customer, underserved needs, value proposition, feature set, UX. Each layer must rest on the layer below. Most PMF failures aren't feature failures — they're layer failures that manifest as feature problems.", "elements": ["Target Customer — who exactly", "Underserved Needs — their unmet jobs", "Value Proposition — how you'll meet them", "Feature Set — MVP scope", "UX — how it feels"], "when_to_use": "When a team is debating feature priorities and getting nowhere — the pyramid surfaces that the disagreement is at a deeper layer.", "link": {"url": "https://www.productmanagementtoday.com/product-market-fit-pyramid/", "label": "Dan Olsen — Product-Market Fit Pyramid"}}, "6-17-0": {"title": "Legal Forms Matrix", "slibrary": 17, "slibrary_title": "Legal & Finance Basics", "unit": 6, "desc": "The Legal Forms Matrix compares Sole Proprietorship, Partnership, LLC/GmbH, and Corporation (C-Corp/UG) across four dimensions: liability exposure, tax treatment, governance requirements, and fund-raising flexibility. Each form fits a different stage and risk profile — no single form is 'best'.", "elements": ["Liability — personal vs limited", "Tax — pass-through vs entity-level", "Governance — informal vs formal", "Fund-raising — restricted vs flexible", "Varies by jurisdiction"], "when_to_use": "At incorporation, and again at each major funding round — the optimal form changes as the venture matures.", "link": {"url": "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure", "label": "US SBA — Choose a Business Structure"}}, "6-17-1": {"title": "Cap Table", "slibrary": 17, "slibrary_title": "Legal & Finance Basics", "unit": 6, "desc": "The cap table (capitalisation table) is the equity map of the company: who owns what, at what price, at what stage. It tracks founder equity, option pool, investor shares, and convertible instruments. A messy cap table is one of the most common dealbreakers in later funding rounds.", "elements": ["Founder equity (common shares)", "Employee option pool (typically 10-15%)", "Preferred shares by investor, by round", "Convertible notes / SAFEs", "Fully-diluted vs issued shares"], "when_to_use": "From the first funding discussion onwards — the cap table should always exist and be accurate, even if it's a single founder.", "link": {"url": "https://carta.com/learn/startups/equity-management/cap-table/", "label": "Carta — Cap Table 101"}}, "6-17-2": {"title": "Funding Stages Ladder", "slibrary": 17, "slibrary_title": "Legal & Finance Basics", "unit": 6, "desc": "The Funding Stages Ladder sequences the typical capital raises of a venture from pre-seed ($50K-500K) to Series D+/IPO ($50M+). Each stage expects different milestones: pre-seed buys discovery, Series A expects PMF, Series B expects scale, and so on. Raising at the wrong stage for the evidence is predictably fatal.", "elements": ["Pre-seed / Seed — idea & early validation", "Series A — product-market fit", "Series B — repeatable growth engine", "Series C+ — category leadership", "IPO / Acquisition — exit"], "when_to_use": "When setting fundraising strategy — the ladder calibrates which round is realistic given the venture's current evidence.", "link": {"url": "https://carta.com/learn/startups/fundraising/", "label": "Carta — Startup Fundraising"}}, "6-17-3": {"title": "Unit Economics", "slibrary": 17, "slibrary_title": "Legal & Finance Basics", "unit": 6, "desc": "Unit Economics measures the profitability of one customer: Customer Acquisition Cost (CAC), Lifetime Value (LTV), the ratio (LTV:CAC > 3:1 is healthy), Payback Period, and Contribution Margin. A business with bad unit economics cannot be saved by scale — scale amplifies the problem.", "elements": ["CAC — fully-loaded cost to acquire one customer", "LTV — revenue from one customer, lifetime", "LTV:CAC ratio (3:1 or better is healthy)", "Payback period (<12 months typical target)", "Contribution margin per customer"], "when_to_use": "At every board meeting after Seed — unit economics is the single best predictor of whether the business model actually works.", "link": {"url": "https://www.forentrepreneurs.com/saas-metrics-2/", "label": "For Entrepreneurs — SaaS Unit Economics (David Skok)"}}, "6-17-4": {"title": "Runway & Burn Rate", "slibrary": 17, "slibrary_title": "Legal & Finance Basics", "unit": 6, "desc": "Runway is the months of operating cash remaining at current burn rate. Burn is monthly net cash out (expenses minus revenue). Together they are the existential metric for every startup — when runway hits zero, the company dies. Boards track burn weekly; founders track it daily.", "elements": ["Burn rate — monthly net cash outflow", "Gross burn = expenses; net burn = expenses - revenue", "Runway = cash ÷ monthly net burn", "Target runway: 18-24 months after raise", "Below 6 months runway = crisis mode"], "when_to_use": "Weekly, from day one — founders who don't know their runway number to the week are always on the verge of being surprised.", "link": {"url": "https://www.ycombinator.com/library/6h-how-to-calculate-burn-rate-and-runway", "label": "Y Combinator — Burn Rate & Runway"}}, "6-18-0": {"title": "Team Alignment Map", "slibrary": 18, "slibrary_title": "Team & Culture", "unit": 6, "desc": "Strategyzer's Team Alignment Map — revisited for founder teams — makes explicit the shared agreements that informal teams usually assume exist. Joint Objectives, Joint Commitments, Joint Resources, Joint Risks. The act of filling it in surfaces the disagreements the team has been avoiding.", "elements": ["Joint Objectives — what we commit to achieve", "Joint Commitments — who does what, by when", "Joint Resources — what we need", "Joint Risks — what could derail us", "Weekly review, not one-time"], "when_to_use": "At team formation and at every major inflection (new hire, new round, new product line) — alignment drift is the silent killer of founder teams.", "link": {"url": "https://www.strategyzer.com/library/the-team-alignment-map", "label": "Strategyzer — Team Alignment Map"}}, "6-18-1": {"title": "Hiring-for-Stage Model", "slibrary": 18, "slibrary_title": "Team & Culture", "unit": 6, "desc": "The Hiring-for-Stage Model recognises that the skills needed to build a startup from 0→10 are different from those needed to scale 10→100 or 100→1000. Hiring mismatches — the pre-seed generalist kept on through Series C — cause predictable breakdowns. Each stage has a named ideal hire profile.", "elements": ["0→1 — generalist hustler, builds everything", "1→10 — specialist owner, first hire per function", "10→100 — manager of specialists", "100→1000 — director, manager-of-managers", "Stage mismatch = underperformance, not effort"], "when_to_use": "When a long-serving employee starts struggling as the company grows — the model often reveals a stage-fit issue, not a capability issue.", "link": {"url": "https://review.firstround.com/how-to-build-your-first-executive-team/", "label": "First Round Review — Building an Executive Team"}}, "6-18-2": {"title": "Founder Roles Matrix", "slibrary": 18, "slibrary_title": "Team & Culture", "unit": 6, "desc": "The Founder Roles Matrix maps typical founder responsibilities across CEO, CTO, CMO, COO — and explicitly identifies the overlap zones and the white spaces. Most founder conflict comes from unclear ownership in the overlaps and missed work in the white spaces.", "elements": ["CEO — strategy, fundraising, external", "CTO — technology, product architecture", "CMO — growth, brand, marketing", "COO — operations, hiring, execution", "Overlaps: hiring, product, culture — need explicit decision rights"], "when_to_use": "Within the first 90 days of a founder team forming — explicit role documentation prevents the conflicts that later destroy the team.", "link": {"url": "https://review.firstround.com/the-founders-dilemmas/", "label": "First Round Review — Founder Roles"}}, "6-18-3": {"title": "Founder's Pie Calculator", "slibrary": 18, "slibrary_title": "Team & Culture", "unit": 6, "desc": "Frank Demmler's Founder's Pie Calculator (2000s) structures equity splits across five weighted dimensions: idea, commitment, risk, responsibility, and expertise. It replaces 'we'll just split 50/50' with an explicit quantitative basis. Founders who skip this conversation have it later — and worse.", "elements": ["Idea — whose concept was it originally?", "Commitment — full-time vs part-time", "Risk — money, reputation, opportunity cost", "Responsibility — who carries which load", "Expertise — domain and technical skills"], "when_to_use": "Before incorporation — having this conversation with documented reasoning prevents the equity renegotiations that routinely rupture founder teams at Series A.", "link": {"url": "https://www.gust.com/launch/founders-pie", "label": "Gust — Founder's Pie Calculator"}}, "6-18-4": {"title": "Advisory Board Structure", "slibrary": 18, "slibrary_title": "Team & Culture", "unit": 6, "desc": "The Advisory Board Structure distinguishes advisors (informal, equity 0.1-1%, quarterly contact), board observers (attend board meetings, no vote), and board directors (fiduciary duty, 1-2% equity, voting). Most early-stage founders over-promise advisory roles and under-use them.", "elements": ["Advisor — equity 0.1-1%, quarterly check-ins", "Observer — attends board, no vote", "Director — fiduciary, 1-2% vesting", "Formal vs informal agreements", "Right advisor beats famous advisor"], "when_to_use": "Before the first funding round — getting the advisory structure right early is cheap; fixing it later is expensive in equity and reputation.", "link": {"url": "https://fi.co/advisors-equity", "label": "Founder Institute — Advisor Equity Guide"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

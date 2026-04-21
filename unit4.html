@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 4 — Entrepreneurial Thinking</title>
-<meta name="description" content="MBA301 Unit 4 — Entrepreneurial Thinking. Framework gallery of 15 interactive visual thinking tools across Slibraries 10–12.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #b54e55;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(181,78,85,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #b54e55;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #b54e55;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#b54e55; background:rgba(181,78,85,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(181,78,85,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#b54e55;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#b54e55; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #b54e55; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#b54e55; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(181,78,85,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#b54e55;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#b54e55;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(181,78,85,0.06);
-  border-left:3px solid #b54e55;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#b54e55; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#b54e55; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 4 — Entrepreneurial Thinking — MBA301</title>
+<meta name="description" content="Unit 4 Framework Gallery · Entrepreneurial Thinking. Interactive visual guide to the 15 frameworks in Slibraries 10–12." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 4</span>
+<main class="shell unit-page u4">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">4</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><polygon points="32 14 38 32 32 50 26 32" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="32" cy="32" r="3" fill="currentColor" stroke="none"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 4 · FRAMEWORK GALLERY</div>
     <h1>Entrepreneurial Thinking</h1>
-    <p class="hero-sub">The role of uncertainty and the five principles of effectual action.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">10–12</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Uncertainty Challenge &nbsp;·&nbsp; Effectuation · Furr · Knight · Sarasvathy</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 10</span>
-      <h2 class="slibrary-title">Uncertainty Frameworks</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="4-10-0" aria-label="Open details for Knight's Risk vs Uncertainty">
-        <h3 class="fw-title">Knight's Risk vs Uncertainty</h3>
-        <p class="fw-desc">Risk = measurable; uncertainty = unknowable — a 1921 distinction still live.</p>
-        <span class="fw-tag">Slibrary 10 · Uncertainty Frameworks <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-10-1" aria-label="Open details for Furr's Possibility Quadrant">
-        <h3 class="fw-title">Furr's Possibility Quadrant</h3>
-        <p class="fw-desc">Reframe uncertainty into the upside — The Upside of Uncertainty (HBS).</p>
-        <span class="fw-tag">Slibrary 10 · Uncertainty Frameworks <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-10-2" aria-label="Open details for Cynefin Framework">
-        <h3 class="fw-title">Cynefin Framework</h3>
-        <p class="fw-desc">Simple · Complicated · Complex · Chaotic — match decision mode to domain.</p>
-        <span class="fw-tag">Slibrary 10 · Uncertainty Frameworks <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-10-3" aria-label="Open details for Black Swan">
-        <h3 class="fw-title">Black Swan</h3>
-        <p class="fw-desc">Taleb's rare, high-impact, retrospectively-explainable events.</p>
-        <span class="fw-tag">Slibrary 10 · Uncertainty Frameworks <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-10-4" aria-label="Open details for VUCA">
-        <h3 class="fw-title">VUCA</h3>
-        <p class="fw-desc">Volatile · Uncertain · Complex · Ambiguous — the diagnostic lens.</p>
-        <span class="fw-tag">Slibrary 10 · Uncertainty Frameworks <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 11</span>
-      <h2 class="slibrary-title">Effectuation (Sarasvathy)</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="4-11-0" aria-label="Open details for Bird-in-Hand">
-        <h3 class="fw-title">Bird-in-Hand</h3>
-        <p class="fw-desc">Start with means: who I am, what I know, who I know.</p>
-        <span class="fw-tag">Slibrary 11 · Effectuation (Sarasvathy) <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-11-1" aria-label="Open details for Affordable Loss">
-        <h3 class="fw-title">Affordable Loss</h3>
-        <p class="fw-desc">Invest only what you can afford to lose — not expected return.</p>
-        <span class="fw-tag">Slibrary 11 · Effectuation (Sarasvathy) <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-11-2" aria-label="Open details for Crazy Quilt">
-        <h3 class="fw-title">Crazy Quilt</h3>
-        <p class="fw-desc">Build with self-selecting partners — strangers become stakeholders.</p>
-        <span class="fw-tag">Slibrary 11 · Effectuation (Sarasvathy) <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-11-3" aria-label="Open details for Lemonade Principle">
-        <h3 class="fw-title">Lemonade Principle</h3>
-        <p class="fw-desc">Leverage surprises; don't avoid them. The unexpected is fuel.</p>
-        <span class="fw-tag">Slibrary 11 · Effectuation (Sarasvathy) <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-11-4" aria-label="Open details for Pilot-in-the-Plane">
-        <h3 class="fw-title">Pilot-in-the-Plane</h3>
-        <p class="fw-desc">Control over predict: the future is made, not foreseen.</p>
-        <span class="fw-tag">Slibrary 11 · Effectuation (Sarasvathy) <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 12</span>
-      <h2 class="slibrary-title">Entrepreneurial Principles</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="4-12-0" aria-label="Open details for Future Orientation">
-        <h3 class="fw-title">Future Orientation</h3>
-        <p class="fw-desc">Anticipate, imagine, and act toward a desired future state.</p>
-        <span class="fw-tag">Slibrary 12 · Entrepreneurial Principles <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-12-1" aria-label="Open details for Means Orientation">
-        <h3 class="fw-title">Means Orientation</h3>
-        <p class="fw-desc">Start from what you have, not what you think you need.</p>
-        <span class="fw-tag">Slibrary 12 · Entrepreneurial Principles <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-12-2" aria-label="Open details for 5 Key Elements of Entrepreneurship">
-        <h3 class="fw-title">5 Key Elements of Entrepreneurship</h3>
-        <p class="fw-desc">Individual · Opportunity · Resources · Organisation · Environment.</p>
-        <span class="fw-tag">Slibrary 12 · Entrepreneurial Principles <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-12-3" aria-label="Open details for Opportunity Triangle">
-        <h3 class="fw-title">Opportunity Triangle</h3>
-        <p class="fw-desc">Entrepreneur ↔ Opportunity ↔ Resources, mediated by uncertainty.</p>
-        <span class="fw-tag">Slibrary 12 · Entrepreneurial Principles <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="4-12-4" aria-label="Open details for Fit & Gaps to the Business Plan">
-        <h3 class="fw-title">Fit &amp; Gaps to the Business Plan</h3>
-        <p class="fw-desc">Diagnose alignment across the three corners of the triangle.</p>
-        <span class="fw-tag">Slibrary 12 · Entrepreneurial Principles <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-10">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 10</span>
+          <h2>Effectuation Principles</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Sarasvathy's five principles drawn from 27 expert entrepreneurs. Effectual logic — what to do when you can't predict the future — is the most-taught entrepreneurship framework of the last 25 years.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M70 95 Q 65 70 90 60 Q 130 50 140 85 Q 125 100 100 100 Z"/><circle cx="130" cy="75" r="3" fill="currentColor" stroke="none"/><path d="M140 85 Q 155 80 170 90"/><text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Who · What · Whom</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Bird-in-Hand</h4>
+            <p class="fw-desc">Start with who you are, what you know, whom you know. Means over ends.</p>
+            <span class="fw-badge">Slibrary 10</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="90" width="140" height="25" rx="3" fill="currentColor" stroke="none" opacity="0.85"/><rect x="30" y="60" width="140" height="25" rx="3" fill="currentColor" stroke="none" opacity="0.3"/><rect x="30" y="30" width="140" height="25" rx="3" opacity="0.4" stroke-dasharray="3 3"/><text x="100" y="108" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">CAN AFFORD TO LOSE</text><text x="100" y="46" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none" opacity="0.6">hoped return</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Affordable Loss</h4>
+            <p class="fw-desc">Commit only what you can afford to lose, not what you expect to gain.</p>
+            <span class="fw-badge">Slibrary 10</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="70" cy="70" r="22" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="70" cy="70" r="22"/><circle cx="130" cy="70" r="22" fill="currentColor" stroke="none" opacity="0.85"/><path d="M92 70h16"/><polyline points="100 62 110 70 100 78"/><text x="70" y="74" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Surprise</text><text x="130" y="74" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="#fff" stroke="none">Resource</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Lemonade</h4>
+            <p class="fw-desc">Treat surprises as resources. Bad news is a pivot opportunity, not a setback.</p>
+            <span class="fw-badge">Slibrary 10</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="30" height="30" rx="2"/><rect x="65" y="30" width="30" height="30" rx="2" fill="currentColor" stroke="none" opacity="0.3"/><rect x="65" y="30" width="30" height="30" rx="2"/><rect x="100" y="30" width="30" height="30" rx="2"/><rect x="135" y="30" width="30" height="30" rx="2" fill="currentColor" stroke="none" opacity="0.55"/><rect x="135" y="30" width="30" height="30" rx="2"/><rect x="30" y="65" width="30" height="30" rx="2" fill="currentColor" stroke="none" opacity="0.4"/><rect x="30" y="65" width="30" height="30" rx="2"/><rect x="65" y="65" width="30" height="30" rx="2" fill="currentColor" stroke="none" opacity="0.85"/><rect x="65" y="65" width="30" height="30" rx="2"/><rect x="100" y="65" width="30" height="30" rx="2"/><rect x="135" y="65" width="30" height="30" rx="2" fill="currentColor" stroke="none" opacity="0.25"/><rect x="135" y="65" width="30" height="30" rx="2"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Crazy Quilt</h4>
+            <p class="fw-desc">Build partnerships with self-selecting stakeholders — they bring new means.</p>
+            <span class="fw-badge">Slibrary 10</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="40"/><circle cx="100" cy="70" r="28" opacity="0.5"/><circle cx="100" cy="70" r="16" opacity="0.3"/><circle cx="100" cy="70" r="5" fill="currentColor" stroke="none"/><text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">MAKE · DON'T PREDICT</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Pilot-in-the-Plane</h4>
+            <p class="fw-desc">The future is made, not predicted. Focus on what you can control.</p>
+            <span class="fw-badge">Slibrary 10</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-11">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 11</span>
+          <h2>Uncertainty & Risk</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Five frameworks for distinguishing situations you can model from situations you cannot — and for acting responsibly in both. Furr's Possibility Quadrant is the centrepiece.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="100" y1="20" x2="100" y2="120"/><rect x="30" y="50" width="60" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.35"/><rect x="30" y="50" width="60" height="40" rx="4"/><rect x="110" y="50" width="60" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.8"/><rect x="110" y="50" width="60" height="40" rx="4"/><text x="60" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">RISK</text><text x="140" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff" stroke="none">UNCERT</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Knight's Risk vs Uncertainty</h4>
+            <p class="fw-desc">Risk: probabilities known. Uncertainty: unknowable. Different tools for each.</p>
+            <span class="fw-badge">Slibrary 11</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="20" width="140" height="100" rx="4"/><line x1="100" y1="20" x2="100" y2="120"/><line x1="30" y1="70" x2="170" y2="70"/><text x="65" y="45" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">CAUSAL</text><text x="65" y="55" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">risk mgmt</text><text x="135" y="45" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">SCENARIO</text><text x="135" y="55" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">planning</text><text x="65" y="95" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">PORTFOLIO</text><text x="65" y="105" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">options</text><text x="135" y="95" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">EFFECTUAL</text><text x="135" y="105" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">act-learn</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Possibility Quadrant</h4>
+            <p class="fw-desc">Furr's 2×2 — map your uncertainty by certainty of cause and certainty of outcome.</p>
+            <span class="fw-badge">Slibrary 11</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="70" r="10"/><circle cx="100" cy="35" r="10"/><circle cx="100" cy="105" r="10"/><circle cx="160" cy="20" r="8" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="160" cy="50" r="8"/><circle cx="160" cy="90" r="8" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="160" cy="120" r="8"/><path d="M50 65L90 40M50 75L90 100M110 30l40-5M110 40l40 5M110 100l40-5M110 110l40 5"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Real Options Lens</h4>
+            <p class="fw-desc">Uncertainty has value — stage your investments to preserve the option to expand or abandon.</p>
+            <span class="fw-badge">Slibrary 11</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="160" cy="70" r="22" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="160" cy="70" r="22"/><path d="M160 60v10l7 5" /><path d="M135 70H35"/><polyline points="55 62 40 70 55 78"/><text x="85" y="60" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">failure</text><text x="85" y="90" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">← causes</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Pre-Mortem</h4>
+            <p class="fw-desc">Imagine the project has failed catastrophically. Work backwards to the causes now.</p>
+            <span class="fw-badge">Slibrary 11</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 115 Q 35 55 55 45 Q 65 40 60 55 Q 55 70 70 80 Q 100 100 140 85 Q 170 70 175 95 L 175 115 Z" fill="currentColor" stroke="none" opacity="0.85"/><path d="M30 115 Q 35 55 55 45 Q 65 40 60 55 Q 55 70 70 80 Q 100 100 140 85 Q 170 70 175 95 L 175 115 Z"/><circle cx="60" cy="50" r="2" fill="#fff" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Black Swan & Antifragility</h4>
+            <p class="fw-desc">Taleb's principle — build systems that gain from disorder, not merely survive it.</p>
+            <span class="fw-badge">Slibrary 11</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-12">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 12</span>
+          <h2>Entrepreneurial Mindset</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">What differentiates entrepreneurs from managers is not risk tolerance but cognitive style. These five models isolate the specific mental habits that predict venture success.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="35" cy="40" r="10"/><circle cx="165" cy="40" r="10" fill="currentColor" stroke="none"/><path d="M45 40h110"/><circle cx="35" cy="100" r="10" fill="currentColor" stroke="none"/><circle cx="100" cy="100" r="10"/><circle cx="165" cy="100" r="10"/><path d="M45 100l50 0M110 100h45"/><text x="15" y="25" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">CAUSAL</text><text x="15" y="125" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">EFFECTUAL</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Causal vs Effectual</h4>
+            <p class="fw-desc">Causal: goal-first. Effectual: means-first. Experts switch between them deliberately.</p>
+            <span class="fw-badge">Slibrary 12</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="45" r="16"/><circle cx="100" cy="45" r="16" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="100" cy="45" r="16"/><circle cx="150" cy="45" r="16" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="150" cy="45" r="16"/><text x="50" y="49" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">D</text><text x="100" y="49" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">C</text><text x="150" y="49" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">E</text><text x="50" y="80" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Discover</text><text x="100" y="80" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Create</text><text x="150" y="80" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Enact</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Opportunity Recognition</h4>
+            <p class="fw-desc">Discovery · Creation · Enactment — three theories of where opportunities come from.</p>
+            <span class="fw-badge">Slibrary 12</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="50" width="40" height="40" rx="4"/><text x="50" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">plan</text><path d="M75 70h20"/><polyline points="88 64 96 70 88 76"/><rect x="100" y="50" width="40" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.85"/><text x="120" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">ACT</text><path d="M145 70h20"/><polyline points="158 64 166 70 158 76"/><text x="170" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">▶</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Bias for Action</h4>
+            <p class="fw-desc">Default to shipping. A small imperfect action beats a large perfect plan — every time.</p>
+            <span class="fw-badge">Slibrary 12</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="115" x2="175" y2="115"/><line x1="25" y1="25" x2="25" y2="115"/><polyline points="25 100 50 92 80 78 115 60 150 40 175 28"/><polyline points="25 100 50 99 80 98 115 97 150 96 175 95" opacity="0.4" stroke-dasharray="4 3"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Growth vs Fixed Mindset</h4>
+            <p class="fw-desc">Dweck — ability is malleable, not fixed. The most predictive trait in ventures.</p>
+            <span class="fw-badge">Slibrary 12</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="100 20 138 50 122 95 78 95 62 50" fill="currentColor" stroke="none" opacity="0.25"/><polygon points="100 20 138 50 122 95 78 95 62 50"/><text x="100" y="40" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Innov</text><text x="128" y="58" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Proact</text><text x="115" y="85" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Risk</text><text x="82" y="85" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Auto</text><text x="72" y="58" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">Comp</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Entrepreneurial Orientation</h4>
+            <p class="fw-desc">Innovativeness · Proactiveness · Risk-taking · Autonomy · Competitive aggression.</p>
+            <span class="fw-badge">Slibrary 12</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit4_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Uncertainty Challenge</span></a>
+  <a href="cases/Unit4_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit4_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit4_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 4: Entrepreneurial Thinking · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"4-10-0": {"title": "Knight's Risk vs Uncertainty", "slibrary": 10, "slibrary_title": "Uncertainty Frameworks", "unit": 4, "desc": "Frank Knight's 1921 distinction between risk and uncertainty remains one of the most important insights in economics. Risk is measurable — you can calculate probabilities. Uncertainty is unknowable — no probability distribution exists. The two demand fundamentally different decision-making approaches, but organisations routinely conflate them.", "elements": ["Risk — measurable probabilities, expected value", "Uncertainty — unknowable, no distribution", "Insurance works for risk; not for uncertainty", "Profit (in Knight) = reward for bearing uncertainty", "Still the foundation of entrepreneurship theory"], "when_to_use": "When a team is applying probabilistic risk-management to a genuinely uncertain situation — Knight's distinction exposes the category error.", "link": {"url": "https://en.wikipedia.org/wiki/Knightian_uncertainty", "label": "Wikipedia — Knightian Uncertainty"}}, "4-10-1": {"title": "Furr's Possibility Quadrant", "slibrary": 10, "slibrary_title": "Uncertainty Frameworks", "unit": 4, "desc": "Nathan Furr's Possibility Quadrant (2022) reframes uncertainty from a threat to the precondition for new possibility. He distinguishes the upside of uncertainty (new futures, novel discoveries) from the downside (loss, chaos), and argues most people are loss-averse and therefore miss the upside systematically.", "elements": ["Upside of uncertainty — possibility, novelty", "Downside of uncertainty — loss, chaos", "Most are loss-averse → miss the upside", "Reframes, primes, do-outs, sustainers", "Paired with effectuation as practice"], "when_to_use": "When coaching leaders or teams into more entrepreneurial risk-taking — the quadrant legitimises pursuing uncertainty as a strategic choice.", "link": {"url": "https://hbr.org/2022/05/how-to-find-opportunity-in-uncertainty", "label": "HBR — Finding Opportunity in Uncertainty (Furr, 2022)"}}, "4-10-2": {"title": "Cynefin Framework", "slibrary": 10, "slibrary_title": "Uncertainty Frameworks", "unit": 4, "desc": "Dave Snowden's Cynefin (pronounced kun-EV-in) distinguishes four domains of decision-making by the relationship between cause and effect. Each domain requires a different management approach — and the most common leadership error is treating a complex problem as if it were merely complicated.", "elements": ["Simple — obvious cause-effect, best practice", "Complicated — knowable, expert analysis", "Complex — emergent, probe-sense-respond", "Chaotic — no cause-effect, act-sense-respond", "Domain mismatch = management failure"], "when_to_use": "When diagnosing why a management approach is failing — Cynefin often reveals the situation has moved between domains faster than the management style.", "link": {"url": "https://hbr.org/2007/11/a-leaders-framework-for-decision-making", "label": "HBR — A Leader's Framework for Decision Making (Snowden & Boone, 2007)"}}, "4-10-3": {"title": "Black Swan", "slibrary": 10, "slibrary_title": "Uncertainty Frameworks", "unit": 4, "desc": "Nassim Nicholas Taleb's Black Swan (2007) is a rare, high-impact, retrospectively-explainable event that escaped probabilistic prediction. Taleb argues our mental models systematically underestimate such events because we use Gaussian statistics in domains where outliers dominate.", "elements": ["Rare — outside normal expectation", "High-impact — disproportionate consequences", "Retrospectively explainable — we rationalise after", "Fooled by randomness — we pattern-match", "Antifragility = benefits from Black Swans"], "when_to_use": "When designing long-range strategy in financial markets, geopolitics, or any domain with fat-tail distributions — Black Swan reasoning guards against false precision.", "link": {"url": "https://en.wikipedia.org/wiki/The_Black_Swan:_The_Impact_of_the_Highly_Improbable", "label": "Wikipedia — The Black Swan (Taleb)"}}, "4-10-4": {"title": "VUCA", "slibrary": 10, "slibrary_title": "Uncertainty Frameworks", "unit": 4, "desc": "VUCA (Volatile, Uncertain, Complex, Ambiguous) originated in the US Army War College in the 1990s and migrated into management literature post-2008. Critics argue it is descriptive rather than diagnostic — labelling the world VUCA doesn't tell you what to do about it. But the vocabulary is useful shorthand.", "elements": ["Volatile — things change fast", "Uncertain — can't predict outcomes", "Complex — many interacting variables", "Ambiguous — meaning itself is contested", "Companion: VUCA Prime (Vision, Understanding, Clarity, Agility)"], "when_to_use": "In leadership communication to normalise the abnormal — VUCA gives teams vocabulary for what they are experiencing but can't name.", "link": {"url": "https://hbr.org/2014/01/what-vuca-really-means-for-you", "label": "HBR — What VUCA Really Means for You"}}, "4-11-0": {"title": "Bird-in-Hand", "slibrary": 11, "slibrary_title": "Effectuation (Sarasvathy)", "unit": 4, "desc": "Saras Sarasvathy's Bird-in-Hand is the first principle of effectuation. Entrepreneurs start with means, not ends — asking 'who am I, what do I know, who do I know?' and building action from available resources. This inverts causal reasoning, which starts from goals and seeks resources to achieve them.", "elements": ["Identity — who am I?", "Knowledge — what do I know?", "Networks — who do I know?", "Start with means, not goals", "New ventures emerge from what's available"], "when_to_use": "At the start of any genuinely uncertain new venture where the 'right' goal cannot be specified in advance — Bird-in-Hand legitimises starting from what's actually at hand.", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — The Five Principles"}}, "4-11-1": {"title": "Affordable Loss", "slibrary": 11, "slibrary_title": "Effectuation (Sarasvathy)", "unit": 4, "desc": "Affordable Loss is Sarasvathy's second principle: instead of calculating expected return (what might you gain?), calculate affordable loss (what can you afford to lose?). The frame change is profound — it anchors decisions in downside protection, not upside speculation.", "elements": ["Calculate the maximum you can afford to lose", "That number becomes the commitment ceiling", "Replaces expected-value reasoning", "Explicitly considers emotional and social stakes", "Enables action under deep uncertainty"], "when_to_use": "When deciding whether to start a venture under deep uncertainty — affordable loss gives a decision rule when expected-value calculations don't apply.", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — Affordable Loss"}}, "4-11-2": {"title": "Crazy Quilt", "slibrary": 11, "slibrary_title": "Effectuation (Sarasvathy)", "unit": 4, "desc": "Crazy Quilt describes the entrepreneur's approach to partnerships: build with whoever self-selects into the venture rather than negotiating against a predefined list of partners. Each committed stakeholder reshapes the venture. The metaphor of a quilt captures the improvised, additive, non-symmetric quality.", "elements": ["Partnerships with self-selecting stakeholders", "Each commitment reshapes the venture", "Non-symmetric — each partner contributes differently", "Emergent, not engineered", "Network precedes and enables strategy"], "when_to_use": "In early-stage ventures when the team lacks capital, credibility, or specific expertise — Crazy Quilt legitimises building the venture through commitments rather than recruitment.", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — Crazy Quilt"}}, "4-11-3": {"title": "Lemonade Principle", "slibrary": 11, "slibrary_title": "Effectuation (Sarasvathy)", "unit": 4, "desc": "The Lemonade Principle: when life gives you lemons, make lemonade. Expert entrepreneurs treat surprises and failures as information and raw material, not as events to avoid or overcome. The unexpected is not the enemy of the plan — there is no plan in the first place.", "elements": ["Surprises are information, not problems", "Failure surfaces new possibility", "Pivot fast on real data", "Don't defend the original plan", "Emotional posture: curious, not threatened"], "when_to_use": "When something unexpected derails the venture — Lemonade reframes the event as signal and asks 'what does this tell us, and what does it enable?'", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — Lemonade Principle"}}, "4-11-4": {"title": "Pilot-in-the-Plane", "slibrary": 11, "slibrary_title": "Effectuation (Sarasvathy)", "unit": 4, "desc": "Pilot-in-the-Plane is the integrating principle: the future is not predicted, it is made. Expert entrepreneurs behave as co-creators of the environment, not observers of it. This is the opposite of causal reasoning, which assumes an external future that must be forecast and then adapted to.", "elements": ["Control over prediction", "The future is made, not forecast", "Action shapes the environment", "Co-creation with committed stakeholders", "Integrates the other four principles"], "when_to_use": "When senior stakeholders demand a five-year forecast for a genuinely novel venture — Pilot-in-the-Plane reframes the conversation from forecasting to shaping.", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — Pilot-in-the-Plane"}}, "4-12-0": {"title": "Future Orientation", "slibrary": 12, "slibrary_title": "Entrepreneurial Principles", "unit": 4, "desc": "Future Orientation is the entrepreneur's capacity to anticipate, imagine, and work backwards from a desired state. It is distinct from forecasting (predicting a future) and from wishing (fantasising a future). Future orientation is disciplined projection that drives present-day action.", "elements": ["Imagine a concrete future state", "Work backwards to present actions", "Distinguish projection from prediction", "Translate vision into weekly behaviour", "Cultivated, not innate"], "when_to_use": "When a team is trapped in short-term operational tactics and has lost the strategic horizon — future orientation forces long-term imagination.", "link": {"url": "https://hbr.org/2014/11/the-art-of-strategy-is-about-knowing-when-to-say-no", "label": "HBR — On strategic orientation"}}, "4-12-1": {"title": "Means Orientation", "slibrary": 12, "slibrary_title": "Entrepreneurial Principles", "unit": 4, "desc": "Means Orientation is the entrepreneur's discipline of starting from available resources rather than demanded ones. The mindset question is 'what can I do with what I have?' not 'what do I need to acquire?' Means orientation pairs with Bird-in-Hand and is the opposite of causal, goal-first thinking.", "elements": ["Start from identity, knowledge, network", "Treat constraints as design material", "Avoid 'if only we had…' reasoning", "Scarcity-driven creativity", "Foundation for effectual action"], "when_to_use": "When a team defaults to 'we can't because we don't have X' — means orientation flips the conversation to what can be done with what's actually available.", "link": {"url": "https://effectuation.org/principles/", "label": "Effectuation.org — Means Orientation"}}, "4-12-2": {"title": "5 Key Elements of Entrepreneurship", "slibrary": 12, "slibrary_title": "Entrepreneurial Principles", "unit": 4, "desc": "Classical entrepreneurship research identifies five necessary elements for a venture to emerge: an individual (the entrepreneur), an opportunity, resources, an organisation, and a favourable environment. Missing any one, the venture does not happen. The model is a diagnostic for why prospective ventures stall.", "elements": ["Individual — the entrepreneur's agency", "Opportunity — a recognised market gap", "Resources — financial, human, social capital", "Organisation — a structure to execute", "Environment — supportive ecosystem"], "when_to_use": "When a promising venture is not launching — the five elements diagnose which one is missing and where to focus investment.", "link": {"url": "https://www.amazon.com/Entrepreneurship-Global-Perspective-Stephen-Roper/dp/0415458366", "label": "Roper, Entrepreneurship: A Global Perspective"}}, "4-12-3": {"title": "Opportunity Triangle", "slibrary": 12, "slibrary_title": "Entrepreneurial Principles", "unit": 4, "desc": "The Opportunity Triangle locates the entrepreneurial opportunity at the intersection of three vertices: Entrepreneur, Opportunity, Resources — with Uncertainty as the mediating force. The model captures why entrepreneurship is not just about having a good idea but about the fit between the person, the idea, and the resources available.", "elements": ["Entrepreneur — capability, conviction, vision", "Opportunity — real market gap", "Resources — adequate to pursue the gap", "Uncertainty mediates all three vertices", "Fit between the three predicts success"], "when_to_use": "When evaluating whether a specific individual should pursue a specific opportunity — the triangle forces evaluation of personal fit, not just market fit.", "link": {"url": "https://en.wikipedia.org/wiki/Entrepreneurship", "label": "Wikipedia — Entrepreneurship (overview)"}}, "4-12-4": {"title": "Fit & Gaps to the Business Plan", "slibrary": 12, "slibrary_title": "Entrepreneurial Principles", "unit": 4, "desc": "The Fit & Gaps analysis is the diagnostic that operationalises the Opportunity Triangle. For a candidate venture, you assess the fit at each vertex (person-opportunity, person-resources, opportunity-resources) and identify which gap is most severe. That gap is the highest-priority intervention.", "elements": ["Assess person-opportunity fit", "Assess person-resources fit", "Assess opportunity-resources fit", "Identify the widest gap", "Close the widest gap first"], "when_to_use": "As a due-diligence tool for a venture being evaluated — the analysis reveals whether the proposed entrepreneur can realistically execute the opportunity.", "link": {"url": "https://www.amazon.com/Entrepreneurship-Global-Perspective-Stephen-Roper/dp/0415458366", "label": "Roper, Entrepreneurship: A Global Perspective"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 3 — Strategy Design</title>
-<meta name="description" content="MBA301 Unit 3 — Strategy Design. Framework gallery of 15 interactive visual thinking tools across Slibraries 7–9.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #d98e2b;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(217,142,43,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #d98e2b;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #d98e2b;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#d98e2b; background:rgba(217,142,43,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(217,142,43,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#d98e2b;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#d98e2b; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #d98e2b; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#d98e2b; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(217,142,43,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#d98e2b;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#d98e2b;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(217,142,43,0.06);
-  border-left:3px solid #d98e2b;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#d98e2b; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#d98e2b; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 3 — Strategy Design — MBA301</title>
+<meta name="description" content="Unit 3 Framework Gallery · Strategy Design. Interactive visual guide to the 15 frameworks in Slibraries 7–9." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 3</span>
+<main class="shell unit-page u3">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">3</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 52h24l-2-18c0-10-6-16-14-16l-2 4-6-4-4 6 4 4-6 8 4 4-2 4 4 8"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 3 · FRAMEWORK GALLERY</div>
     <h1>Strategy Design</h1>
-    <p class="hero-sub">Enacting enterprise performance through the ten practices of strategy design.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">7–9</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Strategy Canvas Lab &nbsp;·&nbsp; 10 Practices · Porter · Blue Ocean · BMC</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 7</span>
-      <h2 class="slibrary-title">Strategy Foundations</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="3-7-0" aria-label="Open details for Porter's Five Forces">
-        <h3 class="fw-title">Porter's Five Forces</h3>
-        <p class="fw-desc">Rivalry · Buyers · Suppliers · New Entrants · Substitutes.</p>
-        <span class="fw-tag">Slibrary 7 · Strategy Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-7-1" aria-label="Open details for Blue Ocean Strategy Canvas">
-        <h3 class="fw-title">Blue Ocean Strategy Canvas</h3>
-        <p class="fw-desc">Eliminate · Reduce · Raise · Create (ERRC grid).</p>
-        <span class="fw-tag">Slibrary 7 · Strategy Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-7-2" aria-label="Open details for SWOT Matrix">
-        <h3 class="fw-title">SWOT Matrix</h3>
-        <p class="fw-desc">Strengths · Weaknesses · Opportunities · Threats.</p>
-        <span class="fw-tag">Slibrary 7 · Strategy Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-7-3" aria-label="Open details for PESTEL Analysis">
-        <h3 class="fw-title">PESTEL Analysis</h3>
-        <p class="fw-desc">Political · Economic · Social · Technological · Environmental · Legal.</p>
-        <span class="fw-tag">Slibrary 7 · Strategy Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-7-4" aria-label="Open details for Hambrick & Fredrickson Strategy Diamond">
-        <h3 class="fw-title">Hambrick &amp; Fredrickson Strategy Diamond</h3>
-        <p class="fw-desc">Arenas · Vehicles · Differentiators · Staging · Economic logic.</p>
-        <span class="fw-tag">Slibrary 7 · Strategy Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 8</span>
-      <h2 class="slibrary-title">Ten Practices of Strategy Design</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="3-8-0" aria-label="Open details for The Practices Wheel">
-        <h3 class="fw-title">The Practices Wheel</h3>
-        <p class="fw-desc">All 10 practices arranged as one integrated design capability.</p>
-        <span class="fw-tag">Slibrary 8 · Ten Practices of Strategy Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-8-1" aria-label="Open details for Projecting · Prototyping · Evaluating">
-        <h3 class="fw-title">Projecting · Prototyping · Evaluating</h3>
-        <p class="fw-desc">The design moves: imagine, build rough, test early.</p>
-        <span class="fw-tag">Slibrary 8 · Ten Practices of Strategy Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-8-2" aria-label="Open details for Experimenting · Routinizing · Mobilizing">
-        <h3 class="fw-title">Experimenting · Routinizing · Mobilizing</h3>
-        <p class="fw-desc">The execution moves: run trials, embed, engage people.</p>
-        <span class="fw-tag">Slibrary 8 · Ten Practices of Strategy Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-8-3" aria-label="Open details for Realizing · Connecting">
-        <h3 class="fw-title">Realizing · Connecting</h3>
-        <p class="fw-desc">The integration moves: ship it, align it across boundaries.</p>
-        <span class="fw-tag">Slibrary 8 · Ten Practices of Strategy Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-8-4" aria-label="Open details for Scaling · Curating">
-        <h3 class="fw-title">Scaling · Curating</h3>
-        <p class="fw-desc">The sustainment moves: grow what works, prune what doesn't.</p>
-        <span class="fw-tag">Slibrary 8 · Ten Practices of Strategy Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 9</span>
-      <h2 class="slibrary-title">Business Model &amp; Value Design</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="3-9-0" aria-label="Open details for Business Model Canvas">
-        <h3 class="fw-title">Business Model Canvas</h3>
-        <p class="fw-desc">Osterwalder's 9 blocks — the standard visual for any model.</p>
-        <span class="fw-tag">Slibrary 9 · Business Model & Value Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-9-1" aria-label="Open details for Value Proposition Canvas">
-        <h3 class="fw-title">Value Proposition Canvas</h3>
-        <p class="fw-desc">Gain creators · Pain relievers · Products — vs Jobs · Pains · Gains.</p>
-        <span class="fw-tag">Slibrary 9 · Business Model & Value Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-9-2" aria-label="Open details for DVF Framework">
-        <h3 class="fw-title">DVF Framework</h3>
-        <p class="fw-desc">Desirability × Viability × Feasibility — the sweet spot check.</p>
-        <span class="fw-tag">Slibrary 9 · Business Model & Value Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-9-3" aria-label="Open details for Portfolio Map">
-        <h3 class="fw-title">Portfolio Map</h3>
-        <p class="fw-desc">Explore vs Exploit plotted against innovation &amp; death risk.</p>
-        <span class="fw-tag">Slibrary 9 · Business Model & Value Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="3-9-4" aria-label="Open details for Team Alignment Map">
-        <h3 class="fw-title">Team Alignment Map</h3>
-        <p class="fw-desc">Joint Objectives · Commitments · Resources · Risks.</p>
-        <span class="fw-tag">Slibrary 9 · Business Model & Value Design <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-7">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 7</span>
+          <h2>Strategic Analysis</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The classical strategy lenses — still the fastest way to read an industry structure, surface defensible advantage, and locate where a new entrant can actually win.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="18" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="100" cy="70" r="18"/><circle cx="100" cy="20" r="10"/><circle cx="165" cy="55" r="10"/><circle cx="145" cy="120" r="10"/><circle cx="55" cy="120" r="10"/><circle cx="35" cy="55" r="10"/><line x1="100" y1="30" x2="100" y2="52"/><line x1="155" y1="60" x2="118" y2="66"/><line x1="137" y1="115" x2="110" y2="86"/><line x1="63" y1="115" x2="90" y2="86"/><line x1="45" y1="60" x2="82" y2="66"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Porter's 5 Forces</h4>
+            <p class="fw-desc">Rivalry · New Entrants · Substitutes · Suppliers · Buyers — industry structure in one diagram.</p>
+            <span class="fw-badge">Slibrary 7</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="50" width="40" height="40" rx="4"/><rect x="65" y="50" width="40" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.25"/><rect x="65" y="50" width="40" height="40" rx="4"/><rect x="110" y="50" width="40" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.55"/><rect x="110" y="50" width="40" height="40" rx="4"/><rect x="155" y="50" width="30" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.9"/><text x="40" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">V</text><text x="85" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">R</text><text x="130" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">I</text><text x="170" y="75" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff" stroke="none">O</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">VRIO</h4>
+            <p class="fw-desc">Valuable · Rare · Inimitable · Organised — the resource-based view's litmus test.</p>
+            <span class="fw-badge">Slibrary 7</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="100 22 138 45 138 92 100 115 62 92 62 45" fill="currentColor" stroke="none" opacity="0.22"/><polygon points="100 22 138 45 138 92 100 115 62 92 62 45"/><text x="100" y="42" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">P</text><text x="130" y="57" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">E</text><text x="130" y="90" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">S</text><text x="100" y="105" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">T</text><text x="70" y="90" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">E</text><text x="70" y="57" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">L</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">PESTEL</h4>
+            <p class="fw-desc">Political · Economic · Social · Technological · Environmental · Legal macro scan.</p>
+            <span class="fw-badge">Slibrary 7</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="20" width="140" height="100" rx="4"/><line x1="100" y1="20" x2="100" y2="120"/><line x1="30" y1="70" x2="170" y2="70"/><text x="65" y="50" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">S</text><text x="135" y="50" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">W</text><text x="65" y="100" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">O</text><text x="135" y="100" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">T</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">SWOT Recast</h4>
+            <p class="fw-desc">Treat SWOT as a matching exercise — not a list — and it becomes a strategy tool.</p>
+            <span class="fw-badge">Slibrary 7</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="20 50 155 50 180 75 155 100 20 100" fill="currentColor" stroke="none" opacity="0.22"/><polygon points="20 50 155 50 180 75 155 100 20 100"/><line x1="50" y1="50" x2="50" y2="100"/><line x1="82" y1="50" x2="82" y2="100"/><line x1="114" y1="50" x2="114" y2="100"/><line x1="146" y1="50" x2="146" y2="100"/><text x="100" y="32" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">MARGIN →</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Value Chain</h4>
+            <p class="fw-desc">Inbound · Ops · Outbound · Marketing · Service — where margin is made and where it leaks.</p>
+            <span class="fw-badge">Slibrary 7</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-8">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 8</span>
+          <h2>Blue Ocean Toolkit</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Kim & Mauborgne's toolkit for inventing new market space — the move from fighting for existing demand to creating demand that didn't exist yesterday.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="115" x2="175" y2="115"/><line x1="25" y1="25" x2="25" y2="115"/><polyline points="35 90 65 60 95 95 125 50 155 80 175 35"/><polyline points="35 100 65 85 95 105 125 80 155 95 175 75" opacity="0.5" stroke-dasharray="4 3"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Strategy Canvas</h4>
+            <p class="fw-desc">The visual benchmark — your curve vs the industry standard, on the factors that matter.</p>
+            <span class="fw-badge">Slibrary 8</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="20" width="140" height="100" rx="4"/><line x1="100" y1="20" x2="100" y2="120"/><line x1="30" y1="70" x2="170" y2="70"/><text x="65" y="50" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">E</text><text x="135" y="50" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">R</text><text x="65" y="100" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">R↑</text><text x="135" y="100" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">C</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">ERRC Grid</h4>
+            <p class="fw-desc">Eliminate · Reduce · Raise · Create — the four moves that redraw the curve.</p>
+            <span class="fw-badge">Slibrary 8</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="15" fill="currentColor" stroke="none" opacity="0.3"/><circle cx="45" cy="40" r="14"/><circle cx="155" cy="40" r="14"/><circle cx="45" cy="100" r="14" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="45" cy="100" r="14"/><circle cx="155" cy="100" r="14" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="155" cy="100" r="14"/><text x="45" y="44" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">E</text><text x="155" y="44" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">R↓</text><text x="45" y="104" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">R↑</text><text x="155" y="104" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">C</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">4 Actions Framework</h4>
+            <p class="fw-desc">A discipline for breaking the value-cost trade-off instead of balancing it.</p>
+            <span class="fw-badge">Slibrary 8</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="115" x2="175" y2="115"/><line x1="25" y1="25" x2="25" y2="115"/><polyline points="35 80 65 55 95 85 125 45 155 70 175 30" stroke-width="2.2"/><polyline points="35 95 65 90 95 100 125 85 155 100 175 90" opacity="0.45" stroke-dasharray="4 3"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Value Curve</h4>
+            <p class="fw-desc">Plot buyer values as a curve — if yours is identical to rivals', you are in red ocean.</p>
+            <span class="fw-badge">Slibrary 8</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="12" fill="currentColor" stroke="none"/><path d="M100 70 L30 30 M100 70 L100 20 M100 70 L170 30 M100 70 L170 110 M100 70 L100 120 M100 70 L30 110"/><circle cx="30" cy="30" r="6"/><circle cx="100" cy="20" r="6"/><circle cx="170" cy="30" r="6"/><circle cx="170" cy="110" r="6"/><circle cx="100" cy="120" r="6"/><circle cx="30" cy="110" r="6"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">6 Paths Framework</h4>
+            <p class="fw-desc">Six systematic paths to reconstruct market boundaries — across industries, buyer groups, time.</p>
+            <span class="fw-badge">Slibrary 8</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-9">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 9</span>
+          <h2>Business Model Canvas</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The visual language of business models — nine blocks, one page, infinite combinations. Paired with Bostelaar's DVF/BMC evidence assessment for course assignments.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="160" height="90" rx="4"/><line x1="20" y1="85" x2="180" y2="85"/><line x1="52" y1="25" x2="52" y2="85"/><line x1="84" y1="25" x2="84" y2="85"/><line x1="116" y1="25" x2="116" y2="85"/><line x1="148" y1="25" x2="148" y2="85"/><line x1="52" y1="55" x2="84" y2="55"/><line x1="116" y1="55" x2="148" y2="55"/><line x1="100" y1="85" x2="100" y2="115"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">BMC 9 Blocks</h4>
+            <p class="fw-desc">Customers · Value · Channels · Relationships · Revenue · Resources · Activities · Partners · Costs.</p>
+            <span class="fw-badge">Slibrary 9</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="35" width="70" height="70" rx="6"/><circle cx="155" cy="70" r="35"/><text x="60" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">VALUE</text><text x="155" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">JOBS</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Value Proposition Canvas</h4>
+            <p class="fw-desc">Jobs · Pains · Gains × Pain Relievers · Gain Creators · Products — the VPC fit model.</p>
+            <span class="fw-badge">Slibrary 9</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="25" width="50" height="32" rx="3"/><rect x="75" y="25" width="50" height="32" rx="3" fill="currentColor" stroke="none" opacity="0.25"/><rect x="75" y="25" width="50" height="32" rx="3"/><rect x="130" y="25" width="50" height="32" rx="3"/><rect x="20" y="62" width="50" height="32" rx="3" fill="currentColor" stroke="none" opacity="0.55"/><rect x="20" y="62" width="50" height="32" rx="3"/><rect x="75" y="62" width="50" height="32" rx="3"/><rect x="130" y="62" width="50" height="32" rx="3" fill="currentColor" stroke="none" opacity="0.85"/><rect x="130" y="62" width="50" height="32" rx="3"/><text x="100" y="115" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">5 patterns</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">BMC Patterns</h4>
+            <p class="fw-desc">Long Tail · Multi-Sided · Free · Unbundled · Freemium — five recurring architectures.</p>
+            <span class="fw-badge">Slibrary 9</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="60" width="120" height="30" rx="4" fill="currentColor" stroke="none" opacity="0.35"/><rect x="40" y="60" width="120" height="30" rx="4"/><circle cx="55" cy="30" r="10"/><circle cx="100" cy="30" r="10"/><circle cx="145" cy="30" r="10"/><circle cx="55" cy="115" r="10"/><circle cx="100" cy="115" r="10"/><circle cx="145" cy="115" r="10"/><path d="M55 40v20M100 40v20M145 40v20M55 100v-10M100 100v-10M145 100v-10"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Platform Business Model</h4>
+            <p class="fw-desc">Producers × Consumers × Platform — three-sided dynamics and network effects.</p>
+            <span class="fw-badge">Slibrary 9</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="20" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="100" cy="70" r="20"/><text x="100" y="74" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">€</text><circle cx="35" cy="30" r="8"/><circle cx="165" cy="30" r="8"/><circle cx="35" cy="110" r="8"/><circle cx="165" cy="110" r="8"/><circle cx="100" cy="20" r="8"/><path d="M100 28v22M40 36l50 28M160 36l-50 28M40 104l50-22M160 104l-50-22"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Revenue Model Typology</h4>
+            <p class="fw-desc">Asset · Usage · Subscription · Licensing · Commission — how you get paid changes everything.</p>
+            <span class="fw-badge">Slibrary 9</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit3_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Strategy Canvas Lab</span></a>
+  <a href="cases/Unit3_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit3_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit3_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 3: Strategy Design · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"3-7-0": {"title": "Porter's Five Forces", "slibrary": 7, "slibrary_title": "Strategy Foundations", "unit": 3, "desc": "Michael Porter's 1979 HBR article introduced the Five Forces — a structural analysis of industry attractiveness. The model argues profitability is determined not by the firm's strategy alone but by the industry's structure. Forty-five years later it remains the default strategic analysis tool in MBA programmes.", "elements": ["Rivalry among existing competitors", "Threat of new entrants", "Bargaining power of buyers", "Bargaining power of suppliers", "Threat of substitute products"], "when_to_use": "When entering a new industry, evaluating an acquisition target, or diagnosing why margins are compressed — Five Forces provides structural explanation.", "link": {"url": "https://hbr.org/2008/01/the-five-competitive-forces-that-shape-strategy", "label": "HBR — Porter's Five Forces (Porter, 2008 update)"}}, "3-7-1": {"title": "Blue Ocean Strategy Canvas", "slibrary": 7, "slibrary_title": "Strategy Foundations", "unit": 3, "desc": "Kim and Mauborgne's Blue Ocean Strategy (2005) argues the best strategy is not to compete in red oceans (existing markets) but to create blue oceans (uncontested market space). The ERRC grid — Eliminate, Reduce, Raise, Create — is the operational tool for designing the value curve that separates a blue-ocean offering.", "elements": ["Eliminate — factors the industry takes for granted", "Reduce — factors below the standard", "Raise — factors above the standard", "Create — factors the industry has never offered", "The new curve diverges from competitors'"], "when_to_use": "When an incumbent industry is margin-compressed (red ocean) and the firm has latitude to redesign its value proposition rather than out-compete on the existing one.", "link": {"url": "https://www.blueoceanstrategy.com/tools/errc-grid/", "label": "Blue Ocean — ERRC Grid"}}, "3-7-2": {"title": "SWOT Matrix", "slibrary": 7, "slibrary_title": "Strategy Foundations", "unit": 3, "desc": "SWOT (Strengths, Weaknesses, Opportunities, Threats) was developed at Stanford Research Institute in the 1960s. It is criticised for being descriptive rather than strategic — a list of observations, not a strategy. Its value depends entirely on what the team does with the quadrants after populating them.", "elements": ["Strengths — internal capabilities", "Weaknesses — internal limitations", "Opportunities — external favourable trends", "Threats — external unfavourable trends", "SO/ST/WO/WT strategies from combinations"], "when_to_use": "As a warm-up in a strategy offsite — it gets a team into the strategic mode of thinking, but should not be the analysis the strategy rests on.", "link": {"url": "https://en.wikipedia.org/wiki/SWOT_analysis", "label": "Wikipedia — SWOT Analysis"}}, "3-7-3": {"title": "PESTEL Analysis", "slibrary": 7, "slibrary_title": "Strategy Foundations", "unit": 3, "desc": "PESTEL scans the external macro-environment across six dimensions. It is deliberately broad — the goal is to surface trends that could disrupt the industry before they do. Often used alongside Five Forces (which analyses industry structure) to give a complete external scan.", "elements": ["Political — regulation, trade policy, stability", "Economic — growth, rates, inflation", "Social — demographics, culture, values", "Technological — innovation, disruption", "Environmental · Legal"], "when_to_use": "In long-range strategy planning (3-5+ years) where macro-trends will shape the playing field the strategy must navigate.", "link": {"url": "https://en.wikipedia.org/wiki/PEST_analysis", "label": "Wikipedia — PESTEL Analysis"}}, "3-7-4": {"title": "Hambrick & Fredrickson Strategy Diamond", "slibrary": 7, "slibrary_title": "Strategy Foundations", "unit": 3, "desc": "Hambrick and Fredrickson (2001) argued most strategies fail because they are actually lists of objectives, not strategies. Their Strategy Diamond insists a real strategy answers five integrated questions. If any facet is missing or unspecified, the strategy is incomplete — and the gaps show up in execution.", "elements": ["Arenas — where will we compete?", "Vehicles — how will we get there?", "Differentiators — how will we win?", "Staging — what will be our speed and sequence?", "Economic logic — how will we obtain returns?"], "when_to_use": "As an audit of an existing strategy document — running the five questions against the document exposes the facets the firm hasn't actually decided.", "link": {"url": "https://www.jstor.org/stable/4165349", "label": "AMP — Are You Sure You Have a Strategy? (Hambrick & Fredrickson, 2001)"}}, "3-8-0": {"title": "The Practices Wheel", "slibrary": 8, "slibrary_title": "Ten Practices of Strategy Design", "unit": 3, "desc": "Brown and Martin (2015) argue effective strategy designers practise ten interlocking moves, not a linear planning process. The Practices Wheel presents all ten together to emphasise they are interdependent — weak execution in one practice undermines all the others.", "elements": ["Design practices — projecting, prototyping, evaluating", "Execution practices — experimenting, routinizing, mobilizing", "Integration practices — realizing, connecting", "Sustainment practices — scaling, curating", "All ten must be present and balanced"], "when_to_use": "When auditing an organisation's strategic capability — the wheel surfaces which practices are strong, which are missing, and where to invest.", "link": {"url": "https://hbr.org/2015/09/design-for-action", "label": "HBR — Design for Action (Brown & Martin, 2015)"}}, "3-8-1": {"title": "Projecting · Prototyping · Evaluating", "slibrary": 8, "slibrary_title": "Ten Practices of Strategy Design", "unit": 3, "desc": "The first three practices — Projecting, Prototyping, Evaluating — are the design moves. Projecting imagines the desired future; Prototyping builds a rough version fast; Evaluating tests it against reality. The three work together because projection without prototyping is fantasy, and prototyping without evaluation is busy-work.", "elements": ["Projecting — imagine a desired future state", "Prototyping — build a rough artefact fast", "Evaluating — test it against real users or data", "Loop the three until fit emerges", "Low-fidelity beats high-fidelity early on"], "when_to_use": "When the strategy is ambiguous and the organisation needs to learn by doing rather than plan exhaustively before acting.", "link": {"url": "https://hbr.org/2015/09/design-for-action", "label": "HBR — Design for Action (practices 1-3)"}}, "3-8-2": {"title": "Experimenting · Routinizing · Mobilizing", "slibrary": 8, "slibrary_title": "Ten Practices of Strategy Design", "unit": 3, "desc": "Experimenting, Routinizing, and Mobilizing are the execution moves. Experimenting runs small bets to learn; Routinizing embeds what works as repeatable process; Mobilizing engages the people who need to do the new thing. Strategy without these three stays on paper.", "elements": ["Experimenting — small, time-boxed bets", "Routinizing — turn wins into repeatable practice", "Mobilizing — engage people as co-creators", "Experiments inform what to routinise", "Mobilisation prevents 'great plan, no adoption'"], "when_to_use": "After a strategy is designed and before it is scaled — these three practices are where most strategies die, so they deserve explicit attention.", "link": {"url": "https://hbr.org/2015/09/design-for-action", "label": "HBR — Design for Action (practices 4-6)"}}, "3-8-3": {"title": "Realizing · Connecting", "slibrary": 8, "slibrary_title": "Ten Practices of Strategy Design", "unit": 3, "desc": "Realizing and Connecting are the integration moves. Realizing delivers the strategy in the world; Connecting aligns it across organisational boundaries — functions, regions, levels. Without connection, a realised strategy in one silo is an isolated win that scales badly.", "elements": ["Realizing — ship the strategy in production", "Connecting — align with other silos and stakeholders", "Explicit hand-offs and shared interfaces", "Translate strategy into each silo's vocabulary", "Connection is relational work"], "when_to_use": "When a strategy has produced wins in one part of the organisation that are failing to transfer elsewhere — usually a Connecting gap.", "link": {"url": "https://hbr.org/2015/09/design-for-action", "label": "HBR — Design for Action (practices 7-8)"}}, "3-8-4": {"title": "Scaling · Curating", "slibrary": 8, "slibrary_title": "Ten Practices of Strategy Design", "unit": 3, "desc": "Scaling and Curating are the sustainment practices. Scaling grows what is working — but uncritically scaling a local solution often breaks it. Curating is the discipline of pruning the portfolio: killing what is no longer productive, preserving what is essential.", "elements": ["Scaling — grow what is working", "Curating — prune what is not", "Scaling requires adaptation, not replication", "Curating prevents strategic bloat", "Both are continuous, not one-time"], "when_to_use": "Long after the initial strategy design — these practices are usually underinvested in because they are less visible than the original strategic design.", "link": {"url": "https://hbr.org/2015/09/design-for-action", "label": "HBR — Design for Action (practices 9-10)"}}, "3-9-0": {"title": "Business Model Canvas", "slibrary": 9, "slibrary_title": "Business Model & Value Design", "unit": 3, "desc": "Alexander Osterwalder's Business Model Canvas (2004) organises any business model onto nine interlocking blocks on one page. It has become the lingua franca of business model design — adopted by corporations, startups, and strategy academics because it replaces 40-page business plans with a single sharable visual.", "elements": ["Customer Segments · Value Propositions", "Channels · Customer Relationships", "Revenue Streams · Key Resources", "Key Activities · Key Partnerships · Cost Structure", "Nine blocks designed to inter-depend"], "when_to_use": "Whenever a business model is being designed, diagnosed, or compared against alternatives — the canvas is the default tool in early-stage ventures and in corporate strategy sessions.", "link": {"url": "https://www.strategyzer.com/library/the-business-model-canvas", "label": "Strategyzer — Business Model Canvas"}}, "3-9-1": {"title": "Value Proposition Canvas", "slibrary": 9, "slibrary_title": "Business Model & Value Design", "unit": 3, "desc": "Osterwalder's Value Proposition Canvas zooms in on the relationship between Value Propositions and Customer Segments in the BMC. It maps the customer's jobs, pains, and gains against the product's pain relievers, gain creators, and products/services. The goal is fit — where the two sides match.", "elements": ["Customer profile — Jobs · Pains · Gains", "Value map — Products · Pain Relievers · Gain Creators", "Fit = match between the two sides", "Built after extensive customer research", "Feeds directly into the BMC"], "when_to_use": "When a BMC block 'Value Proposition' is vague — the VPC forces specificity about which customer jobs/pains the product actually addresses.", "link": {"url": "https://www.strategyzer.com/library/the-value-proposition-canvas", "label": "Strategyzer — Value Proposition Canvas"}}, "3-9-2": {"title": "DVF Framework", "slibrary": 9, "slibrary_title": "Business Model & Value Design", "unit": 3, "desc": "The DVF Framework — Desirability × Viability × Feasibility — revisited as a strategic sweet spot test. Any proposed strategy or product must pass all three. Strategies strong in only one or two fail predictably: desirable but unviable become charity; feasible but undesirable get ignored.", "elements": ["Desirability — do customers want it?", "Viability — does the business model work?", "Feasibility — can we actually build it?", "Intersection of all three = strategy", "Gaps signal exactly where to investigate"], "when_to_use": "At every major strategic gate — DVF keeps the organisation honest about the three constraints any sustainable strategy must satisfy.", "link": {"url": "https://www.ideou.com/blogs/inspiration/how-to-prototype-a-new-business", "label": "IDEO U — Desirability, Feasibility, Viability"}}, "3-9-3": {"title": "Portfolio Map", "slibrary": 9, "slibrary_title": "Business Model & Value Design", "unit": 3, "desc": "Strategyzer's Portfolio Map plots the firm's business units on two axes: innovation risk (explore → exploit) and death risk (extinction → sustained). The map surfaces the balance between mature cash-generating businesses and new bets — most corporate portfolios are dangerously weighted to exploit.", "elements": ["Exploit quadrant — mature, profitable, low innovation", "Explore quadrant — new bets, high innovation risk", "Death risk axis — existing business in decline?", "Portfolio should balance exploit and explore", "Unbalanced portfolios predict strategic failure"], "when_to_use": "At annual strategy review — the map forces the leadership team to see whether its portfolio actually has any future, or only a present.", "link": {"url": "https://www.strategyzer.com/blog/the-invincible-company-portfolio-map", "label": "Strategyzer — Invincible Company Portfolio Map"}}, "3-9-4": {"title": "Team Alignment Map", "slibrary": 9, "slibrary_title": "Business Model & Value Design", "unit": 3, "desc": "Strategyzer's Team Alignment Map coordinates a team around four columns: Joint Objectives, Joint Commitments, Joint Resources, and Joint Risks. The tool makes explicit the shared understanding teams usually assume they have — and discover they don't when execution begins.", "elements": ["Joint Objectives — what we commit to achieve together", "Joint Commitments — who does what, by when", "Joint Resources — what do we need", "Joint Risks — what could derail us", "Reviewed weekly, not once"], "when_to_use": "At the start of any cross-functional initiative, and then as a recurring weekly check — misalignment surfaces fastest through these four columns.", "link": {"url": "https://www.strategyzer.com/library/the-team-alignment-map", "label": "Strategyzer — Team Alignment Map"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

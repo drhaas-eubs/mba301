@@ -1,91 +1,43 @@
-# MBA301 — Entrepreneurial & Design Thinking
+# MBA301 — GitHub Pages Upload
 
-Interactive Framework Galleries & Course Materials for **MBA301 — Entrepreneurial & Design Thinking** (FHEQ Level 7, Term III, AY 2025/2026), EU Business School. Taught by Dr. H. Haas.
+Drop every file and folder in this archive into the **root** of your `drhaas-eubs.github.io/mba301/` repository (replacing the existing files). GitHub Pages will rebuild and the live site will match the new design.
 
-The site applies two complementary intellectual frameworks across nine units:
+## What's in the bundle
 
-- **Thumbnail Thinking** (JD Meier, 2025) — the practice of curating a mental catalogue of well-designed visual frameworks (*Slibraries*) so patterns surface fast under pressure.
-- **Clarify Your Core Message** (Kurt Bostelaar / Leverlo) — the Distill · Decompose · Prioritise protocol for reducing any idea to a single, speakable sentence.
+**47 HTML files + 1 stylesheet:**
 
-## What's in this repo
+```
+index.html              Landing page — 9 unit accordion + 27 Slibraries
+styles.css              Shared design system (single edit point for theming)
+complete.html           Slibrary Wall — all 135 framework thumbnails
 
-| Pages | Count | Purpose |
-|---|---|---|
-| `index.html` | 1 | Course landing page with unit overview |
-| `unit1.html` … `unit9.html` | 9 | Framework Gallery per unit (15 frameworks each) |
-| `complete.html` | 1 | The full 135-framework Slibrary Wall with live filter + search |
-| `activities/Unit*_Activities.html` | 9 | Signature pedagogy brief for each unit |
-| `cases/Unit*_Case.html` | 9 | Case study with narrative + analysis questions |
-| `prereading/Unit*_PreReading.html` | 9 | Pre-reading summary + key framework + guiding questions |
-| `reflections/Unit*_Reflection.html` | 9 | Three independent-study questions per unit |
-| `search.json` | 1 | Search index (9 units, 27 Slibraries, 135 frameworks, 36 sub-pages) |
-| `assets/search.{js,css}` | 2 | Site-wide search modal |
-| `assets/protection.{js,css}` | 2 | Copy/print deterrent |
-| **Total** | **54** | All static HTML/JS/CSS/JSON, Arial throughout |
+unit1.html ... unit9.html                      Framework galleries (15 frameworks each)
+activities/Unit[1-9]_Activities.html           Workshop briefs + rubrics
+cases/Unit[1-9]_Case.html                      Teaching cases + discussion Qs
+prereading/Unit[1-9]_PreReading.html           Harvard-style reading notes
+reflections/Unit[1-9]_Reflection.html          Independent-study prompts
+```
 
-## Site-wide search
+## Upload options
 
-Every page includes a floating **Search** button in the top-right corner (keyboard shortcut **⌘K** on Mac, **Ctrl+K** on Windows, or just **/** when not typing). The search modal indexes:
+**Option A — upload as-is.** In the GitHub repo page, click "Add file → Upload files", drag the entire contents of this folder in, commit.
 
-- Unit titles + taglines
-- All 27 Slibrary titles
-- All 135 framework names and descriptions
-- All 9 activity briefs (name + lede)
-- All 9 case titles + subtitles
-- All 9 pre-reading titles + authors + key frameworks
-- All 9 reflection prompts
+**Option B — replace specific files.** If you only want to refresh the landing and leave existing sub-pages, upload just `index.html` and `styles.css`.
 
-Results are grouped by type, coloured by unit, keyboard-navigable with arrow keys, and land on the correct page when selected.
+## How to edit content later
 
-## Content protection
+All text content lives inside the HTML files directly — no build step required. Each unit page is self-contained. To change a unit's colour scheme across all its pages, edit the matching CSS variable block in `styles.css`:
 
-Every page includes a classroom-appropriate deterrent against casual copying and printing:
+```css
+.u1 { --unit: #00BE96;  --unit-soft: #E4F6F0;  --unit-ink: #003B2E; }
+```
 
-- Text selection is disabled (CSS `user-select: none`)
-- Right-click context menu is suppressed
-- Keyboard shortcuts **Ctrl/Cmd + C / X / A / P / S / U** are intercepted
-- Dragging text and images is blocked
-- Printing is blocked via `@media print` — attempted prints show a single page of copyright notice instead of the content
-- A branded toast appears when a blocked action is attempted
+## Design principles applied
 
-**Important:** this is a deterrent, not true security. Anyone who knows how to press F12 or view the page source can still access the raw content. The protection layer is designed to set clear expectations for students, not to defeat determined copying.
+- **Arial throughout** (EUBS brand standard, no Google Fonts)
+- **Per-unit colour coding** via CSS custom properties — each unit flows its colour through hero, Slibrary badges, framework cards, step accents
+- **Large illustrated Slibrary cards** — coloured top bar, 200px bespoke SVG illustration on tinted unit background, bold title, description, coloured Slibrary badge
+- **Accessible** — `aria-expanded` on accordion, `aria-hidden` on decorative SVGs, `prefers-reduced-motion` honoured
+- **Mobile-responsive** — grids collapse gracefully at 880px and 620px breakpoints
 
-To disable protection for your own access (e.g. to update pages), delete the `<link>` to `assets/protection.css` and `<script>` to `assets/protection.js` from any specific page, or remove the files from the `assets/` folder entirely.
-
-## Course structure
-
-| # | Unit | Signature Activity | Core Case |
-|---|---|---|---|
-| 1 | Design Thinking as Mindset | Empathy Workshop | IDEO Shopping Cart |
-| 2 | Ideation | Creative Sprint | Airbnb — From Air Mattresses to Ideas |
-| 3 | Strategy Design | Strategy Canvas Lab | Nespresso |
-| 4 | Entrepreneurial Thinking | Uncertainty Challenge | Spanx — Sara Blakely |
-| 5 | Developing Successful Business Ideas | Opportunity Scan | Sentient Technologies — Reading the Market |
-| 6 | Moving from an Idea to an Entrepreneurial Firm | Foundry Simulation | Sentient Technologies — Funding to Dissolution |
-| 7 | Intrapreneurship | Corporate Venture Lab | Skydeck — DB Systel |
-| 8 | The Art of Pitching | Pitch Theatre | Airbnb's First Deck |
-| 9 | Systems Thinking (Capstone) | Systems Mapping Lab | Fashion's Circular Future |
-
-Each unit curates **3 Slibraries × 5 frameworks = 15 frameworks** for a course total of **27 Slibraries / 135 frameworks**.
-
-## Design system
-
-- **Typography**: Arial throughout (consistent with EUBS brand standards).
-- **Colour tokens**: navy hero (`#0f2133`) · EUBS teal accent (`#00BE96`) · warm paper background (`#f6f4ef`).
-- **Per-unit accent tones**: Unit 1 teal · 2 steel · 3 amber · 4 rose · 5 plum · 6 navy · 7 accent-ink · 8 slate · 9 mist.
-- **Self-contained**: no external fonts, no JavaScript frameworks — the only network request is for `search.json` when the search modal is first opened.
-
-## Deploying on GitHub Pages
-
-1. Push this folder to a repository (e.g. `drhaas-eubs/mba301`).
-2. In your repository settings → **Pages**, set the source to `main` branch, `/ (root)` folder.
-3. The site will be live at `https://<your-username>.github.io/mba301/`.
-4. The `.nojekyll` file ensures GitHub Pages serves all HTML files as-is without Jekyll processing.
-
-## Credits
-
-- **Thumbnail Thinking: The Visual Operating System for Better Decisions**, JD Meier (2025), jdmeier.com
-- **Clarify Your Core Message Playbook**, Kurt Bostelaar, Leverlo (v1.1, 2023)
-- Course content, activities, cases and pedagogical design: Dr. H. Haas, EU Business School
-
-© 2026 Dr. H. Haas · EU Business School
+— Dr. H. Haas · MBA301 · AY 2025/2026 Term III

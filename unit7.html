@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 7 — Intrapreneurship</title>
-<meta name="description" content="MBA301 Unit 7 — Intrapreneurship. Framework gallery of 15 interactive visual thinking tools across Slibraries 19–21.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #04715b;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(4,113,91,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #9ac6bd;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #04715b;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#04715b; background:rgba(4,113,91,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(4,113,91,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#04715b;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#04715b; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #04715b; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#04715b; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(4,113,91,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#04715b;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#04715b;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(4,113,91,0.06);
-  border-left:3px solid #04715b;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#04715b; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#04715b; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 7 — Intrapreneurship — MBA301</title>
+<meta name="description" content="Unit 7 Framework Gallery · Intrapreneurship. Interactive visual guide to the 15 frameworks in Slibraries 19–21." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 7</span>
+<main class="shell unit-page u7">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">7</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="4"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="5" fill="currentColor" stroke="none"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 7 · FRAMEWORK GALLERY</div>
     <h1>Intrapreneurship</h1>
-    <p class="hero-sub">Empowering employees to act entrepreneurially inside established firms.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">19–21</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Corporate Venture Lab &nbsp;·&nbsp; Skunk Works · Accelerators · Governance</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 19</span>
-      <h2 class="slibrary-title">Intrapreneurship Mindset</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="7-19-0" aria-label="Open details for Intrapreneur's 5 Traits">
-        <h3 class="fw-title">Intrapreneur's 5 Traits</h3>
-        <p class="fw-desc">Curiosity · Ownership · Tenacity · Pragmatism · Collaboration.</p>
-        <span class="fw-tag">Slibrary 19 · Intrapreneurship Mindset <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-19-1" aria-label="Open details for Entrepreneur vs Intrapreneur 2×2">
-        <h3 class="fw-title">Entrepreneur vs Intrapreneur 2×2</h3>
-        <p class="fw-desc">Resources × Accountability — four distinct operating modes.</p>
-        <span class="fw-tag">Slibrary 19 · Intrapreneurship Mindset <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-19-2" aria-label="Open details for Corporate Innovation Quadrants">
-        <h3 class="fw-title">Corporate Innovation Quadrants</h3>
-        <p class="fw-desc">Core · Adjacent · Transformational (McKinsey Three Horizons).</p>
-        <span class="fw-tag">Slibrary 19 · Intrapreneurship Mindset <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-19-3" aria-label="Open details for Permission-to-Fail Culture">
-        <h3 class="fw-title">Permission-to-Fail Culture</h3>
-        <p class="fw-desc">Psychological safety as the precondition for ambitious work.</p>
-        <span class="fw-tag">Slibrary 19 · Intrapreneurship Mindset <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-19-4" aria-label="Open details for Skunk Works Model">
-        <h3 class="fw-title">Skunk Works Model</h3>
-        <p class="fw-desc">Protected team, ring-fenced budget, sheltered from core KPIs.</p>
-        <span class="fw-tag">Slibrary 19 · Intrapreneurship Mindset <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 20</span>
-      <h2 class="slibrary-title">Programs &amp; Models</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="7-20-0" aria-label="Open details for WhatAVenture Building Blocks">
-        <h3 class="fw-title">WhatAVenture Building Blocks</h3>
-        <p class="fw-desc">The anatomy of an intrapreneurship program from the white paper.</p>
-        <span class="fw-tag">Slibrary 20 · Programs & Models <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-20-1" aria-label="Open details for Internal Accelerator (Skydeck)">
-        <h3 class="fw-title">Internal Accelerator (Skydeck)</h3>
-        <p class="fw-desc">DB Systel's 10-week model — boot camp → mentoring → demo day.</p>
-        <span class="fw-tag">Slibrary 20 · Programs & Models <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-20-2" aria-label="Open details for Innovation Lab">
-        <h3 class="fw-title">Innovation Lab</h3>
-        <p class="fw-desc">Centralised R&amp;D unit with permanent staff and annual mandate.</p>
-        <span class="fw-tag">Slibrary 20 · Programs & Models <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-20-3" aria-label="Open details for Venture Studio">
-        <h3 class="fw-title">Venture Studio</h3>
-        <p class="fw-desc">Firm-backed vehicle that builds repeatedly from internal IP &amp; ideas.</p>
-        <span class="fw-tag">Slibrary 20 · Programs & Models <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-20-4" aria-label="Open details for Intrapreneurship Hackathon">
-        <h3 class="fw-title">Intrapreneurship Hackathon</h3>
-        <p class="fw-desc">Time-boxed, cross-functional, sponsor-judged idea generation.</p>
-        <span class="fw-tag">Slibrary 20 · Programs & Models <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 21</span>
-      <h2 class="slibrary-title">Success Factors</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="7-21-0" aria-label="Open details for Executive Sponsorship Model">
-        <h3 class="fw-title">Executive Sponsorship Model</h3>
-        <p class="fw-desc">Who champions, who shields, who signs — the cover hierarchy.</p>
-        <span class="fw-tag">Slibrary 21 · Success Factors <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-21-1" aria-label="Open details for Stage-Gate Governance">
-        <h3 class="fw-title">Stage-Gate Governance</h3>
-        <p class="fw-desc">Discover · Validate · Build · Scale — with formal go/no-go gates.</p>
-        <span class="fw-tag">Slibrary 21 · Success Factors <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-21-2" aria-label="Open details for Innovation Metrics Dashboard">
-        <h3 class="fw-title">Innovation Metrics Dashboard</h3>
-        <p class="fw-desc">Input · throughput · output · impact — leading vs lagging.</p>
-        <span class="fw-tag">Slibrary 21 · Success Factors <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-21-3" aria-label="Open details for Portfolio Review Cadence">
-        <h3 class="fw-title">Portfolio Review Cadence</h3>
-        <p class="fw-desc">Quarterly, cross-project triage — kill, persevere, or double down.</p>
-        <span class="fw-tag">Slibrary 21 · Success Factors <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="7-21-4" aria-label="Open details for Demo Day Architecture">
-        <h3 class="fw-title">Demo Day Architecture</h3>
-        <p class="fw-desc">Audience · time box · scoring · post-event commitments.</p>
-        <span class="fw-tag">Slibrary 21 · Success Factors <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-19">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 19</span>
+          <h2>Corporate Venture Models</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Five structural choices for how a large organisation hosts entrepreneurial activity. Each model trades off speed, autonomy, and strategic alignment differently.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="140" height="80" rx="8"/><rect x="70" y="55" width="60" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.4"/><rect x="70" y="55" width="60" height="40" rx="4"/><circle cx="100" cy="75" r="8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Internal Incubator</h4>
+            <p class="fw-desc">Corporate resources, insulated team. Strategic fit high, speed moderate.</p>
+            <span class="fw-badge">Slibrary 19</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="25" width="140" height="90" rx="6"/><circle cx="60" cy="55" r="10" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="100" cy="55" r="10" fill="currentColor" stroke="none" opacity="0.55"/><circle cx="140" cy="55" r="10" fill="currentColor" stroke="none" opacity="0.7"/><circle cx="60" cy="90" r="10" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="100" cy="90" r="10" fill="currentColor" stroke="none"/><text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">5 teams · 10 weeks</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Corporate Accelerator</h4>
+            <p class="fw-desc">Cohort-based, fixed term (10–12 weeks), demo day, seed-stage external startups.</p>
+            <span class="fw-badge">Slibrary 19</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="30" width="50" height="80" rx="5" fill="currentColor" stroke="none" opacity="0.3"/><rect x="25" y="30" width="50" height="80" rx="5"/><text x="50" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Studio</text><path d="M80 70h20"/><polyline points="93 64 100 70 93 76"/><rect x="105" y="30" width="30" height="30" rx="3"/><rect x="105" y="65" width="30" height="20" rx="3"/><rect x="105" y="90" width="30" height="20" rx="3"/><path d="M140 55h5M140 80h5M140 100h5"/><circle cx="165" cy="55" r="6" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="165" cy="80" r="6" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="165" cy="100" r="6" fill="currentColor" stroke="none" opacity="0.85"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Venture Studio</h4>
+            <p class="fw-desc">Studio generates ideas internally, spins out ventures with dedicated founders.</p>
+            <span class="fw-badge">Slibrary 19</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="40" width="60" height="60" rx="5" fill="currentColor" stroke="none" opacity="0.35"/><rect x="25" y="40" width="60" height="60" rx="5"/><text x="55" y="75" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">CORP</text><path d="M92 70h26"/><text x="105" y="65" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">€</text><polyline points="112 64 118 70 112 76"/><circle cx="140" cy="55" r="9"/><circle cx="160" cy="80" r="7"/><circle cx="135" cy="95" r="6"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Corporate VC (CVC)</h4>
+            <p class="fw-desc">Equity investment in external startups for strategic (not just financial) return.</p>
+            <span class="fw-badge">Slibrary 19</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="40" width="50" height="60" rx="5"/><circle cx="130" cy="70" r="20" fill="currentColor" stroke="none" opacity="0.85"/><path d="M80 70 Q 100 40 130 50" stroke-dasharray="3 3"/><polyline points="124 48 132 51 128 58"/><text x="50" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Parent</text><text x="130" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">Spin</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Spin-out / Spin-in</h4>
+            <p class="fw-desc">Start inside, spin out with external capital, optionally re-acquire if it wins.</p>
+            <span class="fw-badge">Slibrary 19</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-20">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 20</span>
+          <h2>Skunk Works & Accelerators</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The mechanisms that actually protect an internal venture from corporate antibodies. From Lockheed's Skunk Works to modern 10-week accelerator programmes.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="25" width="170" height="90" rx="8" opacity="0.35" stroke-dasharray="4 3"/><rect x="60" y="50" width="80" height="45" rx="5" fill="currentColor" stroke="none" opacity="0.85"/><rect x="60" y="50" width="80" height="45" rx="5"/><text x="100" y="78" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">SKUNK</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Skunk Works Model</h4>
+            <p class="fw-desc">Small, autonomous, insulated team. Lockheed's original — used everywhere now.</p>
+            <span class="fw-badge">Slibrary 20</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="30" width="70" height="80" rx="4" fill="currentColor" stroke="none" opacity="0.35"/><rect x="25" y="30" width="70" height="80" rx="4"/><text x="60" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">EXPLOIT</text><rect x="105" y="30" width="70" height="80" rx="4" fill="currentColor" stroke="none" opacity="0.85"/><rect x="105" y="30" width="70" height="80" rx="4"/><text x="140" y="75" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff" stroke="none">EXPLORE</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Ambidextrous Organisation</h4>
+            <p class="fw-desc">O'Reilly & Tushman — exploit the core and explore the new, structurally separated.</p>
+            <span class="fw-badge">Slibrary 20</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="70" x2="185" y2="70"/><circle cx="25" cy="70" r="6"/><circle cx="43" cy="70" r="6"/><circle cx="61" cy="70" r="6"/><circle cx="79" cy="70" r="6" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="97" cy="70" r="6"/><circle cx="115" cy="70" r="6"/><circle cx="133" cy="70" r="6" fill="currentColor" stroke="none" opacity="0.7"/><circle cx="151" cy="70" r="6"/><circle cx="169" cy="70" r="6"/><circle cx="187" cy="70" r="8" fill="currentColor" stroke="none"/><text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">WEEK 1 → DEMO DAY</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">10-Week Accelerator</h4>
+            <p class="fw-desc">Fixed programme · 5 teams · 10 clients · demo day — the DB Systel Skydeck shape.</p>
+            <span class="fw-badge">Slibrary 20</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="65" cy="50" r="14" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="65" cy="50" r="14"/><circle cx="65" cy="100" r="14" fill="currentColor" stroke="none" opacity="0.85"/><circle cx="65" cy="100" r="14"/><path d="M80 75h50"/><polyline points="122 69 130 75 122 81"/><rect x="130" y="55" width="50" height="40" rx="4"/><text x="65" y="53" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">SPON</text><text x="65" y="103" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="#fff" stroke="none">ENG</text><text x="155" y="80" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">VENTURE</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Sponsor-Engineer Model</h4>
+            <p class="fw-desc">Senior sponsor clears organisational friction; engineer-founder executes on product.</p>
+            <span class="fw-badge">Slibrary 20</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="75" r="50" opacity="0.5" stroke-dasharray="4 3"/><rect x="40" y="45" width="28" height="28" rx="3"/><rect x="130" y="55" width="28" height="28" rx="3" fill="currentColor" stroke="none" opacity="0.85"/><rect x="75" y="85" width="24" height="24" rx="3"/><rect x="105" y="95" width="24" height="24" rx="3"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Innovation Outpost</h4>
+            <p class="fw-desc">Silicon Valley (or equivalent hub) presence to scout and partner with external startups.</p>
+            <span class="fw-badge">Slibrary 20</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-21">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 21</span>
+          <h2>Governance & Gates</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">How you run the review process determines whether intrapreneurship produces real ventures or expensive theatre. Five governance patterns, each with its own rhythm.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="70" x2="180" y2="70"/><polygon points="40 70 55 55 70 70 55 85"/><polygon points="90 70 105 55 120 70 105 85" fill="currentColor" stroke="none" opacity="0.3"/><polygon points="90 70 105 55 120 70 105 85"/><polygon points="140 70 155 55 170 70 155 85" fill="currentColor" stroke="none" opacity="0.85"/><polygon points="140 70 155 55 170 70 155 85"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Stage-Gate Process</h4>
+            <p class="fw-desc">Ideation · Scoping · Business Case · Development · Testing · Launch — five gates.</p>
+            <span class="fw-badge">Slibrary 21</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="72" r="40" opacity="0.3"/><circle cx="100" cy="25" r="10"/><circle cx="140" cy="50" r="10"/><circle cx="150" cy="90" r="10"/><circle cx="120" cy="115" r="10"/><circle cx="80" cy="115" r="10"/><circle cx="50" cy="90" r="10"/><circle cx="60" cy="50" r="10"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Sponsor Council</h4>
+            <p class="fw-desc">Senior council that allocates capital to ventures, reviews gates, kills underperformers.</p>
+            <span class="fw-badge">Slibrary 21</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="40" width="60" height="60" rx="5"/><line x1="40" y1="50" x2="80" y2="90" stroke-width="2.5"/><line x1="80" y1="50" x2="40" y2="90" stroke-width="2.5"/><rect x="110" y="35" width="60" height="20" rx="3" fill="currentColor" stroke="none" opacity="0.3"/><rect x="110" y="60" width="60" height="20" rx="3" fill="currentColor" stroke="none" opacity="0.6"/><rect x="110" y="85" width="60" height="20" rx="3" fill="currentColor" stroke="none" opacity="0.9"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Kill Criteria</h4>
+            <p class="fw-desc">Pre-committed conditions under which a venture is stopped — no politics, just triggers.</p>
+            <span class="fw-badge">Slibrary 21</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="25" width="120" height="70" rx="5"/><rect x="55" y="35" width="90" height="50" rx="3" fill="currentColor" stroke="none" opacity="0.3"/><line x1="55" y1="95" x2="145" y2="95"/><line x1="100" y1="95" x2="100" y2="110"/><circle cx="70" cy="120" r="4"/><circle cx="100" cy="120" r="4"/><circle cx="130" cy="120" r="4"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Demo Day</h4>
+            <p class="fw-desc">Fixed endpoint — teams pitch to leadership and external investors. Forces closure.</p>
+            <span class="fw-badge">Slibrary 21</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="50" y="20" width="100" height="110" rx="4"/><line x1="60" y1="40" x2="140" y2="40" opacity="0.5"/><line x1="60" y1="55" x2="140" y2="55" opacity="0.5"/><line x1="60" y1="70" x2="140" y2="70" opacity="0.5"/><line x1="60" y1="85" x2="130" y2="85" opacity="0.5"/><line x1="60" y1="100" x2="140" y2="100" opacity="0.5"/><rect x="100" y="108" width="35" height="15" rx="2" fill="currentColor" stroke="none" opacity="0.85"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Internal Term Sheet</h4>
+            <p class="fw-desc">Venture-style commitment: capital for milestones, dilution for follow-on tranches.</p>
+            <span class="fw-badge">Slibrary 21</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit7_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Corporate Venture Lab</span></a>
+  <a href="cases/Unit7_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit7_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit7_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 7: Intrapreneurship · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"7-19-0": {"title": "Intrapreneur's 5 Traits", "slibrary": 19, "slibrary_title": "Intrapreneurship Mindset", "unit": 7, "desc": "Gifford Pinchot's 'Intrapreneur's 5 Traits' (from Intrapreneuring, 1985) identifies what distinguishes employees who act entrepreneurially inside large firms: curiosity to see opportunities, ownership over outcomes, tenacity against bureaucratic resistance, pragmatism about corporate constraints, and collaboration to marshal support.", "elements": ["Curiosity — sees opportunities others miss", "Ownership — acts as if it's their firm", "Tenacity — pushes through 'no'", "Pragmatism — works within corporate reality", "Collaboration — builds coalitions"], "when_to_use": "When selecting participants for an intrapreneurship programme — the five traits are better predictors than role or seniority.", "link": {"url": "https://www.pinchot.com/intrapreneur/", "label": "Pinchot.com — The Intrapreneur"}}, "7-19-1": {"title": "Entrepreneur vs Intrapreneur 2×2", "slibrary": 19, "slibrary_title": "Intrapreneurship Mindset", "unit": 7, "desc": "The Entrepreneur vs Intrapreneur 2×2 plots two axes: resource access (scarce → abundant) and accountability (personal → institutional). The four quadrants expose that intrapreneurs and entrepreneurs face fundamentally different constraints — and that coaching techniques designed for one often backfire for the other.", "elements": ["Entrepreneur — scarce resources, personal accountability", "Intrapreneur — abundant resources, institutional accountability", "Different risk profiles", "Different motivation levers", "Different success metrics"], "when_to_use": "When designing programmes or incentives — copy-pasting startup playbooks into corporate innovation usually fails because the quadrant is different.", "link": {"url": "https://hbr.org/2018/10/how-to-be-a-successful-intrapreneur", "label": "HBR — How to Be a Successful Intrapreneur"}}, "7-19-2": {"title": "Corporate Innovation Quadrants", "slibrary": 19, "slibrary_title": "Intrapreneurship Mindset", "unit": 7, "desc": "McKinsey's Three Horizons (originally from Baghai, Coley & White, 1999) organises innovation across core (H1), adjacent (H2), and transformational (H3). Well-run companies balance investment across all three. The common failure is over-investing in H1 (incremental) while calling it innovation.", "elements": ["H1 — Core: extend and defend the current business", "H2 — Adjacent: new opportunities from existing strengths", "H3 — Transformational: genuinely new businesses", "Typical balance: 70/20/10 by investment", "Imbalance predicts strategic risk"], "when_to_use": "At annual portfolio review — the three horizons expose whether the firm is actually innovating or just incrementally improving the core.", "link": {"url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/enduring-ideas-the-three-horizons-of-growth", "label": "McKinsey — Three Horizons of Growth"}}, "7-19-3": {"title": "Permission-to-Fail Culture", "slibrary": 19, "slibrary_title": "Intrapreneurship Mindset", "unit": 7, "desc": "Amy Edmondson's research on psychological safety shows that teams learn and innovate only when they feel safe to speak up, admit mistakes, and propose unconventional ideas. Permission-to-fail is the specific subset: people must believe that pursuing a well-reasoned risk won't be career-ending if it fails.", "elements": ["Psychological safety — speaking up is safe", "Permission-to-fail — reasoned risks are protected", "Intelligent failures are rewarded", "Blame-free post-mortems", "Leader behaviour sets the tone"], "when_to_use": "When an innovation programme keeps producing incremental, low-risk output — psychological safety is almost always the constraint.", "link": {"url": "https://hbr.org/2011/04/strategies-for-learning-from-failure", "label": "HBR — Strategies for Learning from Failure (Edmondson, 2011)"}}, "7-19-4": {"title": "Skunk Works Model", "slibrary": 19, "slibrary_title": "Intrapreneurship Mindset", "unit": 7, "desc": "Lockheed Martin's Skunk Works (1943) is the original model for a protected team that operates outside normal corporate processes. Kelly Johnson's 14 Rules still define the archetype: small team, full autonomy, dedicated sponsor, freedom from corporate procedures, results-focused, time-boxed.", "elements": ["Small, hand-picked team", "Ring-fenced budget and authority", "Dedicated executive sponsor", "Freedom from core corporate processes", "Time-boxed; results-focused"], "when_to_use": "When a breakthrough initiative requires protection from the core organisation's immune response — standard innovation labs are too exposed.", "link": {"url": "https://www.lockheedmartin.com/en-us/who-we-are/business-areas/aeronautics/skunkworks.html", "label": "Lockheed Martin — Skunk Works"}}, "7-20-0": {"title": "WhatAVenture Building Blocks", "slibrary": 20, "slibrary_title": "Programs & Models", "unit": 7, "desc": "WhatAVenture's Intrapreneurship Building Blocks (from the Unleash Your Intrapreneurship Power white paper) structure programme design around three layers: a selection mechanism that identifies the right people, a process that gives them protected time and decision-making, and a governance structure that determines how successful ideas re-enter the core.", "elements": ["Selection — who gets in, by what criteria", "Process — protected time, stage gates", "Governance — sponsors, decision rights, re-entry", "Cultural fit with the host organisation", "All three required or the programme fails"], "when_to_use": "At the outset of programme design — the three building blocks determine whether the programme is architecturally sound or merely superficially impressive.", "link": {"url": "https://whataventure.com/", "label": "WhatAVenture — Intrapreneurship"}}, "7-20-1": {"title": "Internal Accelerator (Skydeck)", "slibrary": 20, "slibrary_title": "Programs & Models", "unit": 7, "desc": "DB Systel's Skydeck — built with WhatAVenture — is the reference case for internal accelerators: five selected teams, ten weeks, one three-day bootcamp, weekly acceleration days, and a demo day attended by ~400 internal and external stakeholders. The architecture has been copied across dozens of European corporates.", "elements": ["5 teams, 10 weeks", "3-day kick-off bootcamp", "Weekly acceleration days", "Internal + external mentors", "Demo day with 400+ audience"], "when_to_use": "As the reference template for any corporate that wants to stand up an internal accelerator — Skydeck is battle-tested and adaptable.", "link": {"url": "https://whataventure.com/project/dbsystel-skydeck/", "label": "WhatAVenture — DB Systel Skydeck Case"}}, "7-20-2": {"title": "Innovation Lab", "slibrary": 20, "slibrary_title": "Programs & Models", "unit": 7, "desc": "The Innovation Lab is a permanent, centralised R&D/innovation unit with dedicated staff and annual mandate. It differs from an accelerator (time-boxed, team-based) in being an ongoing function. Pros: deep expertise, long-horizon projects. Cons: can become isolated from the core business over time.", "elements": ["Permanent, not time-boxed", "Dedicated full-time staff", "Annual budget and mandate", "Portfolio of ongoing projects", "Risk: isolation from the core"], "when_to_use": "When the firm needs sustained, long-horizon R&D capability rather than time-boxed bursts of innovation effort.", "link": {"url": "https://hbr.org/2015/10/you-need-an-innovation-strategy", "label": "HBR — You Need an Innovation Strategy"}}, "7-20-3": {"title": "Venture Studio", "slibrary": 20, "slibrary_title": "Programs & Models", "unit": 7, "desc": "The Venture Studio (or venture builder) is a firm-backed vehicle that builds new companies repeatedly from an internal playbook. Unlike an accelerator (which works with external startups) or a VC (which invests in them), the studio creates companies ab initio — hiring founders, providing capital, and retaining significant equity.", "elements": ["Firm-backed, not independent", "Creates companies, doesn't just invest", "Repeats a playbook across 3-10 ventures", "Retains 30-60% equity in each", "Long-term ROI if the playbook works"], "when_to_use": "When the firm wants to build new businesses regularly but doesn't have founders in-house — the studio model industrialises venture creation.", "link": {"url": "https://ggv.vc/what-is-a-venture-studio/", "label": "GGV — What Is a Venture Studio?"}}, "7-20-4": {"title": "Intrapreneurship Hackathon", "slibrary": 20, "slibrary_title": "Programs & Models", "unit": 7, "desc": "The Intrapreneurship Hackathon compresses the programme into 24-72 hours: time-boxed, cross-functional, sponsor-judged idea generation. Hackathons produce lots of ideas and team formation but rarely ship. Their value is cultural (signalling innovation openness) and sourcing (feeding downstream programmes).", "elements": ["Time-boxed — 24-72 hours", "Cross-functional teams", "Sponsor-judged with prizes", "High idea volume, low ship rate", "Feeds downstream accelerators"], "when_to_use": "When the firm wants visible innovation energy and a funnel of ideas — not when it needs ideas that actually ship.", "link": {"url": "https://www.entrepreneur.com/leadership/the-complete-guide-to-corporate-hackathons/313462", "label": "Entrepreneur — Corporate Hackathons Guide"}}, "7-21-0": {"title": "Executive Sponsorship Model", "slibrary": 21, "slibrary_title": "Success Factors", "unit": 7, "desc": "The Executive Sponsorship Model distinguishes three sponsor roles: champion (public advocate), shield (protects from bureaucratic attack), and signer (authorises resources). A successful programme needs all three — often one person can't play all three, and solo sponsorship predicts programme failure.", "elements": ["Champion — public advocate in leadership meetings", "Shield — defends against corporate antibodies", "Signer — authorises budget and headcount", "Ideally 2-3 people, not one", "Sponsor attrition = programme death"], "when_to_use": "At programme design — explicit sponsor role mapping prevents the common failure of a single champion whose departure ends the programme.", "link": {"url": "https://hbr.org/2019/05/why-your-innovation-team-needs-a-sponsor", "label": "HBR — Why Your Innovation Team Needs a Sponsor"}}, "7-21-1": {"title": "Stage-Gate Governance", "slibrary": 21, "slibrary_title": "Success Factors", "unit": 7, "desc": "Stage-Gate governance (Robert Cooper, 1986) structures innovation projects as discovery → validation → build → scale, with formal go/no-go gates between stages. The gates force explicit decisions rather than letting projects drift. Over-applied, stage-gate can kill uncertain projects that need more incubation.", "elements": ["Discover — is there a problem?", "Validate — can we solve it?", "Build — can we ship it?", "Scale — does it grow?", "Explicit go/no-go at each gate"], "when_to_use": "When a corporate needs to apply project discipline to innovation — stage-gate is the bridge between ambiguous exploration and disciplined execution.", "link": {"url": "https://www.stage-gate.com/resources/what-is-stage-gate/", "label": "Stage-Gate — Framework"}}, "7-21-2": {"title": "Innovation Metrics Dashboard", "slibrary": 21, "slibrary_title": "Success Factors", "unit": 7, "desc": "The Innovation Metrics Dashboard tracks four layers: inputs (budget, time, people), throughput (experiments run, ideas validated), outputs (products shipped, revenue generated), and impact (market share, capability built). Dashboards that only track inputs or outputs miss the learning rate — the real signal.", "elements": ["Inputs — resources deployed", "Throughput — experiments, validations, learning rate", "Outputs — products shipped, revenue", "Impact — market share, capability", "Leading + lagging indicators"], "when_to_use": "At every innovation review — single-layer dashboards (only inputs or only outputs) systematically mislead about programme health.", "link": {"url": "https://www.innosight.com/insight/how-to-measure-innovation/", "label": "Innosight — How to Measure Innovation"}}, "7-21-3": {"title": "Portfolio Review Cadence", "slibrary": 21, "slibrary_title": "Success Factors", "unit": 7, "desc": "The Portfolio Review Cadence runs quarterly across all innovation projects: kill (stop investing), persevere (continue at current rate), double down (increase investment), or pivot (redirect). Without regular triage, innovation portfolios accumulate zombie projects that consume resources but produce nothing.", "elements": ["Kill — stop investing, free the people", "Persevere — continue at current rate", "Double down — increase investment", "Pivot — redirect the project", "Quarterly, not annual"], "when_to_use": "Quarterly — annual reviews are too slow for innovation portfolios where facts change monthly.", "link": {"url": "https://hbr.org/2015/10/you-need-an-innovation-strategy", "label": "HBR — Innovation Portfolio Management"}}, "7-21-4": {"title": "Demo Day Architecture", "slibrary": 21, "slibrary_title": "Success Factors", "unit": 7, "desc": "Demo Day Architecture — the public culmination of an accelerator — is not only a pitch event but a commitment mechanism. Audience (400+), time-box (3 minutes per team), scoring (rubric), and post-event commitments (specific follow-ups) separate theatrical demo days from ones that translate into real business.", "elements": ["Audience — internal + external stakeholders", "Time-box — 3 minutes per team, strict", "Scoring — explicit rubric", "Post-event commitments — specific follow-ups", "Recording for stakeholders who missed it"], "when_to_use": "At the close of every cohort — a well-designed demo day is worth 5x the preparation; a poorly-designed one burns the cohort's credibility.", "link": {"url": "https://www.ycombinator.com/demoday", "label": "Y Combinator — Demo Day"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

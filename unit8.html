@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 8 — The Art of Pitching</title>
-<meta name="description" content="MBA301 Unit 8 — The Art of Pitching. Framework gallery of 15 interactive visual thinking tools across Slibraries 22–24.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #2a3c4d;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(42,60,77,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #a9b1b7;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #2a3c4d;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#2a3c4d; background:rgba(42,60,77,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(42,60,77,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#2a3c4d;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#2a3c4d; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #2a3c4d; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#2a3c4d; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(42,60,77,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#2a3c4d;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#2a3c4d;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(42,60,77,0.06);
-  border-left:3px solid #2a3c4d;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#2a3c4d; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#2a3c4d; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 8 — The Art of Pitching — MBA301</title>
+<meta name="description" content="Unit 8 Framework Gallery · The Art of Pitching. Interactive visual guide to the 15 frameworks in Slibraries 22–24." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 8</span>
+<main class="shell unit-page u8">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">8</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 26l20-10v32L10 38z"/><path d="M30 22c6 0 10 4 10 10s-4 10-10 10"/><path d="M40 18c10 0 16 6 16 14s-6 14-16 14"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 8 · FRAMEWORK GALLERY</div>
     <h1>The Art of Pitching</h1>
-    <p class="hero-sub">Clarify · distill · deliver — pitching as the discipline of core message.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">22–24</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Pitch Theatre &nbsp;·&nbsp; Bostelaar's Core Message · StoryBrand · 10-Slide Deck</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 22</span>
-      <h2 class="slibrary-title">Pitch Structures</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="8-22-0" aria-label="Open details for Kawasaki 10-Slide Deck">
-        <h3 class="fw-title">Kawasaki 10-Slide Deck</h3>
-        <p class="fw-desc">Problem · Solution · Model · Underlying magic · Marketing · Competition · Team · Projections · Status · Ask.</p>
-        <span class="fw-tag">Slibrary 22 · Pitch Structures <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-22-1" aria-label="Open details for Elevator Pitch (30 s)">
-        <h3 class="fw-title">Elevator Pitch (30 s)</h3>
-        <p class="fw-desc">For &lt;target&gt; who &lt;need&gt;, &lt;product&gt; is a &lt;category&gt; that &lt;benefit&gt;.</p>
-        <span class="fw-tag">Slibrary 22 · Pitch Structures <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-22-2" aria-label="Open details for NABC Framework">
-        <h3 class="fw-title">NABC Framework</h3>
-        <p class="fw-desc">Need · Approach · Benefits · Competition — Stanford's pitch skeleton.</p>
-        <span class="fw-tag">Slibrary 22 · Pitch Structures <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-22-3" aria-label="Open details for Problem–Solution–Team–Traction">
-        <h3 class="fw-title">Problem–Solution–Team–Traction</h3>
-        <p class="fw-desc">The four beats VCs unconsciously listen for.</p>
-        <span class="fw-tag">Slibrary 22 · Pitch Structures <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-22-4" aria-label="Open details for 3-Act Pitch Structure">
-        <h3 class="fw-title">3-Act Pitch Structure</h3>
-        <p class="fw-desc">Setup · confrontation · resolution — classical storytelling applied.</p>
-        <span class="fw-tag">Slibrary 22 · Pitch Structures <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 23</span>
-      <h2 class="slibrary-title">Narrative</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="8-23-0" aria-label="Open details for Hero's Journey (Campbell)">
-        <h3 class="fw-title">Hero's Journey (Campbell)</h3>
-        <p class="fw-desc">Call → threshold → trials → transformation → return.</p>
-        <span class="fw-tag">Slibrary 23 · Narrative <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-23-1" aria-label="Open details for Freytag's Pyramid">
-        <h3 class="fw-title">Freytag's Pyramid</h3>
-        <p class="fw-desc">Exposition · rising action · climax · falling action · resolution.</p>
-        <span class="fw-tag">Slibrary 23 · Narrative <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-23-2" aria-label="Open details for Start With Why (Sinek)">
-        <h3 class="fw-title">Start With Why (Sinek)</h3>
-        <p class="fw-desc">Golden Circle: Why · How · What — inside out, not outside in.</p>
-        <span class="fw-tag">Slibrary 23 · Narrative <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-23-3" aria-label="Open details for Pixar Pitch Formula">
-        <h3 class="fw-title">Pixar Pitch Formula</h3>
-        <p class="fw-desc">Once upon a time… every day… until one day… because of that…</p>
-        <span class="fw-tag">Slibrary 23 · Narrative <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-23-4" aria-label="Open details for StoryBrand (Miller)">
-        <h3 class="fw-title">StoryBrand (Miller)</h3>
-        <p class="fw-desc">A character · with a problem · meets a guide · who gives a plan.</p>
-        <span class="fw-tag">Slibrary 23 · Narrative <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 24</span>
-      <h2 class="slibrary-title">Message Clarity · Bostelaar</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="8-24-0" aria-label="Open details for Message Strategy Spectrum">
-        <h3 class="fw-title">Message Strategy Spectrum</h3>
-        <p class="fw-desc">Convince ↔ Clarify — motivate or inform, rarely both equally.</p>
-        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-24-1" aria-label="Open details for Distill · Decompose · Prioritise">
-        <h3 class="fw-title">Distill · Decompose · Prioritise</h3>
-        <p class="fw-desc">Three moves from clutter to core; the playbook's central triad.</p>
-        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-24-2" aria-label="Open details for Core Message Worksheet">
-        <h3 class="fw-title">Core Message Worksheet</h3>
-        <p class="fw-desc">Paragraph → three sentences → one sentence. End on the one-liner.</p>
-        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-24-3" aria-label="Open details for Vehicles for Ideas">
-        <h3 class="fw-title">Vehicles for Ideas</h3>
-        <p class="fw-desc">Stories · Visuals · Metaphors · Experiences — how the message travels.</p>
-        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="8-24-4" aria-label="Open details for Thumbnail Thinking (Meier)">
-        <h3 class="fw-title">Thumbnail Thinking (Meier)</h3>
-        <p class="fw-desc">Build a Slibrary; think in pictures; pattern-match under pressure.</p>
-        <span class="fw-tag">Slibrary 24 · Message Clarity · Bostelaar <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-22">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 22</span>
+          <h2>Core Message</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Kurt Bostelaar's methodology for finding the single sentence at the centre of any pitch, proposal, or decision brief. Used throughout MBA301 as the clarity test.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="50" opacity="0.35"/><circle cx="100" cy="70" r="35" opacity="0.55"/><circle cx="100" cy="70" r="20"/><circle cx="100" cy="70" r="7" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Distill-Decompose-Prioritise</h4>
+            <p class="fw-desc">Bostelaar's 3-step — strip to the idea, break it into parts, rank by importance.</p>
+            <span class="fw-badge">Slibrary 22</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="70" x2="175" y2="70"/><circle cx="40" cy="70" r="10" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="100" cy="70" r="10" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="160" cy="70" r="10" fill="currentColor" stroke="none" opacity="0.9"/><text x="40" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">RATIONAL</text><text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">EMOTIONAL</text><text x="160" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">ETHICAL</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Message Strategy Spectrum</h4>
+            <p class="fw-desc">Rational · Emotional · Ethical appeals — which spectrum point fits your audience.</p>
+            <span class="fw-badge">Slibrary 22</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="50" width="28" height="40" rx="3"/><rect x="50" y="50" width="28" height="40" rx="3" fill="currentColor" stroke="none" opacity="0.3"/><rect x="50" y="50" width="28" height="40" rx="3"/><rect x="85" y="50" width="28" height="40" rx="3" fill="currentColor" stroke="none" opacity="0.55"/><rect x="85" y="50" width="28" height="40" rx="3"/><rect x="120" y="50" width="28" height="40" rx="3" fill="currentColor" stroke="none" opacity="0.8"/><rect x="120" y="50" width="28" height="40" rx="3"/><rect x="155" y="50" width="28" height="40" rx="3" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Vehicles for Ideas</h4>
+            <p class="fw-desc">Metaphor · Story · Data · Demo · Quote — the five shapes a core idea can travel in.</p>
+            <span class="fw-badge">Slibrary 22</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="75" cy="70" r="30" opacity="0.5"/><circle cx="125" cy="70" r="30" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="125" cy="70" r="30"/><text x="55" y="55" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">message</text><text x="145" y="55" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">market</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Message-Market Fit</h4>
+            <p class="fw-desc">Does the message speak to the audience's frame, language, and current concern?</p>
+            <span class="fw-badge">Slibrary 22</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="55" width="160" height="30" rx="15" fill="currentColor" stroke="none" opacity="0.15"/><rect x="20" y="55" width="160" height="30" rx="15"/><text x="100" y="75" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">we help X to Y by Z</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">One-Sentence Pitch</h4>
+            <p class="fw-desc">We help [X] to [Y] by [Z]. If it doesn't fit here, the idea isn't decomposed enough yet.</p>
+            <span class="fw-badge">Slibrary 22</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-23">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 23</span>
+          <h2>StoryBrand Arc</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Donald Miller's seven-part narrative structure adapted from classical storytelling — the most-used framework for structuring pitch decks and landing pages in 2025.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 110 Q 35 110 45 60 Q 60 30 100 30 Q 140 30 155 60 Q 165 110 185 110"/><circle cx="25" cy="105" r="4" fill="currentColor" stroke="none"/><circle cx="50" cy="75" r="4" fill="currentColor" stroke="none"/><circle cx="75" cy="48" r="4" fill="currentColor" stroke="none"/><circle cx="100" cy="30" r="5" fill="currentColor" stroke="none"/><circle cx="125" cy="48" r="4" fill="currentColor" stroke="none"/><circle cx="150" cy="75" r="4" fill="currentColor" stroke="none"/><circle cx="175" cy="105" r="4" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Miller's 7-Part Story</h4>
+            <p class="fw-desc">Hero · Problem · Guide · Plan · Call · Failure · Success. The StoryBrand framework.</p>
+            <span class="fw-badge">Slibrary 23</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="50"/><path d="M100 20 L100 40 M70 30 L80 45 M130 30 L120 45 M50 50 L65 60 M150 50 L135 60" opacity="0.4"/><circle cx="100" cy="70" r="8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Hero's Journey</h4>
+            <p class="fw-desc">Campbell's 12-step monomyth, compressed for business narratives.</p>
+            <span class="fw-badge">Slibrary 23</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="70" x2="180" y2="70"/><circle cx="28" cy="70" r="5"/><circle cx="58" cy="70" r="5"/><circle cx="88" cy="70" r="5"/><circle cx="118" cy="70" r="5" fill="currentColor" stroke="none"/><circle cx="148" cy="70" r="5"/><circle cx="178" cy="70" r="5"/><text x="100" y="110" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">6-step spine</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Pixar's 6-Step Spine</h4>
+            <p class="fw-desc">Once upon · Every day · One day · Because of that · Until finally · Ever since.</p>
+            <span class="fw-badge">Slibrary 23</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="50" width="50" height="40" rx="4"/><rect x="135" y="50" width="50" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.85"/><path d="M65 70 Q 100 30 135 70"/><polyline points="128 66 135 70 128 74"/><text x="40" y="75" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">BEFORE</text><text x="160" y="75" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">AFTER</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Before-After-Bridge</h4>
+            <p class="fw-desc">Here's the world. Here's how it could be. Here's the bridge between them.</p>
+            <span class="fw-badge">Slibrary 23</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="18"/><text x="50" y="54" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">P</text><circle cx="100" cy="70" r="24" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="100" cy="70" r="24"/><text x="100" y="74" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="currentColor" stroke="none">A</text><circle cx="150" cy="95" r="20" fill="currentColor" stroke="none" opacity="0.85"/><text x="150" y="99" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#fff" stroke="none">S</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Problem-Agitate-Solve</h4>
+            <p class="fw-desc">Name the problem, sharpen the pain, present your solution. Copywriting standard.</p>
+            <span class="fw-badge">Slibrary 23</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-24">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 24</span>
+          <h2>10-Slide Deck</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Guy Kawasaki's 10/20/30 rule — ten slides, twenty minutes, thirty-point font — plus the four modern variants used by Sequoia, YC, and Airbnb's original deck.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="30" width="30" height="22" rx="2"/><rect x="55" y="30" width="30" height="22" rx="2"/><rect x="90" y="30" width="30" height="22" rx="2"/><rect x="125" y="30" width="30" height="22" rx="2"/><rect x="160" y="30" width="30" height="22" rx="2"/><rect x="20" y="58" width="30" height="22" rx="2"/><rect x="55" y="58" width="30" height="22" rx="2"/><rect x="90" y="58" width="30" height="22" rx="2"/><rect x="125" y="58" width="30" height="22" rx="2"/><rect x="160" y="58" width="30" height="22" rx="2" fill="currentColor" stroke="none" opacity="0.9"/><text x="105" y="105" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">10 / 20 / 30</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Kawasaki's 10/20/30</h4>
+            <p class="fw-desc">10 slides · 20 minutes · 30-point font. The single most-cited pitch rule.</p>
+            <span class="fw-badge">Slibrary 24</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="140" height="80" rx="4"/><line x1="30" y1="55" x2="170" y2="55"/><line x1="30" y1="75" x2="170" y2="75"/><line x1="30" y1="92" x2="170" y2="92"/><text x="100" y="49" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Purpose · Problem · Solution</text><text x="100" y="69" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Why Now · Market · Product</text><text x="100" y="89" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Traction · Team · Financials</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Sequoia Structure</h4>
+            <p class="fw-desc">Company purpose · Problem · Solution · Why now · Market · Product · Traction · Team.</p>
+            <span class="fw-badge">Slibrary 24</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="25" width="140" height="30" rx="3" fill="currentColor" stroke="none" opacity="0.85"/><text x="100" y="45" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff" stroke="none">Problem</text><rect x="30" y="60" width="45" height="20" rx="3"/><rect x="80" y="60" width="45" height="20" rx="3"/><rect x="130" y="60" width="40" height="20" rx="3"/><rect x="30" y="85" width="45" height="20" rx="3"/><rect x="80" y="85" width="45" height="20" rx="3"/><rect x="130" y="85" width="40" height="20" rx="3"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Airbnb Slide Template</h4>
+            <p class="fw-desc">Problem · Solution · Market Validation · Market Size · Product · Business Model.</p>
+            <span class="fw-badge">Slibrary 24</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="20" width="120" height="25" rx="3"/><rect x="40" y="50" width="55" height="20" rx="3"/><rect x="105" y="50" width="55" height="20" rx="3"/><rect x="40" y="75" width="55" height="20" rx="3"/><rect x="105" y="75" width="55" height="20" rx="3"/><rect x="40" y="100" width="120" height="20" rx="3" fill="currentColor" stroke="none" opacity="0.85"/><text x="100" y="115" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#fff" stroke="none">ASK</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Investor Deck Anatomy</h4>
+            <p class="fw-desc">Cover · Problem · Solution · Traction · Market · Moat · Team · Ask. In that order.</p>
+            <span class="fw-badge">Slibrary 24</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="45"/><line x1="100" y1="35" x2="100" y2="70" stroke-width="2.5"/><line x1="100" y1="70" x2="125" y2="85" stroke-width="2.5"/><text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">3 MIN</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">3-Minute Pitch</h4>
+            <p class="fw-desc">Demo Day format — 2 min delivery, 1 min demo, 0 min apologies.</p>
+            <span class="fw-badge">Slibrary 24</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit8_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Pitch Theatre</span></a>
+  <a href="cases/Unit8_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit8_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit8_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 8: The Art of Pitching · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"8-22-0": {"title": "Kawasaki 10-Slide Deck", "slibrary": 22, "slibrary_title": "Pitch Structures", "unit": 8, "desc": "Guy Kawasaki's 10-Slide Deck (from The Art of the Start, 2004, updated 2015) is the default template for investor pitches. The ten slides — Problem, Solution, Business Model, Underlying Magic, Marketing, Competition, Team, Projections, Status, Ask — are ordered to answer investor questions in the sequence they arise.", "elements": ["1-3: Problem, Solution, Model", "4-6: Underlying Magic, Marketing, Competition", "7-8: Team, Projections", "9-10: Status, Ask", "10/20/30 rule: 10 slides, 20 min, 30pt font minimum"], "when_to_use": "As the default structure for any investor pitch — deviating from it should be deliberate, not accidental.", "link": {"url": "https://guykawasaki.com/the-only-10-slides-you-need-in-your-pitch/", "label": "Guy Kawasaki — The Only 10 Slides You Need"}}, "8-22-1": {"title": "Elevator Pitch (30 s)", "slibrary": 22, "slibrary_title": "Pitch Structures", "unit": 8, "desc": "The Elevator Pitch (30-second formula): 'For [target customer] who [need/opportunity], our [product] is a [category] that [benefit]. Unlike [competitor], we [differentiator].' The formula compresses the business into its essential claims — if you can't fill the blanks, you don't have a business yet.", "elements": ["Target customer — specific segment", "Need — the job to be done", "Product + category — what & what kind", "Key benefit — why they'll switch", "Differentiator — why not the competitor"], "when_to_use": "As a continuous sharpening exercise — the elevator pitch should be rewritten every quarter as the business evolves and clarifies.", "link": {"url": "https://hbr.org/2019/09/the-elevator-pitch-and-the-case-for-brevity", "label": "HBR — The Elevator Pitch"}}, "8-22-2": {"title": "NABC Framework", "slibrary": 22, "slibrary_title": "Pitch Structures", "unit": 8, "desc": "Stanford Research Institute's NABC (Need, Approach, Benefits, Competition) is a pitch skeleton that predates and underlies most modern variants. The discipline is to answer each of the four questions in order — skipping Need goes straight to Solution, which is the most common pitch failure.", "elements": ["Need — important customer need", "Approach — unique solution", "Benefits — per customer (cost, quality, scope)", "Competition — why approach beats alternatives", "Four-sentence version possible"], "when_to_use": "For technical founders pitching deep-tech ventures — NABC's emphasis on Need before Approach counters the engineer's tendency to start with the solution.", "link": {"url": "https://www.sri.com/case-studies/the-nabc-approach/", "label": "SRI — The NABC Approach"}}, "8-22-3": {"title": "Problem–Solution–Team–Traction", "slibrary": 22, "slibrary_title": "Pitch Structures", "unit": 8, "desc": "Problem-Solution-Team-Traction is the four-beat structure VCs unconsciously listen for. Every pitch is evaluated against: Is the problem real and big? Is the solution credible? Is this the team to do it? Is there traction proving the hypothesis? Missing any beat weakens the pitch in predictable ways.", "elements": ["Problem — real, large, urgent", "Solution — credible, defensible", "Team — qualified to win", "Traction — evidence of demand", "All four in every pitch"], "when_to_use": "As an audit of a pitch deck — if any of the four is unclear or underweighted, the pitch has a predictable blind spot.", "link": {"url": "https://www.ycombinator.com/library/7B-how-to-pitch-your-startup", "label": "Y Combinator — How to Pitch Your Startup"}}, "8-22-4": {"title": "3-Act Pitch Structure", "slibrary": 22, "slibrary_title": "Pitch Structures", "unit": 8, "desc": "The 3-Act Pitch Structure borrows from classical drama: Act 1 sets up the world (problem, status quo), Act 2 introduces the confrontation (disruption, breakthrough), Act 3 resolves (outcome, ask). Storytelling structure engages the investor emotionally — which matters because investment decisions are made emotionally and justified analytically.", "elements": ["Act 1 — setup: world, problem, stakes", "Act 2 — confrontation: insight, solution, evidence", "Act 3 — resolution: traction, team, ask", "Emotional arc, not just information arc", "Apply to any pitch length"], "when_to_use": "When a pitch is information-dense but fails to land — the 3-act structure injects narrative energy without sacrificing content.", "link": {"url": "https://hbr.org/2003/06/storytelling-that-moves-people", "label": "HBR — Storytelling That Moves People"}}, "8-23-0": {"title": "Hero's Journey (Campbell)", "slibrary": 23, "slibrary_title": "Narrative", "unit": 8, "desc": "Joseph Campbell's Hero's Journey (The Hero with a Thousand Faces, 1949) describes the universal mythic structure found in stories across cultures. Christopher Vogler adapted it for screenwriters; pitch coaches adapted it for founders. The 12 stages compress to: Call → Threshold → Trials → Transformation → Return.", "elements": ["Ordinary world — where the hero starts", "Call to adventure — the trigger", "Threshold — committing to the journey", "Trials — the tests in the new world", "Return — bringing back the prize"], "when_to_use": "When a founder's story has struggle and transformation — Hero's Journey gives narrative structure to what otherwise sounds like a résumé.", "link": {"url": "https://en.wikipedia.org/wiki/Hero%27s_journey", "label": "Wikipedia — Hero's Journey (Campbell)"}}, "8-23-1": {"title": "Freytag's Pyramid", "slibrary": 23, "slibrary_title": "Narrative", "unit": 8, "desc": "Gustav Freytag's Pyramid (Die Technik des Dramas, 1863) structures dramatic narrative in five acts: Exposition, Rising Action, Climax, Falling Action, Resolution. The pyramid visualises the tension arc — tension builds through Acts I-III, peaks at Climax, and resolves in IV-V. Pitches that flatten the arc lose the audience.", "elements": ["Exposition — setup, world, characters", "Rising Action — escalating complications", "Climax — peak tension, decisive moment", "Falling Action — consequences", "Resolution — new equilibrium"], "when_to_use": "When a pitch feels monotonous — Freytag's Pyramid diagnoses the missing tension arc and where the climax should sit.", "link": {"url": "https://en.wikipedia.org/wiki/Dramatic_structure", "label": "Wikipedia — Dramatic Structure (Freytag)"}}, "8-23-2": {"title": "Start With Why (Sinek)", "slibrary": 23, "slibrary_title": "Narrative", "unit": 8, "desc": "Simon Sinek's Golden Circle (Start With Why, 2009) argues great leaders and brands communicate from the inside out: Why (purpose) → How (process) → What (product). Most communication starts with What and fails to inspire. Why is biologically encoded (limbic brain); What is cognitive — Why moves people first.", "elements": ["Why — the purpose, the belief, the cause", "How — the process, the differentiator", "What — the product, the feature", "Most start with What → flat", "Starting with Why → inspiring"], "when_to_use": "When a pitch is feature-heavy and emotion-light — rewriting from Why to What transforms conviction.", "link": {"url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action", "label": "TED — Simon Sinek: How Great Leaders Inspire Action"}}, "8-23-3": {"title": "Pixar Pitch Formula", "slibrary": 23, "slibrary_title": "Narrative", "unit": 8, "desc": "Pixar's storytelling formula (Emma Coats, 2011): 'Once upon a time [setup]. Every day [normal]. Until one day [change]. Because of that [consequence]. Until finally [climax]. And ever since then [new normal].' The formula compresses Freytag's Pyramid into a fillable template that works for any story — including a pitch.", "elements": ["Once upon a time — world setup", "Every day — normal state", "Until one day — the change", "Because of that — consequence", "Until finally — climax → new normal"], "when_to_use": "When rewriting a dry description as a story — filling in the Pixar template usually produces a draft that's 80% usable in an hour.", "link": {"url": "https://thewritepractice.com/pixar-storytelling/", "label": "The Write Practice — Pixar Storytelling"}}, "8-23-4": {"title": "StoryBrand (Miller)", "slibrary": 23, "slibrary_title": "Narrative", "unit": 8, "desc": "Donald Miller's StoryBrand (2017) adapts the Hero's Journey into a seven-part marketing framework — where the customer is the hero, not the brand. The brand is the guide who gives the hero a plan and calls them to action. Most brands fail by casting themselves as the hero.", "elements": ["A character — the customer", "With a problem — external, internal, philosophical", "Meets a guide — the brand", "Who gives a plan — the process", "Calls them to action → success or failure"], "when_to_use": "When a brand's messaging is about itself rather than the customer — StoryBrand flips the protagonist and the messaging immediately sharpens.", "link": {"url": "https://storybrand.com/7-part-framework/", "label": "StoryBrand — The 7-Part Framework"}}, "8-24-0": {"title": "Message Strategy Spectrum", "slibrary": 24, "slibrary_title": "Message Clarity · Bostelaar", "unit": 8, "desc": "Kurt Bostelaar's Message Strategy Spectrum places every message on a continuum from Convince (motivate) to Clarify (inform). Every real message is a calibrated blend of the two — not one or the other. Misreading the balance is the most common cause of message failure: a clarifying message where conviction is needed, or vice versa.", "elements": ["Convince end — motivate, inspire, persuade", "Clarify end — inform, explain, unpack", "Real messages blend both", "Audience state determines the blend", "Test: does the message match the moment?"], "when_to_use": "Before writing any important communication — placing the message on the spectrum calibrates how much conviction vs information the moment actually needs.", "link": {"url": "https://leverlo.com/playbooks/clarify-core-message/", "label": "Leverlo — Clarify Your Core Message"}}, "8-24-1": {"title": "Distill · Decompose · Prioritise", "slibrary": 24, "slibrary_title": "Message Clarity · Bostelaar", "unit": 8, "desc": "Bostelaar's Distill-Decompose-Prioritise (DDP) is the operational core of the playbook. Distill — write the full paragraph. Decompose — extract every concept as an isolated component. Prioritise — force-rank from most to least important. The three moves convert cluttered thinking into a single speakable claim.", "elements": ["Distill — write the full paragraph", "Decompose — extract every embedded concept", "Prioritise — force-rank, most → least", "Re-summarise in three sentences", "Finalise in one sentence"], "when_to_use": "Before any important presentation, memo, or pitch — the DDP protocol is an hour that saves a day of confusion later.", "link": {"url": "https://leverlo.com/playbooks/clarify-core-message/", "label": "Leverlo — DDP Protocol"}}, "8-24-2": {"title": "Core Message Worksheet", "slibrary": 24, "slibrary_title": "Message Clarity · Bostelaar", "unit": 8, "desc": "The Core Message Worksheet is the DDP protocol made into a fillable sheet: full paragraph → list of concepts → force-ranked list → three-sentence summary → one-sentence final. Writing it out on paper (not mentally) surfaces the weaknesses the protocol is designed to catch.", "elements": ["Paragraph (50-100 words)", "Concept list (10-20 bullets)", "Force-ranked list (1 = most important)", "Three-sentence summary", "One-sentence final"], "when_to_use": "As a structured substitute for 'just think about it' — the worksheet externalises the messaging work and makes weaknesses visible.", "link": {"url": "https://leverlo.com/playbooks/clarify-core-message/", "label": "Leverlo — Core Message Worksheet"}}, "8-24-3": {"title": "Vehicles for Ideas", "slibrary": 24, "slibrary_title": "Message Clarity · Bostelaar", "unit": 8, "desc": "Bostelaar's Vehicles for Ideas classifies four ways a message travels: Stories (narrative arc), Visuals (pictures, diagrams), Metaphors (borrowed structure), and Experiential Learning (live doing). Each vehicle fits different content and different audiences. The most common error is defaulting to bullets when a metaphor would carry the idea better.", "elements": ["Stories — narrative arc for motivation", "Visuals — pictures for complex ideas", "Metaphors — cross-domain transfer", "Experiential learning — do, don't tell", "Pick the vehicle that matches the content"], "when_to_use": "After DDP has produced the core message — choosing the vehicle is the second major decision in any communication.", "link": {"url": "https://leverlo.com/playbooks/clarify-core-message/", "label": "Leverlo — Vehicles for Ideas"}}, "8-24-4": {"title": "Thumbnail Thinking (Meier)", "slibrary": 24, "slibrary_title": "Message Clarity · Bostelaar", "unit": 8, "desc": "JD Meier's Thumbnail Thinking (2025) pairs with Bostelaar's playbook: the playbook sharpens the core message; Thumbnail Thinking designs the visual vehicle that carries it. Build a Slibrary (slide library) of well-designed visual frameworks, and pattern-match them under pressure. This course itself is an enacted Slibrary.", "elements": ["Slibrary — curated library of visual models", "Think in pictures, not just words", "Pattern-match in the moment", "Mental catalogue you can reach for", "Complements Bostelaar's message discipline"], "when_to_use": "As a lifelong discipline for any leader — the Slibrary grows over a career and compounds in value.", "link": {"url": "https://jdmeier.com/", "label": "jdmeier.com — Thumbnail Thinking"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>

@@ -1,515 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBA301 Unit 1 — Design Thinking as Mindset</title>
-<meta name="description" content="MBA301 Unit 1 — Design Thinking as Mindset. Framework gallery of 15 interactive visual thinking tools across Slibraries 1–3.">
-<style>
-:root{
-  --navy:#0f2133; --ink:#11202e; --muted:#5b6b7a;
-  --border:#e4e8ec; --border-strong:#cfd5dc;
-  --bg:#f6f4ef; --card:#fff;
-  --accent:#00BE96; --accent-ink:#04715b;
-  --shadow: 0 1px 2px rgba(15,33,51,.06), 0 6px 20px rgba(15,33,51,.06);
-  --radius: 14px; --radius-sm: 10px;
-  --font: Arial, Helvetica, sans-serif;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-
-.backbar{ background:#fff; border-bottom:1px solid var(--border); padding:14px 24px; }
-.backbar-inner{ max-width:1100px; margin:0 auto; font-size:13px; color:var(--muted); }
-.backbar a{ color:var(--accent-ink); font-weight:700; }
-.backbar a:hover{ color:var(--accent); }
-
-.hero{
-  background:var(--navy); color:#fff;
-  padding:48px 24px 40px;
-  position:relative; overflow:hidden;
-  border-bottom:4px solid #00BE96;
-}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(0,190,150,0.18), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0,190,150,.08), transparent 45%);
-  pointer-events:none;
-}
-.hero-inner{ max-width:1100px; margin:0 auto; position:relative; }
-.eyebrow{
-  display:inline-block;
-  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-  color:#fff; font-weight:700;
-  margin-bottom:12px;
-  padding:5px 12px 5px 16px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  border-left:3px solid #00be96;
-  border-radius:4px 999px 999px 4px;
-}
-.hero h1{
-  font-family:var(--font); font-weight:700;
-  font-size:clamp(30px, 4.4vw, 44px);
-  line-height:1.1; margin:0 0 10px;
-  letter-spacing:-.015em;
-}
-.hero-sub{ font-size:15.5px; color:rgba(255,255,255,.72); max-width:640px; margin:0 0 8px; }
-.hero-attr{ font-size:13px; color:rgba(255,255,255,.5); margin:0 0 24px; font-style:italic; }
-
-.stats{
-  display:flex; flex-wrap:wrap; max-width:560px;
-  border-top:1px solid rgba(255,255,255,.14);
-  border-bottom:1px solid rgba(255,255,255,.14);
-  padding:16px 0;
-}
-.stat{ flex:1 1 0; min-width:110px; padding:0 18px; }
-.stat:first-child{ padding-left:0; }
-.stat:not(:last-child){ border-right:1px solid rgba(255,255,255,.14); }
-.stat-num{ font-family:var(--font); font-size:32px; font-weight:700; line-height:1; color:#fff; display:block; }
-.stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:6px; }
-
-.gallery{ max-width:1100px; margin:40px auto 20px; padding:0 24px; }
-.slibrary{ margin-bottom:40px; }
-.slibrary-head{
-  display:flex; align-items:baseline; gap:14px;
-  padding-bottom:12px; margin-bottom:20px;
-  border-bottom:2px solid #00BE96;
-}
-.slibrary-num{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:#00BE96; background:rgba(0,190,150,0.1);
-  padding:5px 11px; border-radius:6px;
-}
-.slibrary-title{
-  font-size:20px; font-weight:700;
-  color:var(--ink); margin:0; letter-spacing:-.01em;
-}
-.slibrary-count{ margin-left:auto; font-size:12px; color:var(--muted); font-style:italic; }
-.slibrary-hint{
-  font-size:11.5px; color:var(--muted);
-  background:rgba(0,190,150,0.1); padding:3px 9px; border-radius:4px;
-  margin-left:8px; font-weight:700;
-}
-
-.frameworks{ display:flex; flex-wrap:wrap; gap:16px; }
-.fw{
-  flex:1 1 calc(33.333% - 16px);
-  min-width:240px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:18px 18px 16px;
-  position:relative;
-  text-align:left; width:100%;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  cursor:pointer;
-  font-family:inherit; color:inherit;
-}
-.fw::before{
-  content:""; position:absolute;
-  left:0; top:18px; bottom:16px;
-  width:3px; background:#00BE96;
-  border-radius:0 3px 3px 0;
-  opacity:0; transition:opacity .15s ease;
-}
-.fw:hover{ transform:translateY(-2px); border-color:#00BE96; box-shadow:var(--shadow); }
-.fw:hover::before{ opacity:1; }
-.fw:focus-visible{ outline:2px solid #00BE96; outline-offset:2px; }
-.fw-title{ font-size:15px; font-weight:700; color:var(--ink); margin:0 0 6px; line-height:1.3; }
-.fw-desc{ font-size:13px; color:var(--muted); line-height:1.5; margin:0 0 10px; }
-.fw-tag{
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; letter-spacing:.04em;
-  color:#00BE96; font-weight:700;
-  padding-top:6px;
-  border-top:1px dashed var(--border);
-}
-.fw-tag-arrow{ font-size:14px; transition:transform .15s ease; }
-.fw:hover .fw-tag-arrow{ transform:translateX(3px); }
-
-footer{ background:#fff; border-top:1px solid var(--border); padding:28px 24px 36px; margin-top:40px; }
-.footer-inner{
-  max-width:1100px; margin:0 auto;
-  font-size:13px; color:var(--muted);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.footer-inner strong{ color:var(--ink); }
-
-/* ---------- Framework Modal ---------- */
-.fw-modal-overlay{
-  position:fixed; inset:0;
-  background:rgba(15,33,51,.55);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  z-index:9999;
-  display:none;
-  align-items:flex-start; justify-content:center;
-  padding:60px 20px 20px;
-  opacity:0;
-  transition:opacity .15s ease;
-}
-.fw-modal-overlay.open{ display:flex; opacity:1; }
-
-.fw-modal{
-  width:100%; max-width:640px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(15,33,51,.3);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  max-height:calc(100vh - 80px);
-  animation:fwModalSlide .18s ease;
-  position:relative;
-}
-@keyframes fwModalSlide{
-  from{ transform:translateY(-8px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-.fw-modal-head{
-  padding:22px 26px 18px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-  background:rgba(0,190,150,0.06);
-}
-.fw-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:grid; place-items:center;
-  font-size:18px; color:var(--muted);
-  border-radius:6px;
-  transition:all .15s ease;
-}
-.fw-modal-close:hover{ background:#fff; color:var(--ink); }
-.fw-modal-eyebrow{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:#00BE96;
-  margin-bottom:8px;
-}
-.fw-modal-title{
-  font-size:22px; font-weight:700;
-  color:var(--ink); margin:0;
-  letter-spacing:-.01em; line-height:1.2;
-  padding-right:40px;
-}
-
-.fw-modal-body{
-  padding:24px 26px;
-  overflow-y:auto;
-  flex:1;
-}
-.fw-modal-desc{
-  font-size:14.5px; line-height:1.6;
-  color:var(--ink); margin:0 0 22px;
-}
-.fw-modal-section-title{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:700; color:var(--muted);
-  margin:0 0 10px;
-}
-.fw-modal-elements{
-  list-style:none; padding:0; margin:0 0 22px;
-}
-.fw-modal-elements li{
-  position:relative;
-  padding:6px 0 6px 20px;
-  font-size:13.5px; line-height:1.5;
-  color:var(--ink);
-  border-bottom:1px dashed var(--border);
-}
-.fw-modal-elements li:last-child{ border-bottom:0; }
-.fw-modal-elements li::before{
-  content:""; position:absolute;
-  left:0; top:13px;
-  width:8px; height:8px;
-  background:#00BE96;
-  border-radius:50%;
-}
-
-.fw-modal-callout{
-  background:rgba(0,190,150,0.06);
-  border-left:3px solid #00BE96;
-  padding:14px 18px;
-  border-radius:0 8px 8px 0;
-  margin-bottom:22px;
-}
-.fw-modal-callout .fw-modal-section-title{
-  color:#00BE96; margin-bottom:6px;
-}
-.fw-modal-callout p{
-  margin:0; font-size:13.5px; line-height:1.55;
-  color:var(--ink); font-style:italic;
-}
-
-.fw-modal-link{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:10px 16px;
-  background:#00BE96; color:#fff;
-  border-radius:8px;
-  font-size:13px; font-weight:700;
-  text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.fw-modal-link:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(15,33,51,.15); }
-.fw-modal-link-arrow{ font-size:14px; }
-
-.fw-modal-foot{
-  padding:12px 26px;
-  background:#fcfbf8;
-  border-top:1px solid var(--border);
-  font-size:11.5px; color:var(--muted);
-  display:flex; justify-content:space-between; gap:12px;
-}
-.fw-modal-foot kbd{
-  display:inline-block;
-  padding:1px 5px; margin:0 2px;
-  font-family:ui-monospace,Menlo,monospace;
-  font-size:10px; font-weight:700;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:3px;
-}
-
-@media (max-width:720px){
-  .fw{ flex:1 1 100%; }
-  .hero h1{ font-size:28px; }
-  .slibrary-head{ flex-wrap:wrap; }
-  .slibrary-count{ margin-left:0; }
-  .fw-modal{ max-height:calc(100vh - 60px); }
-  .fw-modal-head, .fw-modal-body, .fw-modal-foot{ padding-left:20px; padding-right:20px; }
-}
-</style>
-<meta name="site-base" content=".">
-<link rel="stylesheet" href="./assets/protection.css">
-<link rel="stylesheet" href="./assets/search.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 1 — Design Thinking as Mindset — MBA301</title>
+<meta name="description" content="Unit 1 Framework Gallery · Design Thinking as Mindset. Interactive visual guide to the 15 frameworks in Slibraries 1–3." />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="backbar">
-  <div class="backbar-inner">
-    <a href="index.html">← Back to Course Overview</a>
+<header class="topbar">
+  <div class="left">
+    <div class="dot" aria-hidden="true"></div>
+    <span>MBA301 · FHEQ Level 7</span>
   </div>
-</div>
+  <div class="right">
+    <a class="back" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Course Home</span></a>
+  </div>
+</header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">MBA301 · Unit 1</span>
+<main class="shell unit-page u1">
+
+<section class="page-hero">
+  <div class="num-box">
+    <span class="n">1</span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 34c7-12 18-18 26-18s19 6 26 18c-7 12-18 18-26 18S13 46 6 34Z"/><circle cx="32" cy="34" r="7"/></svg>
+  </div>
+  <div>
+    <div class="eyebrow">UNIT 1 · FRAMEWORK GALLERY</div>
     <h1>Design Thinking as Mindset</h1>
-    <p class="hero-sub">The nature and origins of design thinking — mindset, process, toolbox.</p>
-    <p class="hero-attr">Tap any framework card to explore it in depth · © 2026 Dr. H. Haas</p>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num">3</span><div class="stat-label">Slibraries</div></div>
-      <div class="stat"><span class="stat-num">15</span><div class="stat-label">Frameworks</div></div>
-      <div class="stat"><span class="stat-num">1–3</span><div class="stat-label">Set Range</div></div>
-    </div>
+    <p class="sub">Empathy Workshop &nbsp;·&nbsp; Brown · Liedtka · Dosi · Kelley</p>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 1</span>
-      <h2 class="slibrary-title">DT Foundations</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="1-1-0" aria-label="Open details for Tim Brown's DT Triple">
-        <h3 class="fw-title">Tim Brown's DT Triple</h3>
-        <p class="fw-desc">Inspiration → Ideation → Implementation — the original HBR loop.</p>
-        <span class="fw-tag">Slibrary 1 · DT Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-1-1" aria-label="Open details for Double Diamond">
-        <h3 class="fw-title">Double Diamond</h3>
-        <p class="fw-desc">Discover → Define → Develop → Deliver (British Design Council).</p>
-        <span class="fw-tag">Slibrary 1 · DT Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-1-2" aria-label="Open details for Stanford d.school 5-Stage Process">
-        <h3 class="fw-title">Stanford d.school 5-Stage Process</h3>
-        <p class="fw-desc">Empathize → Define → Ideate → Prototype → Test.</p>
-        <span class="fw-tag">Slibrary 1 · DT Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-1-3" aria-label="Open details for IDEO 3 Lenses of HCD">
-        <h3 class="fw-title">IDEO 3 Lenses of HCD</h3>
-        <p class="fw-desc">Desirability × Feasibility × Viability — the DVF triangle.</p>
-        <span class="fw-tag">Slibrary 1 · DT Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-1-4" aria-label="Open details for Brenner's DT Holistic Model">
-        <h3 class="fw-title">Brenner's DT Holistic Model</h3>
-        <p class="fw-desc">Design Thinking as Mindset · Process · Toolbox (2016).</p>
-        <span class="fw-tag">Slibrary 1 · DT Foundations <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 2</span>
-      <h2 class="slibrary-title">DT Mindsets</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="1-2-0" aria-label="Open details for Liedtka's Why DT Works">
-        <h3 class="fw-title">Liedtka's Why DT Works</h3>
-        <p class="fw-desc">Four truths: user focus, collaboration, experimentation, diversity.</p>
-        <span class="fw-tag">Slibrary 2 · DT Mindsets <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-2-1" aria-label="Open details for Dosi's DT Mindset Measure">
-        <h3 class="fw-title">Dosi's DT Mindset Measure</h3>
-        <p class="fw-desc">10-dimension scale for measuring the designerly mindset (2018).</p>
-        <span class="fw-tag">Slibrary 2 · DT Mindsets <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-2-2" aria-label="Open details for Kelley's Creative Confidence">
-        <h3 class="fw-title">Kelley's Creative Confidence</h3>
-        <p class="fw-desc">Four fears that block creativity — and how to reclaim it.</p>
-        <span class="fw-tag">Slibrary 2 · DT Mindsets <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-2-3" aria-label="Open details for Buchanan's Wicked Problems">
-        <h3 class="fw-title">Buchanan's Wicked Problems</h3>
-        <p class="fw-desc">Four orders of design: signs, things, actions, systems.</p>
-        <span class="fw-tag">Slibrary 2 · DT Mindsets <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-2-4" aria-label="Open details for Bason & Austin: Right Way to Lead DT">
-        <h3 class="fw-title">Bason &amp; Austin: Right Way to Lead DT</h3>
-        <p class="fw-desc">Six tensions leaders must navigate to lead DT well.</p>
-        <span class="fw-tag">Slibrary 2 · DT Mindsets <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
-  <div class="slibrary">
-    <div class="slibrary-head">
-      <span class="slibrary-num">Slibrary 3</span>
-      <h2 class="slibrary-title">DT Process &amp; Tools</h2>
-      <span class="slibrary-hint">Click any card for depth</span>
-      <span class="slibrary-count">5 frameworks</span>
-    </div>
-    <div class="frameworks">
-      <button class="fw" type="button" data-fw-id="1-3-0" aria-label="Open details for Empathy Map">
-        <h3 class="fw-title">Empathy Map</h3>
-        <p class="fw-desc">Says · Thinks · Does · Feels — the canonical user canvas.</p>
-        <span class="fw-tag">Slibrary 3 · DT Process & Tools <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-3-1" aria-label="Open details for Persona Canvas">
-        <h3 class="fw-title">Persona Canvas</h3>
-        <p class="fw-desc">Archetype + goals + frustrations + context on one sheet.</p>
-        <span class="fw-tag">Slibrary 3 · DT Process & Tools <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-3-2" aria-label="Open details for Customer Journey Map">
-        <h3 class="fw-title">Customer Journey Map</h3>
-        <p class="fw-desc">Stages × touchpoints × emotions — end-to-end experience.</p>
-        <span class="fw-tag">Slibrary 3 · DT Process & Tools <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-3-3" aria-label="Open details for 5 Whys">
-        <h3 class="fw-title">5 Whys</h3>
-        <p class="fw-desc">Root-cause laddering: keep asking why until you hit structure.</p>
-        <span class="fw-tag">Slibrary 3 · DT Process & Tools <span class="fw-tag-arrow">→</span></span>
-      </button>
-      <button class="fw" type="button" data-fw-id="1-3-4" aria-label="Open details for How Might We (HMW)">
-        <h3 class="fw-title">How Might We (HMW)</h3>
-        <p class="fw-desc">Turning insights into re-framed, generative design questions.</p>
-        <span class="fw-tag">Slibrary 3 · DT Process & Tools <span class="fw-tag-arrow">→</span></span>
-      </button>
-    </div>
-  </div>
 
-</section>
+      <section class="slib-section" id="slib-1">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 1</span>
+          <h2>DT Foundations</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The five foundational models that define what design thinking actually is — as a process, as a set of lenses, and as a decision-making framework. These loops return again and again throughout the course.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 40 L100 25 L140 40 L140 95 L100 115 L60 95 Z" opacity="0.25"/><path d="M60 40 L100 25 L140 40 L140 95 L100 115 L60 95 Z"/><circle cx="100" cy="70" r="20"/><text x="100" y="55" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Inspire</text><text x="100" y="72" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Ideate</text><text x="100" y="89" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Implement</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Brown's Triple Loop</h4>
+            <p class="fw-desc">Inspiration → Ideation → Implementation. The three spaces every DT project cycles through.</p>
+            <span class="fw-badge">Slibrary 1</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="70" r="11"/><circle cx="65" cy="70" r="11"/><circle cx="100" cy="70" r="11"/><circle cx="135" cy="70" r="11"/><circle cx="170" cy="70" r="11" fill="currentColor" stroke="none" opacity="0.9"/><path d="M41 70h13M76 70h13M111 70h13M146 70h13"/><text x="30" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">EMP</text><text x="65" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">DEF</text><text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">IDE</text><text x="135" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">PRO</text><text x="170" y="100" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="currentColor" stroke="none">TST</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Stanford 5-Stage</h4>
+            <p class="fw-desc">Empathize · Define · Ideate · Prototype · Test. The d.school's canonical process.</p>
+            <span class="fw-badge">Slibrary 1</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="20 70 60 30 100 70 60 110" fill="currentColor" stroke="none" opacity="0.2"/><polygon points="20 70 60 30 100 70 60 110"/><polygon points="100 70 140 30 180 70 140 110" fill="currentColor" stroke="none" opacity="0.35"/><polygon points="100 70 140 30 180 70 140 110"/><text x="60" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">PROBLEM</text><text x="140" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">SOLUTION</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Double Diamond</h4>
+            <p class="fw-desc">Discover · Define · Develop · Deliver. Two diamonds of divergence and convergence.</p>
+            <span class="fw-badge">Slibrary 1</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="75" cy="55" r="32" opacity="0.55"/><circle cx="125" cy="55" r="32" opacity="0.55"/><circle cx="100" cy="95" r="32" opacity="0.55"/><text x="55" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">D</text><text x="145" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">F</text><text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">V</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">DVF Framework</h4>
+            <p class="fw-desc">Desirability × Feasibility × Viability — the innovation sweet spot.</p>
+            <span class="fw-badge">Slibrary 1</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="70" r="18"/><circle cx="100" cy="70" r="18"/><circle cx="160" cy="70" r="18" fill="currentColor" stroke="none" opacity="0.9"/><path d="M58 70h24M118 70h24"/><text x="40" y="74" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">i</text><text x="100" y="74" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="currentColor" stroke="none">i</text><text x="160" y="74" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff" stroke="none">i</text><text x="40" y="105" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Insight</text><text x="100" y="105" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Idea</text><text x="160" y="105" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor" stroke="none">Impact</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">3-i Framework</h4>
+            <p class="fw-desc">Insight · Idea · Impact. IDEO's compressed three-step account of design work.</p>
+            <span class="fw-badge">Slibrary 1</span>
+          </div>
+        </div>
+        </div>
+      </section>
 
-<!-- Framework Detail Modal -->
-<div class="fw-modal-overlay" id="fwModal" role="dialog" aria-hidden="true" aria-labelledby="fwModalTitle">
-  <div class="fw-modal" role="document">
-    <div class="fw-modal-head">
-      <button class="fw-modal-close" aria-label="Close framework details" onclick="fwModalClose()">✕</button>
-      <div class="fw-modal-eyebrow" id="fwModalEyebrow"></div>
-      <h2 class="fw-modal-title" id="fwModalTitle"></h2>
-    </div>
-    <div class="fw-modal-body">
-      <p class="fw-modal-desc" id="fwModalDesc"></p>
-      <div class="fw-modal-section-title">Key Elements</div>
-      <ul class="fw-modal-elements" id="fwModalElements"></ul>
-      <div class="fw-modal-callout">
-        <div class="fw-modal-section-title">When to Use</div>
-        <p id="fwModalWhen"></p>
-      </div>
-      <a class="fw-modal-link" id="fwModalLink" target="_blank" rel="noopener noreferrer">
-        <span id="fwModalLinkLabel"></span>
-        <span class="fw-modal-link-arrow">↗</span>
-      </a>
-    </div>
-    <div class="fw-modal-foot">
-      <span>Authoritative external source opens in a new tab</span>
-      <span><kbd>esc</kbd> close</span>
-    </div>
-  </div>
+      <section class="slib-section" id="slib-2">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 2</span>
+          <h2>DT Mindsets</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">Design thinking isn't a technique — it's a way of seeing. This Slibrary catalogues the five most rigorously measured and taught DT mindsets in the academic literature.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="20" width="140" height="100" rx="4"/><line x1="100" y1="20" x2="100" y2="120"/><line x1="30" y1="70" x2="170" y2="70"/><text x="65" y="50" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Customer</text><text x="135" y="50" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Evidence</text><text x="65" y="100" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Iterative</text><text x="135" y="100" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Collab.</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Liedtka's 4 Truths</h4>
+            <p class="fw-desc">Customer-centred · Evidence-based · Iterative · Collaborative — the four discipline pillars.</p>
+            <span class="fw-badge">Slibrary 2</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="70" r="50"/><circle cx="100" cy="70" r="35" opacity="0.5"/><circle cx="100" cy="70" r="20" opacity="0.3"/><g><circle cx="100" cy="20" r="3" fill="currentColor" stroke="none"/><circle cx="140" cy="32" r="3" fill="currentColor" stroke="none"/><circle cx="170" cy="55" r="3" fill="currentColor" stroke="none"/><circle cx="175" cy="85" r="3" fill="currentColor" stroke="none"/><circle cx="155" cy="110" r="3" fill="currentColor" stroke="none"/><circle cx="120" cy="122" r="3" fill="currentColor" stroke="none"/><circle cx="80" cy="122" r="3" fill="currentColor" stroke="none"/><circle cx="45" cy="110" r="3" fill="currentColor" stroke="none"/><circle cx="25" cy="85" r="3" fill="currentColor" stroke="none"/><circle cx="30" cy="55" r="3" fill="currentColor" stroke="none"/></g><text x="100" y="73" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="currentColor" stroke="none">10</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Dosi's 10-Dim Mindset</h4>
+            <p class="fw-desc">Ten empirically measured dimensions — ambiguity tolerance, empathy, systemic vision, and more.</p>
+            <span class="fw-badge">Slibrary 2</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="25" width="70" height="40" rx="4"/><rect x="105" y="25" width="70" height="40" rx="4"/><rect x="25" y="75" width="70" height="40" rx="4"/><rect x="105" y="75" width="70" height="40" rx="4"/><text x="60" y="48" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Messy</text><text x="140" y="48" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Judgement</text><text x="60" y="98" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">First step</text><text x="140" y="98" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Control</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Kelley's Creative Confidence</h4>
+            <p class="fw-desc">4 fears block creativity — failure, judgement, the first step, and losing control.</p>
+            <span class="fw-badge">Slibrary 2</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 80 Q 50 40 90 55 Q 130 70 170 35 M50 110 Q 100 80 150 110 M40 50 Q 80 25 120 45"/><circle cx="30" cy="80" r="4" fill="currentColor" stroke="none"/><circle cx="170" cy="35" r="4" fill="currentColor" stroke="none"/><circle cx="90" cy="55" r="4" fill="currentColor" stroke="none"/><circle cx="130" cy="70" r="4" fill="currentColor" stroke="none"/><text x="100" y="130" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none" opacity="0.8">no single formulation</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Buchanan's Wicked Problems</h4>
+            <p class="fw-desc">10 properties of problems with no definite formulation and no stopping rule.</p>
+            <span class="fw-badge">Slibrary 2</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="30" width="45" height="80" rx="4"/><rect x="78" y="30" width="45" height="80" rx="4" fill="currentColor" stroke="none" opacity="0.3"/><rect x="78" y="30" width="45" height="80" rx="4"/><rect x="131" y="30" width="45" height="80" rx="4" fill="currentColor" stroke="none" opacity="0.6"/><rect x="131" y="30" width="45" height="80" rx="4"/><text x="47" y="75" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Mindset</text><text x="100" y="75" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none">Process</text><text x="153" y="75" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="#fff" stroke="none">Toolbox</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Mindset · Process · Toolbox</h4>
+            <p class="fw-desc">Brenner & Tschepe's tripartite model — DT as all three simultaneously.</p>
+            <span class="fw-badge">Slibrary 2</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="slib-section" id="slib-3">
+        <div class="slib-section-head">
+          <span class="pill">Slibrary 3</span>
+          <h2>DT Process & Tools</h2>
+          <span class="count">5 Frameworks</span>
+        </div>
+        <p class="slib-desc">The hands-on instruments a design thinker reaches for in the field. Five tools you can use tomorrow morning in any interview, workshop, or project kickoff.</p>
+        <div class="fw-grid">
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="20" width="140" height="100" rx="4"/><line x1="100" y1="20" x2="100" y2="120"/><line x1="30" y1="70" x2="170" y2="70"/><circle cx="100" cy="70" r="10" fill="currentColor" stroke="none" opacity="0.8"/><text x="65" y="48" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Says</text><text x="135" y="48" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Thinks</text><text x="65" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Does</text><text x="135" y="100" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Feels</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Empathy Map</h4>
+            <p class="fw-desc">Says · Thinks · Does · Feels — the 4-quadrant listening canvas.</p>
+            <span class="fw-badge">Slibrary 3</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="55" cy="55" r="14"/><rect x="36" y="72" width="38" height="40" rx="4"/><circle cx="100" cy="55" r="14" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="100" cy="55" r="14"/><rect x="81" y="72" width="38" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.35"/><rect x="81" y="72" width="38" height="40" rx="4"/><circle cx="145" cy="55" r="14" fill="currentColor" stroke="none" opacity="0.75"/><rect x="126" y="72" width="38" height="40" rx="4" fill="currentColor" stroke="none" opacity="0.75"/></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Personas</h4>
+            <p class="fw-desc">Composite user archetypes grounded in real interview data, not demographics alone.</p>
+            <span class="fw-badge">Slibrary 3</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 100 Q 50 40 80 80 Q 110 120 140 55 Q 170 30 180 90"/><circle cx="20" cy="100" r="4" fill="currentColor" stroke="none"/><circle cx="80" cy="80" r="4" fill="currentColor" stroke="none"/><circle cx="110" cy="98" r="4" fill="currentColor" stroke="none"/><circle cx="140" cy="55" r="5" fill="currentColor" stroke="none"/><circle cx="180" cy="90" r="4" fill="currentColor" stroke="none"/><line x1="15" y1="120" x2="185" y2="120" opacity="0.4"/><text x="100" y="135" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" fill="currentColor" stroke="none" opacity="0.7">AWARE → DECIDE → USE → AFTER</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">Customer Journey Map</h4>
+            <p class="fw-desc">Pre · During · Post — the experience across every touchpoint and emotional peak.</p>
+            <span class="fw-badge">Slibrary 3</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="100" y1="20" x2="100" y2="125"/><circle cx="100" cy="25" r="8"/><circle cx="100" cy="50" r="8"/><circle cx="100" cy="75" r="8"/><circle cx="100" cy="100" r="8"/><circle cx="100" cy="125" r="8" fill="currentColor" stroke="none"/><text x="120" y="29" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Why?</text><text x="120" y="54" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Why?</text><text x="120" y="79" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Why?</text><text x="120" y="104" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Why?</text><text x="120" y="129" font-family="Arial" font-size="9" font-weight="700" fill="currentColor" stroke="none">Why?</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">5 Whys</h4>
+            <p class="fw-desc">Toyota's root-cause ladder — ask 'why?' five times to reach a structural explanation.</p>
+            <span class="fw-badge">Slibrary 3</span>
+          </div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-illo"><svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="40" width="140" height="55" rx="6"/><text x="100" y="64" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="currentColor" stroke="none">How</text><text x="100" y="82" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="currentColor" stroke="none">Might</text><text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="currentColor" stroke="none" opacity="0">We?</text><text x="100" y="110" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="currentColor" stroke="none">We?</text></svg></div>
+          <div class="fw-body">
+            <h4 class="fw-title">How Might We (HMW)</h4>
+            <p class="fw-desc">The generative question format that re-opens a problem just enough to invite ideation.</p>
+            <span class="fw-badge">Slibrary 3</span>
+          </div>
+        </div>
+        </div>
+      </section>
+
+<div class="ct-nav">
+  <a href="activities/Unit1_Activities.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Activity — Empathy Workshop</span></a>
+  <a href="cases/Unit1_Case.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Case study</span></a>
+  <a href="prereading/Unit1_PreReading.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Pre-reading</span></a>
+  <a href="reflections/Unit1_Reflection.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Reflection</span></a>
+  <a href="complete.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>All 135 frameworks</span></a>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
-    <div>Unit 1: Design Thinking as Mindset · Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025)</div>
-  </div>
+  <div><strong>MBA301</strong> · Entrepreneurial &amp; Design Thinking · © 2026 Dr. H. Haas</div>
+  <div>Applying JD Meier's <strong>Thumbnail Thinking</strong> (2025) &amp; Kurt Bostelaar's <strong>Clarify Core Message</strong> (Leverlo)</div>
 </footer>
 
-<script>
-(function(){
-  var FW_DATA = {"1-1-0": {"title": "Tim Brown's DT Triple", "slibrary": 1, "slibrary_title": "DT Foundations", "unit": 1, "desc": "Tim Brown's 2008 HBR article distilled IDEO's methodology into three overlapping spaces of activity, not sequential phases. The insight was that teams move between them fluidly — and often loop back — as insights from one space force rethinking in another.", "elements": ["Inspiration — observation, empathy, problem framing", "Ideation — divergent thinking, visualisation, concepts", "Implementation — prototyping, testing, commercialisation", "Spaces overlap; movement is non-linear", "Build-to-think rather than think-to-build"], "when_to_use": "When introducing Design Thinking to executives or teams new to human-centred innovation. The most cited DT model because it is explainable in 30 seconds.", "link": {"url": "https://hbr.org/2008/06/design-thinking", "label": "HBR — Design Thinking (Brown, 2008)"}}, "1-1-1": {"title": "Double Diamond", "slibrary": 1, "slibrary_title": "DT Foundations", "unit": 1, "desc": "Developed by the British Design Council in 2004, the Double Diamond visualises the process as two successive divergent–convergent cycles. The first diamond gets the right problem; the second gets the problem right. It makes explicit that teams must diverge before converging, twice.", "elements": ["Discover — widen scope, explore the problem space", "Define — narrow to a clear problem statement", "Develop — generate and prototype solution options", "Deliver — test, refine, ship", "Diverge before converge, at both stages"], "when_to_use": "When stakeholders struggle with ambiguity and need a simple visual model that legitimises exploration before commitment.", "link": {"url": "https://www.designcouncil.org.uk/our-resources/the-double-diamond/", "label": "British Design Council — The Double Diamond"}}, "1-1-2": {"title": "Stanford d.school 5-Stage Process", "slibrary": 1, "slibrary_title": "DT Foundations", "unit": 1, "desc": "Stanford d.school's five-stage model is the most widely taught academic framework for design thinking. It presents a repeatable sequence a team can walk through, with iteration assumed at every step. The model's power is its accessibility — anyone can run an exercise at any stage.", "elements": ["Empathize — observe, engage, immerse", "Define — synthesise a point-of-view statement", "Ideate — generate a breadth of options", "Prototype — build quickly and cheaply", "Test — learn, refine, often loop back"], "when_to_use": "When teaching design thinking to beginners, or running a short structured workshop where the stages give groups a shared vocabulary for what they are doing.", "link": {"url": "https://dschool.stanford.edu/resources/getting-started-with-design-thinking", "label": "Stanford d.school — Getting Started"}}, "1-1-3": {"title": "IDEO 3 Lenses of HCD", "slibrary": 1, "slibrary_title": "DT Foundations", "unit": 1, "desc": "IDEO's triad — Desirability × Feasibility × Viability — identifies the three constraints any successful innovation must satisfy simultaneously. Breakthroughs live in the triple overlap. Ideas strong in only one or two dimensions typically fail to scale or fail to ship.", "elements": ["Desirability — do people want this?", "Feasibility — is it technically possible?", "Viability — is it economically sustainable?", "Sweet spot = overlap of all three", "Used as a live diagnostic during ideation"], "when_to_use": "As a fast triage when a team has many candidate ideas and needs to identify which ones balance all three constraints before investing.", "link": {"url": "https://www.ideou.com/blogs/inspiration/how-to-prototype-a-new-business", "label": "IDEO U — Desirability, Feasibility, Viability"}}, "1-1-4": {"title": "Brenner's DT Holistic Model", "slibrary": 1, "slibrary_title": "DT Foundations", "unit": 1, "desc": "Brenner et al. (2016) integrated design thinking into a unified model with three interlocking components: a mindset (how designers think), a process (what they do), and a toolbox (tools and methods). This resolved academic confusion that treated DT as only one of the three.", "elements": ["Mindset — human-centred, collaborative, experimental", "Process — structured but iterative stages", "Toolbox — empathy maps, canvases, prototypes", "All three are needed for DT to work", "Used to diagnose where adoption fails"], "when_to_use": "When a DT programme stalls inside an organisation — this model pinpoints whether the failure is cultural (mindset), procedural (process), or tactical (toolbox).", "link": {"url": "https://link.springer.com/chapter/10.1007/978-3-319-26100-3_1", "label": "Brenner, Uebernickel & Abrell (2016)"}}, "1-2-0": {"title": "Liedtka's Why DT Works", "slibrary": 2, "slibrary_title": "DT Mindsets", "unit": 1, "desc": "Jeanne Liedtka's 2018 HBR article presents design thinking as a social technology that works because it neutralises four biases: the attachment to early solutions, the difficulty of customer empathy, the resistance to novelty, and the complexity of collaboration. The article is the empirical backbone of DT in management research.", "elements": ["Structured empathy reduces bias in needs assessment", "Collective alignment through visualisation and prototyping", "Experimentation replaces costly commitment", "Diverse perspectives integrated, not averaged", "Based on seven years of case research"], "when_to_use": "When pitching design thinking to sceptical executives who want evidence that it outperforms traditional problem-solving — this article is the citable answer.", "link": {"url": "https://hbr.org/2018/09/why-design-thinking-works", "label": "HBR — Why Design Thinking Works (Liedtka, 2018)"}}, "1-2-1": {"title": "Dosi's DT Mindset Measure", "slibrary": 2, "slibrary_title": "DT Mindsets", "unit": 1, "desc": "Dosi et al. (2018) developed the first rigorous psychometric scale to measure the design thinking mindset. Across ten dimensions, the scale distinguishes people who think like designers from those who do not — giving HR, L&D, and researchers a tool to measure DT capability before and after training.", "elements": ["Tolerance for ambiguity", "Empathy and user-centricity", "Embracing risk and experimentation", "Critical questioning and reframing", "Openness to diverse perspectives"], "when_to_use": "When you want to evidence the ROI of a design thinking programme — measure the mindset before the training, and again six months after.", "link": {"url": "https://doi.org/10.1111/caim.12353", "label": "Dosi, Rosati & Vignoli (2018) Creativity & Innovation Management"}}, "1-2-2": {"title": "Kelley's Creative Confidence", "slibrary": 2, "slibrary_title": "DT Mindsets", "unit": 1, "desc": "Tom and David Kelley argue creative confidence is not a talent — it is a capacity most adults have had trained out of them. Re-activating it is the first job of innovation leadership. They identify four fears that systematically block creative output and offer counter-practices for each, drawing on Bandura's self-efficacy research.", "elements": ["Fear of the messy unknown", "Fear of being judged", "Fear of the first step", "Fear of losing control", "Engineered small wins build self-efficacy"], "when_to_use": "Before any creative workshop with teams who are not used to generating ideas publicly — the four fears predict where the team will freeze.", "link": {"url": "https://hbr.org/2012/12/reclaim-your-creative-confidence", "label": "HBR — Reclaim Your Creative Confidence (Kelley & Kelley, 2012)"}}, "1-2-3": {"title": "Buchanan's Wicked Problems", "slibrary": 2, "slibrary_title": "DT Mindsets", "unit": 1, "desc": "Richard Buchanan's 1992 paper imported Rittel & Webber's notion of wicked problems into design thinking. He argued design had moved from making artefacts (signs, things) to designing systems and environments — and that the real domain of design thinking is indeterminacy, not the application of known technique.", "elements": ["First order — signs (communication)", "Second order — things (artefacts)", "Third order — actions (interactions, services)", "Fourth order — thoughts (systems, environments)", "Most design work starts in orders 1–2"], "when_to_use": "When explaining why design thinking belongs in strategy discussions, not just product design — Buchanan's four orders make the expansion legible.", "link": {"url": "https://www.jstor.org/stable/1511637", "label": "Design Issues — Wicked Problems in Design Thinking (Buchanan, 1992)"}}, "1-2-4": {"title": "Bason & Austin: Right Way to Lead DT", "slibrary": 2, "slibrary_title": "DT Mindsets", "unit": 1, "desc": "Bason and Austin's 2019 HBR article identifies six tensions that leaders must actively navigate when bringing design thinking into organisations. The tensions are not problems to solve but polarities to manage — and getting the balance right separates leaders whose DT programmes thrive from those whose die quietly.", "elements": ["Control vs exploration", "Rigour vs speed", "Expertise vs naiveté", "Focus vs diversity", "Reflection vs action", "Structure vs ambiguity"], "when_to_use": "When coaching a leader who has launched a DT initiative and is struggling with pushback — the tensions diagnose exactly where the leader is failing to balance.", "link": {"url": "https://hbr.org/2019/03/the-right-way-to-lead-design-thinking", "label": "HBR — The Right Way to Lead Design Thinking (Bason & Austin, 2019)"}}, "1-3-0": {"title": "Empathy Map", "slibrary": 3, "slibrary_title": "DT Process & Tools", "unit": 1, "desc": "The Empathy Map is the canonical user canvas, developed by Dave Gray at XPLANE. It structures raw interview data into four quadrants plus two optional ones (Pains, Gains). Its power is less the quadrants themselves than the discipline of separating what users say from what they actually do.", "elements": ["Says — direct quotes, verbatim", "Thinks — inferred beliefs and attitudes", "Does — observed behaviours", "Feels — emotional state", "Contradictions between Says/Does are insight gold"], "when_to_use": "Immediately after conducting 3-5 user interviews, when the team needs to synthesise raw notes into a shared, actionable representation of the user.", "link": {"url": "https://www.nngroup.com/articles/empathy-mapping/", "label": "Nielsen Norman Group — Empathy Mapping"}}, "1-3-1": {"title": "Persona Canvas", "slibrary": 3, "slibrary_title": "DT Process & Tools", "unit": 1, "desc": "A persona is a fictional character that represents a cluster of real users — their goals, frustrations, context, and demographics — on a single sheet. Alan Cooper introduced the technique in 1998 to stop designers from designing for 'everyone' (which means no one). A good persona is specific, human, and memorable.", "elements": ["Name, photo, short quote", "Goals — what they want to achieve", "Frustrations — current pain points", "Context — demographic, professional, environmental", "Primary vs secondary personas"], "when_to_use": "When building consumer-facing products where the team repeatedly needs to answer 'who are we designing this for?' — the persona replaces vague demographic segments with a concrete reference.", "link": {"url": "https://www.nngroup.com/articles/personas-study-guide/", "label": "Nielsen Norman Group — Personas Study Guide"}}, "1-3-2": {"title": "Customer Journey Map", "slibrary": 3, "slibrary_title": "DT Process & Tools", "unit": 1, "desc": "A customer journey map traces the end-to-end experience of a user across stages, touchpoints, and emotions. The critical element is the emotion line plotted above the stages — it reveals where the real design problems are, often at transitions between touchpoints that each silo thinks are fine.", "elements": ["Stages — awareness, decision, onboarding, use, renewal", "Touchpoints — every interaction with the service", "Emotion line — highs and lows at each stage", "Pain points marked clearly", "Backstage processes optional overlay"], "when_to_use": "When the service is suspected of failing at hand-offs between teams or systems, or when aligning cross-functional stakeholders on where to invest.", "link": {"url": "https://www.nngroup.com/articles/journey-mapping-101/", "label": "Nielsen Norman Group — Journey Mapping 101"}}, "1-3-3": {"title": "5 Whys", "slibrary": 3, "slibrary_title": "DT Process & Tools", "unit": 1, "desc": "Developed at Toyota by Sakichi Toyoda in the 1930s, the 5 Whys is a root-cause analysis technique — keep asking 'why?' until you hit an underlying structure rather than a symptom. Five is not a magic number; it is shorthand for 'deeper than the first answer.' Most problems reveal their root by the third or fourth why.", "elements": ["Start with the observed problem", "Ask 'why?' and write the answer", "Ask 'why?' of the answer — repeat", "Stop when you hit a structural cause", "Typically 3-7 whys in practice"], "when_to_use": "When a team is jumping to solutions too fast. The 5 Whys forces pause and surfaces whether the proposed solution addresses cause or symptom.", "link": {"url": "https://en.wikipedia.org/wiki/Five_whys", "label": "Wikipedia — Five Whys"}}, "1-3-4": {"title": "How Might We (HMW)", "slibrary": 3, "slibrary_title": "DT Process & Tools", "unit": 1, "desc": "The How Might We (HMW) format, popularised by IDEO, converts an insight into a generative design question. The phrasing matters: 'how' assumes a solution is possible, 'might' signals openness, 'we' commits the team. A well-framed HMW is broad enough to allow ideas but narrow enough to generate specific ones.", "elements": ["Start from a user insight or POV", "Phrase as: How might we [verb] for [user] [outcome]?", "Test breadth — not too specific, not too vague", "Generate multiple HMWs and pick the strongest", "HMW becomes the ideation brief"], "when_to_use": "After synthesis and before ideation — HMWs bridge the 'problem' phase and 'solution' phase. Without them, ideation is unfocused.", "link": {"url": "https://www.ideou.com/blogs/inspiration/how-to-use-how-might-we-questions-to-drive-creative-problem-solving", "label": "IDEO U — How Might We Questions"}}};
-  var modal = document.getElementById('fwModal');
-  var eyebrow = document.getElementById('fwModalEyebrow');
-  var title = document.getElementById('fwModalTitle');
-  var desc = document.getElementById('fwModalDesc');
-  var elementsEl = document.getElementById('fwModalElements');
-  var whenEl = document.getElementById('fwModalWhen');
-  var link = document.getElementById('fwModalLink');
-  var linkLabel = document.getElementById('fwModalLinkLabel');
+</main>
 
-  window.fwModalClose = function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  };
-
-  function openFw(fwId){
-    var fw = FW_DATA[fwId];
-    if (!fw) return;
-    eyebrow.textContent = 'Slibrary ' + fw.slibrary + ' · ' + fw.slibrary_title + ' · Unit ' + fw.unit;
-    title.textContent = fw.title;
-    desc.textContent = fw.desc;
-    elementsEl.innerHTML = '';
-    fw.elements.forEach(function(el){
-      var li = document.createElement('li');
-      li.textContent = el;
-      elementsEl.appendChild(li);
-    });
-    whenEl.textContent = fw.when_to_use;
-    link.href = fw.link.url;
-    linkLabel.textContent = fw.link.label;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Click handlers on cards
-  document.querySelectorAll('.fw[data-fw-id]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      openFw(btn.getAttribute('data-fw-id'));
-    });
-  });
-
-  // Close handlers
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) fwModalClose();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && modal.classList.contains('open')) fwModalClose();
-  });
-})();
-</script>
-<script src="./assets/protection.js" defer></script>
-<script src="./assets/search.js" defer></script>
 </body>
 </html>
