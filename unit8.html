@@ -274,5 +274,93 @@
 })();
 </script>
 
+<!-- =================================================================
+     MBA301 Framework Library — Modal Reference-Sheet Button
+     =================================================================
+     Paste this entire block at the END of each unitN.html file, just
+     before </body> and AFTER the existing modal IIFE script
+     (the one with `(function(){ const modal = ...`).
+     
+     Set UNIT_N below to the page's unit number (1..9).
+     
+     What this does:
+       1. Loads window.MBA301_PAGES from framework_pages.js
+       2. Adds a "View Full A4 Reference Sheet" button to the modal
+          panel (after the Harvard Reference block)
+       3. When the modal opens, sets the button's href to point at
+          the matching PDF page for the clicked framework
+     ================================================================= -->
+
+<script src="framework_pages.js"></script>
+
+<style>
+.fw-modal-pdf-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px; padding: 12px 20px;
+  background: var(--unit, #00BE96); color: #fff;
+  font-weight: 700; font-size: 14px;
+  text-decoration: none; border-radius: 999px;
+  transition: filter 0.15s;
+}
+.fw-modal-pdf-link:hover { filter: brightness(0.92); }
+.fw-modal-pdf-link svg { width: 16px; height: 16px; stroke: currentColor; }
+.fw-modal-pdf-link.is-disabled { opacity: 0.4; pointer-events: none; }
+</style>
+
+<script>
+(function () {
+  // ---- EDIT: set to the current page's unit number (1 through 9) ----
+  var UNIT_N = 8;
+  // -------------------------------------------------------------------
+
+  function init() {
+    var modal = document.getElementById('fwModal');
+    if (!modal) return;
+    var modalBody = modal.querySelector('.fw-modal-body');
+    if (!modalBody) return;
+
+    // Inject the button (only once)
+    if (!document.getElementById('fwModalPdfLink')) {
+      var link = document.createElement('a');
+      link.id = 'fwModalPdfLink';
+      link.className = 'fw-modal-pdf-link';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>View Full A4 Reference Sheet</span>';
+      modalBody.appendChild(link);
+    }
+
+    // Hook the existing card-click flow: when a card is clicked, the
+    // modal title becomes the framework name. We update the button
+    // href whenever a card is clicked.
+    document.querySelectorAll('.fw-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var name = card.dataset.fwName;
+        var btn = document.getElementById('fwModalPdfLink');
+        if (!btn || !name) return;
+        var pages = (window.MBA301_PAGES && window.MBA301_PAGES[String(UNIT_N)]) || {};
+        var page = pages[name];
+        if (page) {
+          btn.href = 'MBA301_Unit' + UNIT_N + '_Framework_Library.pdf#page=' + page;
+          btn.classList.remove('is-disabled');
+          btn.removeAttribute('aria-disabled');
+        } else {
+          btn.removeAttribute('href');
+          btn.classList.add('is-disabled');
+          btn.setAttribute('aria-disabled', 'true');
+          console.warn('No PDF page mapping for framework: "' + name + '"');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>
