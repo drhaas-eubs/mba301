@@ -28,7 +28,37 @@ body {
     color: var(--text);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    /* Copy protection — disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
+
+img, svg { -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; user-drag: none; pointer-events: none; }
+.thumb-card, .thumb-card * { pointer-events: auto; }
+button, a, .closebtn { pointer-events: auto; }
+
+/* Print protection — replace content with notice when printing */
+@media print {
+    body > *:not(.print-notice) { display: none !important; }
+    .print-notice {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        text-align: center;
+        padding: 60px 40px;
+        font-family: 'Graphik', 'Inter', Arial, sans-serif;
+        color: #1F2A44;
+    }
+    .print-notice h1 { font-size: 28px; margin-bottom: 16px; font-weight: 800; }
+    .print-notice p { font-size: 16px; max-width: 560px; line-height: 1.6; margin-bottom: 8px; }
+    .print-notice .crest { font-size: 13px; letter-spacing: 2px; margin-bottom: 32px; color: #00BE96; font-weight: 700; }
+}
+.print-notice { display: none; }
 
 .topbar {
     background: var(--eubs-navy);
@@ -724,6 +754,12 @@ body {
 </style>
 </head>
 <body>
+    <div class="print-notice" aria-hidden="true">
+        <div class="crest">EU BUSINESS SCHOOL · MBA301</div>
+        <h1>Printing is disabled for this document</h1>
+        <p>This page is part of the MBA301 Framework Author Slibrary, © Dr. Hildegard Haas, EU Business School.</p>
+        <p>The content is intended for in-class study only. Please return to the online version at <strong>drhaas-eubs.github.io/mba301</strong> to access the material.</p>
+    </div>
     <header class="topbar">
         <span><a href="../">MBA301 — Master Level MBA</a> · Term III · AY 2025/2026</span>
         <span class="level">EU BUSINESS SCHOOL</span>
@@ -1904,6 +1940,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeModal();
+    });
+
+    // === Copy / print / keyboard protection ===
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy',  e => { e.preventDefault(); });
+    document.addEventListener('cut',   e => { e.preventDefault(); });
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('dragstart',   e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+        const k = e.key.toLowerCase();
+        const meta = e.ctrlKey || e.metaKey;
+        if (meta && ['p','s','c','a','u'].includes(k)) { e.preventDefault(); return false; }
+        if (k === 'printscreen') { e.preventDefault(); return false; }
+        if (meta && e.shiftKey && (k === 'p' || k === 's')) { e.preventDefault(); return false; }
     });
 });
 </script>

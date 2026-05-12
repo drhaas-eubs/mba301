@@ -26,7 +26,35 @@ body {
     color: var(--text);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
+
+img, svg { -webkit-user-drag: none; user-drag: none; }
+button, a { pointer-events: auto; }
+
+/* Print protection — replace content with notice when printing */
+@media print {
+    body > *:not(.print-notice) { display: none !important; }
+    .print-notice {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        text-align: center;
+        padding: 60px 40px;
+        font-family: 'Graphik', 'Inter', Arial, sans-serif;
+        color: #1F2A44;
+    }
+    .print-notice h1 { font-size: 28px; margin-bottom: 16px; font-weight: 800; }
+    .print-notice p { font-size: 16px; max-width: 560px; line-height: 1.6; margin-bottom: 8px; }
+    .print-notice .crest { font-size: 13px; letter-spacing: 2px; margin-bottom: 32px; color: #00BE96; font-weight: 700; }
+}
+.print-notice { display: none; }
 
 .topbar {
     background: var(--eubs-navy);
@@ -478,24 +506,16 @@ body {
 }
 
 /* Print */
-@media print {
-    body { background: #fff; }
-    .topbar, .unitnav, .btn-top, .footer, .toc { display: none; }
-    .hero { background: #fff; color: var(--eubs-navy); padding: 24px; box-shadow: none; }
-    .hero h1, .hero .stat-num { color: var(--eubs-navy); }
-    .author-card {
-        page-break-before: always;
-        page-break-inside: avoid;
-        box-shadow: none;
-        margin: 0;
-        max-width: none;
-    }
-    .author-card:first-of-type { page-break-before: auto; }
-    .unit-divider { page-break-before: always; }
-}
+/* Print blocked — see protection block above */
 </style>
 </head>
 <body>
+    <div class="print-notice" aria-hidden="true">
+        <div class="crest">EU BUSINESS SCHOOL · MBA301</div>
+        <h1>Printing is disabled for this document</h1>
+        <p>This page is part of the MBA301 Framework Author Slibrary, © Dr. Hildegard Haas, EU Business School.</p>
+        <p>The content is intended for in-class study only. Please return to the online version at <strong>drhaas-eubs.github.io/mba301</strong> to access the material.</p>
+    </div>
     <header class="topbar">
         <span><a href="./slibrary.html">← Back to Gallery</a> · MBA301 · Term III · AY 2025/2026</span>
         <span class="level">EU BUSINESS SCHOOL</span>
@@ -2491,6 +2511,20 @@ window.addEventListener('scroll', () => {
     else btn.classList.remove('show');
 });
 btn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+
+// === Copy / print / keyboard protection ===
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy',  e => { e.preventDefault(); });
+document.addEventListener('cut',   e => { e.preventDefault(); });
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('dragstart',   e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    const k = e.key.toLowerCase();
+    const meta = e.ctrlKey || e.metaKey;
+    if (meta && ['p','s','c','a','u'].includes(k)) { e.preventDefault(); return false; }
+    if (k === 'printscreen') { e.preventDefault(); return false; }
+    if (meta && e.shiftKey && (k === 'p' || k === 's')) { e.preventDefault(); return false; }
+});
 </script>
 </body>
 </html>
